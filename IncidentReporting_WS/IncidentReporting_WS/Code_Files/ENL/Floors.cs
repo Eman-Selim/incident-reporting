@@ -16,5 +16,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public int CarbonDioxideExtinguishersWeight { get; set; }
         public int FoamExtinguishersWeight { get; set; }
         public int BuildingID { get; set; }
+        public int FloorID { get; set; }
     }
 }

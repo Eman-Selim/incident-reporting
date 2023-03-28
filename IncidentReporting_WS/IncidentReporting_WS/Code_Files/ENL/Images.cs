@@ -9,7 +9,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
     {
         public string ImageDescription { get; set; }
         public int BuildingID { get; set; }
-        public char[] Image { get; set; }
-     
+        public byte[] Image { get; set; }
+        public int ImageID { get; set; }
     }
 }

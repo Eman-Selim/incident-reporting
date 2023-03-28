@@ -12,5 +12,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string FireMediator { get; set; }
         public int CompanyID { get; set; }
         public byte[] Image { get; set; }
+        public int DangerousPlaceID { get; set; }
+
     }
 }
