@@ -12,7 +12,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
     {
         DBL.DBL db = new DBL.DBL();
 
-        public ENL.DangerousPlaces DangerousPlaces_Insert(string username, string password, ENL.DangerousPlaces DangerousPlaces)
+        public DangerousPlaces DangerousPlaces_Insert(string username, string password, DangerousPlaces DangerousPlaces)
         {
             try
             {

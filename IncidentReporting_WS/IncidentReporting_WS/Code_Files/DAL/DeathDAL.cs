@@ -106,8 +106,6 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-
-
         public DeathCollection Death_Select_By_AccidentID(string username, string password, int AccidentID)
         {
             try

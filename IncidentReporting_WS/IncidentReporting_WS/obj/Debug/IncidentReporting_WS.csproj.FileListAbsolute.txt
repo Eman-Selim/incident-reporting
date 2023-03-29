@@ -57,3 +57,7 @@ H:\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.cspr
 H:\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.csproj.CopyComplete
 H:\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.dll
 H:\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.pdb
+C:\Users\Eman\Source\Repos\incident-reporting\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.csproj.AssemblyReference.cache
+C:\Users\Eman\Source\Repos\incident-reporting\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.csproj.CoreCompileInputs.cache
+C:\Users\Eman\Source\Repos\incident-reporting\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.dll
+C:\Users\Eman\Source\Repos\incident-reporting\IncidentReporting_WS\IncidentReporting_WS\obj\Debug\IncidentReporting_WS.pdb

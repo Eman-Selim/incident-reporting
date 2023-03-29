@@ -1029,11 +1029,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_Name(string username, string password, string Name)
+        public CompanyCollection Company_Select_By_Name(string username, string password, string Name)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1050,7 +1050,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company=new Company
+                        company.Add(new Company
                         {
                             Name = Convert.ToString(dr["Name"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -1077,7 +1077,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             RightCompanyImage = (byte[])dr["RightCompanyImage"],
                             LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
                             UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                        });
                     }
                 }
                 return company;
@@ -1088,11 +1088,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_OxygenTrapLocation(string username, string password, string OxygenTrapLocation)
+        public CompanyCollection Company_Select_By_OxygenTrapLocation(string username, string password, string OxygenTrapLocation)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1109,7 +1109,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add( new Company
                         {
                             Name = Convert.ToString(dr["Name"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -1136,7 +1136,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             RightCompanyImage = (byte[])dr["RightCompanyImage"],
                             LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
                             UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                        });
                     }
                 }
                 return company;
@@ -1147,11 +1147,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightCompanyBusiness(string username, string password, string RightCompanyBusiness)
+        public CompanyCollection Company_Select_By_RightCompanyBusiness(string username, string password, string RightCompanyBusiness)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1168,7 +1168,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add( new Company
                         {
                             Name = Convert.ToString(dr["Name"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -1195,7 +1195,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             RightCompanyImage = (byte[])dr["RightCompanyImage"],
                             LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
                             UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                        });
                     }
                 }
                 return company;
@@ -1206,11 +1206,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightCompanyName(string username, string password, string RightCompanyName)
+        public CompanyCollection Company_Select_By_RightCompanyName(string username, string password, string RightCompanyName)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1227,7 +1227,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add(new Company
                         {
                             Name = Convert.ToString(dr["Name"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -1254,7 +1254,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             RightCompanyImage = (byte[])dr["RightCompanyImage"],
                             LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
                             UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                        });
                     }
                 }
                 return company;
@@ -1265,11 +1265,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightFireMediator(string username, string password, string RightFireMediator)
+        public CompanyCollection Company_Select_By_RightFireMediator(string username, string password, string RightFireMediator)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1286,7 +1286,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add(new Company
                         {
                             Name = Convert.ToString(dr["Name"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -1313,7 +1313,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             RightCompanyImage = (byte[])dr["RightCompanyImage"],
                             LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
                             UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                        });
                     }
                 }
                 return company;
