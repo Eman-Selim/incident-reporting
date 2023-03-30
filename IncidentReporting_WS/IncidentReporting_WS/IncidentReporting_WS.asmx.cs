@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using IncidentReporting_WS.Code_Files.CBL;
+using IncidentReporting_WS.Code_Files.ENL;
 using IncidentReporting_WS.Code_Files.COL;
 using IncidentReporting_WS.Code_Files.SBL;
-using IncidentReporting_WS.Code_Files.ENL;
 
 namespace IncidentReporting_WS
 {
@@ -56,7 +56,7 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
+                UsersCollection users = new UsersCollection();
                 users = UsersSBL_Obj.Users_Select_All( username, password);
                 return users;
             }
@@ -136,7 +136,7 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
+                Users_AdminCollection users = new Users_AdminCollection();
                 users = Users_AdminSBL_Obj.Users_Admin_Select_All( username, password);
                 return users;
             }
@@ -151,7 +151,7 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
+                Users_Admin users = new Users_Admin();
                 users = Users_AdminSBL_Obj.Users_Admin_SelectByAdminId( username, password, Admin_ID);
                 return users;
 
@@ -167,7 +167,7 @@ namespace IncidentReporting_WS
         {
             try
             {
-                UsersCollection users = new UsersCollection();
+                Users_Admin users = new Users_Admin();
                 users = Users_AdminSBL_Obj.Users_Admin_SelectByUserID( username, password, User_ID);
                 return users;
 
@@ -217,7 +217,7 @@ namespace IncidentReporting_WS
             try
             {
                 InjuredCollection users = new InjuredCollection();
-                users = InjuredSBL.Injured_Select_All( username, password);
+                users = InjuredSBL_Obj.Injured_Select_All( username, password);
                 return users;
             }
             catch (Exception e)
@@ -232,7 +232,7 @@ namespace IncidentReporting_WS
             try
             {
                 InjuredCollection users = new InjuredCollection();
-                users = InjuredSBL.Injured_Select_By_AccidentID( username, password, AccidentID);
+                users = InjuredSBL_Obj.Injured_Select_By_AccidentID( username, password, AccidentID);
                 return users;
 
             }
@@ -353,7 +353,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -391,7 +391,7 @@ namespace IncidentReporting_WS
             try
             {
                 ImagesCollection Images = new ImagesCollection();
-                Images = ImagesSBL.Images_Select_By_ImageDescription(username,password, ImageDescription);
+                Images = ImagesSBL_Obj.Images_Select_By_ImageDescription(username,password, ImageDescription);
                 return Images;
 
             }
@@ -418,7 +418,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -441,7 +441,7 @@ namespace IncidentReporting_WS
             try
             {
                 FloorsCollection Floors = new FloorsCollection();
-                Floors = ImagesSBL.Floors_Select_By_BuildingID(username,password,BuildingID);
+                Floors = FloorsSBL_Obj.Floors_Select_By_BuildingID(username,password,BuildingID);
                 return Floors;
             }
             catch (Exception e)
@@ -648,7 +648,7 @@ namespace IncidentReporting_WS
             {
                 FFstationsCollection FFstations = new FFstationsCollection();
                 FFstations = FFstationsSBL_Obj.FFstations_Select_By_FF_ID(username,password,FF_ID);
-                return Floors;
+                return FFstations;
 
             }
             catch (Exception e)
@@ -954,7 +954,7 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FF_ManPowerCollection FF_ManPower = new FF_ManPowerCollection();
+                FF_ManPower FF_ManPower = new FF_ManPower();
                 FF_ManPower  = FF_ManPowerSBL_Obj.FF_ManPower_Insert(username,password,ManPower);
                 return FF_ManPower;
 
@@ -1157,7 +1157,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1173,7 +1173,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1189,7 +1189,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1224,7 +1224,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1240,7 +1240,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1256,7 +1256,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1272,7 +1272,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1288,7 +1288,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1304,7 +1304,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1320,7 +1320,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1336,7 +1336,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1352,7 +1352,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1362,18 +1362,18 @@ namespace IncidentReporting_WS
         DangerousPlacesSBL DangerousPlacesSBL_Obj =new DangerousPlacesSBL();
 
         [WebMethod]
-        public DangerousPlaces DangerousPlaces_Insert(string username, string password, DangerousPlaces DangerousPlaces)
+        public DangerousPlaces DangerousPlaces_Insert(string username, string password)
         {
             try
             {
-               DangerousPlaces DangerousPlaces= new DangerousPlaces();
+                DangerousPlaces DangerousPlaces = new DangerousPlaces();
                 DangerousPlaces  =DangerousPlacesSBL_Obj.DangerousPlaces_Insert( username, password, DangerousPlaces);
                 return DangerousPlaces;
 
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1389,7 +1389,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1405,7 +1405,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1421,7 +1421,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1437,7 +1437,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1452,7 +1452,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1485,7 +1485,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1500,7 +1500,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1515,7 +1515,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1530,7 +1530,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1545,7 +1545,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1560,7 +1560,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1575,7 +1575,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1590,7 +1590,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1605,7 +1605,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1620,7 +1620,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1635,7 +1635,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1650,7 +1650,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1665,7 +1665,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1680,7 +1680,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1695,7 +1695,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1710,7 +1710,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1725,7 +1725,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1740,7 +1740,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1755,7 +1755,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1770,7 +1770,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1785,7 +1785,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1800,7 +1800,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1815,7 +1815,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1848,7 +1848,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1863,7 +1863,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1878,7 +1878,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1893,7 +1893,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1908,7 +1908,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1923,7 +1923,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1956,7 +1956,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1971,7 +1971,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1986,7 +1986,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2001,7 +2001,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2016,7 +2016,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2031,7 +2031,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2046,7 +2046,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2061,7 +2061,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2076,7 +2076,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2091,7 +2091,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2106,7 +2106,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -2121,7 +2121,7 @@ namespace IncidentReporting_WS
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

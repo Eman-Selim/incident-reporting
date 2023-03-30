@@ -1,12 +1,12 @@
 ﻿using System;
-using SDS_Remote_Control_WS.Code_Files.CBL;
-using SDS_Remote_Control_WS.Code_Files.COL;
-using SDS_Remote_Control_WS.Code_Files.DAL;
-using SDS_Remote_Control_WS.Code_Files.ENL;
+using IncidentReporting_WS.Code_Files.CBL;
+using IncidentReporting_WS.Code_Files.COL;
+using IncidentReporting_WS.Code_Files.DAL;
+using IncidentReporting_WS.Code_Files.ENL;
 
-public class UsersSBL
+namespace IncidentReporting_WS.Code_Files.SBL
 {
-	public UsersSBL()
+	public class UsersSBL 
 	{
         ChkCBL Chk = new ChkCBL();
         UsersDAL UsersDAL_Obj = new UsersDAL();
@@ -40,12 +40,12 @@ public class UsersSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -59,12 +59,12 @@ public class UsersSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -78,12 +78,12 @@ public class UsersSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -97,12 +97,12 @@ public class UsersSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

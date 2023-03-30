@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SDS_Remote_Control_WS.Code_Files.CBL;
-using SDS_Remote_Control_WS.Code_Files.COL;
-using SDS_Remote_Control_WS.Code_Files.DAL;
-using SDS_Remote_Control_WS.Code_Files.ENL;
+using IncidentReporting_WS.Code_Files.CBL;
+using IncidentReporting_WS.Code_Files.COL;
+using IncidentReporting_WS.Code_Files.DAL;
+using IncidentReporting_WS.Code_Files.ENL;
 using System.Data;
 
-public class BuildingSBL
+namespace IncidentReporting_WS.Code_Files.SBL
 {
-	public BuildingSBL()
+	public class BuildingSBL
 	{
         ChkCBL Chk = new ChkCBL();
         BuildingsDAL BuildingsDAL_Obj = new BuildingsDAL();
@@ -40,16 +40,16 @@ public class BuildingSBL
             {
                 if (Chk.check_authority(username, password))
                 {
-                    return AccidentDAL_Obj.Buildings_Insert( username, password, buildings);
+                    return BuildingsDAL_Obj.Buildings_Insert( username, password, buildings);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -59,16 +59,16 @@ public class BuildingSBL
             {
                 if (Chk.check_authority(username, password))
                 {
-                    return BuildingsDAL.Buildings_Select_All( username, password);
+                    return BuildingsDAL_Obj.Buildings_Select_All( username, password);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -82,12 +82,12 @@ public class BuildingSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -101,12 +101,12 @@ public class BuildingSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -120,12 +120,12 @@ public class BuildingSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -139,12 +139,12 @@ public class BuildingSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

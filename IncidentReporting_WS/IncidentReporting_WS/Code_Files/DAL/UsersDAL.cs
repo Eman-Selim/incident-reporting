@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using IncidentReporting_WS.Code_Files.ENL;
 using IncidentReporting_WS.Code_Files.COL;
+using System.Data;
 
 namespace IncidentReporting_WS.Code_Files.DAL
 {
@@ -82,7 +83,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users.Add(new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= Convert.ToInt32(dr["AdminMode"]),
+                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
                             Info = Convert.ToString(dr["Info"])
                         });
                     }
@@ -121,7 +122,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users = new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= Convert.ToInt32(dr["AdminMode"]),
+                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
                             Info = Convert.ToString(dr["Info"])
                         };
                     }
@@ -159,7 +160,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users.Add(new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= Convert.ToInt32(dr["AdminMode"]),
+                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
                             Info = Convert.ToString(dr["Info"])
                         });
                     }

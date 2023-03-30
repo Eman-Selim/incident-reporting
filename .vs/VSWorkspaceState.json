@@ -4,9 +4,9 @@
     "\\IncidentReporting_WS",
     "\\IncidentReporting_WS\\IncidentReporting_WS",
     "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files",
-    "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files\\DAL",
-    "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files\\SBL"
+    "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files\\SBL",
+    "\\IncidentReporting_WS\\IncidentReporting_WS\\Properties"
   ],
-  "SelectedNode": "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files\\DAL\\ImagesDAL.cs",
+  "SelectedNode": "\\IncidentReporting_WS\\IncidentReporting_WS\\Code_Files\\SBL\\CompanySBL.cs",
   "PreviewInSolutionExplorer": false
 }

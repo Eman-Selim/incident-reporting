@@ -1,12 +1,12 @@
 ﻿using System;
-using SDS_Remote_Control_WS.Code_Files.CBL;
-using SDS_Remote_Control_WS.Code_Files.COL;
-using SDS_Remote_Control_WS.Code_Files.DAL;
-using SDS_Remote_Control_WS.Code_Files.ENL;
+using IncidentReporting_WS.Code_Files.CBL;
+using IncidentReporting_WS.Code_Files.COL;
+using IncidentReporting_WS.Code_Files.DAL;
+using IncidentReporting_WS.Code_Files.ENL;
 
-public class InjuredSBL
+namespace IncidentReporting_WS.Code_Files.SBL
 {
-	public InjuredSBL()
+	public class InjuredSBL 
 	{
         ChkCBL Chk = new ChkCBL();
         InjuredDAL InjuredDAL_Obj = new InjuredDAL();
@@ -40,12 +40,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -59,12 +59,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -78,12 +78,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -97,12 +97,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -116,12 +116,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -135,12 +135,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -154,12 +154,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -173,12 +173,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -192,12 +192,12 @@ public class InjuredSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

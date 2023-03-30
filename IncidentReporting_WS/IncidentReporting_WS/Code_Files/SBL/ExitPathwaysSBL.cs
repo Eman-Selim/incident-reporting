@@ -1,12 +1,12 @@
 ﻿using System;
-using SDS_Remote_Control_WS.Code_Files.CBL;
-using SDS_Remote_Control_WS.Code_Files.COL;
-using SDS_Remote_Control_WS.Code_Files.DAL;
-using SDS_Remote_Control_WS.Code_Files.ENL;
+using IncidentReporting_WS.Code_Files.CBL;
+using IncidentReporting_WS.Code_Files.COL;
+using IncidentReporting_WS.Code_Files.DAL;
+using IncidentReporting_WS.Code_Files.ENL;
 
-public class ExitPathwaysSBL
+namespace IncidentReporting_WS.Code_Files.SBL
 {
-	public ExitPathwaysSBL()
+	public class ExitPathwaysSBL 
 	{
         ChkCBL Chk = new ChkCBL();
         ExitPathwaysDAL ExitPathwaysDAL_Obj = new ExitPathwaysDAL();
@@ -21,12 +21,12 @@ public class ExitPathwaysSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -40,12 +40,12 @@ public class ExitPathwaysSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
@@ -59,12 +59,12 @@ public class ExitPathwaysSBL
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
