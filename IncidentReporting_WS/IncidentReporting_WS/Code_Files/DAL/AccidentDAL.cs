@@ -89,18 +89,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType=Convert.ToString(dr["LossesType"]),
-                            LossesInfo=Convert.ToString(dr["LossesInfo"]),
-                            Date= DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend= DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber= Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType= dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo= dr["LossesInfo"] is DBNull ? "":Convert.ToString(dr["LossesInfo"]),
+                            Date= dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber= dr["AccidentNumber"] is DBNull ? "":Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -137,18 +137,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident= new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         };
                     }
                 }
@@ -173,7 +173,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@CompanyID",CompanyID }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_AccidentNumber", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_CompanyID", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -185,18 +185,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident .Add( new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -221,7 +221,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@Date",date }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_AccidentNumber", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_Date", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -233,18 +233,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident .Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -281,18 +281,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -317,7 +317,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@AccidentID",ID }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_AccidentNumber", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_ID", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -329,18 +329,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident = new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         };
                     }
                 }
@@ -377,18 +377,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -425,18 +425,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -473,18 +473,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -521,18 +521,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -569,18 +569,18 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         accident.Add(new Accident
                         {
-                            AccidentID = Convert.ToInt32(dr["AccidentID"]),
-                            AccidentType = Convert.ToString(dr["AccidentType"]),
-                            VehiclesToAccident = Convert.ToString(dr["VehiclesToAccedent"]),
-                            Equipments = Convert.ToString(dr["Equipments"]),
-                            LossesType = Convert.ToString(dr["LossesType"]),
-                            LossesInfo = Convert.ToString(dr["LossesInfo"]),
-                            Date = DateTime.Parse(dr["Date"].ToString()),
-                            TimeToSend = DateTime.Parse(dr["TimeToSend"].ToString()),
-                            TimeToArrive = DateTime.Parse(dr["TimeToArrive"].ToString()),
-                            AccidentNumber = Convert.ToString(dr["AccidentNumber"]),
+                            AccidentID = dr["AccidentID"] is DBNull ? 0 : Convert.ToInt32(dr["AccidentID"]),
+                            AccidentType = dr["AccidentType"] is DBNull ? "" : Convert.ToString(dr["AccidentType"]),
+                            VehiclesToAccident = dr["VehiclesToAccedent"] is DBNull ? "" : Convert.ToString(dr["VehiclesToAccedent"]),
+                            Equipments = dr["Equipments"] is DBNull ? "" : Convert.ToString(dr["Equipments"]),
+                            LossesType = dr["LossesType"] is DBNull ? "" : Convert.ToString(dr["LossesType"]),
+                            LossesInfo = dr["LossesInfo"] is DBNull ? "" : Convert.ToString(dr["LossesInfo"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
+                            TimeToSend = dr["TimeToSend"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToSend"].ToString()),
+                            TimeToArrive = dr["TimeToArrive"] is DBNull ? DateTime.Now : DateTime.Parse(dr["TimeToArrive"].ToString()),
+                            AccidentNumber = dr["AccidentNumber"] is DBNull ? "" : Convert.ToString(dr["AccidentNumber"]),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }

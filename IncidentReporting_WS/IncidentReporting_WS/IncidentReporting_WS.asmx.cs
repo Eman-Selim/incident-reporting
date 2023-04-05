@@ -1362,12 +1362,12 @@ namespace IncidentReporting_WS
         DangerousPlacesSBL DangerousPlacesSBL_Obj =new DangerousPlacesSBL();
 
         [WebMethod]
-        public DangerousPlaces DangerousPlaces_Insert(string username, string password)
+        public DangerousPlaces DangerousPlaces_Insert(string username, string password, DangerousPlaces dangerousPlaces)
         {
             try
             {
                 DangerousPlaces DangerousPlaces = new DangerousPlaces();
-                DangerousPlaces  =DangerousPlacesSBL_Obj.DangerousPlaces_Insert( username, password, DangerousPlaces);
+                DangerousPlaces  =DangerousPlacesSBL_Obj.DangerousPlaces_Insert( username, password, dangerousPlaces);
                 return DangerousPlaces;
 
             }
@@ -1565,7 +1565,7 @@ namespace IncidentReporting_WS
         }
 
         [WebMethod]
-        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, string BuildingsNumber)
+        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, int BuildingsNumber)
         {
             try
             {

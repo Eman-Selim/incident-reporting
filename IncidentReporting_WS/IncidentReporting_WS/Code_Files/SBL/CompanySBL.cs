@@ -145,7 +145,7 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, string BuildingsNumber)
+        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, int BuildingsNumber)
         {
             try
             {
