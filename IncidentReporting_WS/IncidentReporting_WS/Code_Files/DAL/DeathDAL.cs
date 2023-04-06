@@ -92,7 +92,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -105,8 +105,6 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 return null;
             }
         }
-
-
 
         public DeathCollection Death_Select_By_AccidentID(string username, string password, int AccidentID)
         {
@@ -138,7 +136,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -182,7 +180,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -226,7 +224,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -270,7 +268,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -314,7 +312,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -358,7 +356,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });
@@ -402,7 +400,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
                             Rank = Convert.ToString(dr["Rank"]),
-                            Date = DateTime.Parse((string)dr["Date"]),
+                            Date = dr["Date"] is DBNull ? DateTime.Now : DateTime.Parse(dr["Date"].ToString()),
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             AccidentID = Convert.ToInt32(dr["AccidentID"])
                         });

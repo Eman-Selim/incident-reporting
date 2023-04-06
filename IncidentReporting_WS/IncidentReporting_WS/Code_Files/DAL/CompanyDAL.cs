@@ -11,6 +11,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
     public class CompanyDAL
     {
         DBL.DBL db = new DBL.DBL();
+        byte[] smallArray = new byte[] { 0x20, 0x20 };
 
         public bool Company_Delete(string username, string password, int CompanyID)
         {
@@ -92,7 +93,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@password", password}
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_All", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_All", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -104,31 +105,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name= Convert.ToString(dr["Name"]),
-                            Address= Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber= Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation= Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName= Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName= Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness= Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName= Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness= Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator= Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator= Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator= Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage= (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage= (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID= Convert.ToInt32(dr["UserID"])
+                            Name= dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address= dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber= dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation= dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName= dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName= dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness= dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName= dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness= dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator= dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator= dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator= dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage= dr["FrontCompanyImage"] is DBNull ?smallArray: (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage= dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID= dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -165,31 +166,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -225,31 +226,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -284,31 +285,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -343,31 +344,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -379,7 +380,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, string BuildingsNumber)
+        public CompanyCollection Company_Select_By_BuildingsNumber(string username, string password, int BuildingsNumber)
         {
             try
             {
@@ -391,7 +392,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@password", password},
                     {"@BuildingsNumber", BuildingsNumber}
                 };
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_BackFireMediator", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_BuildingsNumber", sp_params);
                 if (dt.Rows.Count.Equals(0))
                 {
                     return null;
@@ -402,31 +403,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -461,31 +462,32 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+
                         });
                     }
                 }
@@ -520,31 +522,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -579,31 +581,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -638,31 +640,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -686,7 +688,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@password", password},
                     {"@FrontFireMediator", FrontFireMediator}
                 };
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_FrontCompanyName", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_FrontFireMediator", sp_params);
                 if (dt.Rows.Count.Equals(0))
                 {
                     return null;
@@ -697,31 +699,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -756,31 +758,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -816,31 +818,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -875,31 +877,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -934,31 +936,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -982,7 +984,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@password", password},
                     {"@LeftFireMediator", LeftFireMediator}
                 };
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_LeftCompanyName", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Company_Select_By_LeftFireMediator", sp_params);
                 if (dt.Rows.Count.Equals(0))
                 {
                     return null;
@@ -993,31 +995,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
@@ -1029,11 +1031,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_Name(string username, string password, string Name)
+        public CompanyCollection Company_Select_By_Name(string username, string password, string Name)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1050,34 +1052,34 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company=new Company
+                        company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+                        });
                     }
                 }
                 return company;
@@ -1088,11 +1090,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_OxygenTrapLocation(string username, string password, string OxygenTrapLocation)
+        public CompanyCollection Company_Select_By_OxygenTrapLocation(string username, string password, string OxygenTrapLocation)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1109,34 +1111,34 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add( new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+                        });
                     }
                 }
                 return company;
@@ -1147,11 +1149,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightCompanyBusiness(string username, string password, string RightCompanyBusiness)
+        public CompanyCollection Company_Select_By_RightCompanyBusiness(string username, string password, string RightCompanyBusiness)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1168,34 +1170,34 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add( new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+                        });
                     }
                 }
                 return company;
@@ -1206,11 +1208,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightCompanyName(string username, string password, string RightCompanyName)
+        public CompanyCollection Company_Select_By_RightCompanyName(string username, string password, string RightCompanyName)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1227,34 +1229,34 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+                        });
                     }
                 }
                 return company;
@@ -1265,11 +1267,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public Company Company_Select_By_RightFireMediator(string username, string password, string RightFireMediator)
+        public CompanyCollection Company_Select_By_RightFireMediator(string username, string password, string RightFireMediator)
         {
             try
             {
-                Company company = new Company();
+                CompanyCollection company = new CompanyCollection();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -1286,34 +1288,34 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company = new Company
+                        company.Add(new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
-                        };
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
+                        });
                     }
                 }
                 return company;
@@ -1347,31 +1349,31 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         company.Add( new Company
                         {
-                            Name = Convert.ToString(dr["Name"]),
-                            Address = Convert.ToString(dr["Address"]),
-                            LandlinePhoneNumber = Convert.ToString(dr["LandlinePhoneNumber"]),
-                            ElectricalPanelLocation = Convert.ToString(dr["ElectricalPanelLocation"]),
-                            OxygenTrapLocation = Convert.ToString(dr["OxygenTrapLocation"]),
-                            GasTrapLocation = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyName = Convert.ToString(dr["GasTrapLocation"]),
-                            RightCompanyBusiness = Convert.ToString(dr["RightCompanyBusiness"]),
-                            LeftCompanyName = Convert.ToString(dr["LeftCompanyName"]),
-                            LeftCompanyBusiness = Convert.ToString(dr["LeftCompanyBusiness"]),
-                            FrontCompanyName = Convert.ToString(dr["FrontCompanyName"]),
-                            FrontCompanyBusiness = Convert.ToString(dr["FrontCompanyBusiness"]),
-                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
-                            BackCompanyName = Convert.ToString(dr["BackCompanyName"]),
-                            BackCompanyBusiness = Convert.ToString(dr["BackCompanyBusiness"]),
-                            FrontFireMediator = Convert.ToString(dr["FrontFireMediator"]),
-                            LeftFireMediator = Convert.ToString(dr["LeftFireMediator"]),
-                            BackFireMediator = Convert.ToString(dr["BackFireMediator"]),
-                            RightFireMediator = Convert.ToString(dr["RightFireMediator"]),
-                            BuildingsNumber = Convert.ToInt32(dr["BuildingsNumber"]),
-                            FrontCompanyImage = (byte[])dr["FrontCompanyImage"],
-                            BackCompanyImage = (byte[])dr["BackCompanyImage"],
-                            RightCompanyImage = (byte[])dr["RightCompanyImage"],
-                            LeftCompanyImage = (byte[])dr["LeftCompanyImage"],
-                            UserID = Convert.ToInt32(dr["UserID"])
+                            Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
+                            Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
+                            LandlinePhoneNumber = dr["LandlinePhoneNumber"] is DBNull ? "" : Convert.ToString(dr["LandlinePhoneNumber"]),
+                            ElectricalPanelLocation = dr["ElectricalPanelLocation"] is DBNull ? "" : Convert.ToString(dr["ElectricalPanelLocation"]),
+                            OxygenTrapLocation = dr["OxygenTrapLocation"] is DBNull ? "" : Convert.ToString(dr["OxygenTrapLocation"]),
+                            GasTrapLocation = dr["GasTrapLocation"] is DBNull ? "" : Convert.ToString(dr["GasTrapLocation"]),
+                            RightCompanyName = dr["RightCompanyName"] is DBNull ? "" : Convert.ToString(dr["RightCompanyName"]),
+                            RightCompanyBusiness = dr["RightCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["RightCompanyBusiness"]),
+                            LeftCompanyName = dr["LeftCompanyName"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyName"]),
+                            LeftCompanyBusiness = dr["LeftCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["LeftCompanyBusiness"]),
+                            FrontCompanyName = dr["FrontCompanyName"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyName"]),
+                            FrontCompanyBusiness = dr["FrontCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["FrontCompanyBusiness"]),
+                            CompanyID = dr["CompanyID"] is DBNull ? 0 : Convert.ToInt32(dr["CompanyID"]),
+                            BackCompanyName = dr["BackCompanyName"] is DBNull ? "" : Convert.ToString(dr["BackCompanyName"]),
+                            BackCompanyBusiness = dr["BackCompanyBusiness"] is DBNull ? "" : Convert.ToString(dr["BackCompanyBusiness"]),
+                            FrontFireMediator = dr["FrontFireMediator"] is DBNull ? "" : Convert.ToString(dr["FrontFireMediator"]),
+                            LeftFireMediator = dr["LeftFireMediator"] is DBNull ? "" : Convert.ToString(dr["LeftFireMediator"]),
+                            BackFireMediator = dr["BackFireMediator"] is DBNull ? "" : Convert.ToString(dr["BackFireMediator"]),
+                            RightFireMediator = dr["RightFireMediator"] is DBNull ? "" : Convert.ToString(dr["RightFireMediator"]),
+                            BuildingsNumber = dr["BuildingsNumber"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingsNumber"]),
+                            FrontCompanyImage = dr["FrontCompanyImage"] is DBNull ? smallArray : (byte[])dr["FrontCompanyImage"],
+                            BackCompanyImage = dr["BackCompanyImage"] is DBNull ? smallArray : (byte[])dr["BackCompanyImage"],
+                            RightCompanyImage = dr["RightCompanyImage"] is DBNull ? smallArray : (byte[])dr["RightCompanyImage"],
+                            LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
+                            UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
                         });
                     }
                 }
