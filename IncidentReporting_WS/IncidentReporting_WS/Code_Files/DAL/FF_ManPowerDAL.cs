@@ -112,7 +112,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, int AccidentNumber)
+        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, string Area)
         {
             try
             {
@@ -122,7 +122,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     {"@username", username},
                     {"@password", password},
-                    {"@AccidentNumber",AccidentNumber }
+                    {"@Area",Area}
                 };
 
                 DataTable dt = db.Execute_Stored_Procedure_Show_Values("FF_ManPower_Select_By_Area", sp_params);
@@ -219,7 +219,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@FF_ManPowerID", FF_ManPowerID}
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FF_ManPower_Select_By_Availability", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FF_ManPower_Select_By_FF_ManPowerID", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -535,7 +535,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, string UserID)
+        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, int UserID)
         {
             try
             {

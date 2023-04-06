@@ -11,7 +11,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
     public class ExitPathwaysDAL
     {
         DBL.DBL db = new DBL.DBL();
-
+        byte[] smallArray = new byte[] { 0x20, 0x20 };
         public ExitPathways ExitPathways_Insert(string username, string password, ExitPathways ExitPathway)
         {
             try
@@ -65,9 +65,9 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         exitPathway.Add(new ExitPathways
                         {
-                            PathwaysImage = (byte[]) dr["PathwaysImage"],
-                            Description = Convert.ToString(dr["Description"]),
-                            BuildingID = Convert.ToInt32(dr["BuildingID"])
+                            PathwaysImage = dr["PathwaysImage"] is DBNull ? smallArray : (byte[])dr["PathwaysImage"],
+                            Description = dr["Description"] is DBNull ? "" : Convert.ToString(dr["Description"]),
+                            BuildingID = dr["BuildingID"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingID"])
                         });
                     }
                 }
@@ -104,9 +104,9 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         pathway.Add(new ExitPathways
                         {
-                            PathwaysImage = (byte[])dr["PathwaysImage"],
-                            Description = Convert.ToString(dr["Description"]),
-                            BuildingID = Convert.ToInt32(dr["BuildingID"])
+                            PathwaysImage = dr["PathwaysImage"] is DBNull ? smallArray : (byte[])dr["PathwaysImage"],
+                            Description = dr["Description"] is DBNull ? "" : Convert.ToString(dr["Description"]),
+                            BuildingID = dr["BuildingID"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingID"])
                         });
                     }
                 }

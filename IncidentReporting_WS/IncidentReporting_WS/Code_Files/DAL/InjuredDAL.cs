@@ -118,7 +118,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@AccidentID",AccidentID }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Accident_Select_By_AccidentNumber", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Injured_Select_By_AccidentID", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -290,7 +290,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@InjuredID",InjuredID }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Injured_Select_By_Date", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Injured_Select_By_InjuredID", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {

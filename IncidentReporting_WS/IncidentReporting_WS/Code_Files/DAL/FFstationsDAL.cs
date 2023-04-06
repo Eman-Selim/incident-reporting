@@ -223,7 +223,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@Equipments",Equipments }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_AreaName", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_Equipments", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -319,7 +319,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@OfficersNumber",OfficersNumber }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_AreaName", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_OfficersNumber", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -415,7 +415,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@Signs",Signs }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_Sector", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_Signs", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -463,7 +463,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@SoliderNumber",SoliderNumber }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_Sector", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_SoliderNumber", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {
@@ -607,7 +607,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@ZoneNumber",ZoneNumber }
                 };
 
-                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_UserID", sp_params);
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("FFstations_Select_By_ZoneNumber", sp_params);
 
                 if (dt.Rows.Count.Equals(0))
                 {

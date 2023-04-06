@@ -11,6 +11,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
     public class ImagesDAL
     {
         DBL.DBL db = new DBL.DBL();
+        byte[] smallArray = new byte[] { 0x20, 0x20 };
         public Images Images_Insert(string username, string password, Images Images)
         {
             try
@@ -64,10 +65,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Images.Add(new Images
                         {
-                            ImageDescription = Convert.ToString(dr["ImageDescription"]),
-                            BuildingID = Convert.ToInt32(dr["BuildingID"]),
-                            Image = (byte[])dr["Image"],
-                            ImageID= Convert.ToInt32(dr["ImageID"])
+                            ImageDescription = dr["ImageDescription"] is DBNull ? "" : Convert.ToString(dr["ImageDescription"]),
+                            BuildingID = dr["BuildingID"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingID"]),
+                            Image = dr["Image"] is DBNull ? smallArray : (byte[])dr["Image"],
+                            ImageID= dr["ImageID"] is DBNull ? 0 : Convert.ToInt32(dr["ImageID"])
                         });
                     }
                 }
@@ -104,10 +105,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Images.Add(new Images
                         {
-                            ImageDescription = Convert.ToString(dr["ImageDescription"]),
-                            BuildingID = Convert.ToInt32(dr["BuildingID"]),
-                            Image = (byte[])dr["Image"],
-                            ImageID = Convert.ToInt32(dr["ImageID"])
+                            ImageDescription = dr["ImageDescription"] is DBNull ? "" : Convert.ToString(dr["ImageDescription"]),
+                            BuildingID = dr["BuildingID"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingID"]),
+                            Image = dr["Image"] is DBNull ? smallArray : (byte[])dr["Image"],
+                            ImageID = dr["ImageID"] is DBNull ? 0 : Convert.ToInt32(dr["ImageID"])
                         });
                     }
                 }
@@ -144,10 +145,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Images.Add(new Images
                         {
-                            ImageDescription = Convert.ToString(dr["ImageDescription"]),
-                            BuildingID = Convert.ToInt32(dr["BuildingID"]),
-                            Image = (byte[])dr["Image"],
-                            ImageID = Convert.ToInt32(dr["ImageID"])
+                            ImageDescription = dr["ImageDescription"] is DBNull ? "" : Convert.ToString(dr["ImageDescription"]),
+                            BuildingID = dr["BuildingID"] is DBNull ? 0 : Convert.ToInt32(dr["BuildingID"]),
+                            Image = dr["Image"] is DBNull ? smallArray : (byte[])dr["Image"],
+                            ImageID = dr["ImageID"] is DBNull ? 0 : Convert.ToInt32(dr["ImageID"])
                         });
                     }
                 }

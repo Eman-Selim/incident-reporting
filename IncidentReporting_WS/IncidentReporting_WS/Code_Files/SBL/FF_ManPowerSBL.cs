@@ -68,13 +68,13 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, int AccidentNumber)
+        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, string Area)
         {
             try
             {
                 if (Chk.check_authority(username, password))
                 {
-                    return FF_ManPowerDAL_Obj.FF_ManPower_Select_By_Area( username, password, AccidentNumber);
+                    return FF_ManPowerDAL_Obj.FF_ManPower_Select_By_Area( username, password, Area);
                 }
                 else
                 {
@@ -239,7 +239,7 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, string UserID)
+        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, int UserID)
         {
             try
             {

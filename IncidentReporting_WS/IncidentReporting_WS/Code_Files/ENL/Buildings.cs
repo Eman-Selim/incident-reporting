@@ -13,5 +13,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public int BuildingID { set; get; }
         public int MainWaterTankCapacity { set; get; }
         public byte[] GeometricImage { set; get; }
+        public String GeometricImageURL { set; get; }
     }
 }

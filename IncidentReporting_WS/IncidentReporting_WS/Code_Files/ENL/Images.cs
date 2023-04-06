@@ -11,5 +11,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public int BuildingID { get; set; }
         public byte[] Image { get; set; }
         public int ImageID { get; set; }
+        public string ImageURL { get; set; }
     }
 }

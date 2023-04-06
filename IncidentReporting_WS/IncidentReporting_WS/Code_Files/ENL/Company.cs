@@ -33,5 +33,9 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public byte[] RightCompanyImage { set; get; }
         public byte[] LeftCompanyImage { set; get; }
         public int UserID { get; set; }
+        public string FrontCompanyImageURL { set; get; }
+        public string BackCompanyImageURL { set; get; }
+        public string RightCompanyImageURL { set; get; }
+        public string LeftCompanyImageURL { set; get; }
     }
 }

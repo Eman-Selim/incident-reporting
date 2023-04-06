@@ -982,12 +982,12 @@ namespace IncidentReporting_WS
         }       
 
         [WebMethod]
-        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, int AccidentNumber)
+        public FF_ManPowerCollection FF_ManPower_Select_By_Area(string username, string password, string Area)
         {
             try
             {
                 FF_ManPowerCollection FF_ManPower = new FF_ManPowerCollection();
-                FF_ManPower  = FF_ManPowerSBL_Obj.FF_ManPower_Select_By_Area( username, password, AccidentNumber);
+                FF_ManPower  = FF_ManPowerSBL_Obj.FF_ManPower_Select_By_Area( username, password, Area);
                 return FF_ManPower;
 
             }
@@ -1126,7 +1126,7 @@ namespace IncidentReporting_WS
         }       
 
         [WebMethod]
-        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, string UserID)
+        public FF_ManPowerCollection FF_ManPower_Select_By_UserID(string username, string password, int UserID)
         {
             try
             {

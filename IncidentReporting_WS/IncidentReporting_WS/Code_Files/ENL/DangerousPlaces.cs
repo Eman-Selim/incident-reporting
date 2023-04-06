@@ -13,6 +13,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public int CompanyID { get; set; }
         public byte[] Image { get; set; }
         public int DangerousPlaceID { get; set; }
-
+        public string ImageURL { get; set; }
     }
 }
