@@ -257,5 +257,24 @@ namespace IncidentReporting_WS.Code_Files.SBL
                 return null;
             }
         }
+
+        public FF_ManPowerCollection FF_ManPower_Select_By_FF_ID(string username, string password, int FF_ID)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return FF_ManPowerDAL_Obj.FF_ManPower_Select_By_FF_ID(username, password, FF_ID);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

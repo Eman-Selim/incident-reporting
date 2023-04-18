@@ -18,5 +18,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string Job { get; set; }
         public string Additional_info { get; set; }
         public int UserID { get; set; }
+        public int FF_ID { get; set; }
+
     }
 }

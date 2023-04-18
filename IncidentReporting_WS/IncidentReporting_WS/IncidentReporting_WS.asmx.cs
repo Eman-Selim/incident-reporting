@@ -932,6 +932,7 @@ namespace IncidentReporting_WS
         #endregion
 
         #region FF_ManPowerSBL
+
         FF_ManPowerSBL FF_ManPowerSBL_Obj = new FF_ManPowerSBL();
 
         [WebMethod]
@@ -1139,11 +1140,27 @@ namespace IncidentReporting_WS
             {
                 return null;
             }
-        }       
+        }
+
+        [WebMethod]
+        public FF_ManPowerCollection FF_ManPower_Select_By_FF_ID(string username, string password, int FF_ID)
+        {
+            try
+            {
+                FF_ManPowerCollection FF_ManPower = new FF_ManPowerCollection();
+                FF_ManPower = FF_ManPowerSBL_Obj.FF_ManPower_Select_By_FF_ID(username, password, FF_ID);
+                return FF_ManPower;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
         #endregion
 
         #region ExitPathwaysSBL
-         ExitPathwaysSBL ExitPathwaysSBL_Obj = new ExitPathwaysSBL();
+        ExitPathwaysSBL ExitPathwaysSBL_Obj = new ExitPathwaysSBL();
 
         [WebMethod]
         public ExitPathways ExitPathways_Insert(string username, string password, ExitPathways ExitPathway)
