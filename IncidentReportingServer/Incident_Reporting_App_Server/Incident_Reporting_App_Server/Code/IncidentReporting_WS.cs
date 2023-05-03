@@ -149,6 +149,7 @@ namespace Incident_Reporting_App_Server.Code
         }
 
         #endregion
+
         #region InjuredSBL
         public bool Injured_Delete(string username, string password, int InjuredID)
         {
@@ -281,6 +282,7 @@ namespace Incident_Reporting_App_Server.Code
         }
 
         #endregion
+
         #region ImagesSBL
         public Images Images_Insert(string username, string password, Images Images)
         {
@@ -442,6 +444,7 @@ namespace Incident_Reporting_App_Server.Code
         }
 
         #endregion
+
         #region FFstations
         public bool FFstations_Delete(string username, string password, int FFstationsID)
         {
@@ -612,5 +615,30 @@ namespace Incident_Reporting_App_Server.Code
         }
 
         #endregion
+
+        #region FF_pumps
+        #endregion
+
+        #region FF_ManPower
+        #endregion
+
+        #region ExitPathways
+        #endregion
+
+        #region Death
+        #endregion
+
+        #region DangerousPlaces
+        #endregion
+
+        #region Company
+        #endregion
+
+        #region Building
+        #endregion
+
+        #region Accident
+        #endregion
+
     }
 }
