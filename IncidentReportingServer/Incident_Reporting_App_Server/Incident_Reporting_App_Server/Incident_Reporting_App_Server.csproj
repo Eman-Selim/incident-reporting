@@ -188,5 +188,43 @@
   <ItemGroup>
     <None Include="Resources\BuildingSH1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BuildingSH1_MainForm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\BuildingSH1_MainForm.png" />
+    <Content Include="Resources\buliding.png" />
+    <Content Include="Resources\circle.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\closeicon.PNG" />
+    <Content Include="Resources\closeicon2.PNG" />
+    <Content Include="Resources\closeicon3.png" />
+    <Content Include="Resources\Fire_FighterSH1.png" />
+    <Content Include="Resources\Fire_FighterSH1_MainForm.png" />
+    <Content Include="Resources\Fire_FighterSH1_MainForm2.png" />
+    <Content Include="Resources\main form menu.png" />
+    <Content Include="Resources\main form menu2.png" />
+    <Content Include="Resources\main form menu3.png" />
+    <Content Include="Resources\main form menu4.png" />
+    <Content Include="Resources\main form menu5.png" />
+    <Content Include="Resources\main form menu6.png" />
+    <Content Include="Resources\maximize_icon.png" />
+    <Content Include="Resources\maximize_icon2.png" />
+    <Content Include="Resources\maximize_icon3.png" />
+    <Content Include="Resources\menu item 2.png" />
+    <Content Include="Resources\menu item 3.png" />
+    <Content Include="Resources\menu item 4.png" />
+    <Content Include="Resources\menu item 5.png" />
+    <Content Include="Resources\menu item.png" />
+    <Content Include="Resources\minimize_icon.png" />
+    <Content Include="Resources\minimize_icon2.png" />
+    <Content Include="Resources\password_textbox.png" />
+    <Content Include="Resources\Phone_BookSH1.png" />
+    <Content Include="Resources\Phone_BookSH1_MainForm.png" />
+    <Content Include="Resources\systel.png" />
+    <Content Include="Resources\username_textbox1.png" />
+    <Content Include="Resources\UsersSH1.png" />
+    <Content Include="Resources\UsersSH1_MainForm.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
