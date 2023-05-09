@@ -83,6 +83,16 @@ namespace Incident_Reporting_App_Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BuildingSH1_MainForm {
+            get {
+                object obj = ResourceManager.GetObject("BuildingSH1_MainForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fire_FighterN1 {
             get {
                 object obj = ResourceManager.GetObject("Fire_FighterN1", resourceCulture);

@@ -88,7 +88,7 @@ namespace Incident_Reporting_App_Server
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.BuildingN1;
+           // this.panel2.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.BuildingN1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(160, 3);
@@ -99,7 +99,7 @@ namespace Incident_Reporting_App_Server
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.Fire_FighterN1;
+            //this.panel3.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.Fire_FighterN1;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(317, 120);
@@ -111,7 +111,7 @@ namespace Incident_Reporting_App_Server
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.UsersN1;
+            //this.panel4.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.UsersN1;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(160, 237);
@@ -135,7 +135,7 @@ namespace Incident_Reporting_App_Server
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.Phone_BookN1;
+            //this.panel5.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.Phone_BookN1;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 120);

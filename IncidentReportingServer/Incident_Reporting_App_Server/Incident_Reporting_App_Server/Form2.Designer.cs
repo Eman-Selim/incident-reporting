@@ -166,7 +166,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.BuildingSH1;
+            //this.pictureBox5.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.BuildingSH1;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(3, 69);
