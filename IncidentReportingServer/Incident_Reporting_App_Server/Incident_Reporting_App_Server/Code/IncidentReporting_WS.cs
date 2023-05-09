@@ -617,7 +617,32 @@ namespace Incident_Reporting_App_Server.Code
         #endregion
 
         #region FF_pumps
-        #endregion
+        public bool FF_pumps_Delete(string username, string password, int FF_pumpsID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.FF_pumps_Delete(username, password, FF_pumpsID);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return false;
+            }
+        }
+        public FF_pumps FF_pumps_Insert(string username, string password, FF_pumps FF_pumps)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.FF_pumps_Insert(username, password, FF_pumps);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
+                #endregion
 
         #region FF_ManPower
         #endregion
