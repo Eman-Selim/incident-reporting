@@ -55,8 +55,16 @@ namespace Incident_Reporting_App_Server
             this.FFpowerCombo = new System.Windows.Forms.ComboBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
-            this.bunifuGradientPanel = new System.Windows.Forms.Panel();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
+            this.bunifuGradientPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.userNameCB = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
+            this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -64,6 +72,9 @@ namespace Incident_Reporting_App_Server
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
+            this.bunifuGradientPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
+            this.c1DockingTab2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -301,19 +312,11 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Sloping;
             this.c1DockingTab1.VisualStyle = C1.Win.C1Command.VisualStyle.Custom;
             // 
-            // bunifuGradientPanel
-            // 
-            this.bunifuGradientPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.bunifuGradientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuGradientPanel.Location = new System.Drawing.Point(0, 0);
-            this.bunifuGradientPanel.Name = "bunifuGradientPanel";
-            this.bunifuGradientPanel.Size = new System.Drawing.Size(1006, 82);
-            this.bunifuGradientPanel.TabIndex = 0;
-            // 
             // c1DockingTabPage1
             // 
             this.c1DockingTabPage1.BackColor = System.Drawing.Color.DimGray;
             this.c1DockingTabPage1.CaptionText = "المنشأة";
+            this.c1DockingTabPage1.Controls.Add(this.c1DockingTab2);
             this.c1DockingTabPage1.Controls.Add(this.bunifuGradientPanel);
             this.c1DockingTabPage1.ForeColor = System.Drawing.Color.White;
             this.c1DockingTabPage1.Image = ((System.Drawing.Image)(resources.GetObject("c1DockingTabPage1.Image")));
@@ -326,6 +329,97 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage1.TabForeColorSelected = System.Drawing.Color.Black;
             this.c1DockingTabPage1.TabIndex = 0;
             this.c1DockingTabPage1.Text = "المنشأة";
+            // 
+            // bunifuGradientPanel
+            // 
+            this.bunifuGradientPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.bunifuGradientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuGradientPanel.Controls.Add(this.comboBox1);
+            this.bunifuGradientPanel.Controls.Add(this.label3);
+            this.bunifuGradientPanel.Controls.Add(this.userNameCB);
+            this.bunifuGradientPanel.Controls.Add(this.label2);
+            this.bunifuGradientPanel.Controls.Add(this.textBox1);
+            this.bunifuGradientPanel.Controls.Add(this.label1);
+            this.bunifuGradientPanel.Location = new System.Drawing.Point(0, 0);
+            this.bunifuGradientPanel.Name = "bunifuGradientPanel";
+            this.bunifuGradientPanel.Size = new System.Drawing.Size(1006, 82);
+            this.bunifuGradientPanel.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(925, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "رقم الحساب:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(868, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(790, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "اسم الحساب:";
+            // 
+            // userNameCB
+            // 
+            this.userNameCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.userNameCB.DropDownWidth = 274;
+            this.userNameCB.ForeColor = System.Drawing.Color.White;
+            this.userNameCB.FormattingEnabled = true;
+            this.userNameCB.ItemHeight = 13;
+            this.userNameCB.Location = new System.Drawing.Point(619, 13);
+            this.userNameCB.Name = "userNameCB";
+            this.userNameCB.Size = new System.Drawing.Size(171, 21);
+            this.userNameCB.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(549, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "اسم المنشأة:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(413, 16);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // c1DockingTab2
+            // 
+            this.c1DockingTab2.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab2.Location = new System.Drawing.Point(221, 123);
+            this.c1DockingTab2.Name = "c1DockingTab2";
+            this.c1DockingTab2.Size = new System.Drawing.Size(782, 280);
+            this.c1DockingTab2.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTab2.TabIndex = 1;
+            this.c1DockingTab2.TabsSpacing = -10;
+            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.WindowsXP;
+            this.c1DockingTab2.VisualStyle = C1.Win.C1Command.VisualStyle.Custom;
+            this.c1DockingTab2.VisualStyleBase = C1.Win.C1Command.VisualStyle.WindowsXP;
+            // 
+            // c1DockingTabPage2
+            // 
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(2, 25);
+            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(776, 251);
+            this.c1DockingTabPage2.TabIndex = 0;
+            this.c1DockingTabPage2.Text = "Page2";
             // 
             // Form2
             // 
@@ -348,6 +442,10 @@ namespace Incident_Reporting_App_Server
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
             this.c1DockingTab1.ResumeLayout(false);
             this.c1DockingTabPage1.ResumeLayout(false);
+            this.bunifuGradientPanel.ResumeLayout(false);
+            this.bunifuGradientPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
+            this.c1DockingTab2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,5 +477,13 @@ namespace Incident_Reporting_App_Server
         private C1.Win.C1Command.C1DockingTab c1DockingTab1;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage1;
         private System.Windows.Forms.Panel bunifuGradientPanel;
+        private C1.Win.C1Command.C1DockingTab c1DockingTab2;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox userNameCB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
