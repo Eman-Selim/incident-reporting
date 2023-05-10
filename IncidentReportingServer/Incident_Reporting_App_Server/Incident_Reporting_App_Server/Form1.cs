@@ -16,15 +16,5 @@ namespace Incident_Reporting_App_Server
         {
             InitializeComponent();
         }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
