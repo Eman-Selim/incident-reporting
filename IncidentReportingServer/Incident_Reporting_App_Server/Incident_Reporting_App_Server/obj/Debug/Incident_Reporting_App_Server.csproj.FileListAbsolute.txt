@@ -15,3 +15,7 @@ C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incide
 C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\obj\Debug\Incident_Reporting_App_Server.csproj.CopyComplete
 C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\obj\Debug\Incident_Reporting_App_Server.exe
 C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\obj\Debug\Incident_Reporting_App_Server.pdb
+C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\bin\Debug\C1.Win.C1Input.4.dll
+C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\bin\Debug\C1.Win.C1List.4.dll
+C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\bin\Debug\C1.Win.C1Input.4.xml
+C:\Users\Eman\Documents\GitHub\incident-reporting\IncidentReportingServer\Incident_Reporting_App_Server\Incident_Reporting_App_Server\bin\Debug\C1.Win.C1List.4.xml
