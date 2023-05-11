@@ -56,15 +56,18 @@ namespace Incident_Reporting_App_Server
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
-            this.bunifuGradientPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.userNameCB = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.bunifuGradientPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sectorCB1 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -72,9 +75,11 @@ namespace Incident_Reporting_App_Server
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
-            this.bunifuGradientPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
             this.c1DockingTab2.SuspendLayout();
+            this.c1DockingTabPage2.SuspendLayout();
+            this.bunifuGradientPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -330,13 +335,41 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage1.TabIndex = 0;
             this.c1DockingTabPage1.Text = "المنشأة";
             // 
+            // c1DockingTab2
+            // 
+            this.c1DockingTab2.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.c1DockingTab2.Location = new System.Drawing.Point(0, 72);
+            this.c1DockingTab2.Name = "c1DockingTab2";
+            this.c1DockingTab2.Size = new System.Drawing.Size(1006, 447);
+            this.c1DockingTab2.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.c1DockingTab2.TabIndex = 1;
+            this.c1DockingTab2.TabLayout = C1.Win.C1Command.ButtonLayoutEnum.TextOnLeft;
+            this.c1DockingTab2.TabsSpacing = -10;
+            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Sloping;
+            this.c1DockingTab2.VisualStyle = C1.Win.C1Command.VisualStyle.Custom;
+            // 
+            // c1DockingTabPage2
+            // 
+            this.c1DockingTabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTabPage2.CaptionText = "بيانات المنشأة";
+            this.c1DockingTabPage2.Controls.Add(this.groupBox2);
+            this.c1DockingTabPage2.Controls.Add(this.groupBox1);
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(1004, 422);
+            this.c1DockingTabPage2.TabBackColorSelected = System.Drawing.SystemColors.ActiveCaption;
+            this.c1DockingTabPage2.TabForeColorSelected = System.Drawing.Color.Black;
+            this.c1DockingTabPage2.TabIndex = 0;
+            this.c1DockingTabPage2.Text = "بيانات المنشأة";
+            // 
             // bunifuGradientPanel
             // 
             this.bunifuGradientPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.bunifuGradientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bunifuGradientPanel.Controls.Add(this.comboBox1);
+            this.bunifuGradientPanel.Controls.Add(this.sectorCB1);
             this.bunifuGradientPanel.Controls.Add(this.label3);
-            this.bunifuGradientPanel.Controls.Add(this.userNameCB);
             this.bunifuGradientPanel.Controls.Add(this.label2);
             this.bunifuGradientPanel.Controls.Add(this.textBox1);
             this.bunifuGradientPanel.Controls.Add(this.label1);
@@ -345,21 +378,14 @@ namespace Incident_Reporting_App_Server
             this.bunifuGradientPanel.Size = new System.Drawing.Size(1006, 82);
             this.bunifuGradientPanel.TabIndex = 0;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(925, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "رقم الحساب:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(868, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(452, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "اسم المنشأة:";
             // 
             // label2
             // 
@@ -370,56 +396,97 @@ namespace Incident_Reporting_App_Server
             this.label2.TabIndex = 2;
             this.label2.Text = "اسم الحساب:";
             // 
-            // userNameCB
+            // textBox1
             // 
-            this.userNameCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.userNameCB.DropDownWidth = 274;
-            this.userNameCB.ForeColor = System.Drawing.Color.White;
-            this.userNameCB.FormattingEnabled = true;
-            this.userNameCB.ItemHeight = 13;
-            this.userNameCB.Location = new System.Drawing.Point(619, 13);
-            this.userNameCB.Name = "userNameCB";
-            this.userNameCB.Size = new System.Drawing.Size(171, 21);
-            this.userNameCB.TabIndex = 3;
+            this.textBox1.Location = new System.Drawing.Point(868, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(549, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "اسم المنشأة:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(925, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "رقم الحساب:";
+            // 
+            // sectorCB1
+            // 
+            this.sectorCB1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.sectorCB1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.sectorCB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectorCB1.ForeColor = System.Drawing.Color.White;
+            this.sectorCB1.FormattingEnabled = true;
+            this.sectorCB1.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.sectorCB1.Location = new System.Drawing.Point(577, 8);
+            this.sectorCB1.MaxLength = 200;
+            this.sectorCB1.Name = "sectorCB1";
+            this.sectorCB1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.sectorCB1.Size = new System.Drawing.Size(207, 32);
+            this.sectorCB1.TabIndex = 6;
             // 
             // comboBox1
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(413, 16);
+            this.comboBox1.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.comboBox1.Location = new System.Drawing.Point(219, 8);
+            this.comboBox1.MaxLength = 200;
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox1.Size = new System.Drawing.Size(227, 32);
+            this.comboBox1.TabIndex = 7;
             // 
-            // c1DockingTab2
+            // groupBox1
             // 
-            this.c1DockingTab2.Controls.Add(this.c1DockingTabPage2);
-            this.c1DockingTab2.Location = new System.Drawing.Point(221, 123);
-            this.c1DockingTab2.Name = "c1DockingTab2";
-            this.c1DockingTab2.Size = new System.Drawing.Size(782, 280);
-            this.c1DockingTab2.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.c1DockingTab2.TabIndex = 1;
-            this.c1DockingTab2.TabsSpacing = -10;
-            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.WindowsXP;
-            this.c1DockingTab2.VisualStyle = C1.Win.C1Command.VisualStyle.Custom;
-            this.c1DockingTab2.VisualStyleBase = C1.Win.C1Command.VisualStyle.WindowsXP;
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Location = new System.Drawing.Point(527, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(458, 385);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
-            // c1DockingTabPage2
+            // groupBox2
             // 
-            this.c1DockingTabPage2.Location = new System.Drawing.Point(2, 25);
-            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
-            this.c1DockingTabPage2.Size = new System.Drawing.Size(776, 251);
-            this.c1DockingTabPage2.TabIndex = 0;
-            this.c1DockingTabPage2.Text = "Page2";
+            this.groupBox2.Location = new System.Drawing.Point(16, 26);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(475, 385);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.White;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.comboBox2.Location = new System.Drawing.Point(24, 112);
+            this.comboBox2.MaxLength = 200;
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox2.Size = new System.Drawing.Size(300, 32);
+            this.comboBox2.TabIndex = 3;
             // 
             // Form2
             // 
@@ -442,10 +509,12 @@ namespace Incident_Reporting_App_Server
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
             this.c1DockingTab1.ResumeLayout(false);
             this.c1DockingTabPage1.ResumeLayout(false);
-            this.bunifuGradientPanel.ResumeLayout(false);
-            this.bunifuGradientPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
             this.c1DockingTab2.ResumeLayout(false);
+            this.c1DockingTabPage2.ResumeLayout(false);
+            this.bunifuGradientPanel.ResumeLayout(false);
+            this.bunifuGradientPanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -479,11 +548,14 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.Panel bunifuGradientPanel;
         private C1.Win.C1Command.C1DockingTab c1DockingTab2;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox userNameCB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox sectorCB1;
     }
 }
