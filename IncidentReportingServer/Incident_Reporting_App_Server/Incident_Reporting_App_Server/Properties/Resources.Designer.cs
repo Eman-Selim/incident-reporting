@@ -93,6 +93,16 @@ namespace Incident_Reporting_App_Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Capture {
+            get {
+                object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle {
             get {
                 object obj = ResourceManager.GetObject("circle", resourceCulture);
@@ -196,6 +206,16 @@ namespace Incident_Reporting_App_Server.Properties {
         internal static System.Drawing.Bitmap Phone_BookSH1_MainForm {
             get {
                 object obj = ResourceManager.GetObject("Phone_BookSH1_MainForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photography_photographer_computer_icons_clip_art_photography_free_icon {
+            get {
+                object obj = ResourceManager.GetObject("photography-photographer-computer-icons-clip-art-photography-free-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
