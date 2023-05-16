@@ -64,5 +64,15 @@ namespace Incident_Reporting_App_Server
 
             }
         }
+
+        private void c1DockingTabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox19_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
