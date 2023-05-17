@@ -44,24 +44,26 @@ namespace Incident_Reporting_App_Server
                 case 0:
                     panel3.BackgroundImage = Properties.Resources.menu_item_5;
                     pictureBox5.BackgroundImage = Properties.Resources.BuildingSH1_MainForm;
+                    c1DockingTab1.SelectedTab = c1DockingTabPage1;
                     break;
 
                 case 1:
                     panel3.BackgroundImage = Properties.Resources.menu_item_4;
                     pictureBox5.BackgroundImage = Properties.Resources.Fire_FighterSH1_MainForm2;
+                    c1DockingTab1.SelectedTab = c1DockingTabPage9;
                     break;
 
                 case 2:
                     panel3.BackgroundImage = Properties.Resources.menu_item_5;
                     pictureBox5.BackgroundImage = Properties.Resources.UsersSH1_MainForm;
+                    c1DockingTab1.SelectedTab = c1DockingTabPage11;
                     break;
 
                 case 3:
                     panel3.BackgroundImage = Properties.Resources.menu_item_4;
                     pictureBox5.BackgroundImage = Properties.Resources.Phone_BookSH1_MainForm;
+                    c1DockingTab1.SelectedTab = c1DockingTabPage10;
                     break;
-
-
             }
         }
 
@@ -71,6 +73,11 @@ namespace Incident_Reporting_App_Server
         }
 
         private void richTextBox19_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c1DockingTabPage3_Click(object sender, EventArgs e)
         {
 
         }
