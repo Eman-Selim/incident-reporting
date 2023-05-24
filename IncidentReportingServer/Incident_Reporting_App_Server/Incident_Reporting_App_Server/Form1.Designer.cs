@@ -34,12 +34,19 @@ namespace Incident_Reporting_App_Server
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.fleet_login_pnl_Username = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.fleet_login_pnl_Username = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.fleet_login_pnl_Username.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,46 +129,6 @@ namespace Incident_Reporting_App_Server
             this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             this.panel4.MouseHover += new System.EventHandler(this.panel4_MouseHover);
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.fleet_login_pnl_Username);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(160, 120);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(151, 111);
-            this.panel6.TabIndex = 4;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel7.AutoSize = true;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(-14, 46);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.panel7.MaximumSize = new System.Drawing.Size(202, 33);
-            this.panel7.MinimumSize = new System.Drawing.Size(151, 21);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(202, 33);
-            this.panel7.TabIndex = 98;
-            // 
-            // fleet_login_pnl_Username
-            // 
-            this.fleet_login_pnl_Username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fleet_login_pnl_Username.AutoSize = true;
-            this.fleet_login_pnl_Username.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fleet_login_pnl_Username.Location = new System.Drawing.Point(-14, -2);
-            this.fleet_login_pnl_Username.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.fleet_login_pnl_Username.MaximumSize = new System.Drawing.Size(202, 33);
-            this.fleet_login_pnl_Username.MinimumSize = new System.Drawing.Size(151, 21);
-            this.fleet_login_pnl_Username.Name = "fleet_login_pnl_Username";
-            this.fleet_login_pnl_Username.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.fleet_login_pnl_Username.Size = new System.Drawing.Size(202, 33);
-            this.fleet_login_pnl_Username.TabIndex = 96;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
@@ -175,6 +142,95 @@ namespace Incident_Reporting_App_Server
             this.panel5.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
             this.panel5.MouseHover += new System.EventHandler(this.panel2_MouseHover);
             // 
+            // fleet_login_pnl_Username
+            // 
+            this.fleet_login_pnl_Username.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fleet_login_pnl_Username.AutoSize = true;
+            this.fleet_login_pnl_Username.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fleet_login_pnl_Username.Controls.Add(this.label1);
+            this.fleet_login_pnl_Username.Controls.Add(this.textBox1);
+            this.fleet_login_pnl_Username.Location = new System.Drawing.Point(-14, -2);
+            this.fleet_login_pnl_Username.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.fleet_login_pnl_Username.MaximumSize = new System.Drawing.Size(202, 33);
+            this.fleet_login_pnl_Username.MinimumSize = new System.Drawing.Size(151, 21);
+            this.fleet_login_pnl_Username.Name = "fleet_login_pnl_Username";
+            this.fleet_login_pnl_Username.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.fleet_login_pnl_Username.Size = new System.Drawing.Size(202, 33);
+            this.fleet_login_pnl_Username.TabIndex = 96;
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel7.AutoSize = true;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Controls.Add(this.label2);
+            this.panel7.Controls.Add(this.textBox2);
+            this.panel7.Location = new System.Drawing.Point(-14, 46);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.panel7.MaximumSize = new System.Drawing.Size(202, 33);
+            this.panel7.MinimumSize = new System.Drawing.Size(151, 21);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(202, 33);
+            this.panel7.TabIndex = 98;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.fleet_login_pnl_Username);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(160, 120);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(151, 111);
+            this.panel6.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(75, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(87, 20);
+            this.textBox1.TabIndex = 99;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(74, 0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(88, 20);
+            this.textBox2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.Location = new System.Drawing.Point(0, 88);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 23);
+            this.button1.TabIndex = 100;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(14, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 100;
+            this.label1.Text = "Username";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(15, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +242,10 @@ namespace Incident_Reporting_App_Server
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.fleet_login_pnl_Username.ResumeLayout(false);
+            this.fleet_login_pnl_Username.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -199,9 +259,14 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel fleet_login_pnl_Username;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel fleet_login_pnl_Username;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
