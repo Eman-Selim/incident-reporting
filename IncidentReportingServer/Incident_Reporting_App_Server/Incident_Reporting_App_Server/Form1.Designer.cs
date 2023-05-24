@@ -38,13 +38,15 @@ namespace Incident_Reporting_App_Server
             this.fleet_login_pnl_Username = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Login_txt_Username = new System.Windows.Forms.TextBox();
+            this.Login_txt_Password = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_log = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.fleet_login_pnl_Username.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -121,6 +123,7 @@ namespace Incident_Reporting_App_Server
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.UsersN1;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.txt_log);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(160, 237);
             this.panel4.Name = "panel4";
@@ -148,7 +151,7 @@ namespace Incident_Reporting_App_Server
             this.fleet_login_pnl_Username.AutoSize = true;
             this.fleet_login_pnl_Username.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fleet_login_pnl_Username.Controls.Add(this.label1);
-            this.fleet_login_pnl_Username.Controls.Add(this.textBox1);
+            this.fleet_login_pnl_Username.Controls.Add(this.Login_txt_Username);
             this.fleet_login_pnl_Username.Location = new System.Drawing.Point(-14, -2);
             this.fleet_login_pnl_Username.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.fleet_login_pnl_Username.MaximumSize = new System.Drawing.Size(202, 33);
@@ -164,7 +167,7 @@ namespace Incident_Reporting_App_Server
             this.panel7.AutoSize = true;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.textBox2);
+            this.panel7.Controls.Add(this.Login_txt_Password);
             this.panel7.Location = new System.Drawing.Point(-14, 46);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.panel7.MaximumSize = new System.Drawing.Size(202, 33);
@@ -187,19 +190,19 @@ namespace Incident_Reporting_App_Server
             this.panel6.Size = new System.Drawing.Size(151, 111);
             this.panel6.TabIndex = 4;
             // 
-            // textBox1
+            // Login_txt_Username
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(87, 20);
-            this.textBox1.TabIndex = 99;
+            this.Login_txt_Username.Location = new System.Drawing.Point(75, 13);
+            this.Login_txt_Username.Name = "Login_txt_Username";
+            this.Login_txt_Username.Size = new System.Drawing.Size(87, 20);
+            this.Login_txt_Username.TabIndex = 99;
             // 
-            // textBox2
+            // Login_txt_Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(74, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(88, 20);
-            this.textBox2.TabIndex = 0;
+            this.Login_txt_Password.Location = new System.Drawing.Point(74, 0);
+            this.Login_txt_Password.Name = "Login_txt_Password";
+            this.Login_txt_Password.Size = new System.Drawing.Size(88, 20);
+            this.Login_txt_Password.TabIndex = 0;
             // 
             // button1
             // 
@@ -210,6 +213,7 @@ namespace Incident_Reporting_App_Server
             this.button1.TabIndex = 100;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -231,6 +235,16 @@ namespace Incident_Reporting_App_Server
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
+            // txt_log
+            // 
+            this.txt_log.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.txt_log.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txt_log.Location = new System.Drawing.Point(0, 0);
+            this.txt_log.Name = "txt_log";
+            this.txt_log.Size = new System.Drawing.Size(151, 20);
+            this.txt_log.TabIndex = 0;
+            this.txt_log.TextChanged += new System.EventHandler(this.txt_log_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +256,8 @@ namespace Incident_Reporting_App_Server
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.fleet_login_pnl_Username.ResumeLayout(false);
             this.fleet_login_pnl_Username.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -264,9 +280,10 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Login_txt_Password;
         private System.Windows.Forms.Panel fleet_login_pnl_Username;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Login_txt_Username;
+        private System.Windows.Forms.TextBox txt_log;
     }
 }

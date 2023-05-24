@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Incident_Reporting_App_Server.Code
 {
-    class IncidentReporting_WS
+    class Incident_WS
     {
         IncidentReporting_WS IncidentReporting_WS_Obj = new IncidentReporting_WS();
 

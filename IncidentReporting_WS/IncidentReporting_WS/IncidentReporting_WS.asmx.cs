@@ -1527,7 +1527,7 @@ namespace IncidentReporting_WS
             try
             {
                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_Address(username,password,address);
+                                    Company=CompanySBL_Obj.Company_Select_By_Address(username,password,address);
                 return Company;
             }
             catch (Exception ex)
