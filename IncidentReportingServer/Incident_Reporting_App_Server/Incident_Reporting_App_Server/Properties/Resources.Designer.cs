@@ -183,6 +183,16 @@ namespace Incident_Reporting_App_Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap password_textbox {
+            get {
+                object obj = ResourceManager.GetObject("password_textbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Phone_BookN1 {
             get {
                 object obj = ResourceManager.GetObject("Phone_BookN1", resourceCulture);
@@ -216,6 +226,16 @@ namespace Incident_Reporting_App_Server.Properties {
         internal static System.Drawing.Bitmap photography_photographer_computer_icons_clip_art_photography_free_icon {
             get {
                 object obj = ResourceManager.GetObject("photography-photographer-computer-icons-clip-art-photography-free-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap username_textbox2 {
+            get {
+                object obj = ResourceManager.GetObject("username_textbox2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

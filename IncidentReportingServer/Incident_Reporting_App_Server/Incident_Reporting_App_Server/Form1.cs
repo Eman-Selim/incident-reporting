@@ -25,14 +25,14 @@ namespace Incident_Reporting_App_Server
         {
             try
             {
-                if (this.txt_log.InvokeRequired)
+                if (true)
                 {
                     txt_log_Update_Delegate method = new txt_log_Update_Delegate(this.log_Handler);
-                    this.txt_log.Invoke(method, new object[] { text });
+                   // this.txt_log.Invoke(method, new object[] { text });
                 }
                 else
                 {
-                    this.txt_log.AppendText("- " + text + "\r\n");
+                    //this.txt_log.AppendText("- " + text + "\r\n");
                 }
             }
             catch (Exception exception1)
@@ -115,6 +115,31 @@ namespace Incident_Reporting_App_Server
         }
 
         private void txt_log_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Login_txt_Username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Login_txt_Password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

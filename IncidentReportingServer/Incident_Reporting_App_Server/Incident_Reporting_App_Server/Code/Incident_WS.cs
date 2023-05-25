@@ -242,7 +242,7 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public Injured Injured_Select_By_InjuredID(string username, string password, int InjuredID)
+        public Injured[] Injured_Select_By_InjuredID(string username, string password, int InjuredID)
         {
             try
             {

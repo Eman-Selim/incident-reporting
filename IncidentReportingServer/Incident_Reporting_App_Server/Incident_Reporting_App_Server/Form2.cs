@@ -81,5 +81,10 @@ namespace Incident_Reporting_App_Server
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

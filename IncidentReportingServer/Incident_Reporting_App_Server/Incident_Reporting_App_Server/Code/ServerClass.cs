@@ -34,7 +34,11 @@ namespace Incident_Reporting_App_Server.Code
             {
                 this.UserName = userName;
                 this.Password = passWord;
-               // if (IncidentReporting_WS_Obj.Users_Select_Super_Admin(UserName, Password)!=null)
+                if (IncidentReporting_WS_Obj.Users_Admin_Select_All(UserName, Password)!=null)
+                {
+                    Form2 f2 = new Form2();
+                    f2.Show();
+                }
                  
             }
             catch (Exception exception1)

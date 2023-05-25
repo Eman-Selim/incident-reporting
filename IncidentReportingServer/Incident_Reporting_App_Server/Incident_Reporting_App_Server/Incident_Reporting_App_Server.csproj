@@ -233,5 +233,11 @@
   <ItemGroup>
     <None Include="Resources\Capture.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_textbox1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username_textbox2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
