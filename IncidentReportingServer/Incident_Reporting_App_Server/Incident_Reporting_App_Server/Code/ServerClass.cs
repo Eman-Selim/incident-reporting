@@ -20,7 +20,6 @@ namespace Incident_Reporting_App_Server.Code
         public string Password { get; set; }
         #endregion
 
-       
         #region Connect
 
         /// <summary>
@@ -39,7 +38,6 @@ namespace Incident_Reporting_App_Server.Code
                     Form2 f2 = new Form2();
                     f2.Show();
                 }
-                 
             }
             catch (Exception exception1)
             {

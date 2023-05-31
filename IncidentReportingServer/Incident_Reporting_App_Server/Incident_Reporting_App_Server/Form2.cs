@@ -86,5 +86,10 @@ namespace Incident_Reporting_App_Server
         {
 
         }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }
