@@ -32,6 +32,7 @@ namespace Incident_Reporting_App_Server
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,7 +55,6 @@ namespace Incident_Reporting_App_Server
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -79,6 +79,10 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.c1Button7 = new C1.Win.C1Input.C1Button();
+            this.c1Button8 = new C1.Win.C1Input.C1Button();
             this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -198,6 +202,23 @@ namespace Incident_Reporting_App_Server
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.c1DockingTabPage13 = new C1.Win.C1Command.C1DockingTabPage();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.richTextBox32 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox21 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox28 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox29 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox30 = new System.Windows.Forms.RichTextBox();
+            this.comboBox15 = new System.Windows.Forms.ComboBox();
+            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
             this.c1DockingTabPage14 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -238,10 +259,6 @@ namespace Incident_Reporting_App_Server
             this.button5 = new System.Windows.Forms.Button();
             this.c1Button9 = new C1.Win.C1Input.C1Button();
             this.c1Button10 = new C1.Win.C1Input.C1Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.c1Button2 = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -251,27 +268,6 @@ namespace Incident_Reporting_App_Server
             this.richTextBox16 = new System.Windows.Forms.RichTextBox();
             this.richTextBox17 = new System.Windows.Forms.RichTextBox();
             this.treeView3 = new System.Windows.Forms.TreeView();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.richTextBox30 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox29 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox28 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox21 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox32 = new System.Windows.Forms.RichTextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.c1DockingTabPage13 = new C1.Win.C1Command.C1DockingTabPage();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.c1Button7 = new C1.Win.C1Input.C1Button();
-            this.c1Button8 = new C1.Win.C1Input.C1Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -280,6 +276,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
             this.c1DockingTab2.SuspendLayout();
             this.c1DockingTabPage2.SuspendLayout();
@@ -305,6 +302,7 @@ namespace Incident_Reporting_App_Server
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.c1DockingTabPage13.SuspendLayout();
             this.c1DockingTabPage14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.c1DockingTabPage11.SuspendLayout();
@@ -313,9 +311,6 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.c1DockingTabPage13.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -330,7 +325,7 @@ namespace Incident_Reporting_App_Server
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(171, 640);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(171, 712);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel3
@@ -340,9 +335,9 @@ namespace Incident_Reporting_App_Server
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 131);
+            this.panel3.Location = new System.Drawing.Point(3, 145);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(165, 378);
+            this.panel3.Size = new System.Drawing.Size(165, 421);
             this.panel3.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -357,7 +352,7 @@ namespace Incident_Reporting_App_Server
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(165, 378);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(165, 421);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pictureBox5
@@ -365,9 +360,9 @@ namespace Incident_Reporting_App_Server
             this.pictureBox5.BackgroundImage = global::Incident_Reporting_App_Server.Properties.Resources.BuildingSH1_MainForm;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 97);
+            this.pictureBox5.Location = new System.Drawing.Point(3, 108);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(159, 183);
+            this.pictureBox5.Size = new System.Drawing.Size(159, 204);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
@@ -498,7 +493,7 @@ namespace Incident_Reporting_App_Server
             this.FFplacesCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FFplacesCB.ForeColor = System.Drawing.Color.White;
             this.FFplacesCB.FormattingEnabled = true;
-            this.FFplacesCB.Location = new System.Drawing.Point(1410, 110);
+            this.FFplacesCB.Location = new System.Drawing.Point(1410, 146);
             this.FFplacesCB.Name = "FFplacesCB";
             this.FFplacesCB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FFplacesCB.Size = new System.Drawing.Size(155, 32);
@@ -512,7 +507,7 @@ namespace Incident_Reporting_App_Server
             this.FFpumpCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FFpumpCB.ForeColor = System.Drawing.Color.White;
             this.FFpumpCB.FormattingEnabled = true;
-            this.FFpumpCB.Location = new System.Drawing.Point(1420, 110);
+            this.FFpumpCB.Location = new System.Drawing.Point(1420, 146);
             this.FFpumpCB.Name = "FFpumpCB";
             this.FFpumpCB.Size = new System.Drawing.Size(142, 32);
             this.FFpumpCB.TabIndex = 93;
@@ -525,7 +520,7 @@ namespace Incident_Reporting_App_Server
             this.FFpowerCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FFpowerCombo.ForeColor = System.Drawing.Color.White;
             this.FFpowerCombo.FormattingEnabled = true;
-            this.FFpowerCombo.Location = new System.Drawing.Point(1419, 112);
+            this.FFpowerCombo.Location = new System.Drawing.Point(1419, 148);
             this.FFpowerCombo.Name = "FFpowerCombo";
             this.FFpowerCombo.Size = new System.Drawing.Size(127, 32);
             this.FFpowerCombo.TabIndex = 94;
@@ -545,7 +540,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.c1DockingTab1.RightToLeftLayout = true;
             this.c1DockingTab1.SelectedIndex = 3;
-            this.c1DockingTab1.Size = new System.Drawing.Size(1199, 640);
+            this.c1DockingTab1.Size = new System.Drawing.Size(1199, 712);
             this.c1DockingTab1.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTab1.TabIndex = 96;
             this.c1DockingTab1.TabsSpacing = -15;
@@ -562,7 +557,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage1.ImageIndex = 28;
             this.c1DockingTabPage1.Location = new System.Drawing.Point(0, 28);
             this.c1DockingTabPage1.Name = "c1DockingTabPage1";
-            this.c1DockingTabPage1.Size = new System.Drawing.Size(1199, 612);
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(1199, 684);
             this.c1DockingTabPage1.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage1.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage1.TabForeColor = System.Drawing.Color.DeepSkyBlue;
@@ -578,8 +573,50 @@ namespace Incident_Reporting_App_Server
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1030, 612);
+            this.panel8.Size = new System.Drawing.Size(1030, 684);
             this.panel8.TabIndex = 96;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button4);
+            this.panel13.Controls.Add(this.c1Button7);
+            this.panel13.Controls.Add(this.c1Button8);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel13.Location = new System.Drawing.Point(0, 653);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1030, 31);
+            this.panel13.TabIndex = 126;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(989, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(37, 35);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // c1Button7
+            // 
+            this.c1Button7.ForeColor = System.Drawing.Color.Black;
+            this.c1Button7.Location = new System.Drawing.Point(135, 4);
+            this.c1Button7.Name = "c1Button7";
+            this.c1Button7.Size = new System.Drawing.Size(75, 23);
+            this.c1Button7.TabIndex = 3;
+            this.c1Button7.Text = "تعديل";
+            this.c1Button7.UseVisualStyleBackColor = true;
+            // 
+            // c1Button8
+            // 
+            this.c1Button8.ForeColor = System.Drawing.Color.Black;
+            this.c1Button8.Location = new System.Drawing.Point(37, 4);
+            this.c1Button8.Name = "c1Button8";
+            this.c1Button8.Size = new System.Drawing.Size(75, 23);
+            this.c1Button8.TabIndex = 2;
+            this.c1Button8.Text = "حذف";
+            this.c1Button8.UseVisualStyleBackColor = true;
             // 
             // c1DockingTab2
             // 
@@ -597,7 +634,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.c1DockingTab2.RightToLeftLayout = true;
             this.c1DockingTab2.SelectedIndex = 6;
-            this.c1DockingTab2.Size = new System.Drawing.Size(1030, 612);
+            this.c1DockingTab2.Size = new System.Drawing.Size(1030, 684);
             this.c1DockingTab2.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTab2.TabIndex = 97;
             this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Sloping;
@@ -613,7 +650,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage2.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage2.Name = "c1DockingTabPage2";
             this.c1DockingTabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.c1DockingTabPage2.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage2.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage2.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage2.TabIndex = 0;
@@ -1025,7 +1062,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage3.ImageIndex = 13;
             this.c1DockingTabPage3.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage3.Name = "c1DockingTabPage3";
-            this.c1DockingTabPage3.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage3.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage3.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage3.TabIndex = 1;
@@ -1222,7 +1259,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage4.ImageIndex = 24;
             this.c1DockingTabPage4.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage4.Name = "c1DockingTabPage4";
-            this.c1DockingTabPage4.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage4.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage4.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage4.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage4.TabIndex = 2;
@@ -1266,7 +1303,7 @@ namespace Incident_Reporting_App_Server
             this.richTextBox38.Name = "richTextBox38";
             this.richTextBox38.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.richTextBox38.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBox38.Size = new System.Drawing.Size(390, 498);
+            this.richTextBox38.Size = new System.Drawing.Size(390, 570);
             this.richTextBox38.TabIndex = 100;
             this.richTextBox38.Text = "";
             // 
@@ -1282,7 +1319,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage5.ImageIndex = 25;
             this.c1DockingTabPage5.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage5.Name = "c1DockingTabPage5";
-            this.c1DockingTabPage5.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage5.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage5.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage5.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage5.TabIndex = 3;
@@ -1358,10 +1395,10 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage6.Controls.Add(this.richTextBox42);
             this.c1DockingTabPage6.Controls.Add(this.label44);
             this.c1DockingTabPage6.Controls.Add(this.comboBox5);
-            this.c1DockingTabPage6.ImageIndex = 8;
+            this.c1DockingTabPage6.ImageIndex = 30;
             this.c1DockingTabPage6.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage6.Name = "c1DockingTabPage6";
-            this.c1DockingTabPage6.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage6.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage6.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage6.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage6.TabIndex = 4;
@@ -1500,7 +1537,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage7.ImageIndex = 20;
             this.c1DockingTabPage7.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage7.Name = "c1DockingTabPage7";
-            this.c1DockingTabPage7.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage7.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage7.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage7.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage7.TabIndex = 5;
@@ -1609,7 +1646,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage8.ImageIndex = 23;
             this.c1DockingTabPage8.Location = new System.Drawing.Point(1, 29);
             this.c1DockingTabPage8.Name = "c1DockingTabPage8";
-            this.c1DockingTabPage8.Size = new System.Drawing.Size(1028, 582);
+            this.c1DockingTabPage8.Size = new System.Drawing.Size(1028, 654);
             this.c1DockingTabPage8.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage8.TabForeColorSelected = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage8.TabIndex = 6;
@@ -1657,7 +1694,7 @@ namespace Incident_Reporting_App_Server
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1028, 582);
+            this.dataGridView2.Size = new System.Drawing.Size(1028, 654);
             this.dataGridView2.TabIndex = 26;
             // 
             // dataGridViewTextBoxColumn5
@@ -1738,7 +1775,7 @@ namespace Incident_Reporting_App_Server
             // 
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle22.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle22.NullValue")));
+            dataGridViewCellStyle22.NullValue = null;
             this.Column16.DefaultCellStyle = dataGridViewCellStyle22;
             this.Column16.HeaderText = "صورة المنشأة";
             this.Column16.Name = "Column16";
@@ -1785,7 +1822,7 @@ namespace Incident_Reporting_App_Server
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView1.Location = new System.Drawing.Point(1030, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(169, 612);
+            this.treeView1.Size = new System.Drawing.Size(169, 684);
             this.treeView1.TabIndex = 95;
             // 
             // c1DockingTabPage9
@@ -1799,7 +1836,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage9.ImageIndex = 0;
             this.c1DockingTabPage9.Location = new System.Drawing.Point(0, 28);
             this.c1DockingTabPage9.Name = "c1DockingTabPage9";
-            this.c1DockingTabPage9.Size = new System.Drawing.Size(1199, 612);
+            this.c1DockingTabPage9.Size = new System.Drawing.Size(1199, 684);
             this.c1DockingTabPage9.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage9.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage9.TabForeColor = System.Drawing.Color.DeepSkyBlue;
@@ -1813,7 +1850,7 @@ namespace Incident_Reporting_App_Server
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1030, 612);
+            this.panel6.Size = new System.Drawing.Size(1030, 684);
             this.panel6.TabIndex = 97;
             // 
             // c1DockingTab3
@@ -1828,7 +1865,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab3.Name = "c1DockingTab3";
             this.c1DockingTab3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.c1DockingTab3.SelectedIndex = 2;
-            this.c1DockingTab3.Size = new System.Drawing.Size(1030, 612);
+            this.c1DockingTab3.Size = new System.Drawing.Size(1030, 684);
             this.c1DockingTab3.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTab3.TabIndex = 98;
             this.c1DockingTab3.TabStyle = C1.Win.C1Command.TabStyleEnum.Sloping;
@@ -1845,7 +1882,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage12.ImageIndex = 5;
             this.c1DockingTabPage12.Location = new System.Drawing.Point(1, 25);
             this.c1DockingTabPage12.Name = "c1DockingTabPage12";
-            this.c1DockingTabPage12.Size = new System.Drawing.Size(1028, 586);
+            this.c1DockingTabPage12.Size = new System.Drawing.Size(1028, 658);
             this.c1DockingTabPage12.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage12.TabForeColor = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage12.TabForeColorSelected = System.Drawing.Color.Black;
@@ -2167,6 +2204,239 @@ namespace Incident_Reporting_App_Server
             this.label40.TabIndex = 4;
             this.label40.Text = "اختار رقم النقطة:";
             // 
+            // c1DockingTabPage13
+            // 
+            this.c1DockingTabPage13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTabPage13.Controls.Add(this.label60);
+            this.c1DockingTabPage13.Controls.Add(this.label59);
+            this.c1DockingTabPage13.Controls.Add(this.label58);
+            this.c1DockingTabPage13.Controls.Add(this.label57);
+            this.c1DockingTabPage13.Controls.Add(this.richTextBox32);
+            this.c1DockingTabPage13.Controls.Add(this.richTextBox21);
+            this.c1DockingTabPage13.Controls.Add(this.richTextBox28);
+            this.c1DockingTabPage13.Controls.Add(this.richTextBox29);
+            this.c1DockingTabPage13.Controls.Add(this.richTextBox30);
+            this.c1DockingTabPage13.Controls.Add(this.comboBox15);
+            this.c1DockingTabPage13.Controls.Add(this.comboBox14);
+            this.c1DockingTabPage13.Controls.Add(this.comboBox13);
+            this.c1DockingTabPage13.Controls.Add(this.label49);
+            this.c1DockingTabPage13.Controls.Add(this.label50);
+            this.c1DockingTabPage13.Controls.Add(this.label51);
+            this.c1DockingTabPage13.Controls.Add(this.label56);
+            this.c1DockingTabPage13.ImageIndex = 2;
+            this.c1DockingTabPage13.Location = new System.Drawing.Point(1, 25);
+            this.c1DockingTabPage13.Name = "c1DockingTabPage13";
+            this.c1DockingTabPage13.Size = new System.Drawing.Size(1028, 658);
+            this.c1DockingTabPage13.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTabPage13.TabForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.c1DockingTabPage13.TabForeColorSelected = System.Drawing.Color.Black;
+            this.c1DockingTabPage13.TabIndex = 1;
+            this.c1DockingTabPage13.Text = "حنفيات الحريق";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(900, 305);
+            this.label60.Name = "label60";
+            this.label60.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label60.Size = new System.Drawing.Size(74, 20);
+            this.label60.TabIndex = 40;
+            this.label60.Text = "علامة مميزة:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(900, 260);
+            this.label59.Name = "label59";
+            this.label59.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label59.Size = new System.Drawing.Size(49, 20);
+            this.label59.TabIndex = 39;
+            this.label59.Text = "العنوان:";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(622, 216);
+            this.label58.Name = "label58";
+            this.label58.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label58.Size = new System.Drawing.Size(42, 20);
+            this.label58.TabIndex = 38;
+            this.label58.Text = "الحالة:";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(898, 69);
+            this.label57.Name = "label57";
+            this.label57.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label57.Size = new System.Drawing.Size(69, 20);
+            this.label57.TabIndex = 37;
+            this.label57.Text = "رقم الحنفية:";
+            // 
+            // richTextBox32
+            // 
+            this.richTextBox32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox32.Location = new System.Drawing.Point(559, 358);
+            this.richTextBox32.MaxLength = 300;
+            this.richTextBox32.Name = "richTextBox32";
+            this.richTextBox32.Size = new System.Drawing.Size(319, 70);
+            this.richTextBox32.TabIndex = 36;
+            this.richTextBox32.Text = "";
+            // 
+            // richTextBox21
+            // 
+            this.richTextBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox21.ForeColor = System.Drawing.Color.White;
+            this.richTextBox21.Location = new System.Drawing.Point(614, 107);
+            this.richTextBox21.MaxLength = 300;
+            this.richTextBox21.Name = "richTextBox21";
+            this.richTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.richTextBox21.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox21.Size = new System.Drawing.Size(269, 28);
+            this.richTextBox21.TabIndex = 32;
+            this.richTextBox21.Text = "";
+            // 
+            // richTextBox28
+            // 
+            this.richTextBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox28.Location = new System.Drawing.Point(609, 262);
+            this.richTextBox28.MaxLength = 300;
+            this.richTextBox28.Name = "richTextBox28";
+            this.richTextBox28.Size = new System.Drawing.Size(269, 28);
+            this.richTextBox28.TabIndex = 31;
+            this.richTextBox28.Text = "";
+            // 
+            // richTextBox29
+            // 
+            this.richTextBox29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox29.ForeColor = System.Drawing.Color.White;
+            this.richTextBox29.Location = new System.Drawing.Point(784, 61);
+            this.richTextBox29.MaxLength = 300;
+            this.richTextBox29.Name = "richTextBox29";
+            this.richTextBox29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.richTextBox29.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox29.Size = new System.Drawing.Size(99, 28);
+            this.richTextBox29.TabIndex = 30;
+            this.richTextBox29.Text = "";
+            // 
+            // richTextBox30
+            // 
+            this.richTextBox30.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.richTextBox30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox30.ForeColor = System.Drawing.Color.White;
+            this.richTextBox30.Location = new System.Drawing.Point(609, 307);
+            this.richTextBox30.MaxLength = 300;
+            this.richTextBox30.Name = "richTextBox30";
+            this.richTextBox30.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox30.Size = new System.Drawing.Size(269, 28);
+            this.richTextBox30.TabIndex = 29;
+            this.richTextBox30.Text = "";
+            // 
+            // comboBox15
+            // 
+            this.comboBox15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox15.ForeColor = System.Drawing.Color.White;
+            this.comboBox15.FormattingEnabled = true;
+            this.comboBox15.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.comboBox15.Location = new System.Drawing.Point(379, 210);
+            this.comboBox15.MaxLength = 200;
+            this.comboBox15.Name = "comboBox15";
+            this.comboBox15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox15.Size = new System.Drawing.Size(227, 32);
+            this.comboBox15.TabIndex = 35;
+            // 
+            // comboBox14
+            // 
+            this.comboBox14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox14.ForeColor = System.Drawing.Color.White;
+            this.comboBox14.FormattingEnabled = true;
+            this.comboBox14.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.comboBox14.Location = new System.Drawing.Point(719, 210);
+            this.comboBox14.MaxLength = 200;
+            this.comboBox14.Name = "comboBox14";
+            this.comboBox14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox14.Size = new System.Drawing.Size(159, 32);
+            this.comboBox14.TabIndex = 34;
+            // 
+            // comboBox13
+            // 
+            this.comboBox13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox13.ForeColor = System.Drawing.Color.White;
+            this.comboBox13.FormattingEnabled = true;
+            this.comboBox13.Items.AddRange(new object[] {
+            "القاهرة الجديدة",
+            "شرق",
+            "غرب",
+            "جنوب"});
+            this.comboBox13.Location = new System.Drawing.Point(609, 159);
+            this.comboBox13.MaxLength = 200;
+            this.comboBox13.Name = "comboBox13";
+            this.comboBox13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox13.Size = new System.Drawing.Size(269, 32);
+            this.comboBox13.TabIndex = 33;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(900, 375);
+            this.label49.Name = "label49";
+            this.label49.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label49.Size = new System.Drawing.Size(95, 20);
+            this.label49.TabIndex = 28;
+            this.label49.Text = "معلومات إضافية:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(900, 216);
+            this.label50.Name = "label50";
+            this.label50.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label50.Size = new System.Drawing.Size(40, 20);
+            this.label50.TabIndex = 27;
+            this.label50.Text = "النوع:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(900, 165);
+            this.label51.Name = "label51";
+            this.label51.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label51.Size = new System.Drawing.Size(47, 20);
+            this.label51.TabIndex = 26;
+            this.label51.Text = "القطاع:";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(900, 115);
+            this.label56.Name = "label56";
+            this.label56.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label56.Size = new System.Drawing.Size(50, 20);
+            this.label56.TabIndex = 25;
+            this.label56.Text = "المنطقة:";
+            // 
             // c1DockingTabPage14
             // 
             this.c1DockingTabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
@@ -2186,7 +2456,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage14.ImageIndex = 1;
             this.c1DockingTabPage14.Location = new System.Drawing.Point(1, 25);
             this.c1DockingTabPage14.Name = "c1DockingTabPage14";
-            this.c1DockingTabPage14.Size = new System.Drawing.Size(1028, 586);
+            this.c1DockingTabPage14.Size = new System.Drawing.Size(1028, 658);
             this.c1DockingTabPage14.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage14.TabForeColor = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage14.TabForeColorSelected = System.Drawing.Color.Black;
@@ -2199,7 +2469,7 @@ namespace Incident_Reporting_App_Server
             this.panel12.Controls.Add(this.c1Button5);
             this.panel12.Controls.Add(this.c1Button6);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 555);
+            this.panel12.Location = new System.Drawing.Point(0, 627);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1028, 31);
             this.panel12.TabIndex = 125;
@@ -2290,7 +2560,7 @@ namespace Incident_Reporting_App_Server
             "شرق",
             "غرب",
             "جنوب"});
-            this.comboBox18.Location = new System.Drawing.Point(357, 227);
+            this.comboBox18.Location = new System.Drawing.Point(357, 220);
             this.comboBox18.MaxLength = 200;
             this.comboBox18.Name = "comboBox18";
             this.comboBox18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2338,7 +2608,7 @@ namespace Incident_Reporting_App_Server
             this.richTextBox37.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.richTextBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.richTextBox37.ForeColor = System.Drawing.Color.White;
-            this.richTextBox37.Location = new System.Drawing.Point(357, 276);
+            this.richTextBox37.Location = new System.Drawing.Point(357, 269);
             this.richTextBox37.MaxLength = 300;
             this.richTextBox37.Name = "richTextBox37";
             this.richTextBox37.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -2396,7 +2666,7 @@ namespace Incident_Reporting_App_Server
             this.treeView2.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView2.Location = new System.Drawing.Point(1030, 0);
             this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(169, 612);
+            this.treeView2.Size = new System.Drawing.Size(169, 684);
             this.treeView2.TabIndex = 96;
             this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
             // 
@@ -2408,7 +2678,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage11.ImageIndex = 29;
             this.c1DockingTabPage11.Location = new System.Drawing.Point(0, 28);
             this.c1DockingTabPage11.Name = "c1DockingTabPage11";
-            this.c1DockingTabPage11.Size = new System.Drawing.Size(1199, 612);
+            this.c1DockingTabPage11.Size = new System.Drawing.Size(1199, 684);
             this.c1DockingTabPage11.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage11.TabForeColor = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage11.TabForeColorSelected = System.Drawing.Color.Black;
@@ -2430,8 +2700,8 @@ namespace Incident_Reporting_App_Server
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1030, 612);
-            this.panel9.TabIndex = 99;
+            this.panel9.Size = new System.Drawing.Size(1030, 684);
+            this.panel9.TabIndex = 100;
             // 
             // panel11
             // 
@@ -2439,7 +2709,7 @@ namespace Incident_Reporting_App_Server
             this.panel11.Controls.Add(this.c1Button3);
             this.panel11.Controls.Add(this.c1Button4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(0, 579);
+            this.panel11.Location = new System.Drawing.Point(0, 651);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1028, 31);
             this.panel11.TabIndex = 125;
@@ -2577,7 +2847,7 @@ namespace Incident_Reporting_App_Server
             this.treeView4.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView4.Location = new System.Drawing.Point(1030, 0);
             this.treeView4.Name = "treeView4";
-            this.treeView4.Size = new System.Drawing.Size(169, 612);
+            this.treeView4.Size = new System.Drawing.Size(169, 684);
             this.treeView4.TabIndex = 97;
             // 
             // c1DockingTabPage10
@@ -2588,7 +2858,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage10.ImageIndex = 30;
             this.c1DockingTabPage10.Location = new System.Drawing.Point(0, 28);
             this.c1DockingTabPage10.Name = "c1DockingTabPage10";
-            this.c1DockingTabPage10.Size = new System.Drawing.Size(1199, 612);
+            this.c1DockingTabPage10.Size = new System.Drawing.Size(1199, 684);
             this.c1DockingTabPage10.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.c1DockingTabPage10.TabForeColor = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage10.TabIndex = 4;
@@ -2597,7 +2867,6 @@ namespace Incident_Reporting_App_Server
             // panel2
             // 
             this.panel2.Controls.Add(this.panel14);
-            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.label36);
             this.panel2.Controls.Add(this.label37);
             this.panel2.Controls.Add(this.label38);
@@ -2610,7 +2879,7 @@ namespace Incident_Reporting_App_Server
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1030, 612);
+            this.panel2.Size = new System.Drawing.Size(1030, 684);
             this.panel2.TabIndex = 100;
             // 
             // panel14
@@ -2619,7 +2888,7 @@ namespace Incident_Reporting_App_Server
             this.panel14.Controls.Add(this.c1Button9);
             this.panel14.Controls.Add(this.c1Button10);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 581);
+            this.panel14.Location = new System.Drawing.Point(0, 653);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(1030, 31);
             this.panel14.TabIndex = 125;
@@ -2654,48 +2923,6 @@ namespace Incident_Reporting_App_Server
             this.c1Button10.TabIndex = 2;
             this.c1Button10.Text = "حذف";
             this.c1Button10.UseVisualStyleBackColor = true;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.button1);
-            this.panel10.Controls.Add(this.c1Button2);
-            this.panel10.Controls.Add(this.c1Button1);
-            this.panel10.Location = new System.Drawing.Point(-1, 607);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1029, 31);
-            this.panel10.TabIndex = 124;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(989, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 35);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // c1Button2
-            // 
-            this.c1Button2.ForeColor = System.Drawing.Color.Black;
-            this.c1Button2.Location = new System.Drawing.Point(135, 4);
-            this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(75, 23);
-            this.c1Button2.TabIndex = 3;
-            this.c1Button2.Text = "تعديل";
-            this.c1Button2.UseVisualStyleBackColor = true;
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.ForeColor = System.Drawing.Color.Black;
-            this.c1Button1.Location = new System.Drawing.Point(37, 4);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(75, 23);
-            this.c1Button1.TabIndex = 2;
-            this.c1Button1.Text = "حذف";
-            this.c1Button1.UseVisualStyleBackColor = true;
             // 
             // label36
             // 
@@ -2799,290 +3026,15 @@ namespace Incident_Reporting_App_Server
             this.treeView3.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView3.Location = new System.Drawing.Point(1030, 0);
             this.treeView3.Name = "treeView3";
-            this.treeView3.Size = new System.Drawing.Size(169, 612);
+            this.treeView3.Size = new System.Drawing.Size(169, 684);
             this.treeView3.TabIndex = 98;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(900, 115);
-            this.label56.Name = "label56";
-            this.label56.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label56.Size = new System.Drawing.Size(50, 20);
-            this.label56.TabIndex = 25;
-            this.label56.Text = "المنطقة:";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(900, 165);
-            this.label51.Name = "label51";
-            this.label51.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label51.Size = new System.Drawing.Size(47, 20);
-            this.label51.TabIndex = 26;
-            this.label51.Text = "القطاع:";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(900, 216);
-            this.label50.Name = "label50";
-            this.label50.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label50.Size = new System.Drawing.Size(40, 20);
-            this.label50.TabIndex = 27;
-            this.label50.Text = "النوع:";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(900, 375);
-            this.label49.Name = "label49";
-            this.label49.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label49.Size = new System.Drawing.Size(95, 20);
-            this.label49.TabIndex = 28;
-            this.label49.Text = "معلومات إضافية:";
-            // 
-            // comboBox13
-            // 
-            this.comboBox13.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.comboBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox13.ForeColor = System.Drawing.Color.White;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Items.AddRange(new object[] {
-            "القاهرة الجديدة",
-            "شرق",
-            "غرب",
-            "جنوب"});
-            this.comboBox13.Location = new System.Drawing.Point(609, 159);
-            this.comboBox13.MaxLength = 200;
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox13.Size = new System.Drawing.Size(269, 32);
-            this.comboBox13.TabIndex = 33;
-            // 
-            // comboBox14
-            // 
-            this.comboBox14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.comboBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox14.ForeColor = System.Drawing.Color.White;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Items.AddRange(new object[] {
-            "القاهرة الجديدة",
-            "شرق",
-            "غرب",
-            "جنوب"});
-            this.comboBox14.Location = new System.Drawing.Point(719, 210);
-            this.comboBox14.MaxLength = 200;
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox14.Size = new System.Drawing.Size(159, 32);
-            this.comboBox14.TabIndex = 34;
-            // 
-            // comboBox15
-            // 
-            this.comboBox15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.comboBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox15.ForeColor = System.Drawing.Color.White;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Items.AddRange(new object[] {
-            "القاهرة الجديدة",
-            "شرق",
-            "غرب",
-            "جنوب"});
-            this.comboBox15.Location = new System.Drawing.Point(389, 210);
-            this.comboBox15.MaxLength = 200;
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox15.Size = new System.Drawing.Size(227, 32);
-            this.comboBox15.TabIndex = 35;
-            // 
-            // richTextBox30
-            // 
-            this.richTextBox30.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.richTextBox30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.richTextBox30.ForeColor = System.Drawing.Color.White;
-            this.richTextBox30.Location = new System.Drawing.Point(609, 307);
-            this.richTextBox30.MaxLength = 300;
-            this.richTextBox30.Name = "richTextBox30";
-            this.richTextBox30.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox30.Size = new System.Drawing.Size(269, 28);
-            this.richTextBox30.TabIndex = 29;
-            this.richTextBox30.Text = "";
-            // 
-            // richTextBox29
-            // 
-            this.richTextBox29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.richTextBox29.ForeColor = System.Drawing.Color.White;
-            this.richTextBox29.Location = new System.Drawing.Point(784, 61);
-            this.richTextBox29.MaxLength = 300;
-            this.richTextBox29.Name = "richTextBox29";
-            this.richTextBox29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.richTextBox29.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox29.Size = new System.Drawing.Size(99, 28);
-            this.richTextBox29.TabIndex = 30;
-            this.richTextBox29.Text = "";
-            // 
-            // richTextBox28
-            // 
-            this.richTextBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.richTextBox28.Location = new System.Drawing.Point(609, 262);
-            this.richTextBox28.MaxLength = 300;
-            this.richTextBox28.Name = "richTextBox28";
-            this.richTextBox28.Size = new System.Drawing.Size(269, 28);
-            this.richTextBox28.TabIndex = 31;
-            this.richTextBox28.Text = "";
-            // 
-            // richTextBox21
-            // 
-            this.richTextBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.richTextBox21.ForeColor = System.Drawing.Color.White;
-            this.richTextBox21.Location = new System.Drawing.Point(614, 107);
-            this.richTextBox21.MaxLength = 300;
-            this.richTextBox21.Name = "richTextBox21";
-            this.richTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.richTextBox21.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox21.Size = new System.Drawing.Size(269, 28);
-            this.richTextBox21.TabIndex = 32;
-            this.richTextBox21.Text = "";
-            // 
-            // richTextBox32
-            // 
-            this.richTextBox32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.richTextBox32.Location = new System.Drawing.Point(559, 358);
-            this.richTextBox32.MaxLength = 300;
-            this.richTextBox32.Name = "richTextBox32";
-            this.richTextBox32.Size = new System.Drawing.Size(319, 70);
-            this.richTextBox32.TabIndex = 36;
-            this.richTextBox32.Text = "";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(898, 69);
-            this.label57.Name = "label57";
-            this.label57.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label57.Size = new System.Drawing.Size(69, 20);
-            this.label57.TabIndex = 37;
-            this.label57.Text = "رقم الحنفية:";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(622, 216);
-            this.label58.Name = "label58";
-            this.label58.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label58.Size = new System.Drawing.Size(42, 20);
-            this.label58.TabIndex = 38;
-            this.label58.Text = "الحالة:";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(900, 260);
-            this.label59.Name = "label59";
-            this.label59.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label59.Size = new System.Drawing.Size(49, 20);
-            this.label59.TabIndex = 39;
-            this.label59.Text = "العنوان:";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(900, 305);
-            this.label60.Name = "label60";
-            this.label60.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label60.Size = new System.Drawing.Size(74, 20);
-            this.label60.TabIndex = 40;
-            this.label60.Text = "علامة مميزة:";
-            // 
-            // c1DockingTabPage13
-            // 
-            this.c1DockingTabPage13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.c1DockingTabPage13.Controls.Add(this.label60);
-            this.c1DockingTabPage13.Controls.Add(this.label59);
-            this.c1DockingTabPage13.Controls.Add(this.label58);
-            this.c1DockingTabPage13.Controls.Add(this.label57);
-            this.c1DockingTabPage13.Controls.Add(this.richTextBox32);
-            this.c1DockingTabPage13.Controls.Add(this.richTextBox21);
-            this.c1DockingTabPage13.Controls.Add(this.richTextBox28);
-            this.c1DockingTabPage13.Controls.Add(this.richTextBox29);
-            this.c1DockingTabPage13.Controls.Add(this.richTextBox30);
-            this.c1DockingTabPage13.Controls.Add(this.comboBox15);
-            this.c1DockingTabPage13.Controls.Add(this.comboBox14);
-            this.c1DockingTabPage13.Controls.Add(this.comboBox13);
-            this.c1DockingTabPage13.Controls.Add(this.label49);
-            this.c1DockingTabPage13.Controls.Add(this.label50);
-            this.c1DockingTabPage13.Controls.Add(this.label51);
-            this.c1DockingTabPage13.Controls.Add(this.label56);
-            this.c1DockingTabPage13.ImageIndex = 2;
-            this.c1DockingTabPage13.Location = new System.Drawing.Point(1, 25);
-            this.c1DockingTabPage13.Name = "c1DockingTabPage13";
-            this.c1DockingTabPage13.Size = new System.Drawing.Size(1028, 586);
-            this.c1DockingTabPage13.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.c1DockingTabPage13.TabForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.c1DockingTabPage13.TabForeColorSelected = System.Drawing.Color.Black;
-            this.c1DockingTabPage13.TabIndex = 1;
-            this.c1DockingTabPage13.Text = "حنفيات الحريق";
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.button4);
-            this.panel13.Controls.Add(this.c1Button7);
-            this.panel13.Controls.Add(this.c1Button8);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(0, 581);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1030, 31);
-            this.panel13.TabIndex = 126;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(989, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(37, 35);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // c1Button7
-            // 
-            this.c1Button7.ForeColor = System.Drawing.Color.Black;
-            this.c1Button7.Location = new System.Drawing.Point(135, 4);
-            this.c1Button7.Name = "c1Button7";
-            this.c1Button7.Size = new System.Drawing.Size(75, 23);
-            this.c1Button7.TabIndex = 3;
-            this.c1Button7.Text = "تعديل";
-            this.c1Button7.UseVisualStyleBackColor = true;
-            // 
-            // c1Button8
-            // 
-            this.c1Button8.ForeColor = System.Drawing.Color.Black;
-            this.c1Button8.Location = new System.Drawing.Point(37, 4);
-            this.c1Button8.Name = "c1Button8";
-            this.c1Button8.Size = new System.Drawing.Size(75, 23);
-            this.c1Button8.TabIndex = 2;
-            this.c1Button8.Text = "حذف";
-            this.c1Button8.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1370, 640);
+            this.ClientSize = new System.Drawing.Size(1370, 712);
             this.Controls.Add(this.c1DockingTab1);
             this.Controls.Add(this.FFplacesCB);
             this.Controls.Add(this.FFpumpCB);
@@ -3098,6 +3050,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTab1.ResumeLayout(false);
             this.c1DockingTabPage1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
             this.c1DockingTab2.ResumeLayout(false);
             this.c1DockingTabPage2.ResumeLayout(false);
@@ -3134,6 +3087,8 @@ namespace Incident_Reporting_App_Server
             this.groupBox3.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.c1DockingTabPage13.ResumeLayout(false);
+            this.c1DockingTabPage13.PerformLayout();
             this.c1DockingTabPage14.ResumeLayout(false);
             this.c1DockingTabPage14.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -3145,10 +3100,6 @@ namespace Incident_Reporting_App_Server
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel14.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.c1DockingTabPage13.ResumeLayout(false);
-            this.c1DockingTabPage13.PerformLayout();
-            this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3324,27 +3275,10 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.RichTextBox richTextBox15;
         private System.Windows.Forms.RichTextBox richTextBox16;
         private System.Windows.Forms.RichTextBox richTextBox17;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.RichTextBox richTextBox13;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.RichTextBox richTextBox10;
-        private System.Windows.Forms.Panel panel10;
-        private C1.Win.C1Input.C1Button c1Button2;
-        private C1.Win.C1Input.C1Button c1Button1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button button3;
         private C1.Win.C1Input.C1Button c1Button5;
         private C1.Win.C1Input.C1Button c1Button6;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button button2;
-        private C1.Win.C1Input.C1Button c1Button3;
-        private C1.Win.C1Input.C1Button c1Button4;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button5;
         private C1.Win.C1Input.C1Button c1Button9;
@@ -3372,5 +3306,18 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.Button button4;
         private C1.Win.C1Input.C1Button c1Button7;
         private C1.Win.C1Input.C1Button c1Button8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button2;
+        private C1.Win.C1Input.C1Button c1Button3;
+        private C1.Win.C1Input.C1Button c1Button4;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.RichTextBox richTextBox13;
+        private System.Windows.Forms.RichTextBox richTextBox12;
+        private System.Windows.Forms.RichTextBox richTextBox11;
+        private System.Windows.Forms.RichTextBox richTextBox10;
     }
 }

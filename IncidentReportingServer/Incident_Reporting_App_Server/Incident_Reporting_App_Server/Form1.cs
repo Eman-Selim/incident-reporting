@@ -87,32 +87,7 @@ namespace Incident_Reporting_App_Server
             panel4.BackgroundImage = Properties.Resources.UsersN1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Login_txt_Username.Text == "" && Login_txt_Password.Text == "")
-                {
-                    log_Handler("check all required data");
-                }
-                else if ((Login_txt_Username.Text == "" || Login_txt_Password.Text == ""))
-                {
-                    if ((Login_txt_Username.Text == ""))
-                        log_Handler("Please Enter your User name");
-                    if ((Login_txt_Password.Text == ""))
-                        log_Handler("Please Enter your Password");
-                }
-                else
-                {
-                    
-                    server_Class_Obj.Start_Server(Login_txt_Username.Text, Login_txt_Password.Text);
-                }
-            }
-            catch (Exception exception1)
-            {
-                Auditing.Error(exception1.Message);
-            }
-        }
+      
 
         private void txt_log_TextChanged(object sender, EventArgs e)
         {
@@ -142,6 +117,33 @@ namespace Incident_Reporting_App_Server
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Login_txt_Username.Text == "" && Login_txt_Password.Text == "")
+                {
+                    log_Handler("check all required data");
+                }
+                else if ((Login_txt_Username.Text == "" || Login_txt_Password.Text == ""))
+                {
+                    if ((Login_txt_Username.Text == ""))
+                        log_Handler("Please Enter your User name");
+                    if ((Login_txt_Password.Text == ""))
+                        log_Handler("Please Enter your Password");
+                }
+                else
+                {
+
+                    server_Class_Obj.Start_Server(Login_txt_Username.Text, Login_txt_Password.Text);
+                }
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
         }
     }
 }
