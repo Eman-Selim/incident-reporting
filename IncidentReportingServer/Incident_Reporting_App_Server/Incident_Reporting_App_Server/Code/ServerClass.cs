@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Incident_Reporting_App_Server.localhost;
 
 namespace Incident_Reporting_App_Server.Code
 {
@@ -38,6 +39,52 @@ namespace Incident_Reporting_App_Server.Code
                     Form2 f2 = new Form2();
                     f2.Show();
                 }
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+
+        public void Add_Account(Users user)
+        {
+            try
+            {
+                IncidentReporting_WS_Obj.Users_Insert(this.UserName, this.Password, user);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+
+        public void Add_Company(Company company)
+        {
+            try
+            {
+                IncidentReporting_WS_Obj.Company_Insert(this.UserName, this.Password, company);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+        public void Add_DangerousPlaces(DangerousPlaces place)
+        {
+            try
+            {
+                IncidentReporting_WS_Obj.DangerousPlaces_Insert(this.UserName, this.Password, place);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+        public void Add_Floor (Floors floor)
+        {
+            try
+            {
+                IncidentReporting_WS_Obj.Floors_Insert(this.UserName, this.Password, floor);
             }
             catch (Exception exception1)
             {

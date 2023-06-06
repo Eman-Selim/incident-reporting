@@ -125,11 +125,12 @@ namespace Incident_Reporting_App_Server
         {
             try
             {
-                Company company = null;
-                company.Name = companyName.Text;
+                Company company;
+                if(companyName.Text!=null)
+                    company.Name = companyName.Text;
                 company.Address = address.Text;
                 company.LandlinePhoneNumber = landlinePhone.Text;
-                company.BackCompanyBusiness =;
+                //company.BackCompanyBusiness =;
                 company.BuildingsNumber = Convert.ToInt32( BuildingsNumber.Text);
                 company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
                 company.GasTrapLocation = GasTrapLocation.Text;
@@ -142,11 +143,36 @@ namespace Incident_Reporting_App_Server
                 place.Location = DangerouseLocation.Text;
                 place.HazardousSubstance = HazardousSubstance.Text;
                 place.FireMediator = FireMediator.Text;
+
+                server_Class_Obj.Add_DangerousPlaces(place);
+
+                Floors floor = null;
+                floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
+                floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
+                floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
+                floor.PowderExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[3].Value;
+                floor.CarbonDioxideExtinguishersNumbers= (string)dataGridView1.CurrentRow.Cells[4].Value;
+                floor.CarbonDioxideExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[5].Value;
+                floor.FoamExtinguishersNumbers= (string)dataGridView1.CurrentRow.Cells[6].Value;
+                floor.FoamExtinguishersWeight= (int)dataGridView1.CurrentRow.Cells[7].Value;
+
+                server_Class_Obj.Add_Floor(floor);
+
+                //for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
+                //{
+                //    for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
+                //    {
+                //        string value = dataGridView1.Rows[rows].Cells[col].Value.ToString();
+
+                //    }
+                //}
             }
             catch (Exception exception1)
             {
                 Auditing.Error(exception1.Message);
             }
         }
+
+      
     }
 }
