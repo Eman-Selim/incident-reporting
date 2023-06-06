@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Incident_Reporting_App_Server.Code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Incident_Reporting_App_Server.localhost;
+using SDS_Remote_Control_Application_Server.Code;
 
 namespace Incident_Reporting_App_Server
 {
     public partial class Form2 : Form
     {
         int menu_Selected_Index = 0;
+        ServerClass server_Class_Obj = new ServerClass();
         public Form2()
         {
             InitializeComponent();
@@ -90,6 +94,59 @@ namespace Incident_Reporting_App_Server
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Users user=null;
+                user.Username = accountName.Text;
+                if (string.Compare(accountPassword.Text, ReAccountPassword.Text)==0)
+                {
+                    user.Password = accountPassword.Text;
+                }
+
+                user.Info = AccountInfo.Text;
+                server_Class_Obj.Add_Account(user);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+
+        private void c1Button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Company company = null;
+                company.Name = companyName.Text;
+                company.Address = address.Text;
+                company.LandlinePhoneNumber = landlinePhone.Text;
+                company.BackCompanyBusiness =;
+                company.BuildingsNumber = Convert.ToInt32( BuildingsNumber.Text);
+                company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
+                company.GasTrapLocation = GasTrapLocation.Text;
+                company.OxygenTrapLocation = OxygenTrapLocation.Text;
+                
+               
+                server_Class_Obj.Add_Company(company);
+
+                DangerousPlaces place = null;
+                place.Location = DangerouseLocation.Text;
+                place.HazardousSubstance = HazardousSubstance.Text;
+                place.FireMediator = FireMediator.Text;
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Incident_Reporting_App_Server
             this.Login_txt_Username = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.Login_txt_Password = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.txt_log = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
@@ -149,7 +149,7 @@ namespace Incident_Reporting_App_Server
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.fleet_login_pnl_Username, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.progressBar1, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.txt_log, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(160, 115);
@@ -218,14 +218,14 @@ namespace Incident_Reporting_App_Server
             this.Login_txt_Password.TabIndex = 100;
             this.Login_txt_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // progressBar1
+            // txt_log
             // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.progressBar1.Location = new System.Drawing.Point(3, 101);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(145, 13);
-            this.progressBar1.TabIndex = 101;
+            this.txt_log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_log.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.txt_log.Location = new System.Drawing.Point(3, 101);
+            this.txt_log.Name = "txt_log";
+            this.txt_log.Size = new System.Drawing.Size(145, 13);
+            this.txt_log.TabIndex = 101;
             // 
             // button1
             // 
@@ -284,6 +284,6 @@ namespace Incident_Reporting_App_Server
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox Login_txt_Password;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar txt_log;
     }
 }

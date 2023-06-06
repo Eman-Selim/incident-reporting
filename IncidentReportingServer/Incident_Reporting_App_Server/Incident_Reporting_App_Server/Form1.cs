@@ -28,7 +28,7 @@ namespace Incident_Reporting_App_Server
                 if (true)
                 {
                     txt_log_Update_Delegate method = new txt_log_Update_Delegate(this.log_Handler);
-                   // this.txt_log.Invoke(method, new object[] { text });
+                    this.txt_log.Invoke(method, new object[] { text });
                 }
                 else
                 {
@@ -136,7 +136,6 @@ namespace Incident_Reporting_App_Server
                 }
                 else
                 {
-
                     server_Class_Obj.Start_Server(Login_txt_Username.Text, Login_txt_Password.Text);
                 }
             }
