@@ -100,7 +100,7 @@ namespace Incident_Reporting_App_Server
         {
             try
             {
-                Users user=null;
+                Users user=new Users();
                 user.Username = accountName.Text;
                 if (string.Compare(accountPassword.Text, ReAccountPassword.Text)==0)
                 {
@@ -125,9 +125,8 @@ namespace Incident_Reporting_App_Server
         {
             try
             {
-                Company company;
-                if(companyName.Text!=null)
-                    company.Name = companyName.Text;
+                Company company= new Company();
+                company.Name = companyName.Text;
                 company.Address = address.Text;
                 company.LandlinePhoneNumber = landlinePhone.Text;
                 //company.BackCompanyBusiness =;
@@ -139,14 +138,14 @@ namespace Incident_Reporting_App_Server
                
                 server_Class_Obj.Add_Company(company);
 
-                DangerousPlaces place = null;
+                DangerousPlaces place = new DangerousPlaces();
                 place.Location = DangerouseLocation.Text;
                 place.HazardousSubstance = HazardousSubstance.Text;
                 place.FireMediator = FireMediator.Text;
 
                 server_Class_Obj.Add_DangerousPlaces(place);
 
-                Floors floor = null;
+                Floors floor = new Floors();
                 floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
                 floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
                 floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
