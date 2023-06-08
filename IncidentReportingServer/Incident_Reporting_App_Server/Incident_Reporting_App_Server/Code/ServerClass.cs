@@ -58,33 +58,26 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public void Add_Company(Company company)
+        public void Add_Company(Company company, DangerousPlaces place, Floors floor)
         {
             try
             {
                 IncidentReporting_WS_Obj.Company_Insert(this.UserName, this.Password, company);
-            }
-            catch (Exception exception1)
-            {
-                Auditing.Error(exception1.Message);
-            }
-        }
-        public void Add_DangerousPlaces(DangerousPlaces place)
-        {
-            try
-            {
                 IncidentReporting_WS_Obj.DangerousPlaces_Insert(this.UserName, this.Password, place);
+                IncidentReporting_WS_Obj.Floors_Insert(this.UserName, this.Password, floor);
             }
             catch (Exception exception1)
             {
                 Auditing.Error(exception1.Message);
             }
         }
-        public void Add_Floor (Floors floor)
+        
+        public void Add_FFstations_FFpump(FFstations station,FF_pumps pump)
         {
             try
             {
-                IncidentReporting_WS_Obj.Floors_Insert(this.UserName, this.Password, floor);
+                IncidentReporting_WS_Obj.FFstations_Insert(this.UserName, this.Password, station);
+                IncidentReporting_WS_Obj.FF_pumps_Insert(this.UserName, this.Password, pump);
             }
             catch (Exception exception1)
             {
