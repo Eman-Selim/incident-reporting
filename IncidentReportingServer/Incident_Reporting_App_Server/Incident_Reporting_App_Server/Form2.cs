@@ -190,6 +190,10 @@ namespace Incident_Reporting_App_Server
                 pump.Address = pumpAddress.Text;
                 pump.Area = pumpArea.Text;
                 pump.PumpNumber = PumpNumber.Text;
+                pump.Status = Status.Text;
+                pump.Signs = pumpSign.Text;
+                pump.Sector = pumpSector.Text;
+                pump.PumpType = PumpType.Text;
                 server_Class_Obj.Add_FFstations_FFpump(station,pump);
                 
             }
