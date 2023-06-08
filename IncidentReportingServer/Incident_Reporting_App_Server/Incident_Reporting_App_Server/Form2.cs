@@ -17,6 +17,7 @@ namespace Incident_Reporting_App_Server
     {
         int menu_Selected_Index = 0;
         ServerClass server_Class_Obj = new ServerClass();
+        Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
         public Form2()
         {
             InitializeComponent();
@@ -134,16 +135,11 @@ namespace Incident_Reporting_App_Server
                 company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
                 company.GasTrapLocation = GasTrapLocation.Text;
                 company.OxygenTrapLocation = OxygenTrapLocation.Text;
-                
-               
-                server_Class_Obj.Add_Company(company);
 
                 DangerousPlaces place = new DangerousPlaces();
                 place.Location = DangerouseLocation.Text;
                 place.HazardousSubstance = HazardousSubstance.Text;
                 place.FireMediator = FireMediator.Text;
-
-                server_Class_Obj.Add_DangerousPlaces(place);
 
                 Floors floor = new Floors();
                 floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
@@ -155,7 +151,7 @@ namespace Incident_Reporting_App_Server
                 floor.FoamExtinguishersNumbers= (string)dataGridView1.CurrentRow.Cells[6].Value;
                 floor.FoamExtinguishersWeight= (int)dataGridView1.CurrentRow.Cells[7].Value;
 
-                server_Class_Obj.Add_Floor(floor);
+                server_Class_Obj.Add_Company(company, place, floor);
 
                 //for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
                 //{
@@ -172,6 +168,35 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-      
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FFstations station = new FFstations();
+                station.CarsNumber = CarsNumber.Text;
+                station.SoliderNumber = SoliderNumber.Text;
+                station.Sector = sector.Text;
+                station.Signs = signs.Text;
+                station.Street = street.Text;
+                station.ZoneNumber = zoneNumber.Text;
+                station.Additional_info = Additional_info.Text;
+                FF_pumps pump = new FF_pumps();
+                pump.Additional_info = pumpInfo.Text;
+                pump.Address = pumpAddress.Text;
+                pump.Area = pumpArea.Text;
+                pump.PumpNumber = PumpNumber.Text;
+                server_Class_Obj.Add_FFstations_FFpump(station,pump);
+                
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
     }
 }
