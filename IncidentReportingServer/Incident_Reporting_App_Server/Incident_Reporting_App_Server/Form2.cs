@@ -18,11 +18,195 @@ namespace Incident_Reporting_App_Server
         int menu_Selected_Index = 0;
         ServerClass server_Class_Obj = new ServerClass();
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
+
         public Form2()
         {
             InitializeComponent();
             pictureBox5.MouseWheel += PictureBox5_MouseWheel;
+            TreeNode mainNode = new TreeNode();
+            mainNode.Name = "mainNode";
+            mainNode.Text = "Main";
+            this.treeView1.Nodes.Add(mainNode);
         }
+        #region Cities
+            Users[] User;
+        #endregion
+        #region treeview
+        public delegate void load_trv_delegate();
+
+        /// <summary>
+        /// load the Cities from the Array Cities and Display them on the treeview and load the combo box City name with the current Cities 
+        /// </summary>
+        public void load_trv_TETRACities_Cities_Tab()
+        {
+            try
+            {
+                if (treeView3.InvokeRequired)
+                {
+                    treeView3.Invoke(new load_trv_delegate(load_trv_TETRACities_Cities_Tab));
+                }
+                else
+                {
+
+                    #region Accounts
+                    int User_length = User != null ? User.Length : 0;
+                    #region Cities add, edit
+                    if (User_length != 0)
+                    {
+                        treeView3.BeginUpdate();
+
+                        for (int i = 0; i < User_length; i++)
+                        {
+                            bool Find_Flag = false;
+                            for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                            {
+                                Users selected_User = (Users)treeView3.Nodes[0].Nodes[j].Tag;
+                                if (User[i].UserID == selected_User.UserID)
+                                {
+                                    //edit 
+                                    Find_Flag = true;
+                                    treeView3.Nodes[0].Nodes[j].Tag = User[i];
+                                    treeView3.Nodes[0].Nodes[j].Text = User[i].Username;
+                                    break;
+                                }
+                            }
+                            if (Find_Flag == false)
+                            {
+                                //add
+                                TreeNode new_User_node = new TreeNode();
+                                new_User_node.Text = User[i].Username;
+                                new_User_node.Tag = User[i];
+                                treeView3.Nodes[0].Nodes.Add(new_User_node);
+                            }
+                        }
+                        treeView3.EndUpdate();
+
+                        load_comboBox_User_Names_in_Radios_Tab();
+
+                    }
+                    else
+                    {
+                        treeView3.Nodes[0].Nodes.Clear();
+
+                        load_comboBox_City_Names_in_Radios_Tab();
+                        return;
+
+                    }
+                    #endregion
+
+                    #region User delete
+
+                    if (User_length != 0 && treeView3.Nodes[0].Nodes.Count > 0)
+                    {
+                        treeView3.BeginUpdate();
+
+                        for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                        { // delete operation
+                            bool Find_Flag = false;
+                            Users current_User_obj = (Users)treeView3.Nodes[0].Nodes[j].Tag;
+                            for (int i = 0; i < User.Length; i++)
+                            {
+                                if (current_User_obj.UserID == User[i].UserID)
+                                {
+                                    Find_Flag = true;
+                                    break;
+                                }
+                            }
+                            if (Find_Flag == false)
+                            {
+                                //delete
+                                treeView3.Nodes[0].Nodes[j].Remove();
+                            }
+                        }
+                        treeView3.EndUpdate();
+                    }
+                    #endregion
+                    #endregion
+
+                    #region radios 
+
+                    #region radios ADD
+                    int radios_length = radios != null ? radios.Length : 0;
+
+                    if (radios_length > 0)
+                    {
+                        for (int i = 0; i < radios_length; i++)
+                        {
+                            for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                            {
+                                City checked_city = (City)treeView3.Nodes[0].Nodes[j].Tag;
+
+                                if (checked_city.CityID == radios[i].CityID)
+                                {
+                                    bool radios_detected = false;
+                                    // if the radio belong to this site in db
+                                    for (int loop = 0; loop < treeView3.Nodes[0].Nodes[j].Nodes.Count; loop++)
+                                    {
+                                        Radios current_Radio_Obj = (Radios)treeView3.Nodes[0].Nodes[j].Nodes[loop].Tag;
+
+                                        if (current_Radio_Obj.Radio_ID == radios[i].Radio_ID)
+                                        {// if the site is already a subnode of its site node
+
+                                            treeView3.Nodes[0].Nodes[j].Nodes[loop].Text = radios[i].Radio_Name;
+                                            radios_detected = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (radios_detected == false)
+                                    {
+                                        // add the site as a subnode to that zone
+                                        TreeNode radio_subnode = new TreeNode();
+                                        radio_subnode.Text = radios[i].Radio_Name;
+                                        radio_subnode.Tag = radios[i];
+                                        treeView3.Nodes[0].Nodes[j].Nodes.Add(radio_subnode);
+                                    }
+                                    break;
+                                }
+
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region radios Delete
+                    if (radios.Length > 0)
+                    {
+                        for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                        {
+                            City current_City_Obj = (City)treeView3.Nodes[0].Nodes[j].Tag;
+                            for (int loop = 0; loop < treeView3.Nodes[0].Nodes[j].Nodes.Count; loop++)
+                            {
+                                bool radios_detected = false;
+                                Radios Radio_obj = (Radios)treeView3.Nodes[0].Nodes[j].Nodes[loop].Tag;
+                                //check if the subnode is in radios db   
+                                for (int i = 0; i < radios_length; i++)
+                                {
+                                    if (Radio_obj.Radio_ID == radios[i].Radio_ID && radios[i].CityID == Radio_obj.CityID)
+                                    {
+                                        radios_detected = true;
+                                        break;
+                                    }
+                                }
+                                if (radios_detected == false)
+                                {
+                                    //remove this subnode
+                                    treeView3.Nodes[0].Nodes[j].Nodes.RemoveAt(loop);
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+                    #endregion
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+            }
+        }
+        #endregion
         private void PictureBox5_MouseWheel(object sender, MouseEventArgs e)
         {
             //throw new NotImplementedException();
@@ -97,7 +281,7 @@ namespace Incident_Reporting_App_Server
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Add_Account_Click(object sender, EventArgs e)
         {
             try
             {
@@ -117,12 +301,12 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-        private void c1Button9_Click(object sender, EventArgs e)
+        private void EditAccount_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void AddCompany_Click(object sender, EventArgs e)
         {
             try
             {
@@ -173,7 +357,7 @@ namespace Incident_Reporting_App_Server
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Add_FFstations_FFpump_Click(object sender, EventArgs e)
         {
             try
             {
@@ -202,5 +386,36 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(exception1.Message);
             }
         }
+
+        private void DeleteCompany_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemoveAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edit_FFstations_FFpump_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_FFstations_FFpump_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditCompany_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+        
     }
 }
