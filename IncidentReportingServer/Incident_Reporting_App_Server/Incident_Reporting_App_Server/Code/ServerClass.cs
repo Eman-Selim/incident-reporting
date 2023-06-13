@@ -58,6 +58,19 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public void Delete_Account(int userID)
+        {
+            try
+            {
+                IncidentReporting_WS_Obj.Users_Delete(this.UserName, this.Password, userID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+
+
         public void Add_Company(Company company, DangerousPlaces place, Floors floor)
         {
             try
