@@ -86,7 +86,24 @@ namespace IncidentReporting_WS.Code_Files.SBL
                 return null;
             }
         }
-
+        public Users Users_SelectByName(string username, string password, string name)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return UsersDAL_Obj.Users_SelectByName(username, password, name);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public UsersCollection Users_Select_Super_Admin(string username, string password)
         {
             try

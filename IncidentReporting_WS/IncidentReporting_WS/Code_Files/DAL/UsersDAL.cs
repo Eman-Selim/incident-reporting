@@ -135,6 +135,45 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
+        public Users Users_SelectByName(string username, string password, string name)
+        {
+            try
+            {
+                Users Users = new Users();
+                DateTime temp_date = new DateTime(0000 - 00 - 00);
+                object[,] sp_params = new object[,]
+                {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@name",name }
+                };
+
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Users_SelectByName", sp_params);
+
+                if (dt.Rows.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Users = new Users
+                        {
+                            UserID = Convert.ToInt32(dr["UserID"]),
+                            AdminMode = bool.Parse(dr["AdminMode"].ToString()),
+                            Info = Convert.ToString(dr["Info"])
+                        };
+                    }
+                }
+                return Users;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         public UsersCollection Users_Select_Super_Admin(string username, string password)
         {
             try

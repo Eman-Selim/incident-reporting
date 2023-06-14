@@ -407,7 +407,16 @@ namespace Incident_Reporting_App_Server
 
         private void RemoveAccount_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Users user = new Users();
+                user.Username = accountName.Text;
+                server_Class_Obj.Add_Account(user);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
         }
 
         private void Edit_FFstations_FFpump_Click(object sender, EventArgs e)

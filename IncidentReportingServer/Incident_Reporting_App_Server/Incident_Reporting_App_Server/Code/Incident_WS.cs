@@ -66,6 +66,18 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public Users Users_SelectByName(string username, string password, string name)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_SelectByName( username,  password, name);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
         public Users[] Users_Select_Super_Admin(string username, string password)
         {
             try

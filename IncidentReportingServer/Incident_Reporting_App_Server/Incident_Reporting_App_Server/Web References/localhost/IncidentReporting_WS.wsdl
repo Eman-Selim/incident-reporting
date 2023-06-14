@@ -2,22 +2,27 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="Accident_Select_By_ID">
+      <s:element name="Accident_Select_By_Equipments">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="equipments" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Accident_Select_By_IDResponse">
+      <s:element name="Accident_Select_By_EquipmentsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_IDResult" type="tns:Accident" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_EquipmentsResult" type="tns:ArrayOfAccident" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfAccident">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Accident" nillable="true" type="tns:Accident" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Accident">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
@@ -34,6 +39,22 @@
           <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="Accident_Select_By_ID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Accident_Select_By_IDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_IDResult" type="tns:Accident" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Accident_Select_By_LossesType">
         <s:complexType>
           <s:sequence>
@@ -50,11 +71,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAccident">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Accident" nillable="true" type="tns:Accident" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Accident_Select_By_TimeToArrive">
         <s:complexType>
           <s:sequence>
@@ -119,19 +135,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_OfficerName">
+      <s:element name="FF_ManPower_Select_By_Job">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="OfficerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_OfficerNameResponse">
+      <s:element name="FF_ManPower_Select_By_JobResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_OfficerNameResult" type="tns:ArrayOfFF_ManPower" />
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_JobResult" type="tns:ArrayOfFF_ManPower" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -156,6 +172,22 @@
           <s:element minOccurs="1" maxOccurs="1" name="FF_ID" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="FF_ManPower_Select_By_OfficerName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OfficerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FF_ManPower_Select_By_OfficerNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_OfficerNameResult" type="tns:ArrayOfFF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="FF_ManPower_Select_By_Point">
         <s:complexType>
           <s:sequence>
@@ -1242,22 +1274,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Accident_Select_By_Equipments">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="equipments" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_Select_By_EquipmentsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_EquipmentsResult" type="tns:ArrayOfAccident" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Users_Delete">
         <s:complexType>
           <s:sequence>
@@ -1332,6 +1348,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Users_SelectByUserIdResult" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Users_SelectByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Users_SelectByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Users_SelectByNameResult" type="tns:Users" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -2374,24 +2406,14 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_Job">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_Select_By_JobResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_JobResult" type="tns:ArrayOfFF_ManPower" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Accident_Select_By_EquipmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Accident_Select_By_Equipments" />
+  </wsdl:message>
+  <wsdl:message name="Accident_Select_By_EquipmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Accident_Select_By_EquipmentsResponse" />
+  </wsdl:message>
   <wsdl:message name="Accident_Select_By_IDSoapIn">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_ID" />
   </wsdl:message>
@@ -2427,6 +2449,12 @@
   </wsdl:message>
   <wsdl:message name="Accident_Select_By_VehiclesToAccidentSoapOut">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_VehiclesToAccidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_By_JobSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Job" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_By_JobSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_JobResponse" />
   </wsdl:message>
   <wsdl:message name="FF_ManPower_Select_By_OfficerNameSoapIn">
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_OfficerName" />
@@ -2806,12 +2834,6 @@
   <wsdl:message name="Accident_Select_By_DateSoapOut">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_DateResponse" />
   </wsdl:message>
-  <wsdl:message name="Accident_Select_By_EquipmentsSoapIn">
-    <wsdl:part name="parameters" element="tns:Accident_Select_By_Equipments" />
-  </wsdl:message>
-  <wsdl:message name="Accident_Select_By_EquipmentsSoapOut">
-    <wsdl:part name="parameters" element="tns:Accident_Select_By_EquipmentsResponse" />
-  </wsdl:message>
   <wsdl:message name="Users_DeleteSoapIn">
     <wsdl:part name="parameters" element="tns:Users_Delete" />
   </wsdl:message>
@@ -2835,6 +2857,12 @@
   </wsdl:message>
   <wsdl:message name="Users_SelectByUserIdSoapOut">
     <wsdl:part name="parameters" element="tns:Users_SelectByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Users_SelectByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:Users_SelectByName" />
+  </wsdl:message>
+  <wsdl:message name="Users_SelectByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:Users_SelectByNameResponse" />
   </wsdl:message>
   <wsdl:message name="Users_Select_Super_AdminSoapIn">
     <wsdl:part name="parameters" element="tns:Users_Select_Super_Admin" />
@@ -3190,13 +3218,11 @@
   <wsdl:message name="FF_ManPower_Select_By_FF_ManPowerIDSoapOut">
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_FF_ManPowerIDResponse" />
   </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_By_JobSoapIn">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Job" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_By_JobSoapOut">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_JobResponse" />
-  </wsdl:message>
   <wsdl:portType name="IncidentReporting_WSSoap">
+    <wsdl:operation name="Accident_Select_By_Equipments">
+      <wsdl:input message="tns:Accident_Select_By_EquipmentsSoapIn" />
+      <wsdl:output message="tns:Accident_Select_By_EquipmentsSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_ID">
       <wsdl:input message="tns:Accident_Select_By_IDSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_IDSoapOut" />
@@ -3220,6 +3246,10 @@
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <wsdl:input message="tns:Accident_Select_By_VehiclesToAccidentSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_VehiclesToAccidentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Job">
+      <wsdl:input message="tns:FF_ManPower_Select_By_JobSoapIn" />
+      <wsdl:output message="tns:FF_ManPower_Select_By_JobSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FF_ManPower_Select_By_OfficerName">
       <wsdl:input message="tns:FF_ManPower_Select_By_OfficerNameSoapIn" />
@@ -3473,10 +3503,6 @@
       <wsdl:input message="tns:Accident_Select_By_DateSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_DateSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Accident_Select_By_Equipments">
-      <wsdl:input message="tns:Accident_Select_By_EquipmentsSoapIn" />
-      <wsdl:output message="tns:Accident_Select_By_EquipmentsSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <wsdl:input message="tns:Users_DeleteSoapIn" />
       <wsdl:output message="tns:Users_DeleteSoapOut" />
@@ -3492,6 +3518,10 @@
     <wsdl:operation name="Users_SelectByUserId">
       <wsdl:input message="tns:Users_SelectByUserIdSoapIn" />
       <wsdl:output message="tns:Users_SelectByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_SelectByName">
+      <wsdl:input message="tns:Users_SelectByNameSoapIn" />
+      <wsdl:output message="tns:Users_SelectByNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Users_Select_Super_Admin">
       <wsdl:input message="tns:Users_Select_Super_AdminSoapIn" />
@@ -3729,13 +3759,18 @@
       <wsdl:input message="tns:FF_ManPower_Select_By_FF_ManPowerIDSoapIn" />
       <wsdl:output message="tns:FF_ManPower_Select_By_FF_ManPowerIDSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Job">
-      <wsdl:input message="tns:FF_ManPower_Select_By_JobSoapIn" />
-      <wsdl:output message="tns:FF_ManPower_Select_By_JobSoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="IncidentReporting_WSSoap" type="tns:IncidentReporting_WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Select_By_Equipments">
+      <soap:operation soapAction="http://tempuri.org/Accident_Select_By_Equipments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_ID">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_By_ID" style="document" />
       <wsdl:input>
@@ -3783,6 +3818,15 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Job">
+      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Job" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4357,15 +4401,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Accident_Select_By_Equipments">
-      <soap:operation soapAction="http://tempuri.org/Accident_Select_By_Equipments" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <soap:operation soapAction="http://tempuri.org/Users_Delete" style="document" />
       <wsdl:input>
@@ -4395,6 +4430,15 @@
     </wsdl:operation>
     <wsdl:operation name="Users_SelectByUserId">
       <soap:operation soapAction="http://tempuri.org/Users_SelectByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_SelectByName">
+      <soap:operation soapAction="http://tempuri.org/Users_SelectByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4933,18 +4977,18 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Job">
-      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Job" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="IncidentReporting_WSSoap12" type="tns:IncidentReporting_WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Select_By_Equipments">
+      <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_Equipments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_ID">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_ID" style="document" />
       <wsdl:input>
@@ -4992,6 +5036,15 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Job">
+      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Job" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -5566,15 +5619,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Accident_Select_By_Equipments">
-      <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_Equipments" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <soap12:operation soapAction="http://tempuri.org/Users_Delete" style="document" />
       <wsdl:input>
@@ -5604,6 +5648,15 @@
     </wsdl:operation>
     <wsdl:operation name="Users_SelectByUserId">
       <soap12:operation soapAction="http://tempuri.org/Users_SelectByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_SelectByName">
+      <soap12:operation soapAction="http://tempuri.org/Users_SelectByName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6135,15 +6188,6 @@
     </wsdl:operation>
     <wsdl:operation name="FF_ManPower_Select_By_FF_ManPowerID">
       <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_FF_ManPowerID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Job">
-      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Job" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

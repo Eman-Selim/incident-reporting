@@ -81,7 +81,21 @@ namespace IncidentReporting_WS
                 return null;
             }
         }
+        [WebMethod]
+        public Users Users_SelectByName(string username, string password, string name)
+        {
+            try
+            {
+                Users users = new Users();
+                users = UsersSBL_Obj.Users_SelectByName( username,  password,  name);
+                return users;
 
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
         [WebMethod]
         public UsersCollection Users_Select_Super_Admin(string username, string password)
         {

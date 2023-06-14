@@ -81,6 +81,7 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
+                IncidentReporting_WS_Obj.
                 IncidentReporting_WS_Obj.Users_Delete(this.UserName, this.Password, userID);
             }
             catch (Exception exception1)
