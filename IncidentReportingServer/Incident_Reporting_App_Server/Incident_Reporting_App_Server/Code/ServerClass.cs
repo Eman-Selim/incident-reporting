@@ -21,6 +21,12 @@ namespace Incident_Reporting_App_Server.Code
         public string Password { get; set; }
         #endregion
 
+        public ServerClass()
+        {
+
+        }
+        
+
         #region Connect
 
         /// <summary>
@@ -43,6 +49,19 @@ namespace Incident_Reporting_App_Server.Code
             catch (Exception exception1)
             {
                 Auditing.Error(exception1.Message);
+            }
+        }
+
+        public Users[] Select_Account()
+        {
+            try
+            {
+               return IncidentReporting_WS_Obj.Users_Select_All(this.UserName, this.Password);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
             }
         }
 

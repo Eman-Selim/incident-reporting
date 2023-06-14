@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Incident_Reporting_App_Server.localhost;
 using SDS_Remote_Control_Application_Server.Code;
+using System.Threading;
 
 namespace Incident_Reporting_App_Server
 {
@@ -23,34 +24,50 @@ namespace Incident_Reporting_App_Server
         {
             InitializeComponent();
             pictureBox5.MouseWheel += PictureBox5_MouseWheel;
-            TreeNode mainNode = new TreeNode();
-            mainNode.Name = "mainNode";
-            mainNode.Text = "Main";
-            this.treeView1.Nodes.Add(mainNode);
+            Thread Main_Thread = new Thread(load_all_treeviews_cycle);
+            Main_Thread.Start();
         }
         #region Cities
             Users[] User;
+            Company[] companies;
         #endregion
         #region treeview
         public delegate void load_trv_delegate();
 
+        public void load_all_treeviews_cycle()
+        {
+            try
+            {
+                while (true)
+                {
+                    User = server_Class_Obj.Select_Account();
+                    load_trv_User_Tab();
+                    Thread.Sleep(20000);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Auditing.Error(ex.Message);
+            }
+        }
         /// <summary>
         /// load the Cities from the Array Cities and Display them on the treeview and load the combo box City name with the current Cities 
         /// </summary>
-        public void load_trv_TETRACities_Cities_Tab()
+        public void load_trv_User_Tab()
         {
             try
             {
                 if (treeView3.InvokeRequired)
                 {
-                    treeView3.Invoke(new load_trv_delegate(load_trv_TETRACities_Cities_Tab));
+                    treeView3.Invoke(new load_trv_delegate(load_trv_User_Tab));
                 }
                 else
                 {
 
                     #region Accounts
                     int User_length = User != null ? User.Length : 0;
-                    #region Cities add, edit
+                    #region Accounts add, edit
                     if (User_length != 0)
                     {
                         treeView3.BeginUpdate();
@@ -58,15 +75,15 @@ namespace Incident_Reporting_App_Server
                         for (int i = 0; i < User_length; i++)
                         {
                             bool Find_Flag = false;
-                            for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                            for (int j = 0; j < treeView3.Nodes.Count; j++)
                             {
-                                Users selected_User = (Users)treeView3.Nodes[0].Nodes[j].Tag;
+                                Users selected_User = (Users)treeView3.Nodes[j].Tag;
                                 if (User[i].UserID == selected_User.UserID)
                                 {
                                     //edit 
                                     Find_Flag = true;
-                                    treeView3.Nodes[0].Nodes[j].Tag = User[i];
-                                    treeView3.Nodes[0].Nodes[j].Text = User[i].Username;
+                                    treeView3.Nodes[j].Tag = User[i];
+                                    treeView3.Nodes[j].Text = User[i].Username;
                                     break;
                                 }
                             }
@@ -76,19 +93,15 @@ namespace Incident_Reporting_App_Server
                                 TreeNode new_User_node = new TreeNode();
                                 new_User_node.Text = User[i].Username;
                                 new_User_node.Tag = User[i];
-                                treeView3.Nodes[0].Nodes.Add(new_User_node);
+                                treeView3.Nodes.Add(new_User_node);
                             }
                         }
                         treeView3.EndUpdate();
 
-                        load_comboBox_User_Names_in_Radios_Tab();
-
                     }
                     else
                     {
-                        treeView3.Nodes[0].Nodes.Clear();
-
-                        load_comboBox_City_Names_in_Radios_Tab();
+                        treeView3.Nodes.Clear();
                         return;
 
                     }
@@ -96,14 +109,14 @@ namespace Incident_Reporting_App_Server
 
                     #region User delete
 
-                    if (User_length != 0 && treeView3.Nodes[0].Nodes.Count > 0)
+                    if (User_length != 0 && treeView3.Nodes.Count > 0)
                     {
                         treeView3.BeginUpdate();
 
-                        for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                        for (int j = 0; j < treeView3.Nodes.Count; j++)
                         { // delete operation
                             bool Find_Flag = false;
-                            Users current_User_obj = (Users)treeView3.Nodes[0].Nodes[j].Tag;
+                            Users current_User_obj = (Users)treeView3.Nodes[j].Tag;
                             for (int i = 0; i < User.Length; i++)
                             {
                                 if (current_User_obj.UserID == User[i].UserID)
@@ -115,7 +128,7 @@ namespace Incident_Reporting_App_Server
                             if (Find_Flag == false)
                             {
                                 //delete
-                                treeView3.Nodes[0].Nodes[j].Remove();
+                                treeView3.Nodes[j].Remove();
                             }
                         }
                         treeView3.EndUpdate();
@@ -123,43 +136,43 @@ namespace Incident_Reporting_App_Server
                     #endregion
                     #endregion
 
-                    #region radios 
+                    #region Company
 
-                    #region radios ADD
-                    int radios_length = radios != null ? radios.Length : 0;
+                    #region Company ADD
+                    int radios_length = companies != null ? companies.Length : 0;
 
                     if (radios_length > 0)
                     {
                         for (int i = 0; i < radios_length; i++)
                         {
-                            for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                            for (int j = 0; j < treeView3.Nodes.Count; j++)
                             {
-                                City checked_city = (City)treeView3.Nodes[0].Nodes[j].Tag;
+                                Users checked_user = (Users)treeView3.Nodes[j].Tag;
 
-                                if (checked_city.CityID == radios[i].CityID)
+                                if (checked_user.UserID == User[i].UserID)
                                 {
-                                    bool radios_detected = false;
+                                    bool Company_detected = false;
                                     // if the radio belong to this site in db
-                                    for (int loop = 0; loop < treeView3.Nodes[0].Nodes[j].Nodes.Count; loop++)
+                                    for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
                                     {
-                                        Radios current_Radio_Obj = (Radios)treeView3.Nodes[0].Nodes[j].Nodes[loop].Tag;
+                                        Company current_Company_Obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
 
-                                        if (current_Radio_Obj.Radio_ID == radios[i].Radio_ID)
+                                        if (current_Company_Obj.CompanyID == companies[i].CompanyID)
                                         {// if the site is already a subnode of its site node
 
-                                            treeView3.Nodes[0].Nodes[j].Nodes[loop].Text = radios[i].Radio_Name;
-                                            radios_detected = true;
+                                            treeView3.Nodes[j].Nodes[loop].Text = companies[i].Name;
+                                            Company_detected = true;
                                             break;
                                         }
                                     }
 
-                                    if (radios_detected == false)
+                                    if (Company_detected == false)
                                     {
                                         // add the site as a subnode to that zone
-                                        TreeNode radio_subnode = new TreeNode();
-                                        radio_subnode.Text = radios[i].Radio_Name;
-                                        radio_subnode.Tag = radios[i];
-                                        treeView3.Nodes[0].Nodes[j].Nodes.Add(radio_subnode);
+                                        TreeNode company_subnode = new TreeNode();
+                                        company_subnode.Text = companies[i].Name;
+                                        company_subnode.Tag = companies[i];
+                                        treeView3.Nodes[j].Nodes.Add(company_subnode);
                                     }
                                     break;
                                 }
@@ -169,29 +182,29 @@ namespace Incident_Reporting_App_Server
                     }
                     #endregion
 
-                    #region radios Delete
-                    if (radios.Length > 0)
+                    #region companies Delete
+                    if (companies.Length > 0)
                     {
-                        for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
+                        for (int j = 0; j < treeView3.Nodes.Count; j++)
                         {
-                            City current_City_Obj = (City)treeView3.Nodes[0].Nodes[j].Tag;
-                            for (int loop = 0; loop < treeView3.Nodes[0].Nodes[j].Nodes.Count; loop++)
+                            Users current_City_Obj = (Users)treeView3.Nodes[j].Tag;
+                            for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
                             {
-                                bool radios_detected = false;
-                                Radios Radio_obj = (Radios)treeView3.Nodes[0].Nodes[j].Nodes[loop].Tag;
+                                bool companies_detected = false;
+                                Company Company_obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
                                 //check if the subnode is in radios db   
                                 for (int i = 0; i < radios_length; i++)
                                 {
-                                    if (Radio_obj.Radio_ID == radios[i].Radio_ID && radios[i].CityID == Radio_obj.CityID)
+                                    if (Company_obj.CompanyID== companies[i].CompanyID && companies[i].UserID == Company_obj.UserID)
                                     {
-                                        radios_detected = true;
+                                        companies_detected = true;
                                         break;
                                     }
                                 }
-                                if (radios_detected == false)
+                                if (companies_detected == false)
                                 {
                                     //remove this subnode
-                                    treeView3.Nodes[0].Nodes[j].Nodes.RemoveAt(loop);
+                                    treeView3.Nodes[j].Nodes.RemoveAt(loop);
                                 }
                             }
                         }
