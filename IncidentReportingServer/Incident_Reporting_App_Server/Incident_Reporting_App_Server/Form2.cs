@@ -19,6 +19,7 @@ namespace Incident_Reporting_App_Server
         int menu_Selected_Index = 0;
         ServerClass server_Class_Obj = new ServerClass();
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
+        byte[] imagenu = null;
 
         public Form2()
         {
@@ -294,25 +295,7 @@ namespace Incident_Reporting_App_Server
 
         }
 
-        private void Add_Account_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Users user=new Users();
-                user.Username = accountName.Text;
-                if (string.Compare(accountPassword.Text, ReAccountPassword.Text)==0)
-                {
-                    user.Password = accountPassword.Text;
-                }
-
-                user.Info = AccountInfo.Text;
-                server_Class_Obj.Add_Account(user);
-            }
-            catch (Exception exception1)
-            {
-                Auditing.Error(exception1.Message);
-            }
-        }
+       
 
         private void EditAccount_Click(object sender, EventArgs e)
         {
@@ -327,16 +310,33 @@ namespace Incident_Reporting_App_Server
                 company.Name = companyName.Text;
                 company.Address = address.Text;
                 company.LandlinePhoneNumber = landlinePhone.Text;
-                //company.BackCompanyBusiness =;
+                company.BackCompanyBusiness ="";
                 company.BuildingsNumber = Convert.ToInt32( BuildingsNumber.Text);
                 company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
                 company.GasTrapLocation = GasTrapLocation.Text;
                 company.OxygenTrapLocation = OxygenTrapLocation.Text;
-
+                company.RightCompanyName = "";
+                company.RightCompanyImageURL = "";
+                company.RightCompanyImage = imagenu;
+                company.RightCompanyBusiness = "";
+                company.LeftCompanyBusiness = "";
+                company.LeftCompanyImage = imagenu;
+                company.LeftCompanyImageURL = "";
+                company.LeftCompanyName = "";
+                company.BackCompanyBusiness = "";
+                company.BackCompanyImage = imagenu;
+                company.BackCompanyImageURL = "";
+                company.BackCompanyName = "";
+                company.FrontCompanyBusiness = "";
+                company.FrontCompanyImage = imagenu;
+                company
+                
                 DangerousPlaces place = new DangerousPlaces();
                 place.Location = DangerouseLocation.Text;
                 place.HazardousSubstance = HazardousSubstance.Text;
                 place.FireMediator = FireMediator.Text;
+                place.Image = imagenu;
+                place.ImageURL = "";
 
                 Floors floor = new Floors();
                 floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
@@ -443,6 +443,8 @@ namespace Incident_Reporting_App_Server
             {
                 Users user = new Users();
                 user.Username = accountName.Text;
+                user.AdminMode = true;
+                user.Info = "fhgh";
                 if (string.Compare(accountPassword.Text, ReAccountPassword.Text) == 0)
                 {
                     user.Password = accountPassword.Text;

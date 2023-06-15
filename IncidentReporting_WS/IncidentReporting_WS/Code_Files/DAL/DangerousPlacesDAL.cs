@@ -24,7 +24,9 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@HazardousSubstance", DangerousPlaces.HazardousSubstance },
                     {"@Location", DangerousPlaces.Location},
                     {"@FireMediator",DangerousPlaces.FireMediator},
-                    {"@CompanyID",DangerousPlaces.CompanyID }
+                    {"@CompanyID",DangerousPlaces.CompanyID },
+                    {"@Image",DangerousPlaces.Image },
+                    {"@ImageUrl",DangerousPlaces.ImageURL }
                };
 
                 DangerousPlaces.DangerousPlaceID = db.Execute_Insert_Stored_Procedure("DangerousPlaces_Insert", sp_params);

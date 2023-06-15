@@ -39,9 +39,12 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 object[,] sp_params = new object[,]
                {
                     {"@username", username},
-                    {"@password", password},
-                    {"@AdminMode", Users.AdminMode},
-                    {"@Info",Users.Info}
+                    {"@password", username},
+                    {"@newUser", Users.Username},
+                    {"@newPass", Users.Password},
+                    {"@Info",Users.Info},
+                    {"@AdminMode", Users.AdminMode}
+                    
                };
 
                 Users.UserID = db.Execute_Insert_Stored_Procedure("Users_Insert", sp_params);
