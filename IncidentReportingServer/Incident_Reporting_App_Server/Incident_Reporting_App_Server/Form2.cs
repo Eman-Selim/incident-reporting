@@ -402,16 +402,14 @@ namespace Incident_Reporting_App_Server
 
         private void DeleteCompany_Click(object sender, EventArgs e)
         {
-
+            server_Class_Obj.Delete_Company(companyName.Text);
         }
 
         private void RemoveAccount_Click(object sender, EventArgs e)
         {
             try
             {
-                Users user = new Users();
-                user.Username = accountName.Text;
-                server_Class_Obj.Add_Account(user);
+                server_Class_Obj.Delete_Account(accountName.Text);
             }
             catch (Exception exception1)
             {
@@ -438,6 +436,25 @@ namespace Incident_Reporting_App_Server
         {
 
         }
-        
+
+        private void Add_Account_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Users user = new Users();
+                user.Username = accountName.Text;
+                if (string.Compare(accountPassword.Text, ReAccountPassword.Text) == 0)
+                {
+                    user.Password = accountPassword.Text;
+                }
+
+                user.Info = AccountInfo.Text;
+                server_Class_Obj.Add_Account(user);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
     }
 }

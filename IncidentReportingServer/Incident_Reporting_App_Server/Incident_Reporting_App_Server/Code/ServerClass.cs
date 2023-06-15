@@ -69,7 +69,7 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                IncidentReporting_WS_Obj.Users_Insert(this.UserName, this.Password, user);
+                IncidentReporting_WS_Obj.Users_Insert("Admin", "Admin", user);
             }
             catch (Exception exception1)
             {
@@ -77,12 +77,12 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public void Delete_Account(int userID)
+        public void Delete_Account(string Name)
         {
             try
             {
-                IncidentReporting_WS_Obj.
-                IncidentReporting_WS_Obj.Users_Delete(this.UserName, this.Password, userID);
+                Users user=IncidentReporting_WS_Obj.Users_SelectByName(this.UserName, this.Password, Name);
+                IncidentReporting_WS_Obj.Users_Delete(this.UserName, this.Password, user.UserID);
             }
             catch (Exception exception1)
             {
@@ -104,7 +104,18 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
-        
+        public void Delete_Company(string Name)
+        {
+            try
+            {
+                Company[] companies = IncidentReporting_WS_Obj.Company_Select_By_Name(this.UserName, this.Password, Name);
+                IncidentReporting_WS_Obj.Company_Delete(this.UserName, this.Password, companies[0].CompanyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
         public void Add_FFstations_FFpump(FFstations station,FF_pumps pump)
         {
             try
@@ -117,6 +128,7 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
+       
         #endregion
     }
 }
