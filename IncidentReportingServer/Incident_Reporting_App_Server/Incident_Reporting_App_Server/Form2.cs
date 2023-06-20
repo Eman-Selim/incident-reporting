@@ -56,7 +56,7 @@ namespace Incident_Reporting_App_Server
         /// load the Cities from the Array Cities and Display them on the treeview and load the combo box City name with the current Cities 
         /// </summary>
         public void load_trv_User_Tab()
-        {
+       {
             try
             {
                 if (treeView3.InvokeRequired)
@@ -329,7 +329,10 @@ namespace Incident_Reporting_App_Server
                 company.BackCompanyName = "";
                 company.FrontCompanyBusiness = "";
                 company.FrontCompanyImage = imagenu;
-                company
+                company.FrontCompanyImageURL = "";
+                company.FrontCompanyName = "";
+                company.Longitude = 0;
+                company.Latitude = 0;
                 
                 DangerousPlaces place = new DangerousPlaces();
                 place.Location = DangerouseLocation.Text;
@@ -452,6 +455,72 @@ namespace Incident_Reporting_App_Server
 
                 user.Info = AccountInfo.Text;
                 server_Class_Obj.Add_Account(user);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+
+        private void AddCompany_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Company company = new Company();
+                company.Name = companyName.Text;
+                company.Address = address.Text;
+                company.LandlinePhoneNumber = landlinePhone.Text;
+                company.BackCompanyBusiness = "";
+                company.BuildingsNumber = Convert.ToInt32(BuildingsNumber.Text);
+                company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
+                company.GasTrapLocation = GasTrapLocation.Text;
+                company.OxygenTrapLocation = OxygenTrapLocation.Text;
+                company.RightCompanyName = "";
+                company.RightCompanyImageURL = "";
+                company.RightCompanyImage = imagenu;
+                company.RightCompanyBusiness = "";
+                company.LeftCompanyBusiness = "";
+                company.LeftCompanyImage = imagenu;
+                company.LeftCompanyImageURL = "";
+                company.LeftCompanyName = "";
+                company.BackCompanyBusiness = "";
+                company.BackCompanyImage = imagenu;
+                company.BackCompanyImageURL = "";
+                company.BackCompanyName = "";
+                company.FrontCompanyBusiness = "";
+                company.FrontCompanyImage = imagenu;
+                company.FrontCompanyImageURL = "";
+                company.FrontCompanyName = "";
+                company.Longitude = 0;
+                company.Latitude = 0;
+
+                DangerousPlaces place = new DangerousPlaces();
+                place.Location = DangerouseLocation.Text;
+                place.HazardousSubstance = HazardousSubstance.Text;
+                place.FireMediator = FireMediator.Text;
+                place.Image = imagenu;
+                place.ImageURL = "";
+
+                Floors floor = new Floors();
+                floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
+                floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
+                floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
+                floor.PowderExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[3].Value;
+                floor.CarbonDioxideExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[4].Value;
+                floor.CarbonDioxideExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[5].Value;
+                floor.FoamExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[6].Value;
+                floor.FoamExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[7].Value;
+
+                server_Class_Obj.Add_Company(company, place, floor);
+
+                //for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
+                //{
+                //    for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
+                //    {
+                //        string value = dataGridView1.Rows[rows].Cells[col].Value.ToString();
+
+                //    }
+                //}
             }
             catch (Exception exception1)
             {

@@ -6201,6 +6201,10 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private string leftCompanyImageURLField;
         
+        private float latitudeField;
+        
+        private float longitudeField;
+        
         /// <remarks/>
         public string Name {
             get {
@@ -6492,6 +6496,26 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.leftCompanyImageURLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
             }
         }
     }

@@ -37,5 +37,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string BackCompanyImageURL { set; get; }
         public string RightCompanyImageURL { set; get; }
         public string LeftCompanyImageURL { set; get; }
+        public float Latitude { set; get; }
+        public float Longitude { set; get; }
     }
 }

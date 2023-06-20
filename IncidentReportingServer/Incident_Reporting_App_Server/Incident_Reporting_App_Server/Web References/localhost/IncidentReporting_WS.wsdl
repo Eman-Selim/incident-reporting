@@ -687,6 +687,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="BackCompanyImageURL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="RightCompanyImageURL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="LeftCompanyImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:float" />
         </s:sequence>
       </s:complexType>
       <s:element name="Company_InsertResponse">

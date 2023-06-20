@@ -63,8 +63,13 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@BackCompanyImage",company.BackCompanyImage },
                     {"@RightCompanyImage",company.RightCompanyImage },
                     {"@LeftCompanyImage",company.LeftCompanyImage },
-                    {"@UserID",company.UserID }
-
+                    {"@UserID",company.UserID },
+                    {"@FrontCompanyImageURL", company.FrontCompanyImageURL },
+                    {"@BackCompanyImageURL",company.BackCompanyImageURL},
+                    {"@RightCompanyImageURL", company.RightCompanyImageURL},
+                    {"@LeftCompanyImageURL",company.LeftCompanyImageURL},
+                    {"@Latitude",company.Latitude },
+                    {"@Longitude",company.Longitude }
                };
 
                 company.CompanyID = db.Execute_Insert_Stored_Procedure("Accident_Insert", sp_params);
