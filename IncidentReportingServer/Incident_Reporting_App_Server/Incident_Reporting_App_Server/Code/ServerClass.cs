@@ -21,10 +21,7 @@ namespace Incident_Reporting_App_Server.Code
         public string Password { get; set; }
         #endregion
 
-        public ServerClass()
-        {
-
-        }
+        
         
 
         #region Connect
@@ -56,7 +53,7 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-               return IncidentReporting_WS_Obj.Users_Select_All(this.UserName, this.Password);
+               return IncidentReporting_WS_Obj.Users_Select_All("Admin", "Admin");
             }
             catch (Exception exception1)
             {

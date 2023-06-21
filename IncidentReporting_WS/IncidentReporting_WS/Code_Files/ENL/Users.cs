@@ -11,6 +11,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string Username { get; set; }
         public string Password { get; set; }
         public string Info { get; set; }
-        public bool AdminMode { get; set; }
+        public string AdminMode { get; set; }
     }
 }

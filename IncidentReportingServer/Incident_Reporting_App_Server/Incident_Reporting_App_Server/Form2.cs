@@ -29,8 +29,8 @@ namespace Incident_Reporting_App_Server
             Main_Thread.Start();
         }
         #region Cities
-            Users[] User;
-            Company[] companies;
+        Users[] User;
+        Company[] companies; 
         #endregion
         #region treeview
         public delegate void load_trv_delegate();
@@ -75,27 +75,36 @@ namespace Incident_Reporting_App_Server
 
                         for (int i = 0; i < User_length; i++)
                         {
-                            bool Find_Flag = false;
+                            TreeNode user_node = new TreeNode();
+                            user_node.Text = User[i].Username;
+                            user_node.Tag = User[i];
+                            treeView3.Nodes[i].Nodes.Add(user_node);
+                            //bool Find_Flag = false;
                             for (int j = 0; j < treeView3.Nodes.Count; j++)
                             {
-                                Users selected_User = (Users)treeView3.Nodes[j].Tag;
-                                if (User[i].UserID == selected_User.UserID)
-                                {
-                                    //edit 
-                                    Find_Flag = true;
-                                    treeView3.Nodes[j].Tag = User[i];
-                                    treeView3.Nodes[j].Text = User[i].Username;
-                                    break;
-                                }
+                                treeView3.Nodes[j].Tag = User[i];
+                                treeView3.Nodes[j].Text = User[i].Username;
+                                //Users selected_User = new Users();
+                                //if(treeView3.Nodes[j].Tag!=null)
+                                //    selected_User = (Users)treeView3.Nodes[j].Tag;
+
+                                //if (User[i].UserID == selected_User.UserID)
+                                //{
+                                //    //edit 
+                                //    Find_Flag = true;
+                                //    treeView3.Nodes[j].Tag = User[i];
+                                //    treeView3.Nodes[j].Text = User[i].Username;
+                                //    break;
+                                //}
                             }
-                            if (Find_Flag == false)
-                            {
-                                //add
-                                TreeNode new_User_node = new TreeNode();
-                                new_User_node.Text = User[i].Username;
-                                new_User_node.Tag = User[i];
-                                treeView3.Nodes.Add(new_User_node);
-                            }
+                            //if (Find_Flag == false)
+                            //{
+                            //    //add
+                            //    TreeNode new_User_node = new TreeNode();
+                            //    new_User_node.Text = User[i].Username;
+                            //    new_User_node.Tag = User[i];
+                            //    treeView3.Nodes.Add(new_User_node);
+                            //}
                         }
                         treeView3.EndUpdate();
 
@@ -110,106 +119,109 @@ namespace Incident_Reporting_App_Server
 
                     #region User delete
 
-                    if (User_length != 0 && treeView3.Nodes.Count > 0)
-                    {
-                        treeView3.BeginUpdate();
+                    //if (User_length != 0 && treeView3.Nodes.Count > 0)
+                    //{
+                    //    treeView3.BeginUpdate();
 
-                        for (int j = 0; j < treeView3.Nodes.Count; j++)
-                        { // delete operation
-                            bool Find_Flag = false;
-                            Users current_User_obj = (Users)treeView3.Nodes[j].Tag;
-                            for (int i = 0; i < User.Length; i++)
-                            {
-                                if (current_User_obj.UserID == User[i].UserID)
-                                {
-                                    Find_Flag = true;
-                                    break;
-                                }
-                            }
-                            if (Find_Flag == false)
-                            {
-                                //delete
-                                treeView3.Nodes[j].Remove();
-                            }
-                        }
-                        treeView3.EndUpdate();
-                    }
-                    #endregion
-                    #endregion
+                    //    for (int j = 0; j < treeView3.Nodes.Count; j++)
+                    //    { // delete operation
+                    //        bool Find_Flag = false;
+                    //        Users current_User_obj = new Users();
+                    //        if(treeView3.Nodes[j].Tag !=null)
+                    //            current_User_obj = (Users)treeView3.Nodes[j].Tag;
 
-                    #region Company
+                    //        for (int i = 0; i < User.Length; i++)
+                    //        {
+                    //            if (current_User_obj.UserID == User[i].UserID)
+                    //            {
+                    //                Find_Flag = true;
+                    //                break;
+                    //            }
+                    //        }
+                    //        if (Find_Flag == false)
+                    //        {
+                    //            //delete
+                    //            treeView3.Nodes[j].Remove();
+                    //        }
+                    //    }
+                    //    treeView3.EndUpdate();
+                    //}
+                    //#endregion
+                    //#endregion
 
-                    #region Company ADD
-                    int radios_length = companies != null ? companies.Length : 0;
+                    //#region Company
 
-                    if (radios_length > 0)
-                    {
-                        for (int i = 0; i < radios_length; i++)
-                        {
-                            for (int j = 0; j < treeView3.Nodes.Count; j++)
-                            {
-                                Users checked_user = (Users)treeView3.Nodes[j].Tag;
+                    //#region Company ADD
+                    //int radios_length = companies != null ? companies.Length : 0;
 
-                                if (checked_user.UserID == User[i].UserID)
-                                {
-                                    bool Company_detected = false;
-                                    // if the radio belong to this site in db
-                                    for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
-                                    {
-                                        Company current_Company_Obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
+                    //if (radios_length > 0)
+                    //{
+                    //    for (int i = 0; i < radios_length; i++)
+                    //    {
+                    //        for (int j = 0; j < treeView3.Nodes.Count; j++)
+                    //        {
+                    //            Users checked_user = (Users)treeView3.Nodes[j].Tag;
 
-                                        if (current_Company_Obj.CompanyID == companies[i].CompanyID)
-                                        {// if the site is already a subnode of its site node
+                    //            if (checked_user.UserID == User[i].UserID)
+                    //            {
+                    //                bool Company_detected = false;
+                    //                // if the radio belong to this site in db
+                    //                for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
+                    //                {
+                    //                    Company current_Company_Obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
 
-                                            treeView3.Nodes[j].Nodes[loop].Text = companies[i].Name;
-                                            Company_detected = true;
-                                            break;
-                                        }
-                                    }
+                    //                    if (current_Company_Obj.CompanyID == companies[i].CompanyID)
+                    //                    {// if the site is already a subnode of its site node
 
-                                    if (Company_detected == false)
-                                    {
-                                        // add the site as a subnode to that zone
-                                        TreeNode company_subnode = new TreeNode();
-                                        company_subnode.Text = companies[i].Name;
-                                        company_subnode.Tag = companies[i];
-                                        treeView3.Nodes[j].Nodes.Add(company_subnode);
-                                    }
-                                    break;
-                                }
+                    //                        treeView3.Nodes[j].Nodes[loop].Text = companies[i].Name;
+                    //                        Company_detected = true;
+                    //                        break;
+                    //                    }
+                    //                }
 
-                            }
-                        }
-                    }
-                    #endregion
+                    //                if (Company_detected == false)
+                    //                {
+                    //                    // add the site as a subnode to that zone
+                    //                    TreeNode company_subnode = new TreeNode();
+                    //                    company_subnode.Text = companies[i].Name;
+                    //                    company_subnode.Tag = companies[i];
+                    //                    treeView3.Nodes[j].Nodes.Add(company_subnode);
+                    //                }
+                    //                break;
+                    //            }
 
-                    #region companies Delete
-                    if (companies.Length > 0)
-                    {
-                        for (int j = 0; j < treeView3.Nodes.Count; j++)
-                        {
-                            Users current_City_Obj = (Users)treeView3.Nodes[j].Tag;
-                            for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
-                            {
-                                bool companies_detected = false;
-                                Company Company_obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
-                                //check if the subnode is in radios db   
-                                for (int i = 0; i < radios_length; i++)
-                                {
-                                    if (Company_obj.CompanyID== companies[i].CompanyID && companies[i].UserID == Company_obj.UserID)
-                                    {
-                                        companies_detected = true;
-                                        break;
-                                    }
-                                }
-                                if (companies_detected == false)
-                                {
-                                    //remove this subnode
-                                    treeView3.Nodes[j].Nodes.RemoveAt(loop);
-                                }
-                            }
-                        }
-                    }
+                    //        }
+                    //    }
+                    //}
+                    //#endregion
+
+                    //#region companies Delete
+                    //if (companies.Length > 0)
+                    //{
+                    //    for (int j = 0; j < treeView3.Nodes.Count; j++)
+                    //    {
+                    //        Users current_City_Obj = (Users)treeView3.Nodes[j].Tag;
+                    //        for (int loop = 0; loop < treeView3.Nodes[j].Nodes.Count; loop++)
+                    //        {
+                    //            bool companies_detected = false;
+                    //            Company Company_obj = (Company)treeView3.Nodes[j].Nodes[loop].Tag;
+                    //            //check if the subnode is in radios db   
+                    //            for (int i = 0; i < radios_length; i++)
+                    //            {
+                    //                if (Company_obj.CompanyID== companies[i].CompanyID && companies[i].UserID == Company_obj.UserID)
+                    //                {
+                    //                    companies_detected = true;
+                    //                    break;
+                    //                }
+                    //            }
+                    //            if (companies_detected == false)
+                    //            {
+                    //                //remove this subnode
+                    //                treeView3.Nodes[j].Nodes.RemoveAt(loop);
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     #endregion
                     #endregion
 
@@ -446,7 +458,7 @@ namespace Incident_Reporting_App_Server
             {
                 Users user = new Users();
                 user.Username = accountName.Text;
-                user.AdminMode = true;
+                user.AdminMode = "";
                 user.Info = "fhgh";
                 if (string.Compare(accountPassword.Text, ReAccountPassword.Text) == 0)
                 {

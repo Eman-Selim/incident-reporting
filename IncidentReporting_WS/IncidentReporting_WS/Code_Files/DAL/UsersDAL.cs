@@ -86,8 +86,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users.Add(new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
-                            Info = Convert.ToString(dr["Info"])
+                            Username=Convert.ToString(dr["Username"]),
+                            Password=Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"])
                         });
                     }
                 }
@@ -125,8 +127,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users = new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
-                            Info = Convert.ToString(dr["Info"])
+                            Username = Convert.ToString(dr["Username"]),
+                            Password = Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"])
                         };
                     }
                 }
@@ -164,8 +168,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users = new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode = bool.Parse(dr["AdminMode"].ToString()),
-                            Info = Convert.ToString(dr["Info"])
+                            Username = Convert.ToString(dr["Username"]),
+                            Password = Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"])
                         };
                     }
                 }
@@ -202,8 +208,10 @@ namespace IncidentReporting_WS.Code_Files.DAL
                         Users.Add(new Users
                         {
                             UserID = Convert.ToInt32(dr["UserID"]),
-                            AdminMode= bool.Parse(dr["AdminMode"].ToString()),
-                            Info = Convert.ToString(dr["Info"])
+                            Username = Convert.ToString(dr["Username"]),
+                            Password = Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"])
                         });
                     }
                 }

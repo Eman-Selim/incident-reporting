@@ -5988,7 +5988,7 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private string infoField;
         
-        private bool adminModeField;
+        private string adminModeField;
         
         /// <remarks/>
         public int UserID {
@@ -6031,7 +6031,7 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        public bool AdminMode {
+        public string AdminMode {
             get {
                 return this.adminModeField;
             }
