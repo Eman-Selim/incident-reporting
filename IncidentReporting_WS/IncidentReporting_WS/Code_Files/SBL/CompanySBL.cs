@@ -164,7 +164,7 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public CompanyCollection Company_Select_By_CompanyID(string username, string password, int CompanyID)
+        public Company Company_Select_By_CompanyID(string username, string password, int CompanyID)
         {
             try
             {

@@ -17,11 +17,15 @@ namespace Incident_Reporting_App_Server.Code
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
 
         #region Login Info
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public static string UserName { get; set; }
+        public static string Password { get; set; }
         #endregion
         #region Connect
-
+        //public ServerClass(string userName, string passWord)
+        //{
+        //    UserName = userName;
+        //    Password = passWord;
+        //}
         /// <summary>
         /// Intializes the connectivty variables then starts the authentication thread
         /// </summary>
@@ -31,8 +35,8 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                this.UserName = userName;
-                this.Password = passWord;
+                UserName = userName;
+                Password = passWord;
                 if (IncidentReporting_WS_Obj.Users_Admin_Select_All(UserName, Password)!=null)
                 {
                     Form2 f2 = new Form2();
@@ -49,7 +53,7 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-               return IncidentReporting_WS_Obj.Users_Select_All("Admin", "Admin");
+               return IncidentReporting_WS_Obj.Users_Select_All(UserName, Password);
             }
             catch (Exception exception1)
             {
@@ -61,7 +65,7 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                return IncidentReporting_WS_Obj.Company_Select_By_UserID("Admin", "Admin",userID);
+                return IncidentReporting_WS_Obj.Company_Select_By_UserID(UserName, Password, userID);
             }
             catch (Exception exception1)
             {
@@ -69,12 +73,47 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
-
+        public Company Select_Company(int CompanyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Company_Select_By_CompanyID(UserName, Password, CompanyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Buildings[] Select_Buildings(int companyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Buildings_Select_By_CompanyID(UserName, Password, companyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Users Select_User(int UserID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_SelectByUserId(UserName, Password, UserID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
         public void Add_Account(Users user)
         {
             try
             {
-                IncidentReporting_WS_Obj.Users_Insert("Admin", "Admin", user);
+                IncidentReporting_WS_Obj.Users_Insert(UserName, Password, user);
             }
             catch (Exception exception1)
             {
@@ -86,8 +125,8 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                Users user=IncidentReporting_WS_Obj.Users_SelectByName(this.UserName, this.Password, Name);
-                IncidentReporting_WS_Obj.Users_Delete(this.UserName, this.Password, user.UserID);
+                Users user=IncidentReporting_WS_Obj.Users_SelectByName(UserName, Password, Name);
+                IncidentReporting_WS_Obj.Users_Delete(UserName, Password, user.UserID);
             }
             catch (Exception exception1)
             {
@@ -100,9 +139,9 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                IncidentReporting_WS_Obj.Company_Insert(this.UserName, this.Password, company);
-                IncidentReporting_WS_Obj.DangerousPlaces_Insert(this.UserName, this.Password, place);
-                IncidentReporting_WS_Obj.Floors_Insert(this.UserName, this.Password, floor);
+                IncidentReporting_WS_Obj.Company_Insert(UserName, Password, company);
+                IncidentReporting_WS_Obj.DangerousPlaces_Insert(UserName, Password, place);
+                IncidentReporting_WS_Obj.Floors_Insert(UserName, Password, floor);
             }
             catch (Exception exception1)
             {
@@ -113,8 +152,8 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                Company[] companies = IncidentReporting_WS_Obj.Company_Select_By_Name(this.UserName, this.Password, Name);
-                IncidentReporting_WS_Obj.Company_Delete(this.UserName, this.Password, companies[0].CompanyID);
+                Company[] companies = IncidentReporting_WS_Obj.Company_Select_By_Name(UserName, Password, Name);
+                IncidentReporting_WS_Obj.Company_Delete(UserName, Password, companies[0].CompanyID);
             }
             catch (Exception exception1)
             {
@@ -125,8 +164,8 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
-                IncidentReporting_WS_Obj.FFstations_Insert(this.UserName, this.Password, station);
-                IncidentReporting_WS_Obj.FF_pumps_Insert(this.UserName, this.Password, pump);
+                IncidentReporting_WS_Obj.FFstations_Insert(UserName, Password, station);
+                IncidentReporting_WS_Obj.FF_pumps_Insert(UserName, Password, pump);
             }
             catch (Exception exception1)
             {

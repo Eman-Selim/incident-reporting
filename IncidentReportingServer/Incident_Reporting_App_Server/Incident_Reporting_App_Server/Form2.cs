@@ -16,19 +16,24 @@ namespace Incident_Reporting_App_Server
 {
     public partial class Form2 : Form
     {
+       // static string userName, passWord;
         int menu_Selected_Index = 0;
         ServerClass server_Class_Obj = new ServerClass();
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
         byte[] imagenu = null;
         Users[] User;
         Company[] companies;
+        Buildings[] buildings;
+        int Selected_User_ID=1;
+        int Selected_Company_ID=1;
         public Form2()
         {
             InitializeComponent();
             pictureBox5.MouseWheel += PictureBox5_MouseWheel;
+            
+            //load acounts treeview
             User = server_Class_Obj.Select_Account();
-
-            #region Accounts
+            
             int User_length = User != null ? User.Length : 0;
             if (User_length != 0)
             {
@@ -37,7 +42,7 @@ namespace Incident_Reporting_App_Server
                 {
                     TreeNode user_node = new TreeNode();
                     user_node.Text = User[i].Username;
-                    user_node.Tag = User[i];
+                    user_node.Tag = User[i].UserID;
                     treeView3.Nodes[0].Nodes.Add(user_node);
                     companies = server_Class_Obj.Select_Companies(User[i].UserID);
                     int Companies_length = companies != null ? companies.Length : 0;
@@ -59,7 +64,30 @@ namespace Incident_Reporting_App_Server
                 treeView3.Nodes.Clear();
                 return;
             }
-            #endregion
+            //load selected company Data
+
+
+            Company selectedCompany = server_Class_Obj.Select_Company(Selected_Company_ID);
+            companyName.Text = selectedCompany.Name;
+            govern.Text = selectedCompany.Address;
+            address.Text = selectedCompany.Address;
+            landlinePhone.Text = selectedCompany.LandlinePhoneNumber;
+            BuildingsNumber.Text = Convert.ToString( selectedCompany.BuildingsNumber);
+            ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
+            GasTrapLocation.Text = selectedCompany.GasTrapLocation;
+            OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
+
+
+            //load buildings of selected company
+
+
+            buildings = server_Class_Obj.Select_Buildings(Selected_Company_ID);
+            int buildings_length = buildings != null ? buildings.Length : 0;
+            for (int i = 0; i < buildings_length; i++)
+            {
+                buildingCB.Items.Add(buildings[i].BuildingNumber);
+            }
+            
 
             Thread Main_Thread = new Thread(load_all_treeviews_cycle);
             Main_Thread.Start();
@@ -107,7 +135,7 @@ namespace Incident_Reporting_App_Server
                             bool Find_Flag = false;
                             for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
                             {
-                                treeView3.Nodes[0].Nodes[j].Tag = User[i];
+                                treeView3.Nodes[0].Nodes[j].Tag = User[i].UserID;
                                 treeView3.Nodes[0].Nodes[j].Text = User[i].Username;
                                 break;
                             }
@@ -120,7 +148,7 @@ namespace Incident_Reporting_App_Server
                             {
                                 for (int j = 0; j < Companies_length; j++)
                                 {
-                                    treeView3.Nodes[0].Nodes[i].Nodes[j].Tag = companies[j];
+                                    treeView3.Nodes[0].Nodes[i].Nodes[j].Tag = companies[j].CompanyID;
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Text = companies[j].Name;
                                 }
                             }
@@ -221,71 +249,7 @@ namespace Incident_Reporting_App_Server
 
         }
 
-        private void AddCompany_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Company company= new Company();
-                company.Name = companyName.Text;
-                company.Address = address.Text;
-                company.LandlinePhoneNumber = landlinePhone.Text;
-                company.BackCompanyBusiness ="";
-                company.BuildingsNumber = Convert.ToInt32( BuildingsNumber.Text);
-                company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
-                company.GasTrapLocation = GasTrapLocation.Text;
-                company.OxygenTrapLocation = OxygenTrapLocation.Text;
-                company.RightCompanyName = "";
-                company.RightCompanyImageURL = "";
-                company.RightCompanyImage = imagenu;
-                company.RightCompanyBusiness = "";
-                company.LeftCompanyBusiness = "";
-                company.LeftCompanyImage = imagenu;
-                company.LeftCompanyImageURL = "";
-                company.LeftCompanyName = "";
-                company.BackCompanyBusiness = "";
-                company.BackCompanyImage = imagenu;
-                company.BackCompanyImageURL = "";
-                company.BackCompanyName = "";
-                company.FrontCompanyBusiness = "";
-                company.FrontCompanyImage = imagenu;
-                company.FrontCompanyImageURL = "";
-                company.FrontCompanyName = "";
-                company.Longitude = 0;
-                company.Latitude = 0;
-                
-                DangerousPlaces place = new DangerousPlaces();
-                place.Location = DangerouseLocation.Text;
-                place.HazardousSubstance = HazardousSubstance.Text;
-                place.FireMediator = FireMediator.Text;
-                place.Image = imagenu;
-                place.ImageURL = "";
-
-                Floors floor = new Floors();
-                floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
-                floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
-                floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
-                floor.PowderExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[3].Value;
-                floor.CarbonDioxideExtinguishersNumbers= (string)dataGridView1.CurrentRow.Cells[4].Value;
-                floor.CarbonDioxideExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[5].Value;
-                floor.FoamExtinguishersNumbers= (string)dataGridView1.CurrentRow.Cells[6].Value;
-                floor.FoamExtinguishersWeight= (int)dataGridView1.CurrentRow.Cells[7].Value;
-
-                server_Class_Obj.Add_Company(company, place, floor);
-
-                //for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
-                //{
-                //    for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
-                //    {
-                //        string value = dataGridView1.Rows[rows].Cells[col].Value.ToString();
-
-                //    }
-                //}
-            }
-            catch (Exception exception1)
-            {
-                Auditing.Error(exception1.Message);
-            }
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -356,7 +320,7 @@ namespace Incident_Reporting_App_Server
 
         private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            
         }
 
         private void Add_Account_Click_1(object sender, EventArgs e)
@@ -412,6 +376,7 @@ namespace Incident_Reporting_App_Server
                 company.FrontCompanyName = "";
                 company.Longitude = 0;
                 company.Latitude = 0;
+                company.UserID = 1;
 
                 DangerousPlaces place = new DangerousPlaces();
                 place.Location = DangerouseLocation.Text;
@@ -424,11 +389,11 @@ namespace Incident_Reporting_App_Server
                 floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
                 floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
                 floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
-                floor.PowderExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[3].Value;
+                floor.PowderExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value);
                 floor.CarbonDioxideExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[4].Value;
-                floor.CarbonDioxideExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[5].Value;
+                floor.CarbonDioxideExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value);
                 floor.FoamExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[6].Value;
-                floor.FoamExtinguishersWeight = (int)dataGridView1.CurrentRow.Cells[7].Value;
+                floor.FoamExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value);
 
                 server_Class_Obj.Add_Company(company, place, floor);
 
@@ -448,6 +413,18 @@ namespace Incident_Reporting_App_Server
         }
 
         private void treeView3_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+            Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
+            Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+
+        }
+
+        private void buildingCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void companyName_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -1611,11 +1611,11 @@ namespace IncidentReporting_WS
         }
 
          [WebMethod]
-        public CompanyCollection Company_Select_By_CompanyID(string username, string password, int CompanyID)
+        public Company Company_Select_By_CompanyID(string username, string password, int CompanyID)
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
+                Company Company= new Company();
                 Company=CompanySBL_Obj.Company_Select_By_CompanyID( username, password, CompanyID);
                 return Company;
             }

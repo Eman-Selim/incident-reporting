@@ -810,7 +810,7 @@
       <s:element name="Company_Select_By_CompanyIDResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Company_Select_By_CompanyIDResult" type="tns:ArrayOfCompany" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company_Select_By_CompanyIDResult" type="tns:Company" />
           </s:sequence>
         </s:complexType>
       </s:element>

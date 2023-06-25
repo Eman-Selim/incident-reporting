@@ -72,7 +72,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@Longitude",company.Longitude }
                };
 
-                company.CompanyID = db.Execute_Insert_Stored_Procedure("Accident_Insert", sp_params);
+                company.CompanyID = db.Execute_Insert_Stored_Procedure("Company_Insert", sp_params);
                 if (company.CompanyID > 0)
                 {
                     return company;
@@ -444,11 +444,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public CompanyCollection Company_Select_By_CompanyID(string username, string password, int CompanyID)
+        public Company Company_Select_By_CompanyID(string username, string password, int CompanyID)
         {
             try
             {
-                CompanyCollection company = new CompanyCollection();
+                Company company = new Company();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -465,7 +465,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        company.Add(new Company
+                        company=new Company
                         {
                             Name = dr["Name"] is DBNull ? "" : Convert.ToString(dr["Name"]),
                             Address = dr["Address"] is DBNull ? "" : Convert.ToString(dr["Address"]),
@@ -493,7 +493,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             LeftCompanyImage = dr["LeftCompanyImage"] is DBNull ? smallArray : (byte[])dr["LeftCompanyImage"],
                             UserID = dr["UserID"] is DBNull ? 0 : Convert.ToInt32(dr["UserID"])
 
-                        });
+                        };
                     }
                 }
                 return company;

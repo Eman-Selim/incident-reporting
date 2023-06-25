@@ -2122,12 +2122,12 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Company_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Company[] Company_Select_By_CompanyID(string username, string password, int CompanyID) {
+        public Company Company_Select_By_CompanyID(string username, string password, int CompanyID) {
             object[] results = this.Invoke("Company_Select_By_CompanyID", new object[] {
                         username,
                         password,
                         CompanyID});
-            return ((Company[])(results[0]));
+            return ((Company)(results[0]));
         }
         
         /// <remarks/>
@@ -8040,10 +8040,10 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        public Company[] Result {
+        public Company Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Company[])(this.results[0]));
+                return ((Company)(this.results[0]));
             }
         }
     }

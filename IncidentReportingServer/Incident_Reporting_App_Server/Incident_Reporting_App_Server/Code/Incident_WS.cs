@@ -1217,7 +1217,7 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public Company[] Company_Select_By_CompanyID(string username, string password, int CompanyID)
+        public Company Company_Select_By_CompanyID(string username, string password, int CompanyID)
         {
             try
             {
