@@ -20,10 +20,6 @@ namespace Incident_Reporting_App_Server.Code
         public string UserName { get; set; }
         public string Password { get; set; }
         #endregion
-
-        
-        
-
         #region Connect
 
         /// <summary>
@@ -54,6 +50,18 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                return IncidentReporting_WS_Obj.Users_Select_All("Admin", "Admin");
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Company[] Select_Companies(int userID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Company_Select_By_UserID("Admin", "Admin",userID);
             }
             catch (Exception exception1)
             {
