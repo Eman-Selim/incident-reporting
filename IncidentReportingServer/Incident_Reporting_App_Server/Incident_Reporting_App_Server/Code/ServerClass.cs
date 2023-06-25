@@ -85,6 +85,18 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+        public Users[] Select_Admins(int CompanyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_SelectByCompanyId(UserName, Password, CompanyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
         public Buildings[] Select_Buildings(int companyID)
         {
             try

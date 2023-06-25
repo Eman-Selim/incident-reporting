@@ -76,6 +76,7 @@ namespace Incident_Reporting_App_Server
             ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
             GasTrapLocation.Text = selectedCompany.GasTrapLocation;
             OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
+            c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
 
 
             //load buildings of selected company
@@ -86,6 +87,14 @@ namespace Incident_Reporting_App_Server
             for (int i = 0; i < buildings_length; i++)
             {
                 buildingCB.Items.Add(buildings[i].BuildingNumber);
+            }
+
+            //load admins of the selected company
+            Users[] admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
+            int admins_length = admins != null ? admins.Length : 0;
+            for (int i = 0; i < admins_length; i++)
+            {
+                comboBox5.Items.Add(admins[i].Username);
             }
             
 

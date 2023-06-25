@@ -43,9 +43,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@newUser", Users.Username},
                     {"@newPass", Users.Password},
                     {"@Info",Users.Info},
-                    {"@AdminMode", Users.AdminMode}
-                    
-               };
+                    {"@AdminMode", Users.AdminMode},
+                    {"@CompanyID",Users.CompanyID }
+                };
+
+            
 
                 Users.UserID = db.Execute_Insert_Stored_Procedure("Users_Insert", sp_params);
                 if (Users.UserID> 0)
@@ -89,7 +91,8 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Username=Convert.ToString(dr["Username"]),
                             Password=Convert.ToString(dr["Password"]),
                             Info = Convert.ToString(dr["Info"]),
-                            AdminMode = Convert.ToString(dr["AdminMode"])
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }
@@ -130,8 +133,50 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Username = Convert.ToString(dr["Username"]),
                             Password = Convert.ToString(dr["Password"]),
                             Info = Convert.ToString(dr["Info"]),
-                            AdminMode = Convert.ToString(dr["AdminMode"])
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"])
                         };
+                    }
+                }
+                return Users;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
+        {
+            try
+            {
+                UsersCollection Users = new UsersCollection();
+                DateTime temp_date = new DateTime(0000 - 00 - 00);
+                object[,] sp_params = new object[,]
+                {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@company_id",company_id }
+                };
+
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Users_SelectByCompanyId", sp_params);
+
+                if (dt.Rows.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Users.Add( new Users
+                        {
+                            UserID = Convert.ToInt32(dr["UserID"]),
+                            Username = Convert.ToString(dr["Username"]),
+                            Password = Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID=Convert.ToInt32(dr["CompanyID"])
+                        });
                     }
                 }
                 return Users;
@@ -171,7 +216,8 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Username = Convert.ToString(dr["Username"]),
                             Password = Convert.ToString(dr["Password"]),
                             Info = Convert.ToString(dr["Info"]),
-                            AdminMode = Convert.ToString(dr["AdminMode"])
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"])
                         };
                     }
                 }
@@ -211,7 +257,8 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Username = Convert.ToString(dr["Username"]),
                             Password = Convert.ToString(dr["Password"]),
                             Info = Convert.ToString(dr["Info"]),
-                            AdminMode = Convert.ToString(dr["AdminMode"])
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"])
                         });
                     }
                 }

@@ -12,5 +12,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string Password { get; set; }
         public string Info { get; set; }
         public string AdminMode { get; set; }
+        public int CompanyID { get; set; }
     }
 }

@@ -82,6 +82,21 @@ namespace IncidentReporting_WS
             }
         }
         [WebMethod]
+        public UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
+        {
+            try
+            {
+                UsersCollection users = new UsersCollection();
+                users = UsersSBL_Obj.Users_SelectByCompanyId(username, password, company_id);
+                return users;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        [WebMethod]
         public Users Users_SelectByName(string username, string password, string name)
         {
             try
