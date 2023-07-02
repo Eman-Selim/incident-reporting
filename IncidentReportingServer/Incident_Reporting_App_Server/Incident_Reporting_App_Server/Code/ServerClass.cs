@@ -97,11 +97,48 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
+        public DangerousPlaces[] Select_DangerousePlaces(int CompanyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Select_By_CompanyID(UserName, Password, CompanyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
         public Buildings[] Select_Buildings(int companyID)
         {
             try
             {
                 return IncidentReporting_WS_Obj.Buildings_Select_By_CompanyID(UserName, Password, companyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Buildings Select_Building(int BuildingID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Buildings_Select_By_BuildingID(UserName, Password, BuildingID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Floors[] Select_Floors(int BuildingID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Floors_Select_By_BuildingID(UserName, Password, BuildingID);
             }
             catch (Exception exception1)
             {

@@ -24,8 +24,7 @@ namespace Incident_Reporting_App_Server
         Users[] User;
         Company[] companies;
         Buildings[] buildings;
-        int Selected_User_ID=1;
-        int Selected_Company_ID=1;
+        Users[] admins;
         public Form2()
         {
             InitializeComponent();
@@ -64,6 +63,15 @@ namespace Incident_Reporting_App_Server
                 treeView3.Nodes.Clear();
                 return;
             }
+           
+
+            Thread Main_Thread = new Thread(load_all_treeviews_cycle);
+            Main_Thread.Start();
+        }
+
+        #region load_Data
+        private void Load_Data(int Selected_User_ID , int Selected_Company_ID )
+        {
             //load selected company Data
 
 
@@ -72,7 +80,7 @@ namespace Incident_Reporting_App_Server
             govern.Text = selectedCompany.Address;
             address.Text = selectedCompany.Address;
             landlinePhone.Text = selectedCompany.LandlinePhoneNumber;
-            BuildingsNumber.Text = Convert.ToString( selectedCompany.BuildingsNumber);
+            BuildingsNumber.Text = Convert.ToString(selectedCompany.BuildingsNumber);
             ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
             GasTrapLocation.Text = selectedCompany.GasTrapLocation;
             OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
@@ -90,18 +98,25 @@ namespace Incident_Reporting_App_Server
             }
 
             //load admins of the selected company
-            Users[] admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
+             admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
             int admins_length = admins != null ? admins.Length : 0;
             for (int i = 0; i < admins_length; i++)
             {
-                comboBox5.Items.Add(admins[i].Username);
+                Admins.Items.Add(admins[i].Username);
             }
-            
 
-            Thread Main_Thread = new Thread(load_all_treeviews_cycle);
-            Main_Thread.Start();
+            //load Dangerous places of the selected company
+            DangerousPlaces[] places = server_Class_Obj.Select_DangerousePlaces(Selected_Company_ID);
+            int places_length = places != null ? places.Length : 0;
+            for (int i = 0; i < places_length; i++)
+            {
+                Dangerous.Items.Add(places[i].Location);
+            }
+
         }
-        
+
+        #endregion
+
         #region treeview
         public delegate void load_trv_delegate();
 
@@ -423,19 +438,56 @@ namespace Incident_Reporting_App_Server
 
         private void treeView3_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
-            Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
-            Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+           int  Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
+            int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+            Load_Data(Selected_User_ID, Selected_Company_ID);
 
         }
 
         private void buildingCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            if (buildings.Length >= selectedIndex)
+            {
+                int buildingID = buildings[selectedIndex].BuildingID;
+                //Buildings building = server_Class_Obj.Select_Building(buildingID);
+                Floors[] floor = server_Class_Obj.Select_Floors(buildingID);
+                int floor_length = floor != null ? floor.Length : 0;
+                dataGridView1.Rows.Clear();
+                for (int i = 0; i < floor_length; i++)
+                {
+                    string[] row = new string[] { floor[i].FloorNumber, floor[i].FireHydrantsNumber, floor[i].PowderExtinguishersNumber,
+                    Convert.ToString(floor[i].PowderExtinguishersWeight),
+                    floor[i].CarbonDioxideExtinguishersNumbers,
+                    Convert.ToString(floor[i].CarbonDioxideExtinguishersWeight),
+                    floor[0].PowderExtinguishersNumber,
+                    Convert.ToString(floor[0].PowderExtinguishersWeight)};
 
+                    dataGridView1.Rows.Add(row);
+                }
+            }
         }
 
         private void companyName_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            int userid = admins[selectedIndex].UserID;
+            Users user = server_Class_Obj.Select_User(userid);
+            SelectedUserName.Text = user.Username;
+            SelectedUserInfo.Text = user.Info;
+        }
+    }
+
+    internal class ComboboxItem
+    {
+        public string Text { get; set; }
+        public object Value { get; set; }
     }
 }
