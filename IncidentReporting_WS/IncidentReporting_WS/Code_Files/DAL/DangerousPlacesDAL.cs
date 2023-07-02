@@ -125,6 +125,47 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 return null;
             }
         }
+        public DangerousPlaces DangerousPlaces_Select_By_ID(string username, string password, int DangerousPlaceID)
+        {
+            try
+            {
+                DangerousPlaces place = new DangerousPlaces();
+                DateTime temp_date = new DateTime(0000 - 00 - 00);
+                object[,] sp_params = new object[,]
+                {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@DangerousPlaceID",DangerousPlaceID }
+                };
+
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("DangerousPlaces_Select_By_ID", sp_params);
+
+                if (dt.Rows.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        place=new DangerousPlaces
+                        {
+                            HazardousSubstance = Convert.ToString(dr["HazardousSubstance"]),
+                            Location = Convert.ToString(dr["Location"]),
+                            FireMediator = Convert.ToString(dr["FireMediator"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"]),
+                            Image = (byte[])dr["Image"],
+                            DangerousPlaceID = Convert.ToInt32(dr["DangerousPlaceID"])
+                        };
+                    }
+                }
+                return place;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         public DangerousPlacesCollection DangerousPlaces_Select_By_FireMediator(string username, string password, string FireMediator)
         {

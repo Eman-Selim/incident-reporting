@@ -1083,6 +1083,19 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
+        public DangerousPlaces DangerousPlaces_Select_By_ID(string username, string password, int DangerousPlaceID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Select_By_ID(username, password, DangerousPlaceID);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
         public DangerousPlaces[] DangerousPlaces_Select_By_FireMediator(string username, string password, string FireMediator)
         {
             try

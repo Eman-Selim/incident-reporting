@@ -73,6 +73,18 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+        public Images[] Select_Images(int BuildingID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Images_Select_By_BuildingID(UserName, Password, BuildingID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
         public Company Select_Company(int CompanyID)
         {
             try
@@ -103,6 +115,18 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                 return IncidentReporting_WS_Obj.DangerousPlaces_Select_By_CompanyID(UserName, Password, CompanyID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public DangerousPlaces Select_DangerousePlace(int placeID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Select_By_ID(UserName, Password, placeID);
             }
             catch (Exception exception1)
             {

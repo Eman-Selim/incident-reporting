@@ -68,6 +68,25 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
+        public DangerousPlaces DangerousPlaces_Select_By_ID(string username, string password, int DangerousPlaceID)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return DangerousPlacesDAL_Obj.DangerousPlaces_Select_By_ID(username, password, DangerousPlaceID);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public DangerousPlacesCollection DangerousPlaces_Select_By_FireMediator(string username, string password, string FireMediator)
         {
             try

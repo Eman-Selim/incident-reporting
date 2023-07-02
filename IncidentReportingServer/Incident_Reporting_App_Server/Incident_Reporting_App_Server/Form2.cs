@@ -25,6 +25,7 @@ namespace Incident_Reporting_App_Server
         Company[] companies;
         Buildings[] buildings;
         Users[] admins;
+        DangerousPlaces[] places;
         public Form2()
         {
             InitializeComponent();
@@ -84,7 +85,21 @@ namespace Incident_Reporting_App_Server
             ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
             GasTrapLocation.Text = selectedCompany.GasTrapLocation;
             OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
-            c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+             c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+            //string[] row = new string[]
+           
+            //Loading the neighboring companies
+           
+            
+            //{ "Back",selectedCompany.BackCompanyName,selectedCompany.BackCompanyBusiness, selectedCompany.BackCompanyImageURL, " ", selectedCompany.BackCompanyName};
+            //dataGridView2.Rows.Add(row);
+
+            //row = new string[] { "Front", selectedCompany.FrontCompanyName, selectedCompany.FrontCompanyBusiness, selectedCompany.FrontCompanyImageURL, " ", Convert.ToString(Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage)))};
+
+            //dataGridView2.Rows.Add(row);
+
+            //row = new string[] { "Left", selectedCompany.LeftCompanyName, selectedCompany.LeftCompanyBusiness, selectedCompany.LeftCompanyImageURL, " ", " "};
+            //dataGridView2.Rows.Add(row);
 
 
             //load buildings of selected company
@@ -92,6 +107,7 @@ namespace Incident_Reporting_App_Server
 
             buildings = server_Class_Obj.Select_Buildings(Selected_Company_ID);
             int buildings_length = buildings != null ? buildings.Length : 0;
+            buildingCB.Items.Clear();
             for (int i = 0; i < buildings_length; i++)
             {
                 buildingCB.Items.Add(buildings[i].BuildingNumber);
@@ -100,14 +116,17 @@ namespace Incident_Reporting_App_Server
             //load admins of the selected company
              admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
             int admins_length = admins != null ? admins.Length : 0;
+            Admins.Items.Clear();
             for (int i = 0; i < admins_length; i++)
             {
                 Admins.Items.Add(admins[i].Username);
             }
 
             //load Dangerous places of the selected company
-            DangerousPlaces[] places = server_Class_Obj.Select_DangerousePlaces(Selected_Company_ID);
+
+            places = server_Class_Obj.Select_DangerousePlaces(Selected_Company_ID);
             int places_length = places != null ? places.Length : 0;
+            Dangerous.Items.Clear();
             for (int i = 0; i < places_length; i++)
             {
                 Dangerous.Items.Add(places[i].Location);
@@ -466,6 +485,18 @@ namespace Incident_Reporting_App_Server
 
                     dataGridView1.Rows.Add(row);
                 }
+                Images[] img = server_Class_Obj.Select_Images(buildingID);
+                int img_length = img != null ? img.Length : 0;
+                if (img_length > 0)
+                {
+                    c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(img[0].Image));
+                    if (img_length > 1)
+                    {
+                        c1PictureBox2.Image = Image.FromStream(new System.IO.MemoryStream(img[1].Image));
+                        if(img_length>2)
+                        c1PictureBox3.Image = Image.FromStream(new System.IO.MemoryStream(img[2].Image));
+                    }
+                }
             }
         }
 
@@ -482,6 +513,17 @@ namespace Incident_Reporting_App_Server
             Users user = server_Class_Obj.Select_User(userid);
             SelectedUserName.Text = user.Username;
             SelectedUserInfo.Text = user.Info;
+        }
+
+        private void Dangerous_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            int placesid = places[selectedIndex].DangerousPlaceID;
+            DangerousPlaces place = server_Class_Obj.Select_DangerousePlace(placesid);
+            HazardousSubstance.Text = place.HazardousSubstance;
+            DangerouseLocation.Text = place.Location;
+            FireMediator.Text = place.FireMediator;
         }
     }
 

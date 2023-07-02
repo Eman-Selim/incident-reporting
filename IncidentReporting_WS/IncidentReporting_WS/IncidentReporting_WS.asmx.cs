@@ -1456,6 +1456,21 @@ namespace IncidentReporting_WS
         }
 
         [WebMethod]
+        public DangerousPlaces DangerousPlaces_Select_By_ID(string username, string password, int DangerousPlaceID)
+        {
+            try
+            {
+                DangerousPlaces DangerousPlaces = new DangerousPlaces();
+                DangerousPlaces = DangerousPlacesSBL_Obj.DangerousPlaces_Select_By_ID(username, password, DangerousPlaceID);
+                return DangerousPlaces;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        [WebMethod]
         public DangerousPlacesCollection DangerousPlaces_Select_By_FireMediator(string username, string password, string FireMediator)
         {
             try

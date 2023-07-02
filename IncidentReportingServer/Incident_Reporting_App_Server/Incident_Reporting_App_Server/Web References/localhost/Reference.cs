@@ -29,6 +29,8 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="IncidentReporting_WSSoap", Namespace="http://tempuri.org/")]
     public partial class IncidentReporting_WS : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback Accident_Select_By_CompanyIDOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Accident_Select_By_DateOperationCompleted;
         
         private System.Threading.SendOrPostCallback Accident_Select_By_EquipmentsOperationCompleted;
@@ -94,6 +96,8 @@ namespace Incident_Reporting_App_Server.localhost {
         private System.Threading.SendOrPostCallback DangerousPlaces_Select_AllOperationCompleted;
         
         private System.Threading.SendOrPostCallback DangerousPlaces_Select_By_CompanyIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DangerousPlaces_Select_By_IDOperationCompleted;
         
         private System.Threading.SendOrPostCallback DangerousPlaces_Select_By_FireMediatorOperationCompleted;
         
@@ -170,8 +174,6 @@ namespace Incident_Reporting_App_Server.localhost {
         private System.Threading.SendOrPostCallback Accident_Select_AllOperationCompleted;
         
         private System.Threading.SendOrPostCallback Accident_Select_By_AccidentNumberOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Accident_Select_By_CompanyIDOperationCompleted;
         
         private System.Threading.SendOrPostCallback Users_DeleteOperationCompleted;
         
@@ -340,6 +342,9 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
+        public event Accident_Select_By_CompanyIDCompletedEventHandler Accident_Select_By_CompanyIDCompleted;
+        
+        /// <remarks/>
         public event Accident_Select_By_DateCompletedEventHandler Accident_Select_By_DateCompleted;
         
         /// <remarks/>
@@ -437,6 +442,9 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         public event DangerousPlaces_Select_By_CompanyIDCompletedEventHandler DangerousPlaces_Select_By_CompanyIDCompleted;
+        
+        /// <remarks/>
+        public event DangerousPlaces_Select_By_IDCompletedEventHandler DangerousPlaces_Select_By_IDCompleted;
         
         /// <remarks/>
         public event DangerousPlaces_Select_By_FireMediatorCompletedEventHandler DangerousPlaces_Select_By_FireMediatorCompleted;
@@ -551,9 +559,6 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         public event Accident_Select_By_AccidentNumberCompletedEventHandler Accident_Select_By_AccidentNumberCompleted;
-        
-        /// <remarks/>
-        public event Accident_Select_By_CompanyIDCompletedEventHandler Accident_Select_By_CompanyIDCompleted;
         
         /// <remarks/>
         public event Users_DeleteCompletedEventHandler Users_DeleteCompleted;
@@ -746,6 +751,39 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         public event FF_ManPower_Select_By_AvailabilityCompletedEventHandler FF_ManPower_Select_By_AvailabilityCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Accident_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Accident[] Accident_Select_By_CompanyID(string username, string password, int CompanyID) {
+            object[] results = this.Invoke("Accident_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID});
+            return ((Accident[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Accident_Select_By_CompanyIDAsync(string username, string password, int CompanyID) {
+            this.Accident_Select_By_CompanyIDAsync(username, password, CompanyID, null);
+        }
+        
+        /// <remarks/>
+        public void Accident_Select_By_CompanyIDAsync(string username, string password, int CompanyID, object userState) {
+            if ((this.Accident_Select_By_CompanyIDOperationCompleted == null)) {
+                this.Accident_Select_By_CompanyIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAccident_Select_By_CompanyIDOperationCompleted);
+            }
+            this.InvokeAsync("Accident_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID}, this.Accident_Select_By_CompanyIDOperationCompleted, userState);
+        }
+        
+        private void OnAccident_Select_By_CompanyIDOperationCompleted(object arg) {
+            if ((this.Accident_Select_By_CompanyIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Accident_Select_By_CompanyIDCompleted(this, new Accident_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Accident_Select_By_Date", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1827,6 +1865,39 @@ namespace Incident_Reporting_App_Server.localhost {
             if ((this.DangerousPlaces_Select_By_CompanyIDCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DangerousPlaces_Select_By_CompanyIDCompleted(this, new DangerousPlaces_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DangerousPlaces_Select_By_ID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public DangerousPlaces DangerousPlaces_Select_By_ID(string username, string password, int DangerousPlaceID) {
+            object[] results = this.Invoke("DangerousPlaces_Select_By_ID", new object[] {
+                        username,
+                        password,
+                        DangerousPlaceID});
+            return ((DangerousPlaces)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DangerousPlaces_Select_By_IDAsync(string username, string password, int DangerousPlaceID) {
+            this.DangerousPlaces_Select_By_IDAsync(username, password, DangerousPlaceID, null);
+        }
+        
+        /// <remarks/>
+        public void DangerousPlaces_Select_By_IDAsync(string username, string password, int DangerousPlaceID, object userState) {
+            if ((this.DangerousPlaces_Select_By_IDOperationCompleted == null)) {
+                this.DangerousPlaces_Select_By_IDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDangerousPlaces_Select_By_IDOperationCompleted);
+            }
+            this.InvokeAsync("DangerousPlaces_Select_By_ID", new object[] {
+                        username,
+                        password,
+                        DangerousPlaceID}, this.DangerousPlaces_Select_By_IDOperationCompleted, userState);
+        }
+        
+        private void OnDangerousPlaces_Select_By_IDOperationCompleted(object arg) {
+            if ((this.DangerousPlaces_Select_By_IDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DangerousPlaces_Select_By_IDCompleted(this, new DangerousPlaces_Select_By_IDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3075,39 +3146,6 @@ namespace Incident_Reporting_App_Server.localhost {
             if ((this.Accident_Select_By_AccidentNumberCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Accident_Select_By_AccidentNumberCompleted(this, new Accident_Select_By_AccidentNumberCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Accident_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Accident[] Accident_Select_By_CompanyID(string username, string password, int CompanyID) {
-            object[] results = this.Invoke("Accident_Select_By_CompanyID", new object[] {
-                        username,
-                        password,
-                        CompanyID});
-            return ((Accident[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Accident_Select_By_CompanyIDAsync(string username, string password, int CompanyID) {
-            this.Accident_Select_By_CompanyIDAsync(username, password, CompanyID, null);
-        }
-        
-        /// <remarks/>
-        public void Accident_Select_By_CompanyIDAsync(string username, string password, int CompanyID, object userState) {
-            if ((this.Accident_Select_By_CompanyIDOperationCompleted == null)) {
-                this.Accident_Select_By_CompanyIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAccident_Select_By_CompanyIDOperationCompleted);
-            }
-            this.InvokeAsync("Accident_Select_By_CompanyID", new object[] {
-                        username,
-                        password,
-                        CompanyID}, this.Accident_Select_By_CompanyIDOperationCompleted, userState);
-        }
-        
-        private void OnAccident_Select_By_CompanyIDOperationCompleted(object arg) {
-            if ((this.Accident_Select_By_CompanyIDCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Accident_Select_By_CompanyIDCompleted(this, new Accident_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6982,6 +7020,32 @@ namespace Incident_Reporting_App_Server.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Accident_Select_By_CompanyIDCompletedEventHandler(object sender, Accident_Select_By_CompanyIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Accident_Select_By_CompanyIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Accident_Select_By_CompanyIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Accident[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Accident[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void Accident_Select_By_DateCompletedEventHandler(object sender, Accident_Select_By_DateCompletedEventArgs e);
     
     /// <remarks/>
@@ -7834,6 +7898,32 @@ namespace Incident_Reporting_App_Server.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((DangerousPlaces[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DangerousPlaces_Select_By_IDCompletedEventHandler(object sender, DangerousPlaces_Select_By_IDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DangerousPlaces_Select_By_IDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DangerousPlaces_Select_By_IDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public DangerousPlaces Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((DangerousPlaces)(this.results[0]));
             }
         }
     }
@@ -8822,32 +8912,6 @@ namespace Incident_Reporting_App_Server.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Accident)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Accident_Select_By_CompanyIDCompletedEventHandler(object sender, Accident_Select_By_CompanyIDCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Accident_Select_By_CompanyIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Accident_Select_By_CompanyIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Accident[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Accident[])(this.results[0]));
             }
         }
     }
