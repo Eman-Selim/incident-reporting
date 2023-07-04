@@ -102,7 +102,7 @@ namespace Incident_Reporting_App_Server
             ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
             GasTrapLocation.Text = selectedCompany.GasTrapLocation;
             OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
-             c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+            c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
             //string[] row = new string[]
            
             //Loading the neighboring companies
@@ -111,7 +111,7 @@ namespace Incident_Reporting_App_Server
             //{ "Back",selectedCompany.BackCompanyName,selectedCompany.BackCompanyBusiness, selectedCompany.BackCompanyImageURL, " ", selectedCompany.BackCompanyName};
             //dataGridView2.Rows.Add(row);
 
-            //row = new string[] { "Front", selectedCompany.FrontCompanyName, selectedCompany.FrontCompanyBusiness, selectedCompany.FrontCompanyImageURL, " ", Convert.ToString(Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage)))};
+            //row = new string[] { "Front", selectedCompany.FrontCompanyName, selectedCompany.FrontCompanyBusiness, selectedCompany.FrontCompanyImageURL, " ", Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage))};
 
             //dataGridView2.Rows.Add(row);
 
@@ -150,7 +150,113 @@ namespace Incident_Reporting_App_Server
             }
 
         }
+        //private void populate_users_treeview(Users[] list_of_users)
+        //{
+        //    try
+        //    {
+        //        if (Singleton.Message_module_control_obj.users_trv.InvokeRequired)
+        //        {
+        //            populate_users_treeview_delegate _delegate = new populate_users_treeview_delegate(populate_users_treeview);
+        //            Singleton.Message_module_control_obj.users_trv.Invoke(_delegate, new object[] { list_of_users });
+        //        }
+        //        else
+        //        {
+        //            #region population
+        //            if (list_of_users != null && list_of_users.Count() > 0)
+        //            {
+        //                Singleton.Message_module_control_obj.users_trv.Nodes[0].Text = Singleton.Message_module_user.Username;
+        //                Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Text = $"المستخدمين({list_of_users.Count()})";
 
+        //                foreach (SC3_Message_Module_WS.Users user in list_of_users)
+        //                {
+        //                    bool check = false;
+        //                    foreach (TreeNode node in Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Nodes)
+        //                    {
+        //                        if (node.Text == user.Username)
+        //                        {
+        //                            check = true;
+        //                        }
+        //                    }
+        //                    if (!check)
+        //                    {
+        //                        TreeNode user_subnode = new TreeNode();
+        //                        user_subnode.Text = user.Username;
+        //                        user_subnode.Tag = user;
+        //                        Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Nodes.Add(user_subnode);
+
+        //                    }
+        //                }
+
+        //            }
+        //            #endregion
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Auditing.Error(ex.Message);
+
+        //    }
+
+        //}
+        //private void update_show_dgv_inbox_data(SC3_Message_Module_WS.Inbox[] inbox_array)
+        //{
+        //    try
+        //    {
+        //        if (Singleton.Message_module_control_obj.show_messages_data_grid_view.InvokeRequired)
+        //        {
+        //            update_show_dgv_inbox_data_delegate _delegate = new update_show_dgv_inbox_data_delegate(update_show_dgv_inbox_data);
+        //            Singleton.Message_module_control_obj.show_messages_data_grid_view.Invoke(_delegate, new object[] { inbox_array });
+
+        //        }
+        //        else
+        //        {
+        //            DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
+
+        //            #region add columns
+
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[0], typeof(int));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[1], typeof(string));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[2], typeof(DateTime));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[3], typeof(string));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[4], typeof(int));
+
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[5], typeof(bool));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[6], typeof(int));
+        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[7], typeof(bool));
+
+        //            #endregion
+
+        //            #region add datarows
+        //            if (inbox_array != null)
+        //            {
+        //                for (int i = 0; i < inbox_array.Length; i++)
+        //                {
+        //                    DataRow New_Row = Inbox_datatable.NewRow();
+        //                    New_Row[0] = inbox_array[i].Inbox_ID;
+        //                    New_Row[1] = inbox_array[i].From_Device;
+        //                    New_Row[2] = inbox_array[i].Inbox_Datetime;
+        //                    New_Row[3] = inbox_array[i].Message_Body;
+        //                    New_Row[4] = inbox_array[i].User_ID;
+        //                    New_Row[5] = inbox_array[i].Inbox_Seen;
+        //                    New_Row[6] = inbox_array[i].Type_ID;
+        //                    New_Row[7] = inbox_array[i].Visibility_Flag;
+        //                    Inbox_datatable.Rows.Add(New_Row);
+        //                }
+        //            }
+
+
+        //            #endregion
+
+        //            Singleton.Message_module_control_obj.show_messages_data_grid_view.DataSource = Inbox_datatable;
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Auditing.Error(ex.Message);
+        //    }
+
+        //}
         #endregion
 
         #region treeview
