@@ -67,6 +67,21 @@ namespace IncidentReporting_WS
         }
 
         [WebMethod]
+        public UsersCollection Users_Select_Users_Of_User(string username, string password, int UserId)
+        {
+            try
+            {
+                UsersCollection users = new UsersCollection();
+                users = UsersSBL_Obj.Users_Select_Users_Of_User(username, password, UserId);
+                return users;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        [WebMethod]
         public Users Users_SelectByUserId(string username, string password, int UserId)
         {
             try

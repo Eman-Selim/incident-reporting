@@ -86,6 +86,26 @@ namespace IncidentReporting_WS.Code_Files.SBL
                 return null;
             }
         }
+
+        public UsersCollection Users_Select_Users_Of_User(string username, string password, int UserId)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return UsersDAL_Obj.Users_Select_Users_Of_User(username, password, UserId);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public  UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
         {
             try

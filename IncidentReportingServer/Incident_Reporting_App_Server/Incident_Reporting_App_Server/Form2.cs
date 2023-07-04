@@ -22,6 +22,7 @@ namespace Incident_Reporting_App_Server
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
         byte[] imagenu = null;
         Users[] User;
+        Users[] UsersOfUser;
         Company[] companies;
         Buildings[] buildings;
         Users[] admins;
@@ -32,7 +33,7 @@ namespace Incident_Reporting_App_Server
             pictureBox5.MouseWheel += PictureBox5_MouseWheel;
             
             //load acounts treeview
-            User = server_Class_Obj.Select_Account();
+            User = server_Class_Obj.Select_Users_of_Users();
             
             int User_length = User != null ? User.Length : 0;
             if (User_length != 0)
@@ -43,8 +44,11 @@ namespace Incident_Reporting_App_Server
                     TreeNode user_node = new TreeNode();
                     user_node.Text = User[i].Username;
                     user_node.Tag = User[i].UserID;
+
                     treeView3.Nodes[0].Nodes.Add(user_node);
+
                     companies = server_Class_Obj.Select_Companies(User[i].UserID);
+
                     int Companies_length = companies != null ? companies.Length : 0;
                     if (Companies_length != 0)
                     {
@@ -53,7 +57,20 @@ namespace Incident_Reporting_App_Server
                             TreeNode company_node = new TreeNode();
                             company_node.Text = companies[j].Name;
                             company_node.Tag = companies[j];
+
                             treeView3.Nodes[0].Nodes[i].Nodes.Add(company_node);
+                            
+                        }
+
+                        Users[] UsersOfUser = server_Class_Obj.Select_Users_of_User(User[i].Username, User[i].Password, User[i].UserID);
+                        int UsersOfUser_length = UsersOfUser != null ? UsersOfUser.Length : 0;
+                        
+                        for (int k = 0; k < UsersOfUser_length; k++)
+                        {
+                            TreeNode userOfUser_node = new TreeNode();
+                            userOfUser_node.Text = UsersOfUser[k].Username;
+                            userOfUser_node.Tag = UsersOfUser[k].UserID;
+                            treeView3.Nodes[0].Nodes[i].Nodes.Add(userOfUser_node);
                         }
                     }
                 }
@@ -189,10 +206,20 @@ namespace Incident_Reporting_App_Server
                             int Companies_length = companies != null ? companies.Length : 0;
                             if (Companies_length != 0)
                             {
+                               
                                 for (int j = 0; j < Companies_length; j++)
                                 {
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Tag = companies[j].CompanyID;
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Text = companies[j].Name;
+                                   
+                                }
+                                
+                                UsersOfUser = server_Class_Obj.Select_Users_of_User(User[i].Username, User[i].Password, User[i].UserID);
+                                int UsersOfUser_length = UsersOfUser != null ? UsersOfUser.Length : 0;
+                                for (int k = 0; k < UsersOfUser_length; k++)
+                                {
+                                    treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Tag = UsersOfUser[k].UserID;
+                                    treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Text = UsersOfUser[k].Username;
                                 }
                             }
                         }
@@ -329,10 +356,7 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-        private void DeleteCompany_Click(object sender, EventArgs e)
-        {
-            server_Class_Obj.Delete_Company(companyName.Text);
-        }
+        
 
         private void RemoveAccount_Click(object sender, EventArgs e)
         {
@@ -458,7 +482,7 @@ namespace Incident_Reporting_App_Server
         private void treeView3_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
            int  Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
-            int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+           int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
             Load_Data(Selected_User_ID, Selected_Company_ID);
 
         }
@@ -524,6 +548,16 @@ namespace Incident_Reporting_App_Server
             HazardousSubstance.Text = place.HazardousSubstance;
             DangerouseLocation.Text = place.Location;
             FireMediator.Text = place.FireMediator;
+        }
+
+        private void DeleteCompany_Click_1(object sender, EventArgs e)
+        {
+            server_Class_Obj.Delete_Company(companyName.Text);
+        }
+
+        private void RemoveAccount_Click_1(object sender, EventArgs e)
+        {
+            server_Class_Obj.Delete_Account(accountName.Text);
         }
     }
 

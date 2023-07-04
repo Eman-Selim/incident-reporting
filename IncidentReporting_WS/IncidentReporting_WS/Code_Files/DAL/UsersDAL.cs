@@ -145,6 +145,48 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 return null;
             }
         }
+
+        public UsersCollection Users_Select_Users_Of_User(string username, string password, int UserId)
+        {
+            try
+            {
+                UsersCollection Users = new UsersCollection();
+                DateTime temp_date = new DateTime(0000 - 00 - 00);
+                object[,] sp_params = new object[,]
+                {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@userid",UserId }
+                };
+
+                DataTable dt = db.Execute_Stored_Procedure_Show_Values("Users_Select_Users_Of_User", sp_params);
+
+                if (dt.Rows.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Users.Add( new Users
+                        {
+                            UserID = Convert.ToInt32(dr["User_ID"]),
+                            Username = Convert.ToString(dr["Username"]),
+                            Password = Convert.ToString(dr["Password"]),
+                            Info = Convert.ToString(dr["Info"]),
+                            AdminMode = Convert.ToString(dr["AdminMode"]),
+                            CompanyID = Convert.ToInt32(dr["CompanyID"])
+                        });
+                    }
+                }
+                return Users;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
         public UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
         {
             try

@@ -37,7 +37,7 @@ namespace Incident_Reporting_App_Server.Code
             {
                 UserName = userName;
                 Password = passWord;
-                if (IncidentReporting_WS_Obj.Users_Admin_Select_All(UserName, Password)!=null)
+                if (IncidentReporting_WS_Obj.Users_Select_All(UserName, Password)!=null)
                 {
                     Form2 f2 = new Form2();
                     f2.Show();
@@ -54,6 +54,31 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                return IncidentReporting_WS_Obj.Users_Select_All(UserName, Password);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Users[] Select_Users_of_Users()
+        {
+            try
+            {
+                Users user = IncidentReporting_WS_Obj.Users_SelectByName(UserName, Password, UserName);
+                return IncidentReporting_WS_Obj.Users_Select_Users_Of_User(UserName, Password,user.UserID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+        public Users[] Select_Users_of_User(string username,string password,int UserId)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_Select_Users_Of_User(username, password, UserId);
             }
             catch (Exception exception1)
             {
@@ -206,6 +231,8 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
+
+       
 
 
         public void Add_Company(Company company, DangerousPlaces place, Floors floor)
