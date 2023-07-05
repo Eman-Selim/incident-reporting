@@ -106,7 +106,7 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
+        public FF_ManPower FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
         {
             try
             {

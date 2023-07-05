@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Incident_Reporting_App_Server.localhost;
 using SDS_Remote_Control_Application_Server.Code;
 using System.Threading;
+using System.IO;
 
 namespace Incident_Reporting_App_Server
 {
@@ -27,6 +28,7 @@ namespace Incident_Reporting_App_Server
         Buildings[] buildings;
         Users[] admins;
         DangerousPlaces[] places;
+        FF_ManPower[] points;
         public Form2()
         {
             InitializeComponent();
@@ -103,21 +105,74 @@ namespace Incident_Reporting_App_Server
             GasTrapLocation.Text = selectedCompany.GasTrapLocation;
             OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
             c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+
+
+
             //string[] row = new string[]
-           
+
             //Loading the neighboring companies
+
+            DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
+            Inbox_datatable.Columns.Add("companyDirection", typeof(string));
+            Inbox_datatable.Columns.Add("CompanyName", typeof(string));
+            Inbox_datatable.Columns.Add("CompanyBusiness", typeof(string));
+            Inbox_datatable.Columns.Add("CompanyImageURL", typeof(string));
+            Inbox_datatable.Columns.Add("FireMediator", typeof(string));
+            Inbox_datatable.Columns.Add("CompanyImage", typeof(Image));
+
+            MemoryStream ms = new MemoryStream();
+            PictureBox P1 = new PictureBox();
+            P1.Image= Image.FromStream(new System.IO.MemoryStream(selectedCompany.BackCompanyImage));
+            //byte[] img = ms.ToArray();
+
+
+            DataRow Back_Row = Inbox_datatable.NewRow();
+
+            Back_Row[0] = "Back Company";
+            Back_Row[1] = selectedCompany.BackCompanyName;
+            Back_Row[2] = selectedCompany.BackCompanyBusiness;
+            Back_Row[3] = selectedCompany.BackCompanyImageURL;
+            Back_Row[4] = selectedCompany.BackFireMediator;
+            Back_Row[5] = P1.Image;
+            Inbox_datatable.Rows.Add(Back_Row);
+
+            DataRow Front_Row = Inbox_datatable.NewRow();
+            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
+
+            Front_Row[0] = "Front Company";
+            Front_Row[1] = selectedCompany.FrontCompanyName;
+            Front_Row[2] = selectedCompany.FrontCompanyBusiness;
+            Front_Row[3] = selectedCompany.FrontCompanyImageURL;
+            Front_Row[4] = selectedCompany.FrontFireMediator;
+            Front_Row[5] = P1.Image;
+
+            Inbox_datatable.Rows.Add(Front_Row);
+
+            DataRow Right_Row = Inbox_datatable.NewRow();
+            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+
+            Right_Row[0] = "Right Company";
+            Right_Row[1] = selectedCompany.RightCompanyName;
+            Right_Row[2] = selectedCompany.RightCompanyBusiness;
+            Right_Row[3] = selectedCompany.RightCompanyImageURL;
+            Right_Row[4] = selectedCompany.RightFireMediator;
+            Right_Row[5] = P1.Image;
+            Inbox_datatable.Rows.Add(Right_Row);
+
+            DataRow Left_Row = Inbox_datatable.NewRow();
+            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.LeftCompanyImage));
+
+            Left_Row[0] = "Left Company";
+            Left_Row[1] = selectedCompany.LeftCompanyName;
+            Left_Row[2] = selectedCompany.LeftCompanyBusiness;
+            Left_Row[3] = selectedCompany.LeftCompanyImageURL;
+            Left_Row[4] = selectedCompany.LeftFireMediator;
+            Left_Row[5] = P1.Image;
+            Inbox_datatable.Rows.Add(Left_Row);
+
+            dataGridView2.DataSource = Inbox_datatable;
+
            
-            
-            //{ "Back",selectedCompany.BackCompanyName,selectedCompany.BackCompanyBusiness, selectedCompany.BackCompanyImageURL, " ", selectedCompany.BackCompanyName};
-            //dataGridView2.Rows.Add(row);
-
-            //row = new string[] { "Front", selectedCompany.FrontCompanyName, selectedCompany.FrontCompanyBusiness, selectedCompany.FrontCompanyImageURL, " ", Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage))};
-
-            //dataGridView2.Rows.Add(row);
-
-            //row = new string[] { "Left", selectedCompany.LeftCompanyName, selectedCompany.LeftCompanyBusiness, selectedCompany.LeftCompanyImageURL, " ", " "};
-            //dataGridView2.Rows.Add(row);
-
 
             //load buildings of selected company
 
@@ -149,114 +204,20 @@ namespace Incident_Reporting_App_Server
                 Dangerous.Items.Add(places[i].Location);
             }
 
+            //load points 
+
+            points = server_Class_Obj.Select_points(Selected_User_ID);
+            int points_length = points != null ? points.Length : 0;
+            comboBox11.Items.Clear();
+            for (int i = 0; i < points_length; i++)
+            {
+                comboBox11.Items.Add(points[i].Point);
+            }
+            
+
         }
-        //private void populate_users_treeview(Users[] list_of_users)
-        //{
-        //    try
-        //    {
-        //        if (Singleton.Message_module_control_obj.users_trv.InvokeRequired)
-        //        {
-        //            populate_users_treeview_delegate _delegate = new populate_users_treeview_delegate(populate_users_treeview);
-        //            Singleton.Message_module_control_obj.users_trv.Invoke(_delegate, new object[] { list_of_users });
-        //        }
-        //        else
-        //        {
-        //            #region population
-        //            if (list_of_users != null && list_of_users.Count() > 0)
-        //            {
-        //                Singleton.Message_module_control_obj.users_trv.Nodes[0].Text = Singleton.Message_module_user.Username;
-        //                Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Text = $"المستخدمين({list_of_users.Count()})";
 
-        //                foreach (SC3_Message_Module_WS.Users user in list_of_users)
-        //                {
-        //                    bool check = false;
-        //                    foreach (TreeNode node in Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Nodes)
-        //                    {
-        //                        if (node.Text == user.Username)
-        //                        {
-        //                            check = true;
-        //                        }
-        //                    }
-        //                    if (!check)
-        //                    {
-        //                        TreeNode user_subnode = new TreeNode();
-        //                        user_subnode.Text = user.Username;
-        //                        user_subnode.Tag = user;
-        //                        Singleton.Message_module_control_obj.users_trv.Nodes[0].Nodes[0].Nodes.Add(user_subnode);
-
-        //                    }
-        //                }
-
-        //            }
-        //            #endregion
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Auditing.Error(ex.Message);
-
-        //    }
-
-        //}
-        //private void update_show_dgv_inbox_data(SC3_Message_Module_WS.Inbox[] inbox_array)
-        //{
-        //    try
-        //    {
-        //        if (Singleton.Message_module_control_obj.show_messages_data_grid_view.InvokeRequired)
-        //        {
-        //            update_show_dgv_inbox_data_delegate _delegate = new update_show_dgv_inbox_data_delegate(update_show_dgv_inbox_data);
-        //            Singleton.Message_module_control_obj.show_messages_data_grid_view.Invoke(_delegate, new object[] { inbox_array });
-
-        //        }
-        //        else
-        //        {
-        //            DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
-
-        //            #region add columns
-
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[0], typeof(int));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[1], typeof(string));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[2], typeof(DateTime));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[3], typeof(string));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[4], typeof(int));
-
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[5], typeof(bool));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[6], typeof(int));
-        //            Inbox_datatable.Columns.Add(Singleton.inbox_datatable_headers[7], typeof(bool));
-
-        //            #endregion
-
-        //            #region add datarows
-        //            if (inbox_array != null)
-        //            {
-        //                for (int i = 0; i < inbox_array.Length; i++)
-        //                {
-        //                    DataRow New_Row = Inbox_datatable.NewRow();
-        //                    New_Row[0] = inbox_array[i].Inbox_ID;
-        //                    New_Row[1] = inbox_array[i].From_Device;
-        //                    New_Row[2] = inbox_array[i].Inbox_Datetime;
-        //                    New_Row[3] = inbox_array[i].Message_Body;
-        //                    New_Row[4] = inbox_array[i].User_ID;
-        //                    New_Row[5] = inbox_array[i].Inbox_Seen;
-        //                    New_Row[6] = inbox_array[i].Type_ID;
-        //                    New_Row[7] = inbox_array[i].Visibility_Flag;
-        //                    Inbox_datatable.Rows.Add(New_Row);
-        //                }
-        //            }
-
-
-        //            #endregion
-
-        //            Singleton.Message_module_control_obj.show_messages_data_grid_view.DataSource = Inbox_datatable;
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Auditing.Error(ex.Message);
-        //    }
-
-        //}
+        
         #endregion
 
         #region treeview
@@ -664,6 +625,26 @@ namespace Incident_Reporting_App_Server
         private void RemoveAccount_Click_1(object sender, EventArgs e)
         {
             server_Class_Obj.Delete_Account(accountName.Text);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void comboBox11_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            int FF_ManPowerID = points[selectedIndex].FF_ManPowerID;
+            FF_ManPower point = server_Class_Obj.Select_point(FF_ManPowerID);
+            richTextBox20.Text = point.Point;
+            sector.Text = point.Sector;
+            richTextBox36.Text= point.Point;
+            richTextBox37.Text = point.OfficerName;
+            richTextBox35.Text=point.Rank;
+            richTextBox33.Text = point.Additional_info;
+
         }
     }
 

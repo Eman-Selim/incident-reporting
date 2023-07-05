@@ -98,6 +98,31 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+        public FF_ManPower[] Select_points(int userID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.FF_ManPower_Select_By_UserID(UserName, Password, userID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public FF_ManPower Select_point(int FF_ManPowerID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.FF_ManPower_Select_By_FF_ManPowerID(UserName, Password, FF_ManPowerID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
         public Images[] Select_Images(int BuildingID)
         {
             try

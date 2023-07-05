@@ -1059,11 +1059,11 @@ namespace IncidentReporting_WS
         }       
 
         [WebMethod]
-        public FF_ManPowerCollection FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
+        public FF_ManPower FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
         {
             try
             {
-                FF_ManPowerCollection FF_ManPower = new FF_ManPowerCollection();
+                FF_ManPower FF_ManPower = new FF_ManPower();
                 FF_ManPower  = FF_ManPowerSBL_Obj.FF_ManPower_Select_By_FF_ManPowerID(username,password,FF_ManPowerID);
                 return FF_ManPower;
 

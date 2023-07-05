@@ -1122,12 +1122,12 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FF_ManPower_Select_By_FF_ManPowerID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public FF_ManPower[] FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID) {
+        public FF_ManPower FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID) {
             object[] results = this.Invoke("FF_ManPower_Select_By_FF_ManPowerID", new object[] {
                         username,
                         password,
                         FF_ManPowerID});
-            return ((FF_ManPower[])(results[0]));
+            return ((FF_ManPower)(results[0]));
         }
         
         /// <remarks/>
@@ -7360,10 +7360,10 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        public FF_ManPower[] Result {
+        public FF_ManPower Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((FF_ManPower[])(this.results[0]));
+                return ((FF_ManPower)(this.results[0]));
             }
         }
     }

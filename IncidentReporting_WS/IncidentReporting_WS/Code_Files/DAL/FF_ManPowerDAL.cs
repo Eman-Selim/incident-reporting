@@ -210,11 +210,11 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
-        public FF_ManPowerCollection FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
+        public FF_ManPower FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
         {
             try
             {
-                FF_ManPowerCollection FF_ManPower = new FF_ManPowerCollection();
+                FF_ManPower FF_ManPower = new FF_ManPower();
                 DateTime temp_date = new DateTime(0000 - 00 - 00);
                 object[,] sp_params = new object[,]
                 {
@@ -233,7 +233,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        FF_ManPower.Add(new FF_ManPower
+                        FF_ManPower=new FF_ManPower
                         {
                             FF_ManPowerID = Convert.ToInt32(dr["FF_ManPowerID"]),
                             Sector = Convert.ToString(dr["Sector"]),
@@ -247,7 +247,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                             Additional_info = dr["Additional_info"] is DBNull ? "" : dr["Additional_info"].ToString(),
                             UserID = Convert.ToInt32(dr["UserID"]),
                             FF_ID = Convert.ToInt32(dr["FF_ID"])
-                        });
+                        };
                     }
                 }
                 return FF_ManPower;

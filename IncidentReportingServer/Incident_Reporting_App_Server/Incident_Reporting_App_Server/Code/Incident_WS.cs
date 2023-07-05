@@ -759,7 +759,7 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public FF_ManPower[] FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
+        public FF_ManPower FF_ManPower_Select_By_FF_ManPowerID(string username, string password, int FF_ManPowerID)
         {
             try
             {

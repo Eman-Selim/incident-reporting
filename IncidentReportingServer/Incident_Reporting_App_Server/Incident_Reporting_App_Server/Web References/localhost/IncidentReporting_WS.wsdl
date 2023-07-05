@@ -232,7 +232,7 @@
       <s:element name="FF_ManPower_Select_By_FF_ManPowerIDResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_FF_ManPowerIDResult" type="tns:ArrayOfFF_ManPower" />
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_FF_ManPowerIDResult" type="tns:FF_ManPower" />
           </s:sequence>
         </s:complexType>
       </s:element>
