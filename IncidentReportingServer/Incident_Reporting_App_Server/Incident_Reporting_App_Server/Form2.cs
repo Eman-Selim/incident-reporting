@@ -491,67 +491,74 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(exception1.Message);
             }
         }
+        internal class CFP
+        {
+            public Company company { set; get; }
+            public DangerousPlaces place { set; get; }
+            public Floors floor { set; get; }
+        }
+        private CFP Add_Edit_Company()
+        {
+            Company c1 = new Company();
+            CFP CFPe=new CFP();
+            
+           c1.Name = companyName.Text;
+            c1.Address = address.Text;
+            c1.LandlinePhoneNumber = landlinePhone.Text;
+            c1.BackCompanyBusiness = "";
+            c1.BuildingsNumber = Convert.ToInt32(BuildingsNumber.Text);
+            c1.ElectricalPanelLocation = ElectricalPanelLocation.Text;
+            c1.GasTrapLocation = GasTrapLocation.Text;
+            c1.OxygenTrapLocation = OxygenTrapLocation.Text;
+            c1.RightCompanyName = "";
+            c1.RightCompanyImageURL = "";
+            c1.RightCompanyImage = imagenu;
+            c1.RightCompanyBusiness = "";
+            c1.LeftCompanyBusiness = "";
+            c1.LeftCompanyImage = imagenu;
+            c1.LeftCompanyImageURL = "";
+            c1.LeftCompanyName = "";
+            c1.BackCompanyBusiness = "";
+            c1.BackCompanyImage = imagenu;
+            c1.BackCompanyImageURL = "";
+            c1.BackCompanyName = "";
+            c1.FrontCompanyBusiness = "";
+            c1.FrontCompanyImage = imagenu;
+            c1.FrontCompanyImageURL = "";
+            c1.FrontCompanyName = "";
+            c1.Longitude = 0;
+            c1.Latitude = 0;
+            c1.UserID = 1;
 
+            DangerousPlaces place = new DangerousPlaces();
+            place.Location = DangerouseLocation.Text;
+            place.HazardousSubstance = HazardousSubstance.Text;
+            place.FireMediator = FireMediator.Text;
+            place.Image = imagenu;
+            place.ImageURL = "";
+
+            Floors floor = new Floors();
+            floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
+            floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
+            floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
+            floor.PowderExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value);
+            floor.CarbonDioxideExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[4].Value;
+            floor.CarbonDioxideExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value);
+            floor.FoamExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[6].Value;
+            floor.FoamExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value);
+
+            CFPe.company = c1;
+            CFPe.floor = floor;
+            CFPe.place = place;
+            return CFPe;
+        }
         private void AddCompany_Click_1(object sender, EventArgs e)
         {
             try
             {
-                Company company = new Company();
-                company.Name = companyName.Text;
-                company.Address = address.Text;
-                company.LandlinePhoneNumber = landlinePhone.Text;
-                company.BackCompanyBusiness = "";
-                company.BuildingsNumber = Convert.ToInt32(BuildingsNumber.Text);
-                company.ElectricalPanelLocation = ElectricalPanelLocation.Text;
-                company.GasTrapLocation = GasTrapLocation.Text;
-                company.OxygenTrapLocation = OxygenTrapLocation.Text;
-                company.RightCompanyName = "";
-                company.RightCompanyImageURL = "";
-                company.RightCompanyImage = imagenu;
-                company.RightCompanyBusiness = "";
-                company.LeftCompanyBusiness = "";
-                company.LeftCompanyImage = imagenu;
-                company.LeftCompanyImageURL = "";
-                company.LeftCompanyName = "";
-                company.BackCompanyBusiness = "";
-                company.BackCompanyImage = imagenu;
-                company.BackCompanyImageURL = "";
-                company.BackCompanyName = "";
-                company.FrontCompanyBusiness = "";
-                company.FrontCompanyImage = imagenu;
-                company.FrontCompanyImageURL = "";
-                company.FrontCompanyName = "";
-                company.Longitude = 0;
-                company.Latitude = 0;
-                company.UserID = 1;
+                CFP C1 = Add_Edit_Company();
 
-                DangerousPlaces place = new DangerousPlaces();
-                place.Location = DangerouseLocation.Text;
-                place.HazardousSubstance = HazardousSubstance.Text;
-                place.FireMediator = FireMediator.Text;
-                place.Image = imagenu;
-                place.ImageURL = "";
-
-                Floors floor = new Floors();
-                floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
-                floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
-                floor.PowderExtinguishersNumber = (string)dataGridView1.CurrentRow.Cells[2].Value;
-                floor.PowderExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value);
-                floor.CarbonDioxideExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[4].Value;
-                floor.CarbonDioxideExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value);
-                floor.FoamExtinguishersNumbers = (string)dataGridView1.CurrentRow.Cells[6].Value;
-                floor.FoamExtinguishersWeight = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value);
-
-                server_Class_Obj.Add_Company(company, place, floor);
-
-                //for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
-                //{
-                //    for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
-                //    {
-                //        string value = dataGridView1.Rows[rows].Cells[col].Value.ToString();
-
-                //    }
-                //}
+                server_Class_Obj.Add_Company(C1.company, C1.place, C1.floor);
             }
             catch (Exception exception1)
             {
@@ -668,6 +675,13 @@ namespace Incident_Reporting_App_Server
             richTextBox35.Text=point.Rank;
             richTextBox33.Text = point.Additional_info;
 
+        }
+
+        private void EditCompany_Click_1(object sender, EventArgs e)
+        {
+            CFP C1 = Add_Edit_Company();
+
+            server_Class_Obj.Update_Company(C1.company);
         }
     }
 

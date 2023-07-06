@@ -1179,6 +1179,19 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public Company Company_Update(string username, string password, Company company)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Company_Update(username, password, company);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
         public Company[] Company_Select_All(string username, string password)
         {
             try
