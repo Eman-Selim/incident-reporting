@@ -86,6 +86,20 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
+        public Users Select_User(string username, string password, int UserId)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_SelectByUserId(username, password, UserId);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
         public Company[] Select_Companies(int userID)
         {
             try
@@ -147,6 +161,20 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
+        public Company Update_Company(Company company)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Company_Update(UserName, Password, company);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
         public Users[] Select_Admins(int CompanyID)
         {
             try

@@ -2,22 +2,26 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="Accident_Select_By_AccidentNumber">
+      <s:element name="Accident_Select_All">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="AccidentNumber" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Accident_Select_By_AccidentNumberResponse">
+      <s:element name="Accident_Select_AllResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_AccidentNumberResult" type="tns:Accident" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_AllResult" type="tns:ArrayOfAccident" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfAccident">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Accident" nillable="true" type="tns:Accident" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Accident">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
@@ -34,6 +38,22 @@
           <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="Accident_Select_By_AccidentNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccidentNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Accident_Select_By_AccidentNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_By_AccidentNumberResult" type="tns:Accident" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Accident_Select_By_CompanyID">
         <s:complexType>
           <s:sequence>
@@ -50,11 +70,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAccident">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Accident" nillable="true" type="tns:Accident" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Accident_Select_By_Date">
         <s:complexType>
           <s:sequence>
@@ -794,6 +809,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Company_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="tns:Company" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Company_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Company_UpdateResult" type="tns:Company" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Company_Select_All">
         <s:complexType>
           <s:sequence>
@@ -1306,21 +1337,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Accident_InsertResult" type="tns:Accident" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_Select_All">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_Select_AllResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Accident_Select_AllResult" type="tns:ArrayOfAccident" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -2459,6 +2475,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Accident_Select_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Accident_Select_All" />
+  </wsdl:message>
+  <wsdl:message name="Accident_Select_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Accident_Select_AllResponse" />
+  </wsdl:message>
   <wsdl:message name="Accident_Select_By_AccidentNumberSoapIn">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_AccidentNumber" />
   </wsdl:message>
@@ -2711,6 +2733,12 @@
   <wsdl:message name="Company_InsertSoapOut">
     <wsdl:part name="parameters" element="tns:Company_InsertResponse" />
   </wsdl:message>
+  <wsdl:message name="Company_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Company_Update" />
+  </wsdl:message>
+  <wsdl:message name="Company_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:Company_UpdateResponse" />
+  </wsdl:message>
   <wsdl:message name="Company_Select_AllSoapIn">
     <wsdl:part name="parameters" element="tns:Company_Select_All" />
   </wsdl:message>
@@ -2896,12 +2924,6 @@
   </wsdl:message>
   <wsdl:message name="Accident_InsertSoapOut">
     <wsdl:part name="parameters" element="tns:Accident_InsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="Accident_Select_AllSoapIn">
-    <wsdl:part name="parameters" element="tns:Accident_Select_All" />
-  </wsdl:message>
-  <wsdl:message name="Accident_Select_AllSoapOut">
-    <wsdl:part name="parameters" element="tns:Accident_Select_AllResponse" />
   </wsdl:message>
   <wsdl:message name="Users_DeleteSoapIn">
     <wsdl:part name="parameters" element="tns:Users_Delete" />
@@ -3288,6 +3310,10 @@
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_AreaResponse" />
   </wsdl:message>
   <wsdl:portType name="IncidentReporting_WSSoap">
+    <wsdl:operation name="Accident_Select_All">
+      <wsdl:input message="tns:Accident_Select_AllSoapIn" />
+      <wsdl:output message="tns:Accident_Select_AllSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_AccidentNumber">
       <wsdl:input message="tns:Accident_Select_By_AccidentNumberSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_AccidentNumberSoapOut" />
@@ -3456,6 +3482,10 @@
       <wsdl:input message="tns:Company_InsertSoapIn" />
       <wsdl:output message="tns:Company_InsertSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="Company_Update">
+      <wsdl:input message="tns:Company_UpdateSoapIn" />
+      <wsdl:output message="tns:Company_UpdateSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Company_Select_All">
       <wsdl:input message="tns:Company_Select_AllSoapIn" />
       <wsdl:output message="tns:Company_Select_AllSoapOut" />
@@ -3579,10 +3609,6 @@
     <wsdl:operation name="Accident_Insert">
       <wsdl:input message="tns:Accident_InsertSoapIn" />
       <wsdl:output message="tns:Accident_InsertSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Select_All">
-      <wsdl:input message="tns:Accident_Select_AllSoapIn" />
-      <wsdl:output message="tns:Accident_Select_AllSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <wsdl:input message="tns:Users_DeleteSoapIn" />
@@ -3843,6 +3869,15 @@
   </wsdl:portType>
   <wsdl:binding name="IncidentReporting_WSSoap" type="tns:IncidentReporting_WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Select_All">
+      <soap:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_AccidentNumber">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_By_AccidentNumber" style="document" />
       <wsdl:input>
@@ -4221,6 +4256,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Company_Update">
+      <soap:operation soapAction="http://tempuri.org/Company_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Company_Select_All">
       <soap:operation soapAction="http://tempuri.org/Company_Select_All" style="document" />
       <wsdl:input>
@@ -4493,15 +4537,6 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Insert">
       <soap:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Select_All">
-      <soap:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5088,6 +5123,15 @@
   </wsdl:binding>
   <wsdl:binding name="IncidentReporting_WSSoap12" type="tns:IncidentReporting_WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Select_All">
+      <soap12:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_AccidentNumber">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_AccidentNumber" style="document" />
       <wsdl:input>
@@ -5466,6 +5510,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Company_Update">
+      <soap12:operation soapAction="http://tempuri.org/Company_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Company_Select_All">
       <soap12:operation soapAction="http://tempuri.org/Company_Select_All" style="document" />
       <wsdl:input>
@@ -5738,15 +5791,6 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Insert">
       <soap12:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Select_All">
-      <soap12:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

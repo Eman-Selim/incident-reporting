@@ -72,7 +72,64 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@Longitude",company.Longitude }
                };
 
+
                 company.CompanyID = db.Execute_Insert_Stored_Procedure("Company_Insert", sp_params);
+                if (company.CompanyID > 0)
+                {
+                    return company;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public Company Company_Update(string username, string password, Company company)
+        {
+            try
+            {
+                bool flag = false;
+                object[,] sp_params = new object[,]
+               {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@Name", company.Name},
+                    {"@Address", company.Address},
+                    {"@LandlinePhoneNumber",company.LandlinePhoneNumber},
+                    {"@ElectricalPanelLocation",company.ElectricalPanelLocation },
+                    {"@OxygenTrapLocation",company.OxygenTrapLocation},
+                    {"@GasTrapLocation",company.GasTrapLocation},
+                    {"@RightCompanyName",company.RightCompanyName},
+                    {"@RightCompanyBusiness",company.RightCompanyBusiness},
+                    {"@LeftCompanyName",company.LeftCompanyName},
+                    {"@LeftCompanyBusiness",company.LeftCompanyBusiness},
+                    {"@FrontCompanyName",company.FrontCompanyName},
+                    {"@FrontCompanyBusiness", company.FrontCompanyBusiness},
+                    {"@CompanyID",company.CompanyID },
+                    {"@BackCompanyName", company.BackCompanyName},
+                    {"@BackCompanyBusiness" ,company.BackCompanyBusiness},
+                    {"@FrontFireMediator",company.FrontFireMediator },
+                    {"@LeftFireMediator",company.LeftFireMediator },
+                    {"@BackFireMediator",company.BackFireMediator },
+                    {"@BuildingsNumber", company.BuildingsNumber},
+                    {"@FrontCompanyImage",company.FrontCompanyName },
+                    {"@BackCompanyImage",company.BackCompanyImage },
+                    {"@RightCompanyImage",company.RightCompanyImage },
+                    {"@LeftCompanyImage",company.LeftCompanyImage },
+                    {"@UserID",company.UserID },
+                    {"@FrontCompanyImageURL", company.FrontCompanyImageURL },
+                    {"@BackCompanyImageURL",company.BackCompanyImageURL},
+                    {"@RightCompanyImageURL", company.RightCompanyImageURL},
+                    {"@LeftCompanyImageURL",company.LeftCompanyImageURL},
+                    {"@Latitude",company.Latitude },
+                    {"@Longitude",company.Longitude }
+               };
+
+
+                company.CompanyID = db.Execute_Insert_Stored_Procedure("Company_Update", sp_params);
                 if (company.CompanyID > 0)
                 {
                     return company;

@@ -1566,6 +1566,21 @@ namespace IncidentReporting_WS
         }
 
         [WebMethod]
+        public Company Company_Update(string username, string password, Company company)
+        {
+            try
+            {
+                Company Company = new Company();
+                Company = CompanySBL_Obj.Company_Update(username, password, company);
+                return Company;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [WebMethod]
         public CompanyCollection Company_Select_All(string username, string password)
         {
             try

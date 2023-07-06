@@ -49,7 +49,24 @@ namespace IncidentReporting_WS.Code_Files.SBL
                 return null;
             }
         }
-
+        public Company Company_Update(string username, string password, Company company)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return CompanyDAL_Obj.Company_Update(username, password, company);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public CompanyCollection Company_Select_All(string username, string password)
         {
             try

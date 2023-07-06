@@ -46,6 +46,7 @@ namespace Incident_Reporting_App_Server
                     TreeNode user_node = new TreeNode();
                     user_node.Text = User[i].Username;
                     user_node.Tag = User[i].UserID;
+                    user_node.Name = "User";
 
                     treeView3.Nodes[0].Nodes.Add(user_node);
 
@@ -59,6 +60,7 @@ namespace Incident_Reporting_App_Server
                             TreeNode company_node = new TreeNode();
                             company_node.Text = companies[j].Name;
                             company_node.Tag = companies[j];
+                            company_node.Name = "Company";
 
                             treeView3.Nodes[0].Nodes[i].Nodes.Add(company_node);
                             
@@ -72,6 +74,7 @@ namespace Incident_Reporting_App_Server
                             TreeNode userOfUser_node = new TreeNode();
                             userOfUser_node.Text = UsersOfUser[k].Username;
                             userOfUser_node.Tag = UsersOfUser[k].UserID;
+                            userOfUser_node.Name = "User";
                             treeView3.Nodes[0].Nodes[i].Nodes.Add(userOfUser_node);
                         }
                     }
@@ -92,6 +95,12 @@ namespace Incident_Reporting_App_Server
         #region load_Data
         private void Load_Data(int Selected_User_ID , int Selected_Company_ID )
         {
+
+            //load account info
+            Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
+            accountName.Text = U1.Username;
+            AccountInfo.Text = U1.Info;
+            accountPassword.Text = "*******";
             //load selected company Data
 
 
@@ -108,17 +117,15 @@ namespace Incident_Reporting_App_Server
 
 
 
-            //string[] row = new string[]
-
             //Loading the neighboring companies
 
             DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
-            Inbox_datatable.Columns.Add("companyDirection", typeof(string));
-            Inbox_datatable.Columns.Add("CompanyName", typeof(string));
-            Inbox_datatable.Columns.Add("CompanyBusiness", typeof(string));
-            Inbox_datatable.Columns.Add("CompanyImageURL", typeof(string));
-            Inbox_datatable.Columns.Add("FireMediator", typeof(string));
-            Inbox_datatable.Columns.Add("CompanyImage", typeof(Image));
+            Inbox_datatable.Columns.Add("إتجاه المنشأة", typeof(string));
+            Inbox_datatable.Columns.Add("إسم المنشأة", typeof(string));
+            Inbox_datatable.Columns.Add("نشاط المنشأة", typeof(string));
+            Inbox_datatable.Columns.Add("مصدر الخطورة بالمنشأة", typeof(string));
+            Inbox_datatable.Columns.Add("الوسيط الإطفائي", typeof(string));
+            Inbox_datatable.Columns.Add("صورة المنشأة", typeof(Image));
 
             MemoryStream ms = new MemoryStream();
             PictureBox P1 = new PictureBox();
@@ -128,7 +135,7 @@ namespace Incident_Reporting_App_Server
 
             DataRow Back_Row = Inbox_datatable.NewRow();
 
-            Back_Row[0] = "Back Company";
+            Back_Row[0] = "المنشأة المجاورة خلفي";
             Back_Row[1] = selectedCompany.BackCompanyName;
             Back_Row[2] = selectedCompany.BackCompanyBusiness;
             Back_Row[3] = selectedCompany.BackCompanyImageURL;
@@ -138,20 +145,22 @@ namespace Incident_Reporting_App_Server
 
             DataRow Front_Row = Inbox_datatable.NewRow();
             P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
+            P1.BackgroundImage = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
+            P1.BackgroundImageLayout = ImageLayout.Center;
 
-            Front_Row[0] = "Front Company";
+            Front_Row[0] = "المنشأة المجاورة أمامي";
             Front_Row[1] = selectedCompany.FrontCompanyName;
             Front_Row[2] = selectedCompany.FrontCompanyBusiness;
             Front_Row[3] = selectedCompany.FrontCompanyImageURL;
             Front_Row[4] = selectedCompany.FrontFireMediator;
-            Front_Row[5] = P1.Image;
+            Front_Row[5] = P1.BackgroundImage;
 
             Inbox_datatable.Rows.Add(Front_Row);
 
             DataRow Right_Row = Inbox_datatable.NewRow();
             P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
 
-            Right_Row[0] = "Right Company";
+            Right_Row[0] = "المنشأة المجاورة يمين";
             Right_Row[1] = selectedCompany.RightCompanyName;
             Right_Row[2] = selectedCompany.RightCompanyBusiness;
             Right_Row[3] = selectedCompany.RightCompanyImageURL;
@@ -162,7 +171,7 @@ namespace Incident_Reporting_App_Server
             DataRow Left_Row = Inbox_datatable.NewRow();
             P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.LeftCompanyImage));
 
-            Left_Row[0] = "Left Company";
+            Left_Row[0] = "المنشأة المجاورة يسار";
             Left_Row[1] = selectedCompany.LeftCompanyName;
             Left_Row[2] = selectedCompany.LeftCompanyBusiness;
             Left_Row[3] = selectedCompany.LeftCompanyImageURL;
@@ -264,6 +273,7 @@ namespace Incident_Reporting_App_Server
                             {
                                 treeView3.Nodes[0].Nodes[j].Tag = User[i].UserID;
                                 treeView3.Nodes[0].Nodes[j].Text = User[i].Username;
+                                treeView3.Nodes[0].Nodes[j].Name = "User";
                                 break;
                             }
                         }
@@ -278,7 +288,9 @@ namespace Incident_Reporting_App_Server
                                 {
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Tag = companies[j].CompanyID;
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Text = companies[j].Name;
-                                   
+                                    treeView3.Nodes[0].Nodes[i].Nodes[j].Name = "Company";
+
+
                                 }
                                 
                                 UsersOfUser = server_Class_Obj.Select_Users_of_User(User[i].Username, User[i].Password, User[i].UserID);
@@ -287,6 +299,7 @@ namespace Incident_Reporting_App_Server
                                 {
                                     treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Tag = UsersOfUser[k].UserID;
                                     treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Text = UsersOfUser[k].Username;
+                                    treeView3.Nodes[0].Nodes[i].Nodes[k + Companies_length].Name = "User";
                                 }
                             }
                         }
@@ -548,9 +561,19 @@ namespace Incident_Reporting_App_Server
 
         private void treeView3_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
-           int  Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
-           int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
-            Load_Data(Selected_User_ID, Selected_Company_ID);
+            if (e.Node.Name == "Company")
+            {
+                int Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
+                int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+                Load_Data(Selected_User_ID, Selected_Company_ID);
+            }
+            else if (e.Node.Name == "User")
+            {
+                int Selected_User_ID = Convert.ToInt32(e.Node.Tag);
+                Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
+                Load_Data(Selected_User_ID,U1.CompanyID);
+            }
+           
 
         }
 
