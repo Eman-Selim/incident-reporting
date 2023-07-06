@@ -28,12 +28,46 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {"@PowderExtinguishersWeight",Floors.PowderExtinguishersWeight },
                     {"@CarbonDioxideExtinguishersWeight",Floors.CarbonDioxideExtinguishersWeight},
                     {"@FoamExtinguishersWeight",Floors.FoamExtinguishersWeight},
+                    {"@BuildingID",Floors.BuildingID }
+
+               };
+
+                Floors.FloorID = db.Execute_Insert_Stored_Procedure("Floors_Insert", sp_params);
+                if (Floors.FloorID > 0)
+                {
+                    return Floors;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public Floors Floor_Update(string username, string password, Floors Floors)
+        {
+            try
+            {
+                bool flag = false;
+                object[,] sp_params = new object[,]
+               {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@FloorNumber", Floors.FloorNumber },
+                    {"@FireHydrantsNumber", Floors.FireHydrantsNumber},
+                    {"@PowderExtinguishersNumber",Floors.PowderExtinguishersNumber},{"@CarbonDioxideExtinguishersNumbers",Floors.CarbonDioxideExtinguishersNumbers},
+                    {"@FoamExtinguishersNumbers",Floors.FoamExtinguishersNumbers },
+                    {"@PowderExtinguishersWeight",Floors.PowderExtinguishersWeight },
+                    {"@CarbonDioxideExtinguishersWeight",Floors.CarbonDioxideExtinguishersWeight},
+                    {"@FoamExtinguishersWeight",Floors.FoamExtinguishersWeight},
                     {"@BuildingID",Floors.BuildingID },
                     {"@FloorID",Floors.FloorID}
 
                };
 
-                Floors.FloorID = db.Execute_Insert_Stored_Procedure("Floors_Insert", sp_params);
+                Floors.FloorID = db.Execute_Insert_Stored_Procedure("Floor_Update", sp_params);
                 if (Floors.FloorID > 0)
                 {
                     return Floors;

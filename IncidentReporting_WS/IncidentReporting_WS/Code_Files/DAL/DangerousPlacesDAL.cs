@@ -43,6 +43,38 @@ namespace IncidentReporting_WS.Code_Files.DAL
             }
         }
 
+        public DangerousPlaces DangerousPlaces_Update(string username, string password, DangerousPlaces DangerousPlaces)
+        {
+            try
+            {
+                bool flag = false;
+                object[,] sp_params = new object[,]
+               {
+                    {"@username", username},
+                    {"@password", password},
+                    {"@HazardousSubstance", DangerousPlaces.HazardousSubstance },
+                    {"@Location", DangerousPlaces.Location},
+                    {"@FireMediator",DangerousPlaces.FireMediator},
+                    {"@CompanyID",DangerousPlaces.CompanyID },
+                    {"@Image",DangerousPlaces.Image },
+                    {"@DangerousPlaceID",DangerousPlaces.DangerousPlaceID },
+                    {"@ImageUrl",DangerousPlaces.ImageURL }
+               };
+
+                DangerousPlaces.DangerousPlaceID = db.Execute_Insert_Stored_Procedure("DangerousPlaces_Update", sp_params);
+                if (DangerousPlaces.DangerousPlaceID > 0)
+                {
+                    return DangerousPlaces;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public DangerousPlacesCollection DangerousPlaces_Select_All(string username, string password)
         {
             try
