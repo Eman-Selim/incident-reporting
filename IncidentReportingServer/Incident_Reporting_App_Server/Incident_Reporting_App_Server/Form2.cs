@@ -682,6 +682,8 @@ namespace Incident_Reporting_App_Server
             CFP C1 = Add_Edit_Company();
 
             server_Class_Obj.Update_Company(C1.company);
+            server_Class_Obj.Update_Floor(C1.floor);
+            server_Class_Obj.Update_DangerousePlaces(C1.place);
         }
     }
 

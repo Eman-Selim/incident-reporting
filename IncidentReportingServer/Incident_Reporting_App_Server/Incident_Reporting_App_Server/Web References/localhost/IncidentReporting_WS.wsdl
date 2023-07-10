@@ -2,6 +2,54 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Accident_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accidentid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Accident_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Accident_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Accident_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accident" type="tns:Accident" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Accident">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccidentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehiclesToAccident" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LossesType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LossesInfo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeToSend" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeToArrive" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccidentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Accident_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_InsertResult" type="tns:Accident" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Accident_Select_All">
         <s:complexType>
           <s:sequence>
@@ -20,22 +68,6 @@
       <s:complexType name="ArrayOfAccident">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Accident" nillable="true" type="tns:Accident" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Accident">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="AccidentType" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="VehiclesToAccident" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LossesType" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LossesInfo" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="TimeToSend" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="TimeToArrive" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="AccidentNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="Accident_Select_By_AccidentNumber">
@@ -198,19 +230,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_Availability">
+      <s:element name="FF_ManPower_Select_By_Area">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Availability" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_AvailabilityResponse">
+      <s:element name="FF_ManPower_Select_By_AreaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AvailabilityResult" type="tns:ArrayOfFF_ManPower" />
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AreaResult" type="tns:ArrayOfFF_ManPower" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -235,6 +267,22 @@
           <s:element minOccurs="1" maxOccurs="1" name="FF_ID" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="FF_ManPower_Select_By_Availability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Availability" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FF_ManPower_Select_By_AvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AvailabilityResult" type="tns:ArrayOfFF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="FF_ManPower_Select_By_FF_ManPowerID">
         <s:complexType>
           <s:sequence>
@@ -639,6 +687,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="DangerousPlaces_InsertResult" type="tns:DangerousPlaces" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DangerousPlaces_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dangerousPlaces" type="tns:DangerousPlaces" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DangerousPlaces_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DangerousPlaces_UpdateResult" type="tns:DangerousPlaces" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1308,38 +1372,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Accident_Delete">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="accidentid" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_DeleteResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Accident_DeleteResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_Insert">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="accident" type="tns:Accident" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Accident_InsertResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Accident_InsertResult" type="tns:Accident" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Users_Delete">
         <s:complexType>
           <s:sequence>
@@ -1853,6 +1885,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Floors_InsertResult" type="tns:Floors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Floors_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Floors" type="tns:Floors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Floors_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Floors_UpdateResult" type="tns:Floors" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -2457,24 +2505,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_Area">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_Select_By_AreaResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AreaResult" type="tns:ArrayOfFF_ManPower" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Accident_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Accident_Delete" />
+  </wsdl:message>
+  <wsdl:message name="Accident_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:Accident_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Accident_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Accident_Insert" />
+  </wsdl:message>
+  <wsdl:message name="Accident_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:Accident_InsertResponse" />
+  </wsdl:message>
   <wsdl:message name="Accident_Select_AllSoapIn">
     <wsdl:part name="parameters" element="tns:Accident_Select_All" />
   </wsdl:message>
@@ -2540,6 +2584,12 @@
   </wsdl:message>
   <wsdl:message name="Accident_Select_By_VehiclesToAccidentSoapOut">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_VehiclesToAccidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_By_AreaSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Area" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_By_AreaSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_AreaResponse" />
   </wsdl:message>
   <wsdl:message name="FF_ManPower_Select_By_AvailabilitySoapIn">
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Availability" />
@@ -2684,6 +2734,12 @@
   </wsdl:message>
   <wsdl:message name="DangerousPlaces_InsertSoapOut">
     <wsdl:part name="parameters" element="tns:DangerousPlaces_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="DangerousPlaces_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:DangerousPlaces_Update" />
+  </wsdl:message>
+  <wsdl:message name="DangerousPlaces_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:DangerousPlaces_UpdateResponse" />
   </wsdl:message>
   <wsdl:message name="DangerousPlaces_Select_AllSoapIn">
     <wsdl:part name="parameters" element="tns:DangerousPlaces_Select_All" />
@@ -2913,18 +2969,6 @@
   <wsdl:message name="Buildings_Select_By_FloorsNumberSoapOut">
     <wsdl:part name="parameters" element="tns:Buildings_Select_By_FloorsNumberResponse" />
   </wsdl:message>
-  <wsdl:message name="Accident_DeleteSoapIn">
-    <wsdl:part name="parameters" element="tns:Accident_Delete" />
-  </wsdl:message>
-  <wsdl:message name="Accident_DeleteSoapOut">
-    <wsdl:part name="parameters" element="tns:Accident_DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="Accident_InsertSoapIn">
-    <wsdl:part name="parameters" element="tns:Accident_Insert" />
-  </wsdl:message>
-  <wsdl:message name="Accident_InsertSoapOut">
-    <wsdl:part name="parameters" element="tns:Accident_InsertResponse" />
-  </wsdl:message>
   <wsdl:message name="Users_DeleteSoapIn">
     <wsdl:part name="parameters" element="tns:Users_Delete" />
   </wsdl:message>
@@ -3092,6 +3136,12 @@
   </wsdl:message>
   <wsdl:message name="Floors_InsertSoapOut">
     <wsdl:part name="parameters" element="tns:Floors_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="Floors_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Floors_Update" />
+  </wsdl:message>
+  <wsdl:message name="Floors_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:Floors_UpdateResponse" />
   </wsdl:message>
   <wsdl:message name="Floors_Select_AllSoapIn">
     <wsdl:part name="parameters" element="tns:Floors_Select_All" />
@@ -3303,13 +3353,15 @@
   <wsdl:message name="FF_ManPower_Select_AllSoapOut">
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_AllResponse" />
   </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_By_AreaSoapIn">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Area" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_By_AreaSoapOut">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_AreaResponse" />
-  </wsdl:message>
   <wsdl:portType name="IncidentReporting_WSSoap">
+    <wsdl:operation name="Accident_Delete">
+      <wsdl:input message="tns:Accident_DeleteSoapIn" />
+      <wsdl:output message="tns:Accident_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Accident_Insert">
+      <wsdl:input message="tns:Accident_InsertSoapIn" />
+      <wsdl:output message="tns:Accident_InsertSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_All">
       <wsdl:input message="tns:Accident_Select_AllSoapIn" />
       <wsdl:output message="tns:Accident_Select_AllSoapOut" />
@@ -3353,6 +3405,10 @@
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <wsdl:input message="tns:Accident_Select_By_VehiclesToAccidentSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_VehiclesToAccidentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Area">
+      <wsdl:input message="tns:FF_ManPower_Select_By_AreaSoapIn" />
+      <wsdl:output message="tns:FF_ManPower_Select_By_AreaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FF_ManPower_Select_By_Availability">
       <wsdl:input message="tns:FF_ManPower_Select_By_AvailabilitySoapIn" />
@@ -3449,6 +3505,10 @@
     <wsdl:operation name="DangerousPlaces_Insert">
       <wsdl:input message="tns:DangerousPlaces_InsertSoapIn" />
       <wsdl:output message="tns:DangerousPlaces_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DangerousPlaces_Update">
+      <wsdl:input message="tns:DangerousPlaces_UpdateSoapIn" />
+      <wsdl:output message="tns:DangerousPlaces_UpdateSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DangerousPlaces_Select_All">
       <wsdl:input message="tns:DangerousPlaces_Select_AllSoapIn" />
@@ -3602,14 +3662,6 @@
       <wsdl:input message="tns:Buildings_Select_By_FloorsNumberSoapIn" />
       <wsdl:output message="tns:Buildings_Select_By_FloorsNumberSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Accident_Delete">
-      <wsdl:input message="tns:Accident_DeleteSoapIn" />
-      <wsdl:output message="tns:Accident_DeleteSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Insert">
-      <wsdl:input message="tns:Accident_InsertSoapIn" />
-      <wsdl:output message="tns:Accident_InsertSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <wsdl:input message="tns:Users_DeleteSoapIn" />
       <wsdl:output message="tns:Users_DeleteSoapOut" />
@@ -3721,6 +3773,10 @@
     <wsdl:operation name="Floors_Insert">
       <wsdl:input message="tns:Floors_InsertSoapIn" />
       <wsdl:output message="tns:Floors_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Floors_Update">
+      <wsdl:input message="tns:Floors_UpdateSoapIn" />
+      <wsdl:output message="tns:Floors_UpdateSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Floors_Select_All">
       <wsdl:input message="tns:Floors_Select_AllSoapIn" />
@@ -3862,13 +3918,27 @@
       <wsdl:input message="tns:FF_ManPower_Select_AllSoapIn" />
       <wsdl:output message="tns:FF_ManPower_Select_AllSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Area">
-      <wsdl:input message="tns:FF_ManPower_Select_By_AreaSoapIn" />
-      <wsdl:output message="tns:FF_ManPower_Select_By_AreaSoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="IncidentReporting_WSSoap" type="tns:IncidentReporting_WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Delete">
+      <soap:operation soapAction="http://tempuri.org/Accident_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accident_Insert">
+      <soap:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_All">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
       <wsdl:input>
@@ -3961,6 +4031,15 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Area">
+      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Area" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4177,6 +4256,15 @@
     </wsdl:operation>
     <wsdl:operation name="DangerousPlaces_Insert">
       <soap:operation soapAction="http://tempuri.org/DangerousPlaces_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DangerousPlaces_Update">
+      <soap:operation soapAction="http://tempuri.org/DangerousPlaces_Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4526,24 +4614,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Accident_Delete">
-      <soap:operation soapAction="http://tempuri.org/Accident_Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Insert">
-      <soap:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <soap:operation soapAction="http://tempuri.org/Users_Delete" style="document" />
       <wsdl:input>
@@ -4789,6 +4859,15 @@
     </wsdl:operation>
     <wsdl:operation name="Floors_Insert">
       <soap:operation soapAction="http://tempuri.org/Floors_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Floors_Update">
+      <soap:operation soapAction="http://tempuri.org/Floors_Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5111,18 +5190,27 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Area">
-      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Area" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="IncidentReporting_WSSoap12" type="tns:IncidentReporting_WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Accident_Delete">
+      <soap12:operation soapAction="http://tempuri.org/Accident_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accident_Insert">
+      <soap12:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Accident_Select_All">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_All" style="document" />
       <wsdl:input>
@@ -5215,6 +5303,15 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_By_Area">
+      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Area" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -5431,6 +5528,15 @@
     </wsdl:operation>
     <wsdl:operation name="DangerousPlaces_Insert">
       <soap12:operation soapAction="http://tempuri.org/DangerousPlaces_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DangerousPlaces_Update">
+      <soap12:operation soapAction="http://tempuri.org/DangerousPlaces_Update" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -5780,24 +5886,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Accident_Delete">
-      <soap12:operation soapAction="http://tempuri.org/Accident_Delete" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Accident_Insert">
-      <soap12:operation soapAction="http://tempuri.org/Accident_Insert" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <soap12:operation soapAction="http://tempuri.org/Users_Delete" style="document" />
       <wsdl:input>
@@ -6043,6 +6131,15 @@
     </wsdl:operation>
     <wsdl:operation name="Floors_Insert">
       <soap12:operation soapAction="http://tempuri.org/Floors_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Floors_Update">
+      <soap12:operation soapAction="http://tempuri.org/Floors_Update" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6358,15 +6455,6 @@
     </wsdl:operation>
     <wsdl:operation name="FF_ManPower_Select_All">
       <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_All" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_By_Area">
-      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_By_Area" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -389,6 +389,19 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public Floors Floors_Update(string username, string password, Floors Floors)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Floors_Update(username, password, Floors);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
         public Floors[] Floors_Select_All(string username, string password)
         {
             try
@@ -1063,6 +1076,19 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                 return IncidentReporting_WS_Obj.DangerousPlaces_Insert(username, password, dangerousPlaces);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
+        public DangerousPlaces DangerousPlaces_Update(string username, string password, DangerousPlaces dangerousPlaces)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Update(username, password, dangerousPlaces);
             }
             catch (Exception ex)
             {

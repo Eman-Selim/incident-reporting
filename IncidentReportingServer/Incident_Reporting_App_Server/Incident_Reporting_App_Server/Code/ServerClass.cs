@@ -175,6 +175,32 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public Floors Update_Floor(Floors floor)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Floors_Update(UserName, Password, floor);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public DangerousPlaces Update_DangerousePlaces(DangerousPlaces place)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Update(UserName, Password, place);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
         public Users[] Select_Admins(int CompanyID)
         {
             try

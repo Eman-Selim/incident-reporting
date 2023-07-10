@@ -467,6 +467,21 @@ namespace IncidentReporting_WS
         }
 
         [WebMethod]
+        public Floors Floors_Update(string username, string password, Floors Floors)
+        {
+            try
+            {
+
+                return FloorsSBL_Obj.Floors_Update(username, password, Floors);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [WebMethod]
         public FloorsCollection Floors_Select_All(string username, string password)
         {
             try
@@ -1438,6 +1453,21 @@ namespace IncidentReporting_WS
             }
         }
 
+        [WebMethod]
+        public DangerousPlaces DangerousPlaces_Update(string username, string password, DangerousPlaces dangerousPlaces)
+        {
+            try
+            {
+                DangerousPlaces DangerousPlaces = new DangerousPlaces();
+                DangerousPlaces = DangerousPlacesSBL_Obj.DangerousPlaces_Update(username, password, dangerousPlaces);
+                return DangerousPlaces;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         [WebMethod]
         public DangerousPlacesCollection DangerousPlaces_Select_All(string username, string password)
         {
