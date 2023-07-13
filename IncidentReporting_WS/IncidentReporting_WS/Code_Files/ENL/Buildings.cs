@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IncidentReporting_WS.Code_Files.COL;
 
 namespace IncidentReporting_WS.Code_Files.ENL
 {
@@ -14,5 +15,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public int MainWaterTankCapacity { set; get; }
         public byte[] GeometricImage { set; get; }
         public String GeometricImageURL { set; get; }
+        public FloorsCollection BuildingFloors { set; get; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33130.400
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentReporting_WS", "IncidentReporting_WS\IncidentReporting_WS.csproj", "{39DE9489-EDF3-4F9B-A808-B4407A8EBA7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentReporting_WS", "IncidentReporting_WS\IncidentReporting_WS.csproj", "{EA6D6196-B181-451F-9631-61894D1448A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39DE9489-EDF3-4F9B-A808-B4407A8EBA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39DE9489-EDF3-4F9B-A808-B4407A8EBA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39DE9489-EDF3-4F9B-A808-B4407A8EBA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39DE9489-EDF3-4F9B-A808-B4407A8EBA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6D6196-B181-451F-9631-61894D1448A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6D6196-B181-451F-9631-61894D1448A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6D6196-B181-451F-9631-61894D1448A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6D6196-B181-451F-9631-61894D1448A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {83318F94-DE14-4892-894C-D2B62FFDDFFE}
 	EndGlobalSection
 EndGlobal

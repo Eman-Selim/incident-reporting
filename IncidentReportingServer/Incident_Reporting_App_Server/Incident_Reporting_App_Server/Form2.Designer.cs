@@ -30,27 +30,27 @@ namespace Incident_Reporting_App_Server
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Users");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Users");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -357,13 +357,13 @@ namespace Incident_Reporting_App_Server
             // companyNameBtn
             // 
             this.companyNameBtn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(10, 7, 10, 1);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.companyNameBtn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.companyNameBtn.DefaultCellStyle = dataGridViewCellStyle1;
             this.companyNameBtn.FillWeight = 1006.421F;
             this.companyNameBtn.HeaderText = "رقم الدور";
             this.companyNameBtn.Name = "companyNameBtn";
@@ -423,12 +423,12 @@ namespace Incident_Reporting_App_Server
             // dataGridViewButtonColumn1
             // 
             this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(10, 7, 10, 1);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewButtonColumn1.FillWeight = 1006.421F;
             this.dataGridViewButtonColumn1.HeaderText = "اتجاه المنشأة ";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
@@ -568,11 +568,11 @@ namespace Incident_Reporting_App_Server
             this.treeView3.LineColor = System.Drawing.Color.DeepSkyBlue;
             this.treeView3.Location = new System.Drawing.Point(1201, 0);
             this.treeView3.Name = "treeView3";
-            treeNode2.ForeColor = System.Drawing.Color.Silver;
-            treeNode2.Name = "Users";
-            treeNode2.Text = "Users";
+            treeNode1.ForeColor = System.Drawing.Color.Silver;
+            treeNode1.Name = "Users";
+            treeNode1.Text = "Users";
             this.treeView3.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.treeView3.RightToLeftLayout = true;
             this.treeView3.Size = new System.Drawing.Size(169, 712);
@@ -642,6 +642,7 @@ namespace Incident_Reporting_App_Server
             // 
             // AddCompany
             // 
+            this.AddCompany.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AddCompany.FlatAppearance.BorderSize = 0;
             this.AddCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddCompany.Image = ((System.Drawing.Image)(resources.GetObject("AddCompany.Image")));
@@ -654,6 +655,7 @@ namespace Incident_Reporting_App_Server
             // 
             // EditCompany
             // 
+            this.EditCompany.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.EditCompany.ForeColor = System.Drawing.Color.Black;
             this.EditCompany.Location = new System.Drawing.Point(135, 4);
             this.EditCompany.Name = "EditCompany";
@@ -665,6 +667,7 @@ namespace Incident_Reporting_App_Server
             // 
             // DeleteCompany
             // 
+            this.DeleteCompany.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DeleteCompany.ForeColor = System.Drawing.Color.Black;
             this.DeleteCompany.Location = new System.Drawing.Point(37, 4);
             this.DeleteCompany.Name = "DeleteCompany";
@@ -716,6 +719,7 @@ namespace Incident_Reporting_App_Server
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.OxygenTrapLocation);
             this.groupBox2.Controls.Add(this.GasTrapLocation);
@@ -912,6 +916,7 @@ namespace Incident_Reporting_App_Server
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.AdditionalInfo);
@@ -1132,19 +1137,20 @@ namespace Incident_Reporting_App_Server
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -1155,22 +1161,22 @@ namespace Incident_Reporting_App_Server
             this.Column13,
             this.Column14,
             this.Column15});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.Location = new System.Drawing.Point(5, 59);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1018, 369);
             this.dataGridView1.TabIndex = 25;
@@ -1178,13 +1184,13 @@ namespace Incident_Reporting_App_Server
             // 
             // Column8
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column8.HeaderText = "رقم الدور";
             this.Column8.Name = "Column8";
             this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1193,103 +1199,104 @@ namespace Incident_Reporting_App_Server
             // Column9
             // 
             this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column9.HeaderText = "عدد حنفيات المياه";
             this.Column9.Name = "Column9";
             // 
             // Column10
             // 
             this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column10.HeaderText = "عدد طفايات البودرة";
             this.Column10.Name = "Column10";
             // 
             // Column11
             // 
             this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column11.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column11.HeaderText = "وزن طفيات البودرة";
             this.Column11.Name = "Column11";
             // 
             // Column12
             // 
             this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column12.HeaderText = "عدد طفايات ثاني أكسيد الكربون";
             this.Column12.Name = "Column12";
             // 
             // Column13
             // 
             this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column13.HeaderText = "وزن طفايات ثاني أكسيد الكربون";
             this.Column13.Name = "Column13";
             // 
             // Column14
             // 
             this.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column14.HeaderText = "عدد الطفايات الرغوي";
             this.Column14.Name = "Column14";
             // 
             // Column15
             // 
             this.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column15.HeaderText = "وزن الطفايات الرغوي";
             this.Column15.Name = "Column15";
             // 
             // label19
             // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(815, 23);
             this.label19.Name = "label19";
@@ -1299,7 +1306,7 @@ namespace Incident_Reporting_App_Server
             // 
             // buildingCB
             // 
-            this.buildingCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buildingCB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buildingCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.buildingCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.buildingCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1331,6 +1338,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1MultiScaleImage1
             // 
+            this.c1MultiScaleImage1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1MultiScaleImage1.Location = new System.Drawing.Point(93, 62);
             this.c1MultiScaleImage1.Name = "c1MultiScaleImage1";
             this.c1MultiScaleImage1.Size = new System.Drawing.Size(413, 346);
@@ -1339,6 +1347,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label66
             // 
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label66.AutoSize = true;
             this.label66.Location = new System.Drawing.Point(263, 32);
             this.label66.Name = "label66";
@@ -1348,6 +1357,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label63
             // 
+            this.label63.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label63.Location = new System.Drawing.Point(698, 31);
@@ -1358,7 +1368,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox38
             // 
-            this.richTextBox38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.richTextBox38.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(85)))));
             this.richTextBox38.ForeColor = System.Drawing.Color.White;
             this.richTextBox38.Location = new System.Drawing.Point(586, 62);
@@ -1392,6 +1402,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label25
             // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(125, 46);
@@ -1402,6 +1413,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label24
             // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(493, 46);
@@ -1412,6 +1424,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label23
             // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(812, 46);
@@ -1422,6 +1435,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1PictureBox3
             // 
+            this.c1PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1PictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("c1PictureBox3.BackgroundImage")));
             this.c1PictureBox3.Location = new System.Drawing.Point(25, 96);
             this.c1PictureBox3.Name = "c1PictureBox3";
@@ -1431,6 +1445,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1PictureBox2
             // 
+            this.c1PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(85)))));
             this.c1PictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("c1PictureBox2.BackgroundImage")));
             this.c1PictureBox2.Location = new System.Drawing.Point(373, 96);
@@ -1441,6 +1456,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1PictureBox1
             // 
+            this.c1PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(85)))));
             this.c1PictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("c1PictureBox1.BackgroundImage")));
             this.c1PictureBox1.Location = new System.Drawing.Point(706, 96);
@@ -1451,6 +1467,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage6
             // 
+            this.c1DockingTabPage6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage6.Controls.Add(this.label69);
             this.c1DockingTabPage6.Controls.Add(this.label70);
@@ -1475,6 +1492,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label69
             // 
+            this.label69.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label69.ForeColor = System.Drawing.Color.White;
@@ -1486,6 +1504,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label70
             // 
+            this.label70.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.White;
@@ -1497,6 +1516,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label71
             // 
+            this.label71.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label71.ForeColor = System.Drawing.Color.White;
@@ -1508,6 +1528,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label72
             // 
+            this.label72.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label72.ForeColor = System.Drawing.Color.White;
@@ -1519,6 +1540,7 @@ namespace Incident_Reporting_App_Server
             // 
             // SelectedUserInfo
             // 
+            this.SelectedUserInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SelectedUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.SelectedUserInfo.ForeColor = System.Drawing.Color.White;
             this.SelectedUserInfo.Location = new System.Drawing.Point(280, 383);
@@ -1532,6 +1554,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox40
             // 
+            this.richTextBox40.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox40.ForeColor = System.Drawing.Color.White;
             this.richTextBox40.Location = new System.Drawing.Point(280, 303);
@@ -1545,6 +1568,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox41
             // 
+            this.richTextBox41.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox41.ForeColor = System.Drawing.Color.White;
             this.richTextBox41.Location = new System.Drawing.Point(280, 223);
@@ -1558,6 +1582,7 @@ namespace Incident_Reporting_App_Server
             // 
             // SelectedUserName
             // 
+            this.SelectedUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SelectedUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.SelectedUserName.ForeColor = System.Drawing.Color.White;
             this.SelectedUserName.Location = new System.Drawing.Point(280, 147);
@@ -1571,6 +1596,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label44
             // 
+            this.label44.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(808, 31);
@@ -1581,7 +1607,7 @@ namespace Incident_Reporting_App_Server
             // 
             // Admins
             // 
-            this.Admins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Admins.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Admins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.Admins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Admins.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1595,6 +1621,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage7
             // 
+            this.c1DockingTabPage7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage7.Controls.Add(this.label73);
             this.c1DockingTabPage7.Controls.Add(this.label74);
@@ -1616,6 +1643,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label73
             // 
+            this.label73.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label73.AutoSize = true;
             this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label73.ForeColor = System.Drawing.Color.White;
@@ -1627,6 +1655,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label74
             // 
+            this.label74.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label74.AutoSize = true;
             this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label74.ForeColor = System.Drawing.Color.White;
@@ -1638,6 +1667,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label75
             // 
+            this.label75.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label75.ForeColor = System.Drawing.Color.White;
@@ -1649,6 +1679,7 @@ namespace Incident_Reporting_App_Server
             // 
             // FireMediator
             // 
+            this.FireMediator.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FireMediator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.FireMediator.ForeColor = System.Drawing.Color.White;
             this.FireMediator.Location = new System.Drawing.Point(289, 330);
@@ -1662,6 +1693,7 @@ namespace Incident_Reporting_App_Server
             // 
             // DangerouseLocation
             // 
+            this.DangerouseLocation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DangerouseLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.DangerouseLocation.ForeColor = System.Drawing.Color.White;
             this.DangerouseLocation.Location = new System.Drawing.Point(289, 244);
@@ -1675,6 +1707,7 @@ namespace Incident_Reporting_App_Server
             // 
             // HazardousSubstance
             // 
+            this.HazardousSubstance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HazardousSubstance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.HazardousSubstance.ForeColor = System.Drawing.Color.White;
             this.HazardousSubstance.Location = new System.Drawing.Point(289, 157);
@@ -1688,6 +1721,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label76
             // 
+            this.label76.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.Location = new System.Drawing.Point(758, 25);
@@ -1698,7 +1732,7 @@ namespace Incident_Reporting_App_Server
             // 
             // Dangerous
             // 
-            this.Dangerous.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dangerous.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Dangerous.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.Dangerous.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Dangerous.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1729,50 +1763,51 @@ namespace Incident_Reporting_App_Server
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle37;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1028, 654);
             this.dataGridView2.TabIndex = 26;
             // 
             // c1DockingTabPage9
             // 
+            this.c1DockingTabPage9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage9.BackColor = System.Drawing.Color.DimGray;
             this.c1DockingTabPage9.CaptionText = "بيانات الدفاع المدني";
             this.c1DockingTabPage9.Controls.Add(this.panel6);
@@ -1817,6 +1852,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage12
             // 
+            this.c1DockingTabPage12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage12.Controls.Add(this.label43);
             this.c1DockingTabPage12.Controls.Add(this.richTextBox20);
@@ -1835,6 +1871,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label43
             // 
+            this.label43.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(901, 55);
@@ -1846,6 +1883,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox20
             // 
+            this.richTextBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox20.ForeColor = System.Drawing.Color.White;
             this.richTextBox20.Location = new System.Drawing.Point(747, 47);
@@ -1859,6 +1897,7 @@ namespace Incident_Reporting_App_Server
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox4.Controls.Add(this.Equipments);
             this.groupBox4.Controls.Add(this.CarsNumber);
             this.groupBox4.Controls.Add(this.SoliderNumber);
@@ -1972,6 +2011,7 @@ namespace Incident_Reporting_App_Server
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.label42);
             this.groupBox3.Controls.Add(this.zoneNumber);
             this.groupBox3.Controls.Add(this.label41);
@@ -2122,7 +2162,7 @@ namespace Incident_Reporting_App_Server
             // 
             // comboBox11
             // 
-            this.comboBox11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.comboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox11.ForeColor = System.Drawing.Color.White;
@@ -2142,6 +2182,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label40
             // 
+            this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(900, 9);
@@ -2152,6 +2193,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage13
             // 
+            this.c1DockingTabPage13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage13.Controls.Add(this.label60);
             this.c1DockingTabPage13.Controls.Add(this.label59);
@@ -2181,6 +2223,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label60
             // 
+            this.label60.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label60.Location = new System.Drawing.Point(900, 305);
@@ -2192,6 +2235,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label59
             // 
+            this.label59.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label59.Location = new System.Drawing.Point(900, 260);
@@ -2203,6 +2247,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label58
             // 
+            this.label58.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.Location = new System.Drawing.Point(622, 216);
@@ -2214,6 +2259,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label57
             // 
+            this.label57.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.Location = new System.Drawing.Point(898, 69);
@@ -2225,6 +2271,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pumpInfo
             // 
+            this.pumpInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pumpInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.pumpInfo.Location = new System.Drawing.Point(559, 358);
             this.pumpInfo.MaxLength = 300;
@@ -2235,6 +2282,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pumpArea
             // 
+            this.pumpArea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pumpArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.pumpArea.ForeColor = System.Drawing.Color.White;
             this.pumpArea.Location = new System.Drawing.Point(614, 107);
@@ -2248,6 +2296,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pumpAddress
             // 
+            this.pumpAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pumpAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.pumpAddress.Location = new System.Drawing.Point(609, 262);
             this.pumpAddress.MaxLength = 300;
@@ -2258,6 +2307,7 @@ namespace Incident_Reporting_App_Server
             // 
             // PumpNumber
             // 
+            this.PumpNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PumpNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.PumpNumber.ForeColor = System.Drawing.Color.White;
             this.PumpNumber.Location = new System.Drawing.Point(784, 61);
@@ -2271,7 +2321,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pumpSign
             // 
-            this.pumpSign.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pumpSign.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pumpSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.pumpSign.ForeColor = System.Drawing.Color.White;
             this.pumpSign.Location = new System.Drawing.Point(609, 307);
@@ -2284,7 +2334,7 @@ namespace Incident_Reporting_App_Server
             // 
             // Status
             // 
-            this.Status.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Status.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Status.ForeColor = System.Drawing.Color.White;
@@ -2303,7 +2353,7 @@ namespace Incident_Reporting_App_Server
             // 
             // PumpType
             // 
-            this.PumpType.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.PumpType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PumpType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.PumpType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PumpType.ForeColor = System.Drawing.Color.White;
@@ -2322,7 +2372,7 @@ namespace Incident_Reporting_App_Server
             // 
             // pumpSector
             // 
-            this.pumpSector.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pumpSector.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pumpSector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.pumpSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pumpSector.ForeColor = System.Drawing.Color.White;
@@ -2341,6 +2391,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label49
             // 
+            this.label49.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.Location = new System.Drawing.Point(900, 375);
@@ -2352,6 +2403,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label50
             // 
+            this.label50.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.Location = new System.Drawing.Point(900, 216);
@@ -2363,6 +2415,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label51
             // 
+            this.label51.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.Location = new System.Drawing.Point(900, 165);
@@ -2374,6 +2427,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label56
             // 
+            this.label56.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.Location = new System.Drawing.Point(900, 115);
@@ -2385,6 +2439,7 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage14
             // 
+            this.c1DockingTabPage14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.c1DockingTabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage14.Controls.Add(this.panel12);
             this.c1DockingTabPage14.Controls.Add(this.label61);
@@ -2403,7 +2458,7 @@ namespace Incident_Reporting_App_Server
             this.c1DockingTabPage14.Location = new System.Drawing.Point(1, 24);
             this.c1DockingTabPage14.Name = "c1DockingTabPage14";
             this.c1DockingTabPage14.Size = new System.Drawing.Size(1028, 659);
-            this.c1DockingTabPage14.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTabPage14.TabBackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(85)))));
             this.c1DockingTabPage14.TabForeColor = System.Drawing.Color.DeepSkyBlue;
             this.c1DockingTabPage14.TabForeColorSelected = System.Drawing.Color.Silver;
             this.c1DockingTabPage14.TabIndex = 2;
@@ -2453,6 +2508,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label61
             // 
+            this.label61.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label61.Location = new System.Drawing.Point(643, 317);
@@ -2464,6 +2520,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label62
             // 
+            this.label62.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.Location = new System.Drawing.Point(646, 267);
@@ -2475,6 +2532,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label64
             // 
+            this.label64.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.Location = new System.Drawing.Point(643, 127);
@@ -2486,7 +2544,8 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox33
             // 
-            this.richTextBox33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox33.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox33.Location = new System.Drawing.Point(307, 368);
             this.richTextBox33.MaxLength = 300;
             this.richTextBox33.Name = "richTextBox33";
@@ -2496,8 +2555,8 @@ namespace Incident_Reporting_App_Server
             // 
             // comboBox18
             // 
-            this.comboBox18.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.comboBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.comboBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox18.ForeColor = System.Drawing.Color.White;
             this.comboBox18.FormattingEnabled = true;
@@ -2515,7 +2574,8 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox34
             // 
-            this.richTextBox34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox34.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox34.ForeColor = System.Drawing.Color.White;
             this.richTextBox34.Location = new System.Drawing.Point(357, 165);
             this.richTextBox34.MaxLength = 300;
@@ -2528,7 +2588,8 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox35
             // 
-            this.richTextBox35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox35.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox35.Location = new System.Drawing.Point(357, 319);
             this.richTextBox35.MaxLength = 300;
             this.richTextBox35.Name = "richTextBox35";
@@ -2538,7 +2599,8 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox36
             // 
-            this.richTextBox36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox36.ForeColor = System.Drawing.Color.White;
             this.richTextBox36.Location = new System.Drawing.Point(527, 119);
             this.richTextBox36.MaxLength = 300;
@@ -2551,8 +2613,8 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox37
             // 
-            this.richTextBox37.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.richTextBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.richTextBox37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox37.ForeColor = System.Drawing.Color.White;
             this.richTextBox37.Location = new System.Drawing.Point(357, 269);
             this.richTextBox37.MaxLength = 300;
@@ -2564,6 +2626,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label65
             // 
+            this.label65.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.Location = new System.Drawing.Point(643, 378);
@@ -2575,6 +2638,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label67
             // 
+            this.label67.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.Location = new System.Drawing.Point(643, 226);
@@ -2586,6 +2650,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label68
             // 
+            this.label68.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label68.Location = new System.Drawing.Point(643, 173);
@@ -2597,7 +2662,8 @@ namespace Incident_Reporting_App_Server
             // 
             // c1DockingTabPage11
             // 
-            this.c1DockingTabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.c1DockingTabPage11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.c1DockingTabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.c1DockingTabPage11.Controls.Add(this.panel9);
             this.c1DockingTabPage11.ImageIndex = 29;
             this.c1DockingTabPage11.Location = new System.Drawing.Point(0, 28);
@@ -2672,6 +2738,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label32
             // 
+            this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.White;
@@ -2683,6 +2750,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label31
             // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.White;
@@ -2694,6 +2762,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label30
             // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.White;
@@ -2705,6 +2774,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label29
             // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.White;
@@ -2716,6 +2786,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox13
             // 
+            this.richTextBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox13.ForeColor = System.Drawing.Color.White;
             this.richTextBox13.Location = new System.Drawing.Point(316, 447);
@@ -2729,6 +2800,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox12
             // 
+            this.richTextBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox12.ForeColor = System.Drawing.Color.White;
             this.richTextBox12.Location = new System.Drawing.Point(316, 363);
@@ -2742,6 +2814,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox11
             // 
+            this.richTextBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox11.ForeColor = System.Drawing.Color.White;
             this.richTextBox11.Location = new System.Drawing.Point(316, 278);
@@ -2755,6 +2828,7 @@ namespace Incident_Reporting_App_Server
             // 
             // richTextBox10
             // 
+            this.richTextBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.richTextBox10.ForeColor = System.Drawing.Color.White;
             this.richTextBox10.Location = new System.Drawing.Point(316, 185);
@@ -2844,6 +2918,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label36
             // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.White;
@@ -2855,6 +2930,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label37
             // 
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.White;
@@ -2866,6 +2942,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label38
             // 
+            this.label38.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.White;
@@ -2877,6 +2954,7 @@ namespace Incident_Reporting_App_Server
             // 
             // label39
             // 
+            this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.White;
@@ -2888,6 +2966,7 @@ namespace Incident_Reporting_App_Server
             // 
             // AccountInfo
             // 
+            this.AccountInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.AccountInfo.ForeColor = System.Drawing.Color.White;
             this.AccountInfo.Location = new System.Drawing.Point(312, 441);
@@ -2901,6 +2980,7 @@ namespace Incident_Reporting_App_Server
             // 
             // ReAccountPassword
             // 
+            this.ReAccountPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ReAccountPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.ReAccountPassword.ForeColor = System.Drawing.Color.White;
             this.ReAccountPassword.Location = new System.Drawing.Point(312, 357);
@@ -2914,6 +2994,7 @@ namespace Incident_Reporting_App_Server
             // 
             // accountPassword
             // 
+            this.accountPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.accountPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.accountPassword.ForeColor = System.Drawing.Color.White;
             this.accountPassword.Location = new System.Drawing.Point(312, 272);
@@ -2927,6 +3008,7 @@ namespace Incident_Reporting_App_Server
             // 
             // accountName
             // 
+            this.accountName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.accountName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(105)))));
             this.accountName.ForeColor = System.Drawing.Color.White;
             this.accountName.Location = new System.Drawing.Point(312, 185);

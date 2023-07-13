@@ -15,7 +15,6 @@ namespace Incident_Reporting_App_Server.Code
         public delegate void del_Update_Log(string text);
         public event del_Update_Log log_Handler;
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
-
         #region Login Info
         public static string UserName { get; set; }
         public static string Password { get; set; }
@@ -35,9 +34,10 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
+               // WS1.HelloWorld();
                 UserName = userName;
                 Password = passWord;
-                if (IncidentReporting_WS_Obj.Users_Select_All(UserName, Password)!=null)
+                if (IncidentReporting_WS_Obj.Users_SelectByNamePass(UserName, Password)!=null)
                 {
                     Form2 f2 = new Form2();
                     f2.Show();
@@ -201,11 +201,11 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public Users[] Select_Admins(int CompanyID)
+        public Managers[] Select_Admins(int CompanyID)
         {
             try
             {
-                return IncidentReporting_WS_Obj.Users_SelectByCompanyId(UserName, Password, CompanyID);
+                return IncidentReporting_WS_Obj.Managers_Select_By_CompanyID(UserName, Password, CompanyID);
             }
             catch (Exception exception1)
             {
@@ -279,6 +279,19 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                 return IncidentReporting_WS_Obj.Users_SelectByUserId(UserName, Password, UserID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public Managers Select_Manager(int ManagerID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Select_By_ManagerID(UserName, Password, ManagerID);
             }
             catch (Exception exception1)
             {

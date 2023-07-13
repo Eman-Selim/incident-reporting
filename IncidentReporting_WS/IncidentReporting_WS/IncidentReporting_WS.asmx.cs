@@ -96,13 +96,14 @@ namespace IncidentReporting_WS
                 return null;
             }
         }
+
         [WebMethod]
-        public UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
+        public Users Users_SelectByNamePass(string username, string password)
         {
             try
             {
-                UsersCollection users = new UsersCollection();
-                users = UsersSBL_Obj.Users_SelectByCompanyId(username, password, company_id);
+                Users users = new Users();
+                users = UsersSBL_Obj.Users_SelectByNamePass( username,   password);
                 return users;
 
             }
@@ -111,6 +112,8 @@ namespace IncidentReporting_WS
                 return null;
             }
         }
+
+       
         [WebMethod]
         public Users Users_SelectByName(string username, string password, string name)
         {
@@ -1942,8 +1945,76 @@ namespace IncidentReporting_WS
 
         #endregion
 
+        #region Managers
+        ManagersSBL ManagersSBL_Obj = new ManagersSBL();
+
+        [WebMethod]
+        public bool Managers_Delete(string username, string password, int ManagerID)
+        {
+            try
+            {
+                return ManagersSBL_Obj.Managers_Delete(username, password, ManagerID);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        [WebMethod]
+        public Managers Managers_Insert(string username, string password, Managers Manager)
+        {
+            try
+            {
+                return ManagersSBL_Obj.Managers_Insert(username, password, Manager);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [WebMethod]
+        public ManagersCollection Managers_Select_All(string username, string password)
+        {
+            try
+            {
+                return ManagersSBL_Obj.Managers_Select_All(username, password);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        [WebMethod]
+        public ManagersCollection Managers_Select_By_CompanyID(string username, string password, int CompanyID)
+        {
+            try
+            {
+                return ManagersSBL_Obj.Managers_Select_By_CompanyID(username, password, CompanyID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        [WebMethod]
+        public Managers Managers_SelectByManagerID(string username, string password, int ManagerID)
+        {
+            try
+            {
+                return ManagersSBL_Obj.Managers_SelectByManagerID(username, password, ManagerID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
         #region BuildingSBL
-         BuildingSBL BuildingSBL_Obj=new BuildingSBL();
+        BuildingSBL BuildingSBL_Obj =new BuildingSBL();
 
         [WebMethod]
         public bool Buildings_Delete(string username, string password, int BuildingID)

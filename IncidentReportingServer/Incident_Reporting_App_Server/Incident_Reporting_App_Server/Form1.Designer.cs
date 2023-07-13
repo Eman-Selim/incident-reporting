@@ -214,9 +214,11 @@ namespace Incident_Reporting_App_Server
             this.Login_txt_Password.ForeColor = System.Drawing.Color.Black;
             this.Login_txt_Password.Location = new System.Drawing.Point(32, 2);
             this.Login_txt_Password.Name = "Login_txt_Password";
+            this.Login_txt_Password.PasswordChar = '*';
             this.Login_txt_Password.Size = new System.Drawing.Size(108, 13);
             this.Login_txt_Password.TabIndex = 100;
             this.Login_txt_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Login_txt_Password.UseSystemPasswordChar = true;
             // 
             // txt_log
             // 
@@ -256,6 +258,7 @@ namespace Incident_Reporting_App_Server
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

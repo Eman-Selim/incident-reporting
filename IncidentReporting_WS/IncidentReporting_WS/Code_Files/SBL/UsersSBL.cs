@@ -87,6 +87,24 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
+        public Users Users_SelectByNamePass(string username, string password)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return UsersDAL_Obj.Users_SelectByNamePass(username, password);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public UsersCollection Users_Select_Users_Of_User(string username, string password, int UserId)
         {
             try
@@ -106,24 +124,7 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
-        public  UsersCollection Users_SelectByCompanyId(string username, string password, int company_id)
-        {
-            try
-            {
-                if (Chk.check_authority(username, password))
-                {
-                    return UsersDAL_Obj.Users_SelectByCompanyId(username, password, company_id);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
+       
         public Users Users_SelectByName(string username, string password, string name)
         {
             try

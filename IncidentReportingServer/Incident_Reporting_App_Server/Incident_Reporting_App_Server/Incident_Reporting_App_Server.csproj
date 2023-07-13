@@ -150,6 +150,9 @@
     <None Include="Web References\localhost\Injured.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\localhost\Managers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -162,7 +165,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -237,10 +242,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://localhost:44363/IncidentReporting_WS.asmx">
+    <WebReferenceUrl Include="http://localhost:51040/IncidentReporting_WS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>https://localhost:44363/IncidentReporting_WS.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:51040/IncidentReporting_WS.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

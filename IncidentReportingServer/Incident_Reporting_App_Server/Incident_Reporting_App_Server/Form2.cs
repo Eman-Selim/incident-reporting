@@ -26,7 +26,7 @@ namespace Incident_Reporting_App_Server
         Users[] UsersOfUser;
         Company[] companies;
         Buildings[] buildings;
-        Users[] admins;
+        Managers[] admins;
         DangerousPlaces[] places;
         FF_ManPower[] points;
         public Form2()
@@ -200,7 +200,7 @@ namespace Incident_Reporting_App_Server
             Admins.Items.Clear();
             for (int i = 0; i < admins_length; i++)
             {
-                Admins.Items.Add(admins[i].Username);
+                Admins.Items.Add(admins[i].Name);
             }
 
             //load Dangerous places of the selected company
@@ -578,7 +578,9 @@ namespace Incident_Reporting_App_Server
             {
                 int Selected_User_ID = Convert.ToInt32(e.Node.Tag);
                 Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
-                Load_Data(Selected_User_ID,U1.CompanyID);
+                accountName.Text = U1.Username;
+                AccountInfo.Text = U1.Info;
+                accountPassword.Text = "*******";
             }
            
 
@@ -630,10 +632,12 @@ namespace Incident_Reporting_App_Server
         {
             ComboBox cmb = (ComboBox)sender;
             int selectedIndex = cmb.SelectedIndex;
-            int userid = admins[selectedIndex].UserID;
-            Users user = server_Class_Obj.Select_User(userid);
-            SelectedUserName.Text = user.Username;
-            SelectedUserInfo.Text = user.Info;
+            int Managerid = admins[selectedIndex].ManagerID;
+            Managers Manager = server_Class_Obj.Select_Manager(Managerid);
+            SelectedUserName.Text = Manager.Name;
+            richTextBox41.Text = Manager.CurrentPosition;
+            richTextBox40.Text = Manager.PhoneNumber;
+            SelectedUserInfo.Text = Manager.Info;
         }
 
         private void Dangerous_SelectedIndexChanged(object sender, EventArgs e)

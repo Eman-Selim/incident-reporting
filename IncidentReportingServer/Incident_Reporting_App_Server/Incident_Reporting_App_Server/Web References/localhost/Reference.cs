@@ -29,6 +29,16 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="IncidentReporting_WSSoap", Namespace="http://tempuri.org/")]
     public partial class IncidentReporting_WS : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback Buildings_Select_AllOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Buildings_Select_By_BuildingIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Buildings_Select_By_BuildingNumberOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Buildings_Select_By_CompanyIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Buildings_Select_By_FloorsNumberOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Accident_DeleteOperationCompleted;
         
         private System.Threading.SendOrPostCallback Accident_InsertOperationCompleted;
@@ -169,19 +179,19 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private System.Threading.SendOrPostCallback Company_Select_By_UserIDOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Managers_DeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Managers_InsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Managers_Select_AllOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Managers_Select_By_CompanyIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Managers_SelectByManagerIDOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Buildings_DeleteOperationCompleted;
         
         private System.Threading.SendOrPostCallback Buildings_InsertOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Buildings_Select_AllOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Buildings_Select_By_BuildingIDOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Buildings_Select_By_BuildingNumberOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Buildings_Select_By_CompanyIDOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Buildings_Select_By_FloorsNumberOperationCompleted;
         
         private System.Threading.SendOrPostCallback Users_DeleteOperationCompleted;
         
@@ -193,7 +203,7 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private System.Threading.SendOrPostCallback Users_SelectByUserIdOperationCompleted;
         
-        private System.Threading.SendOrPostCallback Users_SelectByCompanyIdOperationCompleted;
+        private System.Threading.SendOrPostCallback Users_SelectByNamePassOperationCompleted;
         
         private System.Threading.SendOrPostCallback Users_SelectByNameOperationCompleted;
         
@@ -348,6 +358,21 @@ namespace Incident_Reporting_App_Server.localhost {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event Buildings_Select_AllCompletedEventHandler Buildings_Select_AllCompleted;
+        
+        /// <remarks/>
+        public event Buildings_Select_By_BuildingIDCompletedEventHandler Buildings_Select_By_BuildingIDCompleted;
+        
+        /// <remarks/>
+        public event Buildings_Select_By_BuildingNumberCompletedEventHandler Buildings_Select_By_BuildingNumberCompleted;
+        
+        /// <remarks/>
+        public event Buildings_Select_By_CompanyIDCompletedEventHandler Buildings_Select_By_CompanyIDCompleted;
+        
+        /// <remarks/>
+        public event Buildings_Select_By_FloorsNumberCompletedEventHandler Buildings_Select_By_FloorsNumberCompleted;
         
         /// <remarks/>
         public event Accident_DeleteCompletedEventHandler Accident_DeleteCompleted;
@@ -560,25 +585,25 @@ namespace Incident_Reporting_App_Server.localhost {
         public event Company_Select_By_UserIDCompletedEventHandler Company_Select_By_UserIDCompleted;
         
         /// <remarks/>
+        public event Managers_DeleteCompletedEventHandler Managers_DeleteCompleted;
+        
+        /// <remarks/>
+        public event Managers_InsertCompletedEventHandler Managers_InsertCompleted;
+        
+        /// <remarks/>
+        public event Managers_Select_AllCompletedEventHandler Managers_Select_AllCompleted;
+        
+        /// <remarks/>
+        public event Managers_Select_By_CompanyIDCompletedEventHandler Managers_Select_By_CompanyIDCompleted;
+        
+        /// <remarks/>
+        public event Managers_SelectByManagerIDCompletedEventHandler Managers_SelectByManagerIDCompleted;
+        
+        /// <remarks/>
         public event Buildings_DeleteCompletedEventHandler Buildings_DeleteCompleted;
         
         /// <remarks/>
         public event Buildings_InsertCompletedEventHandler Buildings_InsertCompleted;
-        
-        /// <remarks/>
-        public event Buildings_Select_AllCompletedEventHandler Buildings_Select_AllCompleted;
-        
-        /// <remarks/>
-        public event Buildings_Select_By_BuildingIDCompletedEventHandler Buildings_Select_By_BuildingIDCompleted;
-        
-        /// <remarks/>
-        public event Buildings_Select_By_BuildingNumberCompletedEventHandler Buildings_Select_By_BuildingNumberCompleted;
-        
-        /// <remarks/>
-        public event Buildings_Select_By_CompanyIDCompletedEventHandler Buildings_Select_By_CompanyIDCompleted;
-        
-        /// <remarks/>
-        public event Buildings_Select_By_FloorsNumberCompletedEventHandler Buildings_Select_By_FloorsNumberCompleted;
         
         /// <remarks/>
         public event Users_DeleteCompletedEventHandler Users_DeleteCompleted;
@@ -596,7 +621,7 @@ namespace Incident_Reporting_App_Server.localhost {
         public event Users_SelectByUserIdCompletedEventHandler Users_SelectByUserIdCompleted;
         
         /// <remarks/>
-        public event Users_SelectByCompanyIdCompletedEventHandler Users_SelectByCompanyIdCompleted;
+        public event Users_SelectByNamePassCompletedEventHandler Users_SelectByNamePassCompleted;
         
         /// <remarks/>
         public event Users_SelectByNameCompletedEventHandler Users_SelectByNameCompleted;
@@ -771,6 +796,169 @@ namespace Incident_Reporting_App_Server.localhost {
         
         /// <remarks/>
         public event FF_ManPower_Select_AllCompletedEventHandler FF_ManPower_Select_AllCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_All", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Buildings[] Buildings_Select_All(string username, string password) {
+            object[] results = this.Invoke("Buildings_Select_All", new object[] {
+                        username,
+                        password});
+            return ((Buildings[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_AllAsync(string username, string password) {
+            this.Buildings_Select_AllAsync(username, password, null);
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_AllAsync(string username, string password, object userState) {
+            if ((this.Buildings_Select_AllOperationCompleted == null)) {
+                this.Buildings_Select_AllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_AllOperationCompleted);
+            }
+            this.InvokeAsync("Buildings_Select_All", new object[] {
+                        username,
+                        password}, this.Buildings_Select_AllOperationCompleted, userState);
+        }
+        
+        private void OnBuildings_Select_AllOperationCompleted(object arg) {
+            if ((this.Buildings_Select_AllCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Buildings_Select_AllCompleted(this, new Buildings_Select_AllCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_BuildingID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Buildings Buildings_Select_By_BuildingID(string username, string password, int ID) {
+            object[] results = this.Invoke("Buildings_Select_By_BuildingID", new object[] {
+                        username,
+                        password,
+                        ID});
+            return ((Buildings)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_BuildingIDAsync(string username, string password, int ID) {
+            this.Buildings_Select_By_BuildingIDAsync(username, password, ID, null);
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_BuildingIDAsync(string username, string password, int ID, object userState) {
+            if ((this.Buildings_Select_By_BuildingIDOperationCompleted == null)) {
+                this.Buildings_Select_By_BuildingIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_BuildingIDOperationCompleted);
+            }
+            this.InvokeAsync("Buildings_Select_By_BuildingID", new object[] {
+                        username,
+                        password,
+                        ID}, this.Buildings_Select_By_BuildingIDOperationCompleted, userState);
+        }
+        
+        private void OnBuildings_Select_By_BuildingIDOperationCompleted(object arg) {
+            if ((this.Buildings_Select_By_BuildingIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Buildings_Select_By_BuildingIDCompleted(this, new Buildings_Select_By_BuildingIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_BuildingNumber", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Buildings[] Buildings_Select_By_BuildingNumber(string username, string password, int BuildingNumber) {
+            object[] results = this.Invoke("Buildings_Select_By_BuildingNumber", new object[] {
+                        username,
+                        password,
+                        BuildingNumber});
+            return ((Buildings[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_BuildingNumberAsync(string username, string password, int BuildingNumber) {
+            this.Buildings_Select_By_BuildingNumberAsync(username, password, BuildingNumber, null);
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_BuildingNumberAsync(string username, string password, int BuildingNumber, object userState) {
+            if ((this.Buildings_Select_By_BuildingNumberOperationCompleted == null)) {
+                this.Buildings_Select_By_BuildingNumberOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_BuildingNumberOperationCompleted);
+            }
+            this.InvokeAsync("Buildings_Select_By_BuildingNumber", new object[] {
+                        username,
+                        password,
+                        BuildingNumber}, this.Buildings_Select_By_BuildingNumberOperationCompleted, userState);
+        }
+        
+        private void OnBuildings_Select_By_BuildingNumberOperationCompleted(object arg) {
+            if ((this.Buildings_Select_By_BuildingNumberCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Buildings_Select_By_BuildingNumberCompleted(this, new Buildings_Select_By_BuildingNumberCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Buildings[] Buildings_Select_By_CompanyID(string username, string password, int CompanyID) {
+            object[] results = this.Invoke("Buildings_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID});
+            return ((Buildings[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_CompanyIDAsync(string username, string password, int CompanyID) {
+            this.Buildings_Select_By_CompanyIDAsync(username, password, CompanyID, null);
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_CompanyIDAsync(string username, string password, int CompanyID, object userState) {
+            if ((this.Buildings_Select_By_CompanyIDOperationCompleted == null)) {
+                this.Buildings_Select_By_CompanyIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_CompanyIDOperationCompleted);
+            }
+            this.InvokeAsync("Buildings_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID}, this.Buildings_Select_By_CompanyIDOperationCompleted, userState);
+        }
+        
+        private void OnBuildings_Select_By_CompanyIDOperationCompleted(object arg) {
+            if ((this.Buildings_Select_By_CompanyIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Buildings_Select_By_CompanyIDCompleted(this, new Buildings_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_FloorsNumber", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Buildings[] Buildings_Select_By_FloorsNumber(string username, string password, int FloorsNumber) {
+            object[] results = this.Invoke("Buildings_Select_By_FloorsNumber", new object[] {
+                        username,
+                        password,
+                        FloorsNumber});
+            return ((Buildings[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_FloorsNumberAsync(string username, string password, int FloorsNumber) {
+            this.Buildings_Select_By_FloorsNumberAsync(username, password, FloorsNumber, null);
+        }
+        
+        /// <remarks/>
+        public void Buildings_Select_By_FloorsNumberAsync(string username, string password, int FloorsNumber, object userState) {
+            if ((this.Buildings_Select_By_FloorsNumberOperationCompleted == null)) {
+                this.Buildings_Select_By_FloorsNumberOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_FloorsNumberOperationCompleted);
+            }
+            this.InvokeAsync("Buildings_Select_By_FloorsNumber", new object[] {
+                        username,
+                        password,
+                        FloorsNumber}, this.Buildings_Select_By_FloorsNumberOperationCompleted, userState);
+        }
+        
+        private void OnBuildings_Select_By_FloorsNumberOperationCompleted(object arg) {
+            if ((this.Buildings_Select_By_FloorsNumberCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Buildings_Select_By_FloorsNumberCompleted(this, new Buildings_Select_By_FloorsNumberCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Accident_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -3073,6 +3261,169 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Managers_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool Managers_Delete(string username, string password, int ManagerID) {
+            object[] results = this.Invoke("Managers_Delete", new object[] {
+                        username,
+                        password,
+                        ManagerID});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Managers_DeleteAsync(string username, string password, int ManagerID) {
+            this.Managers_DeleteAsync(username, password, ManagerID, null);
+        }
+        
+        /// <remarks/>
+        public void Managers_DeleteAsync(string username, string password, int ManagerID, object userState) {
+            if ((this.Managers_DeleteOperationCompleted == null)) {
+                this.Managers_DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagers_DeleteOperationCompleted);
+            }
+            this.InvokeAsync("Managers_Delete", new object[] {
+                        username,
+                        password,
+                        ManagerID}, this.Managers_DeleteOperationCompleted, userState);
+        }
+        
+        private void OnManagers_DeleteOperationCompleted(object arg) {
+            if ((this.Managers_DeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Managers_DeleteCompleted(this, new Managers_DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Managers_Insert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Managers Managers_Insert(string username, string password, Managers Manager) {
+            object[] results = this.Invoke("Managers_Insert", new object[] {
+                        username,
+                        password,
+                        Manager});
+            return ((Managers)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Managers_InsertAsync(string username, string password, Managers Manager) {
+            this.Managers_InsertAsync(username, password, Manager, null);
+        }
+        
+        /// <remarks/>
+        public void Managers_InsertAsync(string username, string password, Managers Manager, object userState) {
+            if ((this.Managers_InsertOperationCompleted == null)) {
+                this.Managers_InsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagers_InsertOperationCompleted);
+            }
+            this.InvokeAsync("Managers_Insert", new object[] {
+                        username,
+                        password,
+                        Manager}, this.Managers_InsertOperationCompleted, userState);
+        }
+        
+        private void OnManagers_InsertOperationCompleted(object arg) {
+            if ((this.Managers_InsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Managers_InsertCompleted(this, new Managers_InsertCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Managers_Select_All", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Managers[] Managers_Select_All(string username, string password) {
+            object[] results = this.Invoke("Managers_Select_All", new object[] {
+                        username,
+                        password});
+            return ((Managers[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Managers_Select_AllAsync(string username, string password) {
+            this.Managers_Select_AllAsync(username, password, null);
+        }
+        
+        /// <remarks/>
+        public void Managers_Select_AllAsync(string username, string password, object userState) {
+            if ((this.Managers_Select_AllOperationCompleted == null)) {
+                this.Managers_Select_AllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagers_Select_AllOperationCompleted);
+            }
+            this.InvokeAsync("Managers_Select_All", new object[] {
+                        username,
+                        password}, this.Managers_Select_AllOperationCompleted, userState);
+        }
+        
+        private void OnManagers_Select_AllOperationCompleted(object arg) {
+            if ((this.Managers_Select_AllCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Managers_Select_AllCompleted(this, new Managers_Select_AllCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Managers_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Managers[] Managers_Select_By_CompanyID(string username, string password, int CompanyID) {
+            object[] results = this.Invoke("Managers_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID});
+            return ((Managers[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Managers_Select_By_CompanyIDAsync(string username, string password, int CompanyID) {
+            this.Managers_Select_By_CompanyIDAsync(username, password, CompanyID, null);
+        }
+        
+        /// <remarks/>
+        public void Managers_Select_By_CompanyIDAsync(string username, string password, int CompanyID, object userState) {
+            if ((this.Managers_Select_By_CompanyIDOperationCompleted == null)) {
+                this.Managers_Select_By_CompanyIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagers_Select_By_CompanyIDOperationCompleted);
+            }
+            this.InvokeAsync("Managers_Select_By_CompanyID", new object[] {
+                        username,
+                        password,
+                        CompanyID}, this.Managers_Select_By_CompanyIDOperationCompleted, userState);
+        }
+        
+        private void OnManagers_Select_By_CompanyIDOperationCompleted(object arg) {
+            if ((this.Managers_Select_By_CompanyIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Managers_Select_By_CompanyIDCompleted(this, new Managers_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Managers_SelectByManagerID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Managers Managers_SelectByManagerID(string username, string password, int ManagerID) {
+            object[] results = this.Invoke("Managers_SelectByManagerID", new object[] {
+                        username,
+                        password,
+                        ManagerID});
+            return ((Managers)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Managers_SelectByManagerIDAsync(string username, string password, int ManagerID) {
+            this.Managers_SelectByManagerIDAsync(username, password, ManagerID, null);
+        }
+        
+        /// <remarks/>
+        public void Managers_SelectByManagerIDAsync(string username, string password, int ManagerID, object userState) {
+            if ((this.Managers_SelectByManagerIDOperationCompleted == null)) {
+                this.Managers_SelectByManagerIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagers_SelectByManagerIDOperationCompleted);
+            }
+            this.InvokeAsync("Managers_SelectByManagerID", new object[] {
+                        username,
+                        password,
+                        ManagerID}, this.Managers_SelectByManagerIDOperationCompleted, userState);
+        }
+        
+        private void OnManagers_SelectByManagerIDOperationCompleted(object arg) {
+            if ((this.Managers_SelectByManagerIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Managers_SelectByManagerIDCompleted(this, new Managers_SelectByManagerIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool Buildings_Delete(string username, string password, int BuildingID) {
             object[] results = this.Invoke("Buildings_Delete", new object[] {
@@ -3135,169 +3486,6 @@ namespace Incident_Reporting_App_Server.localhost {
             if ((this.Buildings_InsertCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Buildings_InsertCompleted(this, new Buildings_InsertCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_All", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Buildings[] Buildings_Select_All(string username, string password) {
-            object[] results = this.Invoke("Buildings_Select_All", new object[] {
-                        username,
-                        password});
-            return ((Buildings[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_AllAsync(string username, string password) {
-            this.Buildings_Select_AllAsync(username, password, null);
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_AllAsync(string username, string password, object userState) {
-            if ((this.Buildings_Select_AllOperationCompleted == null)) {
-                this.Buildings_Select_AllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_AllOperationCompleted);
-            }
-            this.InvokeAsync("Buildings_Select_All", new object[] {
-                        username,
-                        password}, this.Buildings_Select_AllOperationCompleted, userState);
-        }
-        
-        private void OnBuildings_Select_AllOperationCompleted(object arg) {
-            if ((this.Buildings_Select_AllCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Buildings_Select_AllCompleted(this, new Buildings_Select_AllCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_BuildingID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Buildings Buildings_Select_By_BuildingID(string username, string password, int ID) {
-            object[] results = this.Invoke("Buildings_Select_By_BuildingID", new object[] {
-                        username,
-                        password,
-                        ID});
-            return ((Buildings)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_BuildingIDAsync(string username, string password, int ID) {
-            this.Buildings_Select_By_BuildingIDAsync(username, password, ID, null);
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_BuildingIDAsync(string username, string password, int ID, object userState) {
-            if ((this.Buildings_Select_By_BuildingIDOperationCompleted == null)) {
-                this.Buildings_Select_By_BuildingIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_BuildingIDOperationCompleted);
-            }
-            this.InvokeAsync("Buildings_Select_By_BuildingID", new object[] {
-                        username,
-                        password,
-                        ID}, this.Buildings_Select_By_BuildingIDOperationCompleted, userState);
-        }
-        
-        private void OnBuildings_Select_By_BuildingIDOperationCompleted(object arg) {
-            if ((this.Buildings_Select_By_BuildingIDCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Buildings_Select_By_BuildingIDCompleted(this, new Buildings_Select_By_BuildingIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_BuildingNumber", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Buildings[] Buildings_Select_By_BuildingNumber(string username, string password, int BuildingNumber) {
-            object[] results = this.Invoke("Buildings_Select_By_BuildingNumber", new object[] {
-                        username,
-                        password,
-                        BuildingNumber});
-            return ((Buildings[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_BuildingNumberAsync(string username, string password, int BuildingNumber) {
-            this.Buildings_Select_By_BuildingNumberAsync(username, password, BuildingNumber, null);
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_BuildingNumberAsync(string username, string password, int BuildingNumber, object userState) {
-            if ((this.Buildings_Select_By_BuildingNumberOperationCompleted == null)) {
-                this.Buildings_Select_By_BuildingNumberOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_BuildingNumberOperationCompleted);
-            }
-            this.InvokeAsync("Buildings_Select_By_BuildingNumber", new object[] {
-                        username,
-                        password,
-                        BuildingNumber}, this.Buildings_Select_By_BuildingNumberOperationCompleted, userState);
-        }
-        
-        private void OnBuildings_Select_By_BuildingNumberOperationCompleted(object arg) {
-            if ((this.Buildings_Select_By_BuildingNumberCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Buildings_Select_By_BuildingNumberCompleted(this, new Buildings_Select_By_BuildingNumberCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_CompanyID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Buildings[] Buildings_Select_By_CompanyID(string username, string password, int CompanyID) {
-            object[] results = this.Invoke("Buildings_Select_By_CompanyID", new object[] {
-                        username,
-                        password,
-                        CompanyID});
-            return ((Buildings[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_CompanyIDAsync(string username, string password, int CompanyID) {
-            this.Buildings_Select_By_CompanyIDAsync(username, password, CompanyID, null);
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_CompanyIDAsync(string username, string password, int CompanyID, object userState) {
-            if ((this.Buildings_Select_By_CompanyIDOperationCompleted == null)) {
-                this.Buildings_Select_By_CompanyIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_CompanyIDOperationCompleted);
-            }
-            this.InvokeAsync("Buildings_Select_By_CompanyID", new object[] {
-                        username,
-                        password,
-                        CompanyID}, this.Buildings_Select_By_CompanyIDOperationCompleted, userState);
-        }
-        
-        private void OnBuildings_Select_By_CompanyIDOperationCompleted(object arg) {
-            if ((this.Buildings_Select_By_CompanyIDCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Buildings_Select_By_CompanyIDCompleted(this, new Buildings_Select_By_CompanyIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Buildings_Select_By_FloorsNumber", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Buildings[] Buildings_Select_By_FloorsNumber(string username, string password, int FloorsNumber) {
-            object[] results = this.Invoke("Buildings_Select_By_FloorsNumber", new object[] {
-                        username,
-                        password,
-                        FloorsNumber});
-            return ((Buildings[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_FloorsNumberAsync(string username, string password, int FloorsNumber) {
-            this.Buildings_Select_By_FloorsNumberAsync(username, password, FloorsNumber, null);
-        }
-        
-        /// <remarks/>
-        public void Buildings_Select_By_FloorsNumberAsync(string username, string password, int FloorsNumber, object userState) {
-            if ((this.Buildings_Select_By_FloorsNumberOperationCompleted == null)) {
-                this.Buildings_Select_By_FloorsNumberOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuildings_Select_By_FloorsNumberOperationCompleted);
-            }
-            this.InvokeAsync("Buildings_Select_By_FloorsNumber", new object[] {
-                        username,
-                        password,
-                        FloorsNumber}, this.Buildings_Select_By_FloorsNumberOperationCompleted, userState);
-        }
-        
-        private void OnBuildings_Select_By_FloorsNumberOperationCompleted(object arg) {
-            if ((this.Buildings_Select_By_FloorsNumberCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Buildings_Select_By_FloorsNumberCompleted(this, new Buildings_Select_By_FloorsNumberCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3465,35 +3653,33 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Users_SelectByCompanyId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Users[] Users_SelectByCompanyId(string username, string password, int company_id) {
-            object[] results = this.Invoke("Users_SelectByCompanyId", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Users_SelectByNamePass", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Users Users_SelectByNamePass(string username, string password) {
+            object[] results = this.Invoke("Users_SelectByNamePass", new object[] {
                         username,
-                        password,
-                        company_id});
-            return ((Users[])(results[0]));
+                        password});
+            return ((Users)(results[0]));
         }
         
         /// <remarks/>
-        public void Users_SelectByCompanyIdAsync(string username, string password, int company_id) {
-            this.Users_SelectByCompanyIdAsync(username, password, company_id, null);
+        public void Users_SelectByNamePassAsync(string username, string password) {
+            this.Users_SelectByNamePassAsync(username, password, null);
         }
         
         /// <remarks/>
-        public void Users_SelectByCompanyIdAsync(string username, string password, int company_id, object userState) {
-            if ((this.Users_SelectByCompanyIdOperationCompleted == null)) {
-                this.Users_SelectByCompanyIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsers_SelectByCompanyIdOperationCompleted);
+        public void Users_SelectByNamePassAsync(string username, string password, object userState) {
+            if ((this.Users_SelectByNamePassOperationCompleted == null)) {
+                this.Users_SelectByNamePassOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsers_SelectByNamePassOperationCompleted);
             }
-            this.InvokeAsync("Users_SelectByCompanyId", new object[] {
+            this.InvokeAsync("Users_SelectByNamePass", new object[] {
                         username,
-                        password,
-                        company_id}, this.Users_SelectByCompanyIdOperationCompleted, userState);
+                        password}, this.Users_SelectByNamePassOperationCompleted, userState);
         }
         
-        private void OnUsers_SelectByCompanyIdOperationCompleted(object arg) {
-            if ((this.Users_SelectByCompanyIdCompleted != null)) {
+        private void OnUsers_SelectByNamePassOperationCompleted(object arg) {
+            if ((this.Users_SelectByNamePassCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Users_SelectByCompanyIdCompleted(this, new Users_SelectByCompanyIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.Users_SelectByNamePassCompleted(this, new Users_SelectByNamePassCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -5422,139 +5608,41 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Accident {
+    public partial class Buildings {
         
-        private int accidentIDField;
+        private int buildingNumberField;
         
-        private string accidentTypeField;
-        
-        private string vehiclesToAccidentField;
-        
-        private string equipmentsField;
-        
-        private string lossesTypeField;
-        
-        private string lossesInfoField;
-        
-        private System.DateTime dateField;
-        
-        private System.DateTime timeToSendField;
-        
-        private System.DateTime timeToArriveField;
-        
-        private string accidentNumberField;
-        
-        private string additional_infoField;
+        private int floorsNumberField;
         
         private int companyIDField;
         
+        private int buildingIDField;
+        
+        private int mainWaterTankCapacityField;
+        
+        private byte[] geometricImageField;
+        
+        private string geometricImageURLField;
+        
+        private Floors[] buildingFloorsField;
+        
         /// <remarks/>
-        public int AccidentID {
+        public int BuildingNumber {
             get {
-                return this.accidentIDField;
+                return this.buildingNumberField;
             }
             set {
-                this.accidentIDField = value;
+                this.buildingNumberField = value;
             }
         }
         
         /// <remarks/>
-        public string AccidentType {
+        public int FloorsNumber {
             get {
-                return this.accidentTypeField;
+                return this.floorsNumberField;
             }
             set {
-                this.accidentTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string VehiclesToAccident {
-            get {
-                return this.vehiclesToAccidentField;
-            }
-            set {
-                this.vehiclesToAccidentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Equipments {
-            get {
-                return this.equipmentsField;
-            }
-            set {
-                this.equipmentsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LossesType {
-            get {
-                return this.lossesTypeField;
-            }
-            set {
-                this.lossesTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LossesInfo {
-            get {
-                return this.lossesInfoField;
-            }
-            set {
-                this.lossesInfoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime Date {
-            get {
-                return this.dateField;
-            }
-            set {
-                this.dateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime TimeToSend {
-            get {
-                return this.timeToSendField;
-            }
-            set {
-                this.timeToSendField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime TimeToArrive {
-            get {
-                return this.timeToArriveField;
-            }
-            set {
-                this.timeToArriveField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string AccidentNumber {
-            get {
-                return this.accidentNumberField;
-            }
-            set {
-                this.accidentNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Additional_info {
-            get {
-                return this.additional_infoField;
-            }
-            set {
-                this.additional_infoField = value;
+                this.floorsNumberField = value;
             }
         }
         
@@ -5565,6 +5653,186 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.companyIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BuildingID {
+            get {
+                return this.buildingIDField;
+            }
+            set {
+                this.buildingIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MainWaterTankCapacity {
+            get {
+                return this.mainWaterTankCapacityField;
+            }
+            set {
+                this.mainWaterTankCapacityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] GeometricImage {
+            get {
+                return this.geometricImageField;
+            }
+            set {
+                this.geometricImageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string GeometricImageURL {
+            get {
+                return this.geometricImageURLField;
+            }
+            set {
+                this.geometricImageURLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Floors[] BuildingFloors {
+            get {
+                return this.buildingFloorsField;
+            }
+            set {
+                this.buildingFloorsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Floors {
+        
+        private string floorNumberField;
+        
+        private string fireHydrantsNumberField;
+        
+        private string powderExtinguishersNumberField;
+        
+        private string carbonDioxideExtinguishersNumbersField;
+        
+        private string foamExtinguishersNumbersField;
+        
+        private int powderExtinguishersWeightField;
+        
+        private int carbonDioxideExtinguishersWeightField;
+        
+        private int foamExtinguishersWeightField;
+        
+        private int buildingIDField;
+        
+        private int floorIDField;
+        
+        /// <remarks/>
+        public string FloorNumber {
+            get {
+                return this.floorNumberField;
+            }
+            set {
+                this.floorNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FireHydrantsNumber {
+            get {
+                return this.fireHydrantsNumberField;
+            }
+            set {
+                this.fireHydrantsNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PowderExtinguishersNumber {
+            get {
+                return this.powderExtinguishersNumberField;
+            }
+            set {
+                this.powderExtinguishersNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CarbonDioxideExtinguishersNumbers {
+            get {
+                return this.carbonDioxideExtinguishersNumbersField;
+            }
+            set {
+                this.carbonDioxideExtinguishersNumbersField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FoamExtinguishersNumbers {
+            get {
+                return this.foamExtinguishersNumbersField;
+            }
+            set {
+                this.foamExtinguishersNumbersField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PowderExtinguishersWeight {
+            get {
+                return this.powderExtinguishersWeightField;
+            }
+            set {
+                this.powderExtinguishersWeightField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CarbonDioxideExtinguishersWeight {
+            get {
+                return this.carbonDioxideExtinguishersWeightField;
+            }
+            set {
+                this.carbonDioxideExtinguishersWeightField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FoamExtinguishersWeight {
+            get {
+                return this.foamExtinguishersWeightField;
+            }
+            set {
+                this.foamExtinguishersWeightField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BuildingID {
+            get {
+                return this.buildingIDField;
+            }
+            set {
+                this.buildingIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FloorID {
+            get {
+                return this.floorIDField;
+            }
+            set {
+                this.floorIDField = value;
             }
         }
     }
@@ -5857,135 +6125,6 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Floors {
-        
-        private string floorNumberField;
-        
-        private string fireHydrantsNumberField;
-        
-        private string powderExtinguishersNumberField;
-        
-        private string carbonDioxideExtinguishersNumbersField;
-        
-        private string foamExtinguishersNumbersField;
-        
-        private int powderExtinguishersWeightField;
-        
-        private int carbonDioxideExtinguishersWeightField;
-        
-        private int foamExtinguishersWeightField;
-        
-        private int buildingIDField;
-        
-        private int floorIDField;
-        
-        /// <remarks/>
-        public string FloorNumber {
-            get {
-                return this.floorNumberField;
-            }
-            set {
-                this.floorNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FireHydrantsNumber {
-            get {
-                return this.fireHydrantsNumberField;
-            }
-            set {
-                this.fireHydrantsNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PowderExtinguishersNumber {
-            get {
-                return this.powderExtinguishersNumberField;
-            }
-            set {
-                this.powderExtinguishersNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CarbonDioxideExtinguishersNumbers {
-            get {
-                return this.carbonDioxideExtinguishersNumbersField;
-            }
-            set {
-                this.carbonDioxideExtinguishersNumbersField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FoamExtinguishersNumbers {
-            get {
-                return this.foamExtinguishersNumbersField;
-            }
-            set {
-                this.foamExtinguishersNumbersField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PowderExtinguishersWeight {
-            get {
-                return this.powderExtinguishersWeightField;
-            }
-            set {
-                this.powderExtinguishersWeightField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CarbonDioxideExtinguishersWeight {
-            get {
-                return this.carbonDioxideExtinguishersWeightField;
-            }
-            set {
-                this.carbonDioxideExtinguishersWeightField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FoamExtinguishersWeight {
-            get {
-                return this.foamExtinguishersWeightField;
-            }
-            set {
-                this.foamExtinguishersWeightField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BuildingID {
-            get {
-                return this.buildingIDField;
-            }
-            set {
-                this.buildingIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FloorID {
-            get {
-                return this.floorIDField;
-            }
-            set {
-                this.floorIDField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Images {
         
         private string imageDescriptionField;
@@ -6218,7 +6357,7 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private string adminModeField;
         
-        private int companyIDField;
+        private Company[] user_CompaniesField;
         
         /// <remarks/>
         public int UserID {
@@ -6271,106 +6410,12 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        public int CompanyID {
+        public Company[] User_Companies {
             get {
-                return this.companyIDField;
+                return this.user_CompaniesField;
             }
             set {
-                this.companyIDField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Buildings {
-        
-        private int buildingNumberField;
-        
-        private int floorsNumberField;
-        
-        private int companyIDField;
-        
-        private int buildingIDField;
-        
-        private int mainWaterTankCapacityField;
-        
-        private byte[] geometricImageField;
-        
-        private string geometricImageURLField;
-        
-        /// <remarks/>
-        public int BuildingNumber {
-            get {
-                return this.buildingNumberField;
-            }
-            set {
-                this.buildingNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FloorsNumber {
-            get {
-                return this.floorsNumberField;
-            }
-            set {
-                this.floorsNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CompanyID {
-            get {
-                return this.companyIDField;
-            }
-            set {
-                this.companyIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BuildingID {
-            get {
-                return this.buildingIDField;
-            }
-            set {
-                this.buildingIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int MainWaterTankCapacity {
-            get {
-                return this.mainWaterTankCapacityField;
-            }
-            set {
-                this.mainWaterTankCapacityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] GeometricImage {
-            get {
-                return this.geometricImageField;
-            }
-            set {
-                this.geometricImageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string GeometricImageURL {
-            get {
-                return this.geometricImageURLField;
-            }
-            set {
-                this.geometricImageURLField = value;
+                this.user_CompaniesField = value;
             }
         }
     }
@@ -6444,6 +6489,10 @@ namespace Incident_Reporting_App_Server.localhost {
         private float latitudeField;
         
         private float longitudeField;
+        
+        private Buildings[] companyBuildingsField;
+        
+        private Managers[] companyManagersField;
         
         /// <remarks/>
         public string Name {
@@ -6756,6 +6805,107 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.longitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Buildings[] companyBuildings {
+            get {
+                return this.companyBuildingsField;
+            }
+            set {
+                this.companyBuildingsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Managers[] companyManagers {
+            get {
+                return this.companyManagersField;
+            }
+            set {
+                this.companyManagersField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Managers {
+        
+        private string nameField;
+        
+        private string currentPositionField;
+        
+        private string phoneNumberField;
+        
+        private string infoField;
+        
+        private int companyIDField;
+        
+        private int managerIDField;
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CurrentPosition {
+            get {
+                return this.currentPositionField;
+            }
+            set {
+                this.currentPositionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PhoneNumber {
+            get {
+                return this.phoneNumberField;
+            }
+            set {
+                this.phoneNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CompanyID {
+            get {
+                return this.companyIDField;
+            }
+            set {
+                this.companyIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ManagerID {
+            get {
+                return this.managerIDField;
+            }
+            set {
+                this.managerIDField = value;
             }
         }
     }
@@ -7166,6 +7316,289 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.fF_IDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Accident {
+        
+        private int accidentIDField;
+        
+        private string accidentTypeField;
+        
+        private string vehiclesToAccidentField;
+        
+        private string equipmentsField;
+        
+        private string lossesTypeField;
+        
+        private string lossesInfoField;
+        
+        private System.DateTime dateField;
+        
+        private System.DateTime timeToSendField;
+        
+        private System.DateTime timeToArriveField;
+        
+        private string accidentNumberField;
+        
+        private string additional_infoField;
+        
+        private int companyIDField;
+        
+        /// <remarks/>
+        public int AccidentID {
+            get {
+                return this.accidentIDField;
+            }
+            set {
+                this.accidentIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AccidentType {
+            get {
+                return this.accidentTypeField;
+            }
+            set {
+                this.accidentTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VehiclesToAccident {
+            get {
+                return this.vehiclesToAccidentField;
+            }
+            set {
+                this.vehiclesToAccidentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Equipments {
+            get {
+                return this.equipmentsField;
+            }
+            set {
+                this.equipmentsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LossesType {
+            get {
+                return this.lossesTypeField;
+            }
+            set {
+                this.lossesTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LossesInfo {
+            get {
+                return this.lossesInfoField;
+            }
+            set {
+                this.lossesInfoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Date {
+            get {
+                return this.dateField;
+            }
+            set {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime TimeToSend {
+            get {
+                return this.timeToSendField;
+            }
+            set {
+                this.timeToSendField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime TimeToArrive {
+            get {
+                return this.timeToArriveField;
+            }
+            set {
+                this.timeToArriveField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AccidentNumber {
+            get {
+                return this.accidentNumberField;
+            }
+            set {
+                this.accidentNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Additional_info {
+            get {
+                return this.additional_infoField;
+            }
+            set {
+                this.additional_infoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CompanyID {
+            get {
+                return this.companyIDField;
+            }
+            set {
+                this.companyIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Buildings_Select_AllCompletedEventHandler(object sender, Buildings_Select_AllCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Buildings_Select_AllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Buildings_Select_AllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Buildings[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Buildings[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Buildings_Select_By_BuildingIDCompletedEventHandler(object sender, Buildings_Select_By_BuildingIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Buildings_Select_By_BuildingIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Buildings_Select_By_BuildingIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Buildings Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Buildings)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Buildings_Select_By_BuildingNumberCompletedEventHandler(object sender, Buildings_Select_By_BuildingNumberCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Buildings_Select_By_BuildingNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Buildings_Select_By_BuildingNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Buildings[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Buildings[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Buildings_Select_By_CompanyIDCompletedEventHandler(object sender, Buildings_Select_By_CompanyIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Buildings_Select_By_CompanyIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Buildings_Select_By_CompanyIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Buildings[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Buildings[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Buildings_Select_By_FloorsNumberCompletedEventHandler(object sender, Buildings_Select_By_FloorsNumberCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Buildings_Select_By_FloorsNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Buildings_Select_By_FloorsNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Buildings[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Buildings[])(this.results[0]));
             }
         }
     }
@@ -8992,6 +9425,136 @@ namespace Incident_Reporting_App_Server.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Managers_DeleteCompletedEventHandler(object sender, Managers_DeleteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Managers_DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Managers_DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Managers_InsertCompletedEventHandler(object sender, Managers_InsertCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Managers_InsertCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Managers_InsertCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Managers Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Managers)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Managers_Select_AllCompletedEventHandler(object sender, Managers_Select_AllCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Managers_Select_AllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Managers_Select_AllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Managers[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Managers[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Managers_Select_By_CompanyIDCompletedEventHandler(object sender, Managers_Select_By_CompanyIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Managers_Select_By_CompanyIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Managers_Select_By_CompanyIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Managers[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Managers[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Managers_SelectByManagerIDCompletedEventHandler(object sender, Managers_SelectByManagerIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Managers_SelectByManagerIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Managers_SelectByManagerIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Managers Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Managers)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void Buildings_DeleteCompletedEventHandler(object sender, Buildings_DeleteCompletedEventArgs e);
     
     /// <remarks/>
@@ -9038,136 +9601,6 @@ namespace Incident_Reporting_App_Server.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Buildings)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Buildings_Select_AllCompletedEventHandler(object sender, Buildings_Select_AllCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Buildings_Select_AllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Buildings_Select_AllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Buildings[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Buildings[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Buildings_Select_By_BuildingIDCompletedEventHandler(object sender, Buildings_Select_By_BuildingIDCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Buildings_Select_By_BuildingIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Buildings_Select_By_BuildingIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Buildings Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Buildings)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Buildings_Select_By_BuildingNumberCompletedEventHandler(object sender, Buildings_Select_By_BuildingNumberCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Buildings_Select_By_BuildingNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Buildings_Select_By_BuildingNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Buildings[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Buildings[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Buildings_Select_By_CompanyIDCompletedEventHandler(object sender, Buildings_Select_By_CompanyIDCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Buildings_Select_By_CompanyIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Buildings_Select_By_CompanyIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Buildings[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Buildings[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Buildings_Select_By_FloorsNumberCompletedEventHandler(object sender, Buildings_Select_By_FloorsNumberCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Buildings_Select_By_FloorsNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Buildings_Select_By_FloorsNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Buildings[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Buildings[])(this.results[0]));
             }
         }
     }
@@ -9304,26 +9737,26 @@ namespace Incident_Reporting_App_Server.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Users_SelectByCompanyIdCompletedEventHandler(object sender, Users_SelectByCompanyIdCompletedEventArgs e);
+    public delegate void Users_SelectByNamePassCompletedEventHandler(object sender, Users_SelectByNamePassCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Users_SelectByCompanyIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class Users_SelectByNamePassCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal Users_SelectByCompanyIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal Users_SelectByNamePassCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Users[] Result {
+        public Users Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Users[])(this.results[0]));
+                return ((Users)(this.results[0]));
             }
         }
     }

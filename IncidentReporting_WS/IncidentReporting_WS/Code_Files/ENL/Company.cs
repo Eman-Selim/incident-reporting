@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IncidentReporting_WS.Code_Files.COL;
 
 namespace IncidentReporting_WS.Code_Files.ENL
 {
@@ -11,7 +12,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string Address { set; get; }
         public string LandlinePhoneNumber { set; get; }
         public string ElectricalPanelLocation { set; get; }
-
         public string OxygenTrapLocation { set; get; }
         public string GasTrapLocation { set; get; }
         public string RightCompanyName { set; get; }
@@ -39,5 +39,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string LeftCompanyImageURL { set; get; }
         public float Latitude { set; get; }
         public float Longitude { set; get; }
+        public BuildingsCollection companyBuildings { set; get; }
+        public ManagersCollection companyManagers { set; get; }
     }
 }
