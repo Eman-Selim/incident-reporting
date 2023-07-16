@@ -32,6 +32,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="GeometricImage" type="s:base64Binary" />
           <s:element minOccurs="0" maxOccurs="1" name="GeometricImageURL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="BuildingFloors" type="tns:ArrayOfFloors" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingImageCollection" type="tns:ArrayOfImages" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingExitPaths" type="tns:ArrayOfExitPathways" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfFloors">
@@ -51,6 +53,33 @@
           <s:element minOccurs="1" maxOccurs="1" name="FoamExtinguishersWeight" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="FloorID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfImages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Images" nillable="true" type="tns:Images" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Images">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ImageDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExitPathways">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExitPathways" nillable="true" type="tns:ExitPathways" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExitPathways">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PathwaysImage" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PathwaysImageURL" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="Buildings_Select_By_BuildingID">
@@ -156,6 +185,42 @@
           <s:element minOccurs="0" maxOccurs="1" name="AccidentNumber" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accident_Injured" type="tns:ArrayOfInjured" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accident_Death" type="tns:ArrayOfDeath" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInjured">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Injured" nillable="true" type="tns:Injured" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Injured">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="InjuredID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Civil_Military" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rank" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDeath">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Death" nillable="true" type="tns:Death" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Death">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DeathID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Civil_Military" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rank" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="Accident_InsertResponse">
@@ -551,14 +616,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ExitPathways">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="PathwaysImage" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PathwaysImageURL" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="ExitPathways_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -581,11 +638,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfExitPathways">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="ExitPathways" nillable="true" type="tns:ExitPathways" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="ExitPathways_Select_By_BuildingID">
         <s:complexType>
           <s:sequence>
@@ -627,18 +679,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Death">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="DeathID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Civil_Military" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Rank" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Death_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -661,11 +701,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfDeath">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Death" nillable="true" type="tns:Death" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Death_Select_By_AccidentID">
         <s:complexType>
           <s:sequence>
@@ -981,6 +1016,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:float" />
           <s:element minOccurs="0" maxOccurs="1" name="companyBuildings" type="tns:ArrayOfBuildings" />
           <s:element minOccurs="0" maxOccurs="1" name="companyManagers" type="tns:ArrayOfManagers" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyDangerousPlaces" type="tns:ArrayOfDangerousPlaces" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfManagers">
@@ -1521,6 +1557,48 @@
           <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AdminMode" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="User_Companies" type="tns:ArrayOfCompany" />
+          <s:element minOccurs="0" maxOccurs="1" name="User_FF_Pumps" type="tns:ArrayOfFF_pumps" />
+          <s:element minOccurs="0" maxOccurs="1" name="User_FFstations" type="tns:ArrayOfFFstations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFF_pumps">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FF_pumps" nillable="true" type="tns:FF_pumps" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FF_pumps">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FF_pumpsID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PumpNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PumpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFFstations">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FFstations" nillable="true" type="tns:FFstations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FFstations">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FF_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficersNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoliderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarsNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="Users_InsertResponse">
@@ -1745,18 +1823,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Injured">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="InjuredID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Civil_Military" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Rank" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="AccidentID" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Injured_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -1779,11 +1845,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfInjured">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Injured" nillable="true" type="tns:Injured" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Injured_Select_By_AccidentID">
         <s:complexType>
           <s:sequence>
@@ -1905,15 +1966,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Images">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ImageDescription" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
-          <s:element minOccurs="1" maxOccurs="1" name="ImageID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Images_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -1936,11 +1988,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfImages">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Images" nillable="true" type="tns:Images" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Images_Select_By_BuildingID">
         <s:complexType>
           <s:sequence>
@@ -2157,22 +2204,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="FFstations">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="FF_ID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="AreaName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ZoneNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Signs" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="OfficersNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SoliderNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CarsNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="FFstations_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -2195,11 +2226,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfFFstations">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="FFstations" nillable="true" type="tns:FFstations" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="FFstations_Select_By_AreaName">
         <s:complexType>
           <s:sequence>
@@ -2401,20 +2427,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="FF_pumps">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="FF_pumpsID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PumpNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PumpType" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Signs" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="FF_pumps_InsertResponse">
         <s:complexType>
           <s:sequence>
@@ -2437,11 +2449,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfFF_pumps">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="FF_pumps" nillable="true" type="tns:FF_pumps" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="FF_pumps_Select_By_Address">
         <s:complexType>
           <s:sequence>

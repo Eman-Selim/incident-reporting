@@ -5626,6 +5626,10 @@ namespace Incident_Reporting_App_Server.localhost {
         
         private Floors[] buildingFloorsField;
         
+        private Images[] buildingImageCollectionField;
+        
+        private ExitPathways[] buildingExitPathsField;
+        
         /// <remarks/>
         public int BuildingNumber {
             get {
@@ -5704,6 +5708,26 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.buildingFloorsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Images[] BuildingImageCollection {
+            get {
+                return this.buildingImageCollectionField;
+            }
+            set {
+                this.buildingImageCollectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ExitPathways[] BuildingExitPaths {
+            get {
+                return this.buildingExitPathsField;
+            }
+            set {
+                this.buildingExitPathsField = value;
             }
         }
     }
@@ -5843,125 +5867,41 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class FF_pumps {
+    public partial class Users_Admin {
         
-        private int fF_pumpsIDField;
+        private int admin_IDField;
         
-        private string sectorField;
+        private int user_IDField;
         
-        private string addressField;
-        
-        private string pumpNumberField;
-        
-        private string pumpTypeField;
-        
-        private string signsField;
-        
-        private string statusField;
-        
-        private string areaField;
-        
-        private string additional_infoField;
-        
-        private int userIDField;
+        private string infoField;
         
         /// <remarks/>
-        public int FF_pumpsID {
+        public int Admin_ID {
             get {
-                return this.fF_pumpsIDField;
+                return this.admin_IDField;
             }
             set {
-                this.fF_pumpsIDField = value;
+                this.admin_IDField = value;
             }
         }
         
         /// <remarks/>
-        public string Sector {
+        public int User_ID {
             get {
-                return this.sectorField;
+                return this.user_IDField;
             }
             set {
-                this.sectorField = value;
+                this.user_IDField = value;
             }
         }
         
         /// <remarks/>
-        public string Address {
+        public string Info {
             get {
-                return this.addressField;
+                return this.infoField;
             }
             set {
-                this.addressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PumpNumber {
-            get {
-                return this.pumpNumberField;
-            }
-            set {
-                this.pumpNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PumpType {
-            get {
-                return this.pumpTypeField;
-            }
-            set {
-                this.pumpTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Signs {
-            get {
-                return this.signsField;
-            }
-            set {
-                this.signsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Area {
-            get {
-                return this.areaField;
-            }
-            set {
-                this.areaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Additional_info {
-            get {
-                return this.additional_infoField;
-            }
-            set {
-                this.additional_infoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UserID {
-            get {
-                return this.userIDField;
-            }
-            set {
-                this.userIDField = value;
+                this.infoField = value;
             }
         }
     }
@@ -6125,151 +6065,105 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Images {
+    public partial class FF_pumps {
         
-        private string imageDescriptionField;
+        private int fF_pumpsIDField;
         
-        private int buildingIDField;
+        private string sectorField;
         
-        private byte[] imageField;
+        private string addressField;
         
-        private int imageIDField;
+        private string pumpNumberField;
         
-        private string imageURLField;
+        private string pumpTypeField;
         
-        /// <remarks/>
-        public string ImageDescription {
-            get {
-                return this.imageDescriptionField;
-            }
-            set {
-                this.imageDescriptionField = value;
-            }
-        }
+        private string signsField;
         
-        /// <remarks/>
-        public int BuildingID {
-            get {
-                return this.buildingIDField;
-            }
-            set {
-                this.buildingIDField = value;
-            }
-        }
+        private string statusField;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Image {
-            get {
-                return this.imageField;
-            }
-            set {
-                this.imageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ImageID {
-            get {
-                return this.imageIDField;
-            }
-            set {
-                this.imageIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ImageURL {
-            get {
-                return this.imageURLField;
-            }
-            set {
-                this.imageURLField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Injured {
-        
-        private int injuredIDField;
-        
-        private string nameField;
-        
-        private int ageField;
-        
-        private string civil_MilitaryField;
-        
-        private string rankField;
-        
-        private System.DateTime dateField;
+        private string areaField;
         
         private string additional_infoField;
         
-        private int accidentIDField;
+        private int userIDField;
         
         /// <remarks/>
-        public int InjuredID {
+        public int FF_pumpsID {
             get {
-                return this.injuredIDField;
+                return this.fF_pumpsIDField;
             }
             set {
-                this.injuredIDField = value;
+                this.fF_pumpsIDField = value;
             }
         }
         
         /// <remarks/>
-        public string Name {
+        public string Sector {
             get {
-                return this.nameField;
+                return this.sectorField;
             }
             set {
-                this.nameField = value;
+                this.sectorField = value;
             }
         }
         
         /// <remarks/>
-        public int Age {
+        public string Address {
             get {
-                return this.ageField;
+                return this.addressField;
             }
             set {
-                this.ageField = value;
+                this.addressField = value;
             }
         }
         
         /// <remarks/>
-        public string Civil_Military {
+        public string PumpNumber {
             get {
-                return this.civil_MilitaryField;
+                return this.pumpNumberField;
             }
             set {
-                this.civil_MilitaryField = value;
+                this.pumpNumberField = value;
             }
         }
         
         /// <remarks/>
-        public string Rank {
+        public string PumpType {
             get {
-                return this.rankField;
+                return this.pumpTypeField;
             }
             set {
-                this.rankField = value;
+                this.pumpTypeField = value;
             }
         }
         
         /// <remarks/>
-        public System.DateTime Date {
+        public string Signs {
             get {
-                return this.dateField;
+                return this.signsField;
             }
             set {
-                this.dateField = value;
+                this.signsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Area {
+            get {
+                return this.areaField;
+            }
+            set {
+                this.areaField = value;
             }
         }
         
@@ -6284,57 +6178,12 @@ namespace Incident_Reporting_App_Server.localhost {
         }
         
         /// <remarks/>
-        public int AccidentID {
+        public int UserID {
             get {
-                return this.accidentIDField;
+                return this.userIDField;
             }
             set {
-                this.accidentIDField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Users_Admin {
-        
-        private int admin_IDField;
-        
-        private int user_IDField;
-        
-        private string infoField;
-        
-        /// <remarks/>
-        public int Admin_ID {
-            get {
-                return this.admin_IDField;
-            }
-            set {
-                this.admin_IDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int User_ID {
-            get {
-                return this.user_IDField;
-            }
-            set {
-                this.user_IDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Info {
-            get {
-                return this.infoField;
-            }
-            set {
-                this.infoField = value;
+                this.userIDField = value;
             }
         }
     }
@@ -6358,6 +6207,10 @@ namespace Incident_Reporting_App_Server.localhost {
         private string adminModeField;
         
         private Company[] user_CompaniesField;
+        
+        private FF_pumps[] user_FF_PumpsField;
+        
+        private FFstations[] user_FFstationsField;
         
         /// <remarks/>
         public int UserID {
@@ -6416,6 +6269,26 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.user_CompaniesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FF_pumps[] User_FF_Pumps {
+            get {
+                return this.user_FF_PumpsField;
+            }
+            set {
+                this.user_FF_PumpsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FFstations[] User_FFstations {
+            get {
+                return this.user_FFstationsField;
+            }
+            set {
+                this.user_FFstationsField = value;
             }
         }
     }
@@ -6493,6 +6366,8 @@ namespace Incident_Reporting_App_Server.localhost {
         private Buildings[] companyBuildingsField;
         
         private Managers[] companyManagersField;
+        
+        private DangerousPlaces[] companyDangerousPlacesField;
         
         /// <remarks/>
         public string Name {
@@ -6827,6 +6702,16 @@ namespace Incident_Reporting_App_Server.localhost {
                 this.companyManagersField = value;
             }
         }
+        
+        /// <remarks/>
+        public DangerousPlaces[] CompanyDangerousPlaces {
+            get {
+                return this.companyDangerousPlacesField;
+            }
+            set {
+                this.companyDangerousPlacesField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -7010,169 +6895,6 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Death {
-        
-        private int deathIDField;
-        
-        private string nameField;
-        
-        private int ageField;
-        
-        private string civil_MilitaryField;
-        
-        private string rankField;
-        
-        private System.DateTime dateField;
-        
-        private string additional_infoField;
-        
-        private int accidentIDField;
-        
-        /// <remarks/>
-        public int DeathID {
-            get {
-                return this.deathIDField;
-            }
-            set {
-                this.deathIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Age {
-            get {
-                return this.ageField;
-            }
-            set {
-                this.ageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Civil_Military {
-            get {
-                return this.civil_MilitaryField;
-            }
-            set {
-                this.civil_MilitaryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Rank {
-            get {
-                return this.rankField;
-            }
-            set {
-                this.rankField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime Date {
-            get {
-                return this.dateField;
-            }
-            set {
-                this.dateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Additional_info {
-            get {
-                return this.additional_infoField;
-            }
-            set {
-                this.additional_infoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int AccidentID {
-            get {
-                return this.accidentIDField;
-            }
-            set {
-                this.accidentIDField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ExitPathways {
-        
-        private byte[] pathwaysImageField;
-        
-        private string descriptionField;
-        
-        private int buildingIDField;
-        
-        private string pathwaysImageURLField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] PathwaysImage {
-            get {
-                return this.pathwaysImageField;
-            }
-            set {
-                this.pathwaysImageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BuildingID {
-            get {
-                return this.buildingIDField;
-            }
-            set {
-                this.buildingIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PathwaysImageURL {
-            get {
-                return this.pathwaysImageURLField;
-            }
-            set {
-                this.pathwaysImageURLField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class FF_ManPower {
         
         private int fF_ManPowerIDField;
@@ -7326,6 +7048,216 @@ namespace Incident_Reporting_App_Server.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Death {
+        
+        private int deathIDField;
+        
+        private string nameField;
+        
+        private int ageField;
+        
+        private string civil_MilitaryField;
+        
+        private string rankField;
+        
+        private System.DateTime dateField;
+        
+        private string additional_infoField;
+        
+        private int accidentIDField;
+        
+        /// <remarks/>
+        public int DeathID {
+            get {
+                return this.deathIDField;
+            }
+            set {
+                this.deathIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Age {
+            get {
+                return this.ageField;
+            }
+            set {
+                this.ageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Civil_Military {
+            get {
+                return this.civil_MilitaryField;
+            }
+            set {
+                this.civil_MilitaryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Date {
+            get {
+                return this.dateField;
+            }
+            set {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Additional_info {
+            get {
+                return this.additional_infoField;
+            }
+            set {
+                this.additional_infoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int AccidentID {
+            get {
+                return this.accidentIDField;
+            }
+            set {
+                this.accidentIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Injured {
+        
+        private int injuredIDField;
+        
+        private string nameField;
+        
+        private int ageField;
+        
+        private string civil_MilitaryField;
+        
+        private string rankField;
+        
+        private System.DateTime dateField;
+        
+        private string additional_infoField;
+        
+        private int accidentIDField;
+        
+        /// <remarks/>
+        public int InjuredID {
+            get {
+                return this.injuredIDField;
+            }
+            set {
+                this.injuredIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Age {
+            get {
+                return this.ageField;
+            }
+            set {
+                this.ageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Civil_Military {
+            get {
+                return this.civil_MilitaryField;
+            }
+            set {
+                this.civil_MilitaryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Date {
+            get {
+                return this.dateField;
+            }
+            set {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Additional_info {
+            get {
+                return this.additional_infoField;
+            }
+            set {
+                this.additional_infoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int AccidentID {
+            get {
+                return this.accidentIDField;
+            }
+            set {
+                this.accidentIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Accident {
         
         private int accidentIDField;
@@ -7351,6 +7283,10 @@ namespace Incident_Reporting_App_Server.localhost {
         private string additional_infoField;
         
         private int companyIDField;
+        
+        private Injured[] accident_InjuredField;
+        
+        private Death[] accident_DeathField;
         
         /// <remarks/>
         public int AccidentID {
@@ -7469,6 +7405,154 @@ namespace Incident_Reporting_App_Server.localhost {
             }
             set {
                 this.companyIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Injured[] Accident_Injured {
+            get {
+                return this.accident_InjuredField;
+            }
+            set {
+                this.accident_InjuredField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Death[] Accident_Death {
+            get {
+                return this.accident_DeathField;
+            }
+            set {
+                this.accident_DeathField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ExitPathways {
+        
+        private byte[] pathwaysImageField;
+        
+        private string descriptionField;
+        
+        private int buildingIDField;
+        
+        private string pathwaysImageURLField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] PathwaysImage {
+            get {
+                return this.pathwaysImageField;
+            }
+            set {
+                this.pathwaysImageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BuildingID {
+            get {
+                return this.buildingIDField;
+            }
+            set {
+                this.buildingIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PathwaysImageURL {
+            get {
+                return this.pathwaysImageURLField;
+            }
+            set {
+                this.pathwaysImageURLField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Images {
+        
+        private string imageDescriptionField;
+        
+        private int buildingIDField;
+        
+        private byte[] imageField;
+        
+        private int imageIDField;
+        
+        private string imageURLField;
+        
+        /// <remarks/>
+        public string ImageDescription {
+            get {
+                return this.imageDescriptionField;
+            }
+            set {
+                this.imageDescriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BuildingID {
+            get {
+                return this.buildingIDField;
+            }
+            set {
+                this.buildingIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] Image {
+            get {
+                return this.imageField;
+            }
+            set {
+                this.imageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ImageID {
+            get {
+                return this.imageIDField;
+            }
+            set {
+                this.imageIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ImageURL {
+            get {
+                return this.imageURLField;
+            }
+            set {
+                this.imageURLField = value;
             }
         }
     }

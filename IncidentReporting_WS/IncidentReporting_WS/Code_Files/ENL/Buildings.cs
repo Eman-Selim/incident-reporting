@@ -16,5 +16,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public byte[] GeometricImage { set; get; }
         public String GeometricImageURL { set; get; }
         public FloorsCollection BuildingFloors { set; get; }
+        public ImagesCollection BuildingImageCollection { get; set; }
+        public ExitPathwaysCollection BuildingExitPaths { get; set; }
     }
 }

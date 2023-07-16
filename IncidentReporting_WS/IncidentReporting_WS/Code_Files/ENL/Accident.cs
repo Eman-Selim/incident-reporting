@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IncidentReporting_WS.Code_Files.COL;
 
 namespace IncidentReporting_WS.Code_Files.ENL
 {
@@ -19,5 +20,7 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string AccidentNumber { get; set; }
         public string Additional_info { get; set; }
         public int CompanyID { get; set; }
+        public InjuredCollection Accident_Injured { get; set; }
+        public DeathCollection Accident_Death { get; set; }
     }
 }

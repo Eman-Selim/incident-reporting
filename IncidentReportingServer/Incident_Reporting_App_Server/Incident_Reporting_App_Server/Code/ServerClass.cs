@@ -20,11 +20,8 @@ namespace Incident_Reporting_App_Server.Code
         public static string Password { get; set; }
         #endregion
         #region Connect
-        //public ServerClass(string userName, string passWord)
-        //{
-        //    UserName = userName;
-        //    Password = passWord;
-        //}
+        
+
         /// <summary>
         /// Intializes the connectivty variables then starts the authentication thread
         /// </summary>
@@ -61,6 +58,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Users[] Select_Users_of_Users()
         {
             try
@@ -74,6 +72,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Users[] Select_Users_of_User(string username,string password,int UserId)
         {
             try
@@ -112,6 +111,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public FF_ManPower[] Select_points(int userID)
         {
             try
@@ -137,6 +137,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Images[] Select_Images(int BuildingID)
         {
             try
@@ -149,6 +150,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Company Select_Company(int CompanyID)
         {
             try
@@ -226,6 +228,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public DangerousPlaces Select_DangerousePlace(int placeID)
         {
             try
@@ -238,6 +241,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Buildings[] Select_Buildings(int companyID)
         {
             try
@@ -250,6 +254,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Buildings Select_Building(int BuildingID)
         {
             try
@@ -262,6 +267,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Floors[] Select_Floors(int BuildingID)
         {
             try
@@ -323,10 +329,6 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
-
-       
-
-
         public void Add_Company(Company company, DangerousPlaces place, Floors floor)
         {
             try

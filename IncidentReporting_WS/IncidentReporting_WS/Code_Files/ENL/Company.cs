@@ -41,5 +41,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public float Longitude { set; get; }
         public BuildingsCollection companyBuildings { set; get; }
         public ManagersCollection companyManagers { set; get; }
+        public DangerousPlacesCollection CompanyDangerousPlaces { get; set; }
     }
 }
