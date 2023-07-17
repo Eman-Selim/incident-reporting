@@ -21,13 +21,17 @@ namespace Incident_Reporting_App_Server
         ServerClass server_Class_Obj = new ServerClass();
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
         byte[] imagenu = null;
+        Users U1;
         Users[] User;
         Users[] UsersOfUser;
         Company[] companies;
         Buildings[] buildings;
         Managers[] admins;
         DangerousPlaces[] places;
-        FF_ManPower[] points;
+        FFstations[] points;
+        FFstations station;
+        FF_ManPower men;
+        int Selected_User_ID;
         public Form2()
         {
             InitializeComponent();
@@ -49,7 +53,7 @@ namespace Incident_Reporting_App_Server
 
                     treeView3.Nodes[0].Nodes.Add(user_node);
 
-                    companies = server_Class_Obj.Select_Companies(User[i].UserID);
+                    companies = User[i].User_Companies;
 
                     int Companies_length = companies != null ? companies.Length : 0;
                     if (Companies_length != 0)
@@ -97,7 +101,7 @@ namespace Incident_Reporting_App_Server
 
             //load account info
 
-            Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
+             U1 = server_Class_Obj.Select_User(Selected_User_ID);
             accountName.Text = U1.Username==null?"": U1.Username;
             AccountInfo.Text = U1.Info==null?"": U1.Info;
             accountPassword.Clear();
@@ -126,76 +130,14 @@ namespace Incident_Reporting_App_Server
 
             //Loading the neighboring companies
 
-            tableLayoutPanel3.Controls.a
-
-            DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
-            Inbox_datatable.Columns.Add("إتجاه المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("إسم المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("نشاط المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("مصدر الخطورة بالمنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("الوسيط الإطفائي", typeof(string));
-            Inbox_datatable.Columns.Add("صورة المنشأة", typeof(Image));
-
-            MemoryStream ms = new MemoryStream();
             PictureBox P1 = new PictureBox();
             P1.Image= Image.FromStream(new System.IO.MemoryStream(selectedCompany.BackCompanyImage));
-           
 
-
-            DataRow Back_Row = Inbox_datatable.NewRow();
-
-            Back_Row[0] = "المنشأة المجاورة خلفي";
-            Back_Row[1] = selectedCompany.BackCompanyName;
-            Back_Row[2] = selectedCompany.BackCompanyBusiness;
-            Back_Row[3] = selectedCompany.BackCompanyImageURL;
-            Back_Row[4] = selectedCompany.BackFireMediator;
-            Back_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Back_Row);
-
-            DataRow Front_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
-            P1.BackgroundImage = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
-            P1.BackgroundImageLayout = ImageLayout.Center;
-
-            Front_Row[0] = "المنشأة المجاورة أمامي";
-            Front_Row[1] = selectedCompany.FrontCompanyName;
-            Front_Row[2] = selectedCompany.FrontCompanyBusiness;
-            Front_Row[3] = selectedCompany.FrontCompanyImageURL;
-            Front_Row[4] = selectedCompany.FrontFireMediator;
-            Front_Row[5] = P1.BackgroundImage;
-
-            Inbox_datatable.Rows.Add(Front_Row);
-
-            DataRow Right_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
-
-            Right_Row[0] = "المنشأة المجاورة يمين";
-            Right_Row[1] = selectedCompany.RightCompanyName;
-            Right_Row[2] = selectedCompany.RightCompanyBusiness;
-            Right_Row[3] = selectedCompany.RightCompanyImageURL;
-            Right_Row[4] = selectedCompany.RightFireMediator;
-            Right_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Right_Row);
-
-            DataRow Left_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.LeftCompanyImage));
-
-            Left_Row[0] = "المنشأة المجاورة يسار";
-            Left_Row[1] = selectedCompany.LeftCompanyName;
-            Left_Row[2] = selectedCompany.LeftCompanyBusiness;
-            Left_Row[3] = selectedCompany.LeftCompanyImageURL;
-            Left_Row[4] = selectedCompany.LeftFireMediator;
-            Left_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Left_Row);
-
-            dataGridView2.DataSource = Inbox_datatable;
-
-           
 
             //load buildings of selected company
 
 
-            buildings = server_Class_Obj.Select_Buildings(Selected_Company_ID);
+            buildings = selectedCompany.companyBuildings;
             int buildings_length = buildings != null ? buildings.Length : 0;
             buildingCB.Items.Clear();
             for (int i = 0; i < buildings_length; i++)
@@ -204,17 +146,17 @@ namespace Incident_Reporting_App_Server
             }
 
             //load admins of the selected company
-             admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
-            int admins_length = admins != null ? admins.Length : 0;
-            Admins.Items.Clear();
-            for (int i = 0; i < admins_length; i++)
+            Managers[] managers = selectedCompany.companyManagers;
+            int managers_length = managers != null ? managers.Length : 0;
+            Managers.Items.Clear();
+            for (int i = 0; i < managers_length; i++)
             {
-                Admins.Items.Add(admins[i].Name);
+                Managers.Items.Add(managers[i].Name);
             }
 
             //load Dangerous places of the selected company
 
-            places = server_Class_Obj.Select_DangerousePlaces(Selected_Company_ID);
+            places = selectedCompany.CompanyDangerousPlaces;
             int places_length = places != null ? places.Length : 0;
             Dangerous.Items.Clear();
             for (int i = 0; i < places_length; i++)
@@ -224,12 +166,12 @@ namespace Incident_Reporting_App_Server
 
             //load points 
 
-            points = server_Class_Obj.Select_points(Selected_User_ID);
+            points = U1.User_FFstations;
             int points_length = points != null ? points.Length : 0;
             comboBox11.Items.Clear();
             for (int i = 0; i < points_length; i++)
             {
-                comboBox11.Items.Add(points[i].Point);
+                comboBox11.Items.Add(points[i].FF_ID);
             }
             
 
@@ -363,12 +305,6 @@ namespace Incident_Reporting_App_Server
                     c1DockingTab1.SelectedTab = c1DockingTabPage9;
                     break;
 
-                case 2:
-                    panel3.BackgroundImage = Properties.Resources.menu_item_5;
-                    pictureBox5.BackgroundImage = Properties.Resources.UsersSH1_MainForm;
-                    c1DockingTab1.SelectedTab = c1DockingTabPage11;
-                    break;
-
                 case 3:
                     panel3.BackgroundImage = Properties.Resources.menu_item_4;
                     pictureBox5.BackgroundImage = Properties.Resources.Phone_BookSH1_MainForm;
@@ -381,25 +317,42 @@ namespace Incident_Reporting_App_Server
         {
             try
             {
-                FFstations station = new FFstations();
-                station.CarsNumber = CarsNumber.Text;
-                station.SoliderNumber = SoliderNumber.Text;
-                station.Sector = sector.Text;
-                station.Signs = signs.Text;
-                station.Street = street.Text;
-                station.ZoneNumber = area.Text;
-                station.Additional_info = Additional_info.Text;
-                FF_pumps pump = new FF_pumps();
-                pump.Additional_info = pumpInfo.Text;
-                pump.Address = pumpAddress.Text;
-                pump.Area = pumpArea.Text;
-                pump.PumpNumber = PumpNumber.Text;
-                pump.Status = Status.Text;
-                pump.Signs = pumpSign.Text;
-                pump.Sector = pumpSector.Text;
-                pump.PumpType = PumpType.Text;
-                server_Class_Obj.Add_FFstations_FFpump(station,pump);
-                
+               
+                FFstations temp = new FFstations();
+                temp.CarsNumber = CarsNumber.Text;
+                temp.SoliderNumber = SoliderNumber.Text;
+                temp.Sector = sector.Text;
+                temp.Signs = signs.Text;
+                temp.Street = street.Text;
+                temp.ZoneNumber = area.Text;
+                temp.Additional_info = Additional_info.Text;
+                temp.UserID = Selected_User_ID;
+                men = new FF_ManPower();
+                men.OfficerName = (string)ff_ManPowerGrid.CurrentRow.Cells[0].Value;
+                men.Sector = (string)ff_ManPowerGrid.CurrentRow.Cells[1].Value;
+                men.Area = (string)ff_ManPowerGrid.CurrentRow.Cells[2].Value;
+                men.Rank = (string)ff_ManPowerGrid.CurrentRow.Cells[3].Value;
+                men.Job = (string)ff_ManPowerGrid.CurrentRow.Cells[4].Value;
+                men.Additional_info = (string)ff_ManPowerGrid.CurrentRow.Cells[5].Value;
+
+                FF_ManPower[] manpower = temp.Station_ManPower;
+               
+                Array.Resize(ref manpower, manpower.Length + 1);
+                manpower[manpower.GetUpperBound(0)] = men;
+                temp.Station_ManPower = manpower;
+                server_Class_Obj.Add_FFstations_FF_ManPower(temp);
+                //FF_pumps pump = new FF_pumps();
+                //pump.Additional_info = pumpInfo.Text;
+                //pump.Address = pumpAddress.Text;
+                //pump.Area = pumpArea.Text;
+                //pump.PumpNumber = PumpNumber.Text;
+                //pump.Status = Status.Text;
+                //pump.Signs = pumpSign.Text;
+                //pump.Sector = pumpSector.Text;
+                //pump.PumpType = PumpType.Text;
+
+                //server_Class_Obj.Add_FFstations_FFpump(station, men);
+
             }
             catch (Exception exception1)
             {
@@ -443,19 +396,13 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-        internal class CFP
-        {
-            public Company company { set; get; }
-            public DangerousPlaces place { set; get; }
-            public Floors floor { set; get; }
-        }
+        
 
         private CFP Add_Edit_Company()
         {
             Company c1 = new Company();
-            CFP CFPe=new CFP();
             
-           c1.Name = companyName.Text;
+            c1.Name = companyName.Text;
             c1.Address = address.Text;
             c1.LandlinePhoneNumber = landlinePhone.Text;
             c1.BackCompanyBusiness = "";
@@ -482,6 +429,7 @@ namespace Incident_Reporting_App_Server
             c1.Longitude = 0;
             c1.Latitude = 0;
             c1.UserID = 1;
+            
 
             DangerousPlaces place = new DangerousPlaces();
             place.Location = DangerouseLocation.Text;
@@ -489,7 +437,10 @@ namespace Incident_Reporting_App_Server
             place.FireMediator = FireMediator.Text;
             place.Image = imagenu;
             place.ImageURL = "";
-
+            Buildings building = new Buildings();
+            building.
+            c1.CompanyDangerousPlaces = places;
+            c1.companyBuildings
             Floors floor = new Floors();
             floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
             floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
@@ -525,12 +476,12 @@ namespace Incident_Reporting_App_Server
             if (e.Node.Name == "Company")
             {
                 int Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
-                int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+                 Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
                 Load_Data(Selected_User_ID, Selected_Company_ID);
             }
             else if (e.Node.Name == "User")
             {
-                int Selected_User_ID = Convert.ToInt32(e.Node.Tag);
+                 Selected_User_ID = Convert.ToInt32(e.Node.Tag);
                 Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
                 accountName.Text = U1.Username==null?"": U1.Username;
                 AccountInfo.Text = U1.Info;
@@ -643,6 +594,86 @@ namespace Incident_Reporting_App_Server
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            station.CarsNumber = CarsNumber.Text;
+            station.SoliderNumber = SoliderNumber.Text;
+            station.Sector = sector.Text;
+            station.Signs = signs.Text;
+            station.Street = street.Text;
+            station.ZoneNumber = area.Text;
+            station.Additional_info = Additional_info.Text;
+            station.UserID = Selected_User_ID;
+            men = new FF_ManPower();
+            men.OfficerName = (string)ff_ManPowerGrid.CurrentRow.Cells[0].Value;
+            men.Sector = (string)ff_ManPowerGrid.CurrentRow.Cells[1].Value;
+            men.Area = (string)ff_ManPowerGrid.CurrentRow.Cells[2].Value;
+            men.Rank = (string)ff_ManPowerGrid.CurrentRow.Cells[3].Value;
+            men.Job = (string)ff_ManPowerGrid.CurrentRow.Cells[4].Value;
+            men.Additional_info = (string)ff_ManPowerGrid.CurrentRow.Cells[5].Value;
+
+            FF_ManPower[] manpower = station.Station_ManPower;
+            Array.Resize(ref manpower, manpower.Length + 1);
+            manpower[manpower.GetUpperBound(0)] = men;
+            station.Station_ManPower = manpower;
+            
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            server_Class_Obj.Add_FFstations_FF_ManPower(station);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FF_pumps pump = new FF_pumps();
+            pump.Additional_info = pumpInfo.Text;
+            pump.Address = pumpAddress.Text;
+            pump.Area = pumpArea.Text;
+            pump.PumpNumber = PumpNumber.Text;
+            pump.Status = Status.Text;
+            pump.Signs = pumpSign.Text;
+            pump.Sector = pumpSector.Text;
+            pump.PumpType = PumpType.Text;
+            pump.UserID = Selected_User_ID;
+            server_Class_Obj.Add_FFPump(pump);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            PumpNumber.Text = "";
+            pumpArea.Text = "";
+            pumpSector.Text = "";
+            PumpType.Text = "";
+            Status.Text = "";
+            pumpAddress.Text = "";
+            pumpSign.Text = "";
+            pumpInfo.Text = "";
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PumpNumber.Text= (string)dataGridView3.CurrentRow.Cells[0].Value;
+            pumpArea.Text = (string)dataGridView3.CurrentRow.Cells[1].Value;
+            pumpSector.Text= (string)dataGridView3.CurrentRow.Cells[2].Value;
+            PumpType.Text= (string)dataGridView3.CurrentRow.Cells[3].Value;
+            Status.Text = (string)dataGridView3.CurrentRow.Cells[4].Value;
+            pumpAddress.Text= (string)dataGridView3.CurrentRow.Cells[5].Value;
+            pumpSign.Text = (string)dataGridView3.CurrentRow.Cells[6].Value;
+            pumpInfo.Text = (string)dataGridView3.CurrentRow.Cells[7].Value;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
         {
 
         }

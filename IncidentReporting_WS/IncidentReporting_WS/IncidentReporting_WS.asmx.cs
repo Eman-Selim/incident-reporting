@@ -56,9 +56,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                UsersCollection users = new UsersCollection();
-                users = UsersSBL_Obj.Users_Select_All( username, password);
-                return users;
+                UsersCollection users_obj = new UsersCollection();
+                users_obj = UsersSBL_Obj.Users_Select_All( username, password);
+                return Load_Users_Data(username, password, users_obj);
             }
             catch (Exception e)
             {
@@ -71,9 +71,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                UsersCollection users = new UsersCollection();
-                users = UsersSBL_Obj.Users_Select_Users_Of_User(username, password, UserId);
-                return users;
+                UsersCollection users_obj = new UsersCollection();
+                users_obj = UsersSBL_Obj.Users_Select_Users_Of_User(username, password, UserId);
+                return Load_Users_Data(username, password,users_obj );
             }
             catch (Exception e)
             {
@@ -86,9 +86,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
-                users = UsersSBL_Obj.Users_SelectByUserId( username, password, UserId);
-                return users;
+                Users users_obj = new Users();
+                users_obj = UsersSBL_Obj.Users_SelectByUserId( username, password, UserId);
+                return Load_Users_Data(username, password, new UsersCollection() { users_obj })[0];
 
             }
             catch (Exception e)
@@ -102,9 +102,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
-                users = UsersSBL_Obj.Users_SelectByNamePass( username,   password);
-                return users;
+                Users users_obj = new Users();
+                users_obj = UsersSBL_Obj.Users_SelectByNamePass( username,   password);
+                return Load_Users_Data(username, password, new UsersCollection() { users_obj })[0];
 
             }
             catch (Exception e)
@@ -119,9 +119,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Users users = new Users();
-                users = UsersSBL_Obj.Users_SelectByName( username,  password,  name);
-                return users;
+                Users users_obj = new Users();
+                users_obj = UsersSBL_Obj.Users_SelectByName( username,  password,  name);
+                return Load_Users_Data(username, password, new UsersCollection() { users_obj })[0];
 
             }
             catch (Exception e)
@@ -134,9 +134,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                UsersCollection users = new UsersCollection();
-                users = UsersSBL_Obj.Users_Select_Super_Admin( username, password);
-                return users;
+                UsersCollection users_obj = new UsersCollection();
+                users_obj = UsersSBL_Obj.Users_Select_Super_Admin( username, password);
+                return Load_Users_Data(username, password, users_obj);
 
             }
             catch (Exception e)
@@ -144,7 +144,20 @@ namespace IncidentReporting_WS
                 return null;
             }
         }
-        
+
+        private UsersCollection Load_Users_Data(string username, string password, UsersCollection Users_Array)
+        {
+            if (Users_Array != null)
+                for (int loop = 0; loop < Users_Array.Count; loop++)
+                {
+                    Users_Array[loop].User_Companies = Company_Select_By_UserID(username, password, Users_Array[loop].UserID);
+                    Users_Array[loop].User_FFstations = FFstations_Select_By_UserID(username, password, Users_Array[loop].UserID);
+                    Users_Array[loop].User_FF_Pumps = FF_pumps_Select_By_UserID(username, password, Users_Array[loop].UserID);
+                    Users_Array[loop].Users_of_Users=Users_Select_Users_Of_User(username, password, Users_Array[loop].UserID);
+                }
+            return Users_Array;
+        }
+
         #endregion
 
         #region Users_AdminSBL
@@ -640,14 +653,16 @@ namespace IncidentReporting_WS
             }
         }
 
+        
+        
+
         [WebMethod]
         public FFstationsCollection FFstations_Select_All(string username, string password)
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations = FFstationsSBL_Obj.FFstations_Select_All( username, password);
-                return FFstations;
+                FFstationsCollection FFstations_obj = FFstationsSBL_Obj.FFstations_Select_All(username, password);
+                return Load_FFstations_Data(username, password, FFstations_obj);
             }
             catch (Exception e)
             {
@@ -655,14 +670,16 @@ namespace IncidentReporting_WS
             }
         }
 
+
+
         [WebMethod]
         public FFstationsCollection FFstations_Select_By_AreaName(string username, string password, string AreaName)
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations = FFstationsSBL_Obj.FFstations_Select_By_AreaName( username, password, AreaName);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_AreaName( username, password, AreaName);
+                return Load_FFstations_Data(username, password, FFstations_obj) ;
 
             }
             catch (Exception e)
@@ -676,9 +693,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations = FFstationsSBL_Obj.FFstations_Select_By_CarsNumber( username, password, CarsNumber);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_CarsNumber( username, password, CarsNumber);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -692,9 +709,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-               FFstations = FFstationsSBL_Obj.FFstations_Select_By_Equipments(username,password,Equipments);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_Equipments(username,password,Equipments);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -708,9 +725,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations = FFstationsSBL_Obj.FFstations_Select_By_FF_ID(username,password,FF_ID);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_FF_ID(username,password,FF_ID);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -724,9 +741,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations = FFstationsSBL_Obj.FFstations_Select_By_OfficersNumber(username,password,OfficersNumber);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_OfficersNumber(username,password,OfficersNumber);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -740,9 +757,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_Sector( username, password, Sector);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_Sector( username, password, Sector);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -756,9 +773,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_Signs(username,password,Signs);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_Signs(username,password,Signs);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -772,9 +789,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_SoliderNumber(username,password,SoliderNumber);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_SoliderNumber(username,password,SoliderNumber);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -788,9 +805,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_Street(username,password,Street);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_Street(username,password,Street);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -804,9 +821,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_UserID(username,password,UserID);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_UserID(username,password,UserID);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
@@ -820,16 +837,26 @@ namespace IncidentReporting_WS
         {
             try
             {
-                FFstationsCollection FFstations = new FFstationsCollection();
-                FFstations  = FFstationsSBL_Obj.FFstations_Select_By_ZoneNumber(username,password,ZoneNumber);
-                return FFstations;
+                FFstationsCollection FFstations_obj = new FFstationsCollection();
+                FFstations_obj = FFstationsSBL_Obj.FFstations_Select_By_ZoneNumber(username,password,ZoneNumber);
+                return Load_FFstations_Data(username, password, FFstations_obj);
 
             }
             catch (Exception e)
             {
                 return null;
             }
-        }       
+        }
+
+        private FFstationsCollection Load_FFstations_Data(string username, string password, FFstationsCollection FFstations_Array)
+        {
+            if (FFstations_Array != null)
+                for (int loop = 0; loop < FFstations_Array.Count; loop++)
+                {
+                    FFstations_Array[loop].Station_ManPower = FF_ManPower_Select_By_FF_ID(username, password, FFstations_Array[loop].FF_ID);
+                }
+            return FFstations_Array;
+        }
 
         #endregion
 
@@ -989,7 +1016,22 @@ namespace IncidentReporting_WS
             {
                 return null;
             }
-        }       
+        }
+        [WebMethod]
+        public FF_pumpsCollection FF_pumps_Select_By_UserID(string username, string password, int UserID)
+        {
+            try
+            {
+                FF_pumpsCollection FF_pumps = new FF_pumpsCollection();
+                FF_pumps = FF_pumpsSBL_Obj.FF_pumps_Select_By_UserID(username, password, UserID);
+                return FF_pumps;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         #endregion
 
@@ -1603,9 +1645,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Company Company = new Company();
-                Company = CompanySBL_Obj.Company_Update(username, password, company);
-                return Company;
+                Company Company_obj = new Company();
+                Company_obj = CompanySBL_Obj.Company_Update(username, password, company);
+                return Load_Company_Data(username, password, new CompanyCollection() { Company_obj })[0];
             }
             catch (Exception ex)
             {
@@ -1618,9 +1660,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_All( username, password);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_All( username, password);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1633,9 +1675,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-               CompanyCollection Company= new CompanyCollection();
-                                    Company=CompanySBL_Obj.Company_Select_By_Address(username,password,address);
-                return Company;
+               CompanyCollection Company_obj = new CompanyCollection();
+               Company_obj = CompanySBL_Obj.Company_Select_By_Address(username,password,address);
+               return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1648,9 +1690,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_BackCompanyBusiness(username,password,BackCompanyBusiness);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_BackCompanyBusiness(username,password,BackCompanyBusiness);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1663,9 +1705,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_BackCompanyName( username, password, BackCompanyName);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_BackCompanyName( username, password, BackCompanyName);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1678,9 +1720,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_BackFireMediator( username, password, BackFireMediator);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_BackFireMediator( username, password, BackFireMediator);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1693,9 +1735,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_BuildingsNumber( username, password,BuildingsNumber);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_BuildingsNumber( username, password,BuildingsNumber);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1708,9 +1750,10 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Company Company= new Company();
-                Company=CompanySBL_Obj.Company_Select_By_CompanyID( username, password, CompanyID);
-                return Company;
+                
+                Company Company_obj= new Company();
+                Company_obj=CompanySBL_Obj.Company_Select_By_CompanyID( username, password, CompanyID);
+                return Load_Company_Data(username, password, new CompanyCollection() { Company_obj })[0];
             }
             catch (Exception ex)
             {
@@ -1723,9 +1766,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_ElectricalPanelLocation(username,password,ElectricalPanelLocation);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_ElectricalPanelLocation(username,password,ElectricalPanelLocation);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1738,9 +1781,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_FrontCompanyBusiness( username, password, FrontCompanyBusiness);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_FrontCompanyBusiness( username, password, FrontCompanyBusiness);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1753,9 +1796,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_FrontCompanyName( username, password, FrontCompanyName);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_FrontCompanyName( username, password, FrontCompanyName);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1768,9 +1811,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_FrontFireMediator( username, password, FrontFireMediator);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_FrontFireMediator( username, password, FrontFireMediator);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1783,9 +1826,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_GasTrapLocation( username, password, GasTrapLocation);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_GasTrapLocation( username, password, GasTrapLocation);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1798,9 +1841,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_LandlinePhoneNumber( username, password, LandlinePhoneNumber);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_LandlinePhoneNumber( username, password, LandlinePhoneNumber);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1813,9 +1856,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_LeftCompanyBusiness( username, password, LeftCompanyBusiness);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_LeftCompanyBusiness( username, password, LeftCompanyBusiness);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1828,9 +1871,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_LeftCompanyName( username, password, LeftCompanyName);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_LeftCompanyName( username, password, LeftCompanyName);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1843,9 +1886,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_LeftFireMediator( username ,password, LeftFireMediator);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_LeftFireMediator( username ,password, LeftFireMediator);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1858,9 +1901,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_Name( username, password, Name);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_Name( username, password, Name);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1873,9 +1916,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_OxygenTrapLocation( username, password, OxygenTrapLocation);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_OxygenTrapLocation( username, password, OxygenTrapLocation);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1888,9 +1931,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_RightCompanyBusiness( username, password, RightCompanyBusiness);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_RightCompanyBusiness( username, password, RightCompanyBusiness);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1903,9 +1946,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_RightCompanyName( username, password, RightCompanyName);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_RightCompanyName( username, password, RightCompanyName);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1918,9 +1961,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_RightFireMediator( username, password,  RightFireMediator);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_RightFireMediator( username, password,  RightFireMediator);
+                return Load_Company_Data(username, password, Company_obj);
             }
             catch (Exception ex)
             {
@@ -1933,15 +1976,29 @@ namespace IncidentReporting_WS
         {
             try
             {
-                CompanyCollection  Company= new CompanyCollection();
-                Company=CompanySBL_Obj.Company_Select_By_UserID( username, password, UserID);
-                return Company;
+                CompanyCollection Company_obj = new CompanyCollection();
+                Company_obj = CompanySBL_Obj.Company_Select_By_UserID( username, password, UserID);
+                return Load_Company_Data( username, password,Company_obj);
             }
             catch (Exception ex)
             {
                 return null;
             }
         }
+
+        private CompanyCollection Load_Company_Data(string username, string password, CompanyCollection Company_Array)
+        {
+            if (Company_Array != null)
+                for (int loop = 0; loop < Company_Array.Count; loop++)
+                {
+                    Company_Array[loop].companyManagers = Managers_Select_By_CompanyID(username, password, Company_Array[loop].CompanyID);
+                    Company_Array[loop].CompanyDangerousPlaces=DangerousPlaces_Select_By_CompanyID(username, password, Company_Array[loop].CompanyID);
+                    Company_Array[loop].companyBuildings=Buildings_Select_By_CompanyID(username, password, Company_Array[loop].CompanyID);
+                    Company_Array[loop].CompanyAccident=Accident_Select_By_CompanyID(username, password, Company_Array[loop].CompanyID);
+                }
+            return Company_Array;
+        }
+
 
         #endregion
 
@@ -2034,9 +2091,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Buildings Buildings= new Buildings();
-                Buildings=BuildingSBL_Obj.Buildings_Insert( username, password, buildings);
-                return Buildings;
+                Buildings Buildings_obj = new Buildings();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Insert( username, password, buildings);
+                return Load_Buildings_Data(username, password, new BuildingsCollection() { Buildings_obj })[0];
             }
             catch (Exception ex)
             {
@@ -2049,9 +2106,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                BuildingsCollection Buildings= new BuildingsCollection();
-                Buildings=BuildingSBL_Obj.Buildings_Select_All(username, password);
-                return Buildings;
+                BuildingsCollection Buildings_obj = new BuildingsCollection();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Select_All(username, password);
+                return Load_Buildings_Data(username, password, Buildings_obj );
             }
             catch (Exception ex)
             {
@@ -2064,9 +2121,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                Buildings Buildings= new Buildings();
-                Buildings=BuildingSBL_Obj.Buildings_Select_By_BuildingID(username,password,ID);
-                return Buildings;
+                Buildings Buildings_obj = new Buildings();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Select_By_BuildingID(username,password,ID);
+                return Load_Buildings_Data(username, password, new BuildingsCollection() { Buildings_obj })[0];
             }
             catch (Exception ex)
             {
@@ -2079,9 +2136,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                BuildingsCollection Buildings= new BuildingsCollection();
-                Buildings=BuildingSBL_Obj.Buildings_Select_By_BuildingNumber(  username, password, BuildingNumber);
-                return Buildings;
+                BuildingsCollection Buildings_obj = new BuildingsCollection();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Select_By_BuildingNumber(  username, password, BuildingNumber);
+                return Load_Buildings_Data(username, password, Buildings_obj);
             }
             catch (Exception ex)
             {
@@ -2094,9 +2151,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                BuildingsCollection Buildings= new BuildingsCollection();
-                Buildings=BuildingSBL_Obj.Buildings_Select_By_CompanyID( username, password, CompanyID);
-                return Buildings;
+                BuildingsCollection Buildings_obj = new BuildingsCollection();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Select_By_CompanyID( username, password, CompanyID);
+                return Load_Buildings_Data(username, password, Buildings_obj);
             }
             catch (Exception ex)
             {
@@ -2109,9 +2166,9 @@ namespace IncidentReporting_WS
         {
             try
             {
-                BuildingsCollection Buildings= new BuildingsCollection();
-                Buildings=BuildingSBL_Obj.Buildings_Select_By_FloorsNumber(username,password,FloorsNumber);
-                return Buildings;
+                BuildingsCollection Buildings_obj = new BuildingsCollection();
+                Buildings_obj = BuildingSBL_Obj.Buildings_Select_By_FloorsNumber(username,password,FloorsNumber);
+                return Load_Buildings_Data(username, password, Buildings_obj);
             }
             catch (Exception ex)
             {
@@ -2119,7 +2176,17 @@ namespace IncidentReporting_WS
             }
         }
 
-
+        private BuildingsCollection Load_Buildings_Data(string username, string password, BuildingsCollection Buildings_Array)
+        {
+            if (Buildings_Array != null)
+                for (int loop = 0; loop < Buildings_Array.Count; loop++)
+                {
+                    Buildings_Array[loop].BuildingFloors = Floors_Select_By_BuildingID(username, password, Buildings_Array[loop].BuildingID);
+                    Buildings_Array[loop].BuildingImageCollection = Images_Select_By_BuildingID(username, password, Buildings_Array[loop].BuildingID);
+                    Buildings_Array[loop].BuildingExitPaths = ExitPathways_Select_By_BuildingID(username, password, Buildings_Array[loop].BuildingID);
+                }
+            return Buildings_Array;
+        }
         #endregion
 
         #region AccidentSBL

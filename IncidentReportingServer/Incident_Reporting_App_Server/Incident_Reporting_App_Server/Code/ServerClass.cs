@@ -354,11 +354,21 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
-        public void Add_FFstations_FFpump(FFstations station,FF_pumps pump)
+        public void Add_FFstations_FF_ManPower(FFstations station)
         {
             try
             {
                 IncidentReporting_WS_Obj.FFstations_Insert(UserName, Password, station);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+        public void Add_FFPump(FF_pumps pump)
+        {
+            try
+            {
                 IncidentReporting_WS_Obj.FF_pumps_Insert(UserName, Password, pump);
             }
             catch (Exception exception1)
@@ -366,7 +376,9 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
+
        
+
         #endregion
     }
 }

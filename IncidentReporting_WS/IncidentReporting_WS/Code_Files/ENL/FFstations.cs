@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IncidentReporting_WS.Code_Files.COL;
 
 namespace IncidentReporting_WS.Code_Files.ENL
 {
@@ -19,5 +20,6 @@ namespace IncidentReporting_WS.Code_Files.ENL
         public string Equipments { get; set; }
         public string Additional_info { get; set; }
         public int UserID { get; set; }
+        public FF_ManPowerCollection Station_ManPower { get; set; }
     }
 }

@@ -2,26 +2,78 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="Buildings_Select_All">
+      <s:element name="Managers_Select_By_CompanyID">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Buildings_Select_AllResponse">
+      <s:element name="Managers_Select_By_CompanyIDResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Buildings_Select_AllResult" type="tns:ArrayOfBuildings" />
+            <s:element minOccurs="0" maxOccurs="1" name="Managers_Select_By_CompanyIDResult" type="tns:ArrayOfManagers" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfBuildings">
+      <s:complexType name="ArrayOfManagers">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Buildings" nillable="true" type="tns:Buildings" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Managers" nillable="true" type="tns:Managers" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="Managers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentPosition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManagerID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Managers_SelectByManagerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManagerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Managers_SelectByManagerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Managers_SelectByManagerIDResult" type="tns:Managers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buildings_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buildings_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Buildings_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buildings_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="buildings" type="tns:Buildings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:complexType name="Buildings">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="BuildingNumber" type="s:int" />
@@ -80,6 +132,33 @@
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="PathwaysImageURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Buildings_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buildings_InsertResult" type="tns:Buildings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buildings_Select_All">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buildings_Select_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buildings_Select_AllResult" type="tns:ArrayOfBuildings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBuildings">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Buildings" nillable="true" type="tns:Buildings" />
         </s:sequence>
       </s:complexType>
       <s:element name="Buildings_Select_By_BuildingID">
@@ -410,27 +489,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_Area">
+      <s:element name="FF_ManPower_Delete">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FF_ManPowerID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Select_By_AreaResponse">
+      <s:element name="FF_ManPower_DeleteResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AreaResult" type="tns:ArrayOfFF_ManPower" />
+            <s:element minOccurs="1" maxOccurs="1" name="FF_ManPower_DeleteResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfFF_ManPower">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="FF_ManPower" nillable="true" type="tns:FF_ManPower" />
-        </s:sequence>
-      </s:complexType>
+      <s:element name="FF_ManPower_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ManPower" type="tns:FF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:complexType name="FF_ManPower">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="FF_ManPowerID" type="s:int" />
@@ -447,6 +530,49 @@
           <s:element minOccurs="1" maxOccurs="1" name="FF_ID" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="FF_ManPower_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_InsertResult" type="tns:FF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FF_ManPower_Select_All">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FF_ManPower_Select_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_AllResult" type="tns:ArrayOfFF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFF_ManPower">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FF_ManPower" nillable="true" type="tns:FF_ManPower" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FF_ManPower_Select_By_Area">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FF_ManPower_Select_By_AreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_By_AreaResult" type="tns:ArrayOfFF_ManPower" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="FF_ManPower_Select_By_Availability">
         <s:complexType>
           <s:sequence>
@@ -1017,21 +1143,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="companyBuildings" type="tns:ArrayOfBuildings" />
           <s:element minOccurs="0" maxOccurs="1" name="companyManagers" type="tns:ArrayOfManagers" />
           <s:element minOccurs="0" maxOccurs="1" name="CompanyDangerousPlaces" type="tns:ArrayOfDangerousPlaces" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfManagers">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Managers" nillable="true" type="tns:Managers" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Managers">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CurrentPosition" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ManagerID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyAccident" type="tns:ArrayOfAccident" />
         </s:sequence>
       </s:complexType>
       <s:element name="Company_InsertResponse">
@@ -1460,70 +1572,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Managers_Select_By_CompanyID">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Managers_Select_By_CompanyIDResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Managers_Select_By_CompanyIDResult" type="tns:ArrayOfManagers" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Managers_SelectByManagerID">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ManagerID" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Managers_SelectByManagerIDResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Managers_SelectByManagerIDResult" type="tns:Managers" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Buildings_Delete">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="BuildingID" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Buildings_DeleteResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Buildings_DeleteResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Buildings_Insert">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="buildings" type="tns:Buildings" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Buildings_InsertResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Buildings_InsertResult" type="tns:Buildings" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Users_Delete">
         <s:complexType>
           <s:sequence>
@@ -1559,6 +1607,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="User_Companies" type="tns:ArrayOfCompany" />
           <s:element minOccurs="0" maxOccurs="1" name="User_FF_Pumps" type="tns:ArrayOfFF_pumps" />
           <s:element minOccurs="0" maxOccurs="1" name="User_FFstations" type="tns:ArrayOfFFstations" />
+          <s:element minOccurs="0" maxOccurs="1" name="Users_of_Users" type="tns:ArrayOfUsers" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfFF_pumps">
@@ -1599,6 +1648,12 @@
           <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Additional_info" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Station_ManPower" type="tns:ArrayOfFF_ManPower" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUsers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
         </s:sequence>
       </s:complexType>
       <s:element name="Users_InsertResponse">
@@ -1623,11 +1678,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfUsers">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Users_Select_Users_Of_User">
         <s:complexType>
           <s:sequence>
@@ -2561,55 +2611,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_Delete">
+      <s:element name="FF_pumps_Select_By_UserID">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="FF_ManPowerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FF_ManPower_DeleteResponse">
+      <s:element name="FF_pumps_Select_By_UserIDResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="FF_ManPower_DeleteResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_Insert">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ManPower" type="tns:FF_ManPower" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_InsertResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_InsertResult" type="tns:FF_ManPower" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_Select_All">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="FF_ManPower_Select_AllResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FF_ManPower_Select_AllResult" type="tns:ArrayOfFF_ManPower" />
+            <s:element minOccurs="0" maxOccurs="1" name="FF_pumps_Select_By_UserIDResult" type="tns:ArrayOfFF_pumps" />
           </s:sequence>
         </s:complexType>
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Managers_Select_By_CompanyIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Managers_Select_By_CompanyID" />
+  </wsdl:message>
+  <wsdl:message name="Managers_Select_By_CompanyIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Managers_Select_By_CompanyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Managers_SelectByManagerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Managers_SelectByManagerID" />
+  </wsdl:message>
+  <wsdl:message name="Managers_SelectByManagerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Managers_SelectByManagerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buildings_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Buildings_Delete" />
+  </wsdl:message>
+  <wsdl:message name="Buildings_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:Buildings_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buildings_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Buildings_Insert" />
+  </wsdl:message>
+  <wsdl:message name="Buildings_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:Buildings_InsertResponse" />
+  </wsdl:message>
   <wsdl:message name="Buildings_Select_AllSoapIn">
     <wsdl:part name="parameters" element="tns:Buildings_Select_All" />
   </wsdl:message>
@@ -2717,6 +2760,24 @@
   </wsdl:message>
   <wsdl:message name="Accident_Select_By_VehiclesToAccidentSoapOut">
     <wsdl:part name="parameters" element="tns:Accident_Select_By_VehiclesToAccidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Delete" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Insert" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_All" />
+  </wsdl:message>
+  <wsdl:message name="FF_ManPower_Select_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_AllResponse" />
   </wsdl:message>
   <wsdl:message name="FF_ManPower_Select_By_AreaSoapIn">
     <wsdl:part name="parameters" element="tns:FF_ManPower_Select_By_Area" />
@@ -3077,30 +3138,6 @@
   </wsdl:message>
   <wsdl:message name="Managers_Select_AllSoapOut">
     <wsdl:part name="parameters" element="tns:Managers_Select_AllResponse" />
-  </wsdl:message>
-  <wsdl:message name="Managers_Select_By_CompanyIDSoapIn">
-    <wsdl:part name="parameters" element="tns:Managers_Select_By_CompanyID" />
-  </wsdl:message>
-  <wsdl:message name="Managers_Select_By_CompanyIDSoapOut">
-    <wsdl:part name="parameters" element="tns:Managers_Select_By_CompanyIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="Managers_SelectByManagerIDSoapIn">
-    <wsdl:part name="parameters" element="tns:Managers_SelectByManagerID" />
-  </wsdl:message>
-  <wsdl:message name="Managers_SelectByManagerIDSoapOut">
-    <wsdl:part name="parameters" element="tns:Managers_SelectByManagerIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="Buildings_DeleteSoapIn">
-    <wsdl:part name="parameters" element="tns:Buildings_Delete" />
-  </wsdl:message>
-  <wsdl:message name="Buildings_DeleteSoapOut">
-    <wsdl:part name="parameters" element="tns:Buildings_DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="Buildings_InsertSoapIn">
-    <wsdl:part name="parameters" element="tns:Buildings_Insert" />
-  </wsdl:message>
-  <wsdl:message name="Buildings_InsertSoapOut">
-    <wsdl:part name="parameters" element="tns:Buildings_InsertResponse" />
   </wsdl:message>
   <wsdl:message name="Users_DeleteSoapIn">
     <wsdl:part name="parameters" element="tns:Users_Delete" />
@@ -3468,25 +3505,29 @@
   <wsdl:message name="FF_pumps_Select_By_StatusSoapOut">
     <wsdl:part name="parameters" element="tns:FF_pumps_Select_By_StatusResponse" />
   </wsdl:message>
-  <wsdl:message name="FF_ManPower_DeleteSoapIn">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Delete" />
+  <wsdl:message name="FF_pumps_Select_By_UserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:FF_pumps_Select_By_UserID" />
   </wsdl:message>
-  <wsdl:message name="FF_ManPower_DeleteSoapOut">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_InsertSoapIn">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Insert" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_InsertSoapOut">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_InsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_AllSoapIn">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_All" />
-  </wsdl:message>
-  <wsdl:message name="FF_ManPower_Select_AllSoapOut">
-    <wsdl:part name="parameters" element="tns:FF_ManPower_Select_AllResponse" />
+  <wsdl:message name="FF_pumps_Select_By_UserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:FF_pumps_Select_By_UserIDResponse" />
   </wsdl:message>
   <wsdl:portType name="IncidentReporting_WSSoap">
+    <wsdl:operation name="Managers_Select_By_CompanyID">
+      <wsdl:input message="tns:Managers_Select_By_CompanyIDSoapIn" />
+      <wsdl:output message="tns:Managers_Select_By_CompanyIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Managers_SelectByManagerID">
+      <wsdl:input message="tns:Managers_SelectByManagerIDSoapIn" />
+      <wsdl:output message="tns:Managers_SelectByManagerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Delete">
+      <wsdl:input message="tns:Buildings_DeleteSoapIn" />
+      <wsdl:output message="tns:Buildings_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Insert">
+      <wsdl:input message="tns:Buildings_InsertSoapIn" />
+      <wsdl:output message="tns:Buildings_InsertSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Buildings_Select_All">
       <wsdl:input message="tns:Buildings_Select_AllSoapIn" />
       <wsdl:output message="tns:Buildings_Select_AllSoapOut" />
@@ -3558,6 +3599,18 @@
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <wsdl:input message="tns:Accident_Select_By_VehiclesToAccidentSoapIn" />
       <wsdl:output message="tns:Accident_Select_By_VehiclesToAccidentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Delete">
+      <wsdl:input message="tns:FF_ManPower_DeleteSoapIn" />
+      <wsdl:output message="tns:FF_ManPower_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Insert">
+      <wsdl:input message="tns:FF_ManPower_InsertSoapIn" />
+      <wsdl:output message="tns:FF_ManPower_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_All">
+      <wsdl:input message="tns:FF_ManPower_Select_AllSoapIn" />
+      <wsdl:output message="tns:FF_ManPower_Select_AllSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FF_ManPower_Select_By_Area">
       <wsdl:input message="tns:FF_ManPower_Select_By_AreaSoapIn" />
@@ -3798,22 +3851,6 @@
     <wsdl:operation name="Managers_Select_All">
       <wsdl:input message="tns:Managers_Select_AllSoapIn" />
       <wsdl:output message="tns:Managers_Select_AllSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Managers_Select_By_CompanyID">
-      <wsdl:input message="tns:Managers_Select_By_CompanyIDSoapIn" />
-      <wsdl:output message="tns:Managers_Select_By_CompanyIDSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Managers_SelectByManagerID">
-      <wsdl:input message="tns:Managers_SelectByManagerIDSoapIn" />
-      <wsdl:output message="tns:Managers_SelectByManagerIDSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Delete">
-      <wsdl:input message="tns:Buildings_DeleteSoapIn" />
-      <wsdl:output message="tns:Buildings_DeleteSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Insert">
-      <wsdl:input message="tns:Buildings_InsertSoapIn" />
-      <wsdl:output message="tns:Buildings_InsertSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Users_Delete">
       <wsdl:input message="tns:Users_DeleteSoapIn" />
@@ -4059,21 +4096,49 @@
       <wsdl:input message="tns:FF_pumps_Select_By_StatusSoapIn" />
       <wsdl:output message="tns:FF_pumps_Select_By_StatusSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Delete">
-      <wsdl:input message="tns:FF_ManPower_DeleteSoapIn" />
-      <wsdl:output message="tns:FF_ManPower_DeleteSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Insert">
-      <wsdl:input message="tns:FF_ManPower_InsertSoapIn" />
-      <wsdl:output message="tns:FF_ManPower_InsertSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_All">
-      <wsdl:input message="tns:FF_ManPower_Select_AllSoapIn" />
-      <wsdl:output message="tns:FF_ManPower_Select_AllSoapOut" />
+    <wsdl:operation name="FF_pumps_Select_By_UserID">
+      <wsdl:input message="tns:FF_pumps_Select_By_UserIDSoapIn" />
+      <wsdl:output message="tns:FF_pumps_Select_By_UserIDSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="IncidentReporting_WSSoap" type="tns:IncidentReporting_WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Managers_Select_By_CompanyID">
+      <soap:operation soapAction="http://tempuri.org/Managers_Select_By_CompanyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Managers_SelectByManagerID">
+      <soap:operation soapAction="http://tempuri.org/Managers_SelectByManagerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Delete">
+      <soap:operation soapAction="http://tempuri.org/Buildings_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Insert">
+      <soap:operation soapAction="http://tempuri.org/Buildings_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Buildings_Select_All">
       <soap:operation soapAction="http://tempuri.org/Buildings_Select_All" style="document" />
       <wsdl:input>
@@ -4229,6 +4294,33 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Delete">
+      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Insert">
+      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_All">
+      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_All" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4769,42 +4861,6 @@
     </wsdl:operation>
     <wsdl:operation name="Managers_Select_All">
       <soap:operation soapAction="http://tempuri.org/Managers_Select_All" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Managers_Select_By_CompanyID">
-      <soap:operation soapAction="http://tempuri.org/Managers_Select_By_CompanyID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Managers_SelectByManagerID">
-      <soap:operation soapAction="http://tempuri.org/Managers_SelectByManagerID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Delete">
-      <soap:operation soapAction="http://tempuri.org/Buildings_Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Insert">
-      <soap:operation soapAction="http://tempuri.org/Buildings_Insert" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5361,26 +5417,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Delete">
-      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Insert">
-      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Insert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_All">
-      <soap:operation soapAction="http://tempuri.org/FF_ManPower_Select_All" style="document" />
+    <wsdl:operation name="FF_pumps_Select_By_UserID">
+      <soap:operation soapAction="http://tempuri.org/FF_pumps_Select_By_UserID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5391,6 +5429,42 @@
   </wsdl:binding>
   <wsdl:binding name="IncidentReporting_WSSoap12" type="tns:IncidentReporting_WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Managers_Select_By_CompanyID">
+      <soap12:operation soapAction="http://tempuri.org/Managers_Select_By_CompanyID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Managers_SelectByManagerID">
+      <soap12:operation soapAction="http://tempuri.org/Managers_SelectByManagerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Delete">
+      <soap12:operation soapAction="http://tempuri.org/Buildings_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buildings_Insert">
+      <soap12:operation soapAction="http://tempuri.org/Buildings_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Buildings_Select_All">
       <soap12:operation soapAction="http://tempuri.org/Buildings_Select_All" style="document" />
       <wsdl:input>
@@ -5546,6 +5620,33 @@
     </wsdl:operation>
     <wsdl:operation name="Accident_Select_By_VehiclesToAccident">
       <soap12:operation soapAction="http://tempuri.org/Accident_Select_By_VehiclesToAccident" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Delete">
+      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Insert">
+      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FF_ManPower_Select_All">
+      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_All" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6086,42 +6187,6 @@
     </wsdl:operation>
     <wsdl:operation name="Managers_Select_All">
       <soap12:operation soapAction="http://tempuri.org/Managers_Select_All" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Managers_Select_By_CompanyID">
-      <soap12:operation soapAction="http://tempuri.org/Managers_Select_By_CompanyID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Managers_SelectByManagerID">
-      <soap12:operation soapAction="http://tempuri.org/Managers_SelectByManagerID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Delete">
-      <soap12:operation soapAction="http://tempuri.org/Buildings_Delete" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Buildings_Insert">
-      <soap12:operation soapAction="http://tempuri.org/Buildings_Insert" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6678,26 +6743,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Delete">
-      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Delete" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Insert">
-      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Insert" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FF_ManPower_Select_All">
-      <soap12:operation soapAction="http://tempuri.org/FF_ManPower_Select_All" style="document" />
+    <wsdl:operation name="FF_pumps_Select_By_UserID">
+      <soap12:operation soapAction="http://tempuri.org/FF_pumps_Select_By_UserID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
