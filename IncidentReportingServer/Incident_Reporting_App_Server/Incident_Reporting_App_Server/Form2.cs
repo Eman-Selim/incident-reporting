@@ -17,18 +17,21 @@ namespace Incident_Reporting_App_Server
 {
     public partial class Form2 : Form
     {
-       // static string userName, passWord;
         int menu_Selected_Index = 0;
         ServerClass server_Class_Obj = new ServerClass();
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
         byte[] imagenu = null;
+        Users U1;
         Users[] User;
         Users[] UsersOfUser;
         Company[] companies;
         Buildings[] buildings;
-        Users[] admins;
+        Managers[] admins;
         DangerousPlaces[] places;
-        FF_ManPower[] points;
+        FFstations[] points;
+        FFstations station;
+        FF_ManPower men;
+        int Selected_User_ID;
         public Form2()
         {
             InitializeComponent();
@@ -44,13 +47,13 @@ namespace Incident_Reporting_App_Server
                 for (int i = 0; i < User_length; i++)
                 {
                     TreeNode user_node = new TreeNode();
-                    user_node.Text = User[i].Username;
+                    user_node.Text = User[i].Username==null?"": User[i].Username;
                     user_node.Tag = User[i].UserID;
                     user_node.Name = "User";
 
                     treeView3.Nodes[0].Nodes.Add(user_node);
 
-                    companies = server_Class_Obj.Select_Companies(User[i].UserID);
+                    companies = User[i].User_Companies;
 
                     int Companies_length = companies != null ? companies.Length : 0;
                     if (Companies_length != 0)
@@ -58,7 +61,7 @@ namespace Incident_Reporting_App_Server
                         for (int j = 0; j < Companies_length; j++)
                         {
                             TreeNode company_node = new TreeNode();
-                            company_node.Text = companies[j].Name;
+                            company_node.Text = companies[j].Name==null?"": companies[j].Name;
                             company_node.Tag = companies[j];
                             company_node.Name = "Company";
 
@@ -72,7 +75,7 @@ namespace Incident_Reporting_App_Server
                         for (int k = 0; k < UsersOfUser_length; k++)
                         {
                             TreeNode userOfUser_node = new TreeNode();
-                            userOfUser_node.Text = UsersOfUser[k].Username;
+                            userOfUser_node.Text = UsersOfUser[k].Username==null?"": UsersOfUser[k].Username;
                             userOfUser_node.Tag = UsersOfUser[k].UserID;
                             userOfUser_node.Name = "User";
                             treeView3.Nodes[0].Nodes[i].Nodes.Add(userOfUser_node);
@@ -97,96 +100,44 @@ namespace Incident_Reporting_App_Server
         {
 
             //load account info
-            Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
-            accountName.Text = U1.Username;
-            AccountInfo.Text = U1.Info;
-            accountPassword.Text = "*******";
+
+             U1 = server_Class_Obj.Select_User(Selected_User_ID);
+            accountName.Text = U1.Username==null?"": U1.Username;
+            AccountInfo.Text = U1.Info==null?"": U1.Info;
+            accountPassword.Clear();
+            ReAccountPassword.Clear();
+            for (int i = 0; i < U1.Password.Length; i++)
+            {
+                accountPassword.Text += "*";
+                ReAccountPassword.Text += "*";
+            }
+
             //load selected company Data
 
 
             Company selectedCompany = server_Class_Obj.Select_Company(Selected_Company_ID);
-            companyName.Text = selectedCompany.Name;
-            govern.Text = selectedCompany.Address;
-            address.Text = selectedCompany.Address;
-            landlinePhone.Text = selectedCompany.LandlinePhoneNumber;
-            BuildingsNumber.Text = Convert.ToString(selectedCompany.BuildingsNumber);
-            ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation;
-            GasTrapLocation.Text = selectedCompany.GasTrapLocation;
-            OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation;
-            c1PictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
+            companyName.Text = selectedCompany.Name==null?"": selectedCompany.Name;
+            govern.Text = selectedCompany.Address==null?"": selectedCompany.Address;
+            address.Text = selectedCompany.Address==null?"": selectedCompany.Address;
+            landlinePhone.Text = selectedCompany.LandlinePhoneNumber==null?"": selectedCompany.LandlinePhoneNumber;
+            BuildingsNumber.Text = Convert.ToString(selectedCompany.BuildingsNumber)==null?"": Convert.ToString(selectedCompany.BuildingsNumber);
+            ElectricalPanelLocation.Text = selectedCompany.ElectricalPanelLocation==null?"": selectedCompany.ElectricalPanelLocation;
+            GasTrapLocation.Text = selectedCompany.GasTrapLocation==null?"": selectedCompany.GasTrapLocation;
+            OxygenTrapLocation.Text = selectedCompany.OxygenTrapLocation==null?"": selectedCompany.OxygenTrapLocation;
+            c1PictureBox1.Image = selectedCompany.RightCompanyImage==null? Image.FromStream(new System.IO.MemoryStream(imagenu)): Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
 
 
 
             //Loading the neighboring companies
 
-            DataTable Inbox_datatable = new DataTable("Inbox_Datatable");
-            Inbox_datatable.Columns.Add("إتجاه المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("إسم المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("نشاط المنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("مصدر الخطورة بالمنشأة", typeof(string));
-            Inbox_datatable.Columns.Add("الوسيط الإطفائي", typeof(string));
-            Inbox_datatable.Columns.Add("صورة المنشأة", typeof(Image));
-
-            MemoryStream ms = new MemoryStream();
             PictureBox P1 = new PictureBox();
             P1.Image= Image.FromStream(new System.IO.MemoryStream(selectedCompany.BackCompanyImage));
-            //byte[] img = ms.ToArray();
 
-
-            DataRow Back_Row = Inbox_datatable.NewRow();
-
-            Back_Row[0] = "المنشأة المجاورة خلفي";
-            Back_Row[1] = selectedCompany.BackCompanyName;
-            Back_Row[2] = selectedCompany.BackCompanyBusiness;
-            Back_Row[3] = selectedCompany.BackCompanyImageURL;
-            Back_Row[4] = selectedCompany.BackFireMediator;
-            Back_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Back_Row);
-
-            DataRow Front_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
-            P1.BackgroundImage = Image.FromStream(new System.IO.MemoryStream(selectedCompany.FrontCompanyImage));
-            P1.BackgroundImageLayout = ImageLayout.Center;
-
-            Front_Row[0] = "المنشأة المجاورة أمامي";
-            Front_Row[1] = selectedCompany.FrontCompanyName;
-            Front_Row[2] = selectedCompany.FrontCompanyBusiness;
-            Front_Row[3] = selectedCompany.FrontCompanyImageURL;
-            Front_Row[4] = selectedCompany.FrontFireMediator;
-            Front_Row[5] = P1.BackgroundImage;
-
-            Inbox_datatable.Rows.Add(Front_Row);
-
-            DataRow Right_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.RightCompanyImage));
-
-            Right_Row[0] = "المنشأة المجاورة يمين";
-            Right_Row[1] = selectedCompany.RightCompanyName;
-            Right_Row[2] = selectedCompany.RightCompanyBusiness;
-            Right_Row[3] = selectedCompany.RightCompanyImageURL;
-            Right_Row[4] = selectedCompany.RightFireMediator;
-            Right_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Right_Row);
-
-            DataRow Left_Row = Inbox_datatable.NewRow();
-            P1.Image = Image.FromStream(new System.IO.MemoryStream(selectedCompany.LeftCompanyImage));
-
-            Left_Row[0] = "المنشأة المجاورة يسار";
-            Left_Row[1] = selectedCompany.LeftCompanyName;
-            Left_Row[2] = selectedCompany.LeftCompanyBusiness;
-            Left_Row[3] = selectedCompany.LeftCompanyImageURL;
-            Left_Row[4] = selectedCompany.LeftFireMediator;
-            Left_Row[5] = P1.Image;
-            Inbox_datatable.Rows.Add(Left_Row);
-
-            dataGridView2.DataSource = Inbox_datatable;
-
-           
 
             //load buildings of selected company
 
 
-            buildings = server_Class_Obj.Select_Buildings(Selected_Company_ID);
+            buildings = selectedCompany.companyBuildings;
             int buildings_length = buildings != null ? buildings.Length : 0;
             buildingCB.Items.Clear();
             for (int i = 0; i < buildings_length; i++)
@@ -195,17 +146,17 @@ namespace Incident_Reporting_App_Server
             }
 
             //load admins of the selected company
-             admins = server_Class_Obj.Select_Admins(Selected_Company_ID);
-            int admins_length = admins != null ? admins.Length : 0;
-            Admins.Items.Clear();
-            for (int i = 0; i < admins_length; i++)
+            Managers[] managers = selectedCompany.companyManagers;
+            int managers_length = managers != null ? managers.Length : 0;
+            Managers.Items.Clear();
+            for (int i = 0; i < managers_length; i++)
             {
-                Admins.Items.Add(admins[i].Username);
+                Managers.Items.Add(managers[i].Name);
             }
 
             //load Dangerous places of the selected company
 
-            places = server_Class_Obj.Select_DangerousePlaces(Selected_Company_ID);
+            places = selectedCompany.CompanyDangerousPlaces;
             int places_length = places != null ? places.Length : 0;
             Dangerous.Items.Clear();
             for (int i = 0; i < places_length; i++)
@@ -215,12 +166,12 @@ namespace Incident_Reporting_App_Server
 
             //load points 
 
-            points = server_Class_Obj.Select_points(Selected_User_ID);
+            points = U1.User_FFstations;
             int points_length = points != null ? points.Length : 0;
             comboBox11.Items.Clear();
             for (int i = 0; i < points_length; i++)
             {
-                comboBox11.Items.Add(points[i].Point);
+                comboBox11.Items.Add(points[i].FF_ID);
             }
             
 
@@ -249,9 +200,11 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(ex.Message);
             }
         }
+
         /// <summary>
-        /// load the Cities from the Array Cities and Display them on the treeview and load the combo box City name with the current Cities 
+        /// update the users-Company treeview 
         /// </summary>
+        
         public void load_trv_User_Tab()
        {
             try
@@ -268,11 +221,10 @@ namespace Incident_Reporting_App_Server
                     {
                         for (int i = 0; i < User_length; i++)
                         {
-                            bool Find_Flag = false;
                             for (int j = 0; j < treeView3.Nodes[0].Nodes.Count; j++)
                             {
                                 treeView3.Nodes[0].Nodes[j].Tag = User[i].UserID;
-                                treeView3.Nodes[0].Nodes[j].Text = User[i].Username;
+                                treeView3.Nodes[0].Nodes[j].Text = User[i].Username==null?"": User[i].Username;
                                 treeView3.Nodes[0].Nodes[j].Name = "User";
                                 break;
                             }
@@ -287,10 +239,8 @@ namespace Incident_Reporting_App_Server
                                 for (int j = 0; j < Companies_length; j++)
                                 {
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Tag = companies[j].CompanyID;
-                                    treeView3.Nodes[0].Nodes[i].Nodes[j].Text = companies[j].Name;
+                                    treeView3.Nodes[0].Nodes[i].Nodes[j].Text = companies[j].Name==null?"": companies[j].Name;
                                     treeView3.Nodes[0].Nodes[i].Nodes[j].Name = "Company";
-
-
                                 }
                                 
                                 UsersOfUser = server_Class_Obj.Select_Users_of_User(User[i].Username, User[i].Password, User[i].UserID);
@@ -298,7 +248,7 @@ namespace Incident_Reporting_App_Server
                                 for (int k = 0; k < UsersOfUser_length; k++)
                                 {
                                     treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Tag = UsersOfUser[k].UserID;
-                                    treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Text = UsersOfUser[k].Username;
+                                    treeView3.Nodes[0].Nodes[i].Nodes[k+Companies_length].Text = UsersOfUser[k].Username==null?"": UsersOfUser[k].Username;
                                     treeView3.Nodes[0].Nodes[i].Nodes[k + Companies_length].Name = "User";
                                 }
                             }
@@ -317,7 +267,9 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(ex.Message);
             }
         }
+
         #endregion
+
         private void PictureBox5_MouseWheel(object sender, MouseEventArgs e)
         {
             //throw new NotImplementedException();
@@ -353,12 +305,6 @@ namespace Incident_Reporting_App_Server
                     c1DockingTab1.SelectedTab = c1DockingTabPage9;
                     break;
 
-                case 2:
-                    panel3.BackgroundImage = Properties.Resources.menu_item_5;
-                    pictureBox5.BackgroundImage = Properties.Resources.UsersSH1_MainForm;
-                    c1DockingTab1.SelectedTab = c1DockingTabPage11;
-                    break;
-
                 case 3:
                     panel3.BackgroundImage = Properties.Resources.menu_item_4;
                     pictureBox5.BackgroundImage = Properties.Resources.Phone_BookSH1_MainForm;
@@ -367,68 +313,46 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-        private void c1DockingTabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox19_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void c1DockingTabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-       
-
-        private void EditAccount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Add_FFstations_FFpump_Click(object sender, EventArgs e)
         {
             try
             {
-                FFstations station = new FFstations();
-                station.CarsNumber = CarsNumber.Text;
-                station.SoliderNumber = SoliderNumber.Text;
-                station.Sector = sector.Text;
-                station.Signs = signs.Text;
-                station.Street = street.Text;
-                station.ZoneNumber = zoneNumber.Text;
-                station.Additional_info = Additional_info.Text;
-                FF_pumps pump = new FF_pumps();
-                pump.Additional_info = pumpInfo.Text;
-                pump.Address = pumpAddress.Text;
-                pump.Area = pumpArea.Text;
-                pump.PumpNumber = PumpNumber.Text;
-                pump.Status = Status.Text;
-                pump.Signs = pumpSign.Text;
-                pump.Sector = pumpSector.Text;
-                pump.PumpType = PumpType.Text;
-                server_Class_Obj.Add_FFstations_FFpump(station,pump);
-                
+               
+                FFstations temp = new FFstations();
+                temp.CarsNumber = CarsNumber.Text;
+                temp.SoliderNumber = SoliderNumber.Text;
+                temp.Sector = sector.Text;
+                temp.Signs = signs.Text;
+                temp.Street = street.Text;
+                temp.ZoneNumber = area.Text;
+                temp.Additional_info = Additional_info.Text;
+                temp.UserID = Selected_User_ID;
+                men = new FF_ManPower();
+                men.OfficerName = (string)ff_ManPowerGrid.CurrentRow.Cells[0].Value;
+                men.Sector = (string)ff_ManPowerGrid.CurrentRow.Cells[1].Value;
+                men.Area = (string)ff_ManPowerGrid.CurrentRow.Cells[2].Value;
+                men.Rank = (string)ff_ManPowerGrid.CurrentRow.Cells[3].Value;
+                men.Job = (string)ff_ManPowerGrid.CurrentRow.Cells[4].Value;
+                men.Additional_info = (string)ff_ManPowerGrid.CurrentRow.Cells[5].Value;
+
+                FF_ManPower[] manpower = temp.Station_ManPower;
+               
+                Array.Resize(ref manpower, manpower.Length + 1);
+                manpower[manpower.GetUpperBound(0)] = men;
+                temp.Station_ManPower = manpower;
+                server_Class_Obj.Add_FFstations_FF_ManPower(temp);
+                //FF_pumps pump = new FF_pumps();
+                //pump.Additional_info = pumpInfo.Text;
+                //pump.Address = pumpAddress.Text;
+                //pump.Area = pumpArea.Text;
+                //pump.PumpNumber = PumpNumber.Text;
+                //pump.Status = Status.Text;
+                //pump.Signs = pumpSign.Text;
+                //pump.Sector = pumpSector.Text;
+                //pump.PumpType = PumpType.Text;
+
+                //server_Class_Obj.Add_FFstations_FFpump(station, men);
+
             }
             catch (Exception exception1)
             {
@@ -448,26 +372,6 @@ namespace Incident_Reporting_App_Server
             {
                 Auditing.Error(exception1.Message);
             }
-        }
-
-        private void Edit_FFstations_FFpump_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Delete_FFstations_FFpump_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EditCompany_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            
         }
 
         private void Add_Account_Click_1(object sender, EventArgs e)
@@ -491,18 +395,14 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(exception1.Message);
             }
         }
-        internal class CFP
-        {
-            public Company company { set; get; }
-            public DangerousPlaces place { set; get; }
-            public Floors floor { set; get; }
-        }
+
+        
+
         private CFP Add_Edit_Company()
         {
             Company c1 = new Company();
-            CFP CFPe=new CFP();
             
-           c1.Name = companyName.Text;
+            c1.Name = companyName.Text;
             c1.Address = address.Text;
             c1.LandlinePhoneNumber = landlinePhone.Text;
             c1.BackCompanyBusiness = "";
@@ -529,6 +429,7 @@ namespace Incident_Reporting_App_Server
             c1.Longitude = 0;
             c1.Latitude = 0;
             c1.UserID = 1;
+            
 
             DangerousPlaces place = new DangerousPlaces();
             place.Location = DangerouseLocation.Text;
@@ -536,7 +437,10 @@ namespace Incident_Reporting_App_Server
             place.FireMediator = FireMediator.Text;
             place.Image = imagenu;
             place.ImageURL = "";
-
+            Buildings building = new Buildings();
+            building.
+            c1.CompanyDangerousPlaces = places;
+            c1.companyBuildings
             Floors floor = new Floors();
             floor.FloorNumber = (string)dataGridView1.CurrentRow.Cells[0].Value;
             floor.FireHydrantsNumber = (string)dataGridView1.CurrentRow.Cells[1].Value;
@@ -552,6 +456,7 @@ namespace Incident_Reporting_App_Server
             CFPe.place = place;
             return CFPe;
         }
+
         private void AddCompany_Click_1(object sender, EventArgs e)
         {
             try
@@ -571,17 +476,23 @@ namespace Incident_Reporting_App_Server
             if (e.Node.Name == "Company")
             {
                 int Selected_Company_ID = Convert.ToInt32(e.Node.Tag);
-                int Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
+                 Selected_User_ID = Convert.ToInt32(e.Node.Parent.Tag);
                 Load_Data(Selected_User_ID, Selected_Company_ID);
             }
             else if (e.Node.Name == "User")
             {
-                int Selected_User_ID = Convert.ToInt32(e.Node.Tag);
+                 Selected_User_ID = Convert.ToInt32(e.Node.Tag);
                 Users U1 = server_Class_Obj.Select_User(Selected_User_ID);
-                Load_Data(Selected_User_ID,U1.CompanyID);
+                accountName.Text = U1.Username==null?"": U1.Username;
+                AccountInfo.Text = U1.Info;
+                accountPassword.Clear();
+                ReAccountPassword.Clear();
+                for (int i=0;i<U1.Password.Length;i++)
+                {
+                    accountPassword.Text += "*";
+                    ReAccountPassword.Text += "*";
+                }
             }
-           
-
         }
 
         private void buildingCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -591,7 +502,6 @@ namespace Incident_Reporting_App_Server
             if (buildings.Length >= selectedIndex)
             {
                 int buildingID = buildings[selectedIndex].BuildingID;
-                //Buildings building = server_Class_Obj.Select_Building(buildingID);
                 Floors[] floor = server_Class_Obj.Select_Floors(buildingID);
                 int floor_length = floor != null ? floor.Length : 0;
                 dataGridView1.Rows.Clear();
@@ -621,19 +531,16 @@ namespace Incident_Reporting_App_Server
             }
         }
 
-        private void companyName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
             int selectedIndex = cmb.SelectedIndex;
-            int userid = admins[selectedIndex].UserID;
-            Users user = server_Class_Obj.Select_User(userid);
-            SelectedUserName.Text = user.Username;
-            SelectedUserInfo.Text = user.Info;
+            int Managerid = admins[selectedIndex].ManagerID;
+            Managers Manager = server_Class_Obj.Select_Manager(Managerid);
+            SelectedUserName.Text = Manager.Name==null?"": Manager.Name;
+            richTextBox41.Text = Manager.CurrentPosition==null?"": Manager.CurrentPosition;
+            richTextBox40.Text = Manager.PhoneNumber==null?"": Manager.PhoneNumber;
+            SelectedUserInfo.Text = Manager.Info==null?"": Manager.Info;
         }
 
         private void Dangerous_SelectedIndexChanged(object sender, EventArgs e)
@@ -642,9 +549,9 @@ namespace Incident_Reporting_App_Server
             int selectedIndex = cmb.SelectedIndex;
             int placesid = places[selectedIndex].DangerousPlaceID;
             DangerousPlaces place = server_Class_Obj.Select_DangerousePlace(placesid);
-            HazardousSubstance.Text = place.HazardousSubstance;
-            DangerouseLocation.Text = place.Location;
-            FireMediator.Text = place.FireMediator;
+            HazardousSubstance.Text = place.HazardousSubstance==null?"": place.HazardousSubstance;
+            DangerouseLocation.Text = place.Location==null?"": place.Location;
+            FireMediator.Text = place.FireMediator==null?"": place.FireMediator;
         }
 
         private void DeleteCompany_Click_1(object sender, EventArgs e)
@@ -657,10 +564,6 @@ namespace Incident_Reporting_App_Server
             server_Class_Obj.Delete_Account(accountName.Text);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void comboBox11_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -668,13 +571,17 @@ namespace Incident_Reporting_App_Server
             int selectedIndex = cmb.SelectedIndex;
             int FF_ManPowerID = points[selectedIndex].FF_ManPowerID;
             FF_ManPower point = server_Class_Obj.Select_point(FF_ManPowerID);
-            richTextBox20.Text = point.Point;
+            pointNumber.Text = point.Point;
             sector.Text = point.Sector;
-            richTextBox36.Text= point.Point;
+            comboBox18.Text= point.Sector;
+            pumpSector.Text= point.Sector;
+
+            point_number.Text= point.Point;
             richTextBox37.Text = point.OfficerName;
             richTextBox35.Text=point.Rank;
             richTextBox33.Text = point.Additional_info;
-
+            richTextBox34.Text = point.Area;
+            area.Text= point.Area;
         }
 
         private void EditCompany_Click_1(object sender, EventArgs e)
@@ -682,6 +589,93 @@ namespace Incident_Reporting_App_Server
             CFP C1 = Add_Edit_Company();
 
             server_Class_Obj.Update_Company(C1.company);
+            server_Class_Obj.Update_Floor(C1.floor);
+            server_Class_Obj.Update_DangerousePlaces(C1.place);
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            station.CarsNumber = CarsNumber.Text;
+            station.SoliderNumber = SoliderNumber.Text;
+            station.Sector = sector.Text;
+            station.Signs = signs.Text;
+            station.Street = street.Text;
+            station.ZoneNumber = area.Text;
+            station.Additional_info = Additional_info.Text;
+            station.UserID = Selected_User_ID;
+            men = new FF_ManPower();
+            men.OfficerName = (string)ff_ManPowerGrid.CurrentRow.Cells[0].Value;
+            men.Sector = (string)ff_ManPowerGrid.CurrentRow.Cells[1].Value;
+            men.Area = (string)ff_ManPowerGrid.CurrentRow.Cells[2].Value;
+            men.Rank = (string)ff_ManPowerGrid.CurrentRow.Cells[3].Value;
+            men.Job = (string)ff_ManPowerGrid.CurrentRow.Cells[4].Value;
+            men.Additional_info = (string)ff_ManPowerGrid.CurrentRow.Cells[5].Value;
+
+            FF_ManPower[] manpower = station.Station_ManPower;
+            Array.Resize(ref manpower, manpower.Length + 1);
+            manpower[manpower.GetUpperBound(0)] = men;
+            station.Station_ManPower = manpower;
+            
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            server_Class_Obj.Add_FFstations_FF_ManPower(station);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FF_pumps pump = new FF_pumps();
+            pump.Additional_info = pumpInfo.Text;
+            pump.Address = pumpAddress.Text;
+            pump.Area = pumpArea.Text;
+            pump.PumpNumber = PumpNumber.Text;
+            pump.Status = Status.Text;
+            pump.Signs = pumpSign.Text;
+            pump.Sector = pumpSector.Text;
+            pump.PumpType = PumpType.Text;
+            pump.UserID = Selected_User_ID;
+            server_Class_Obj.Add_FFPump(pump);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            PumpNumber.Text = "";
+            pumpArea.Text = "";
+            pumpSector.Text = "";
+            PumpType.Text = "";
+            Status.Text = "";
+            pumpAddress.Text = "";
+            pumpSign.Text = "";
+            pumpInfo.Text = "";
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PumpNumber.Text= (string)dataGridView3.CurrentRow.Cells[0].Value;
+            pumpArea.Text = (string)dataGridView3.CurrentRow.Cells[1].Value;
+            pumpSector.Text= (string)dataGridView3.CurrentRow.Cells[2].Value;
+            PumpType.Text= (string)dataGridView3.CurrentRow.Cells[3].Value;
+            Status.Text = (string)dataGridView3.CurrentRow.Cells[4].Value;
+            pumpAddress.Text= (string)dataGridView3.CurrentRow.Cells[5].Value;
+            pumpSign.Text = (string)dataGridView3.CurrentRow.Cells[6].Value;
+            pumpInfo.Text = (string)dataGridView3.CurrentRow.Cells[7].Value;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -30,6 +30,25 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
+        public DangerousPlaces DangerousPlaces_Update(string username, string password, DangerousPlaces DangerousPlaces)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return DangerousPlacesDAL_Obj.DangerousPlaces_Update(username, password, DangerousPlaces);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public DangerousPlacesCollection DangerousPlaces_Select_All(string username, string password)
         {
             try

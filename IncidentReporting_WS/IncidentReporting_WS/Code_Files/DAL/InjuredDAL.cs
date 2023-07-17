@@ -87,6 +87,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID=Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -130,6 +131,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -173,6 +175,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -216,6 +219,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -259,6 +263,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -302,6 +307,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -345,6 +351,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),
@@ -388,6 +395,7 @@ namespace IncidentReporting_WS.Code_Files.DAL
                     {
                         Injured.Add(new Injured
                         {
+                            InjuredID = Convert.ToInt32("InjuredID"),
                             Name = Convert.ToString(dr["Name"]),
                             Age = Convert.ToInt32(dr["Age"]),
                             Civil_Military = Convert.ToString(dr["Civil_Military"]),

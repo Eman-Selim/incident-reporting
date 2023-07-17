@@ -30,6 +30,25 @@ namespace IncidentReporting_WS.Code_Files.SBL
             }
         }
 
+        public Floors Floors_Update(string username, string password, Floors Floors)
+        {
+            try
+            {
+                if (Chk.check_authority(username, password))
+                {
+                    return FloorsDAL_Obj.Floor_Update(username, password, Floors);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public FloorsCollection Floors_Select_All(string username, string password)
         {
             try

@@ -21,6 +21,7 @@ namespace Incident_Reporting_App_Server
             server_Class_Obj.log_Handler += log_Handler;
         }
         public delegate void txt_log_Update_Delegate(string text);
+
         public void log_Handler(string text)
         {
             try
@@ -40,6 +41,7 @@ namespace Incident_Reporting_App_Server
                 Auditing.Error(exception1.Message);
             }
         }
+
         private void panel3_MouseHover(object sender, EventArgs e)
         {
             panel3.BackgroundImage = Properties.Resources.Fire_FighterSH1;
@@ -85,38 +87,6 @@ namespace Incident_Reporting_App_Server
         private void panel4_MouseLeave(object sender, EventArgs e)
         {
             panel4.BackgroundImage = Properties.Resources.UsersN1;
-        }
-
-      
-
-        private void txt_log_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Login_txt_Username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Login_txt_Password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)

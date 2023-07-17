@@ -11,6 +11,7 @@ namespace Incident_Reporting_App_Server.Code
     class Incident_WS
     {
         IncidentReporting_WS IncidentReporting_WS_Obj = new IncidentReporting_WS();
+        
 
         #region Users
 
@@ -40,13 +41,26 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public Users Users_SelectByNamePass(string username, string password)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Users_SelectByNamePass(username,password);
+            }
+            catch(Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
         public Users[] Users_Select_All(string username, string password)
         {
             try
             {
-                return IncidentReporting_WS_Obj.Users_Select_All(username,password);
+                return IncidentReporting_WS_Obj.Users_Select_All(username, password);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Auditing.Error(ex.Message);
                 return null;
@@ -78,18 +92,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
-        public Users[] Users_SelectByCompanyId(string username, string password, int company_id)
-        {
-            try
-            {
-                return IncidentReporting_WS_Obj.Users_SelectByCompanyId(username, password, company_id);
-            }
-            catch (Exception ex)
-            {
-                Auditing.Error(ex.Message);
-                return null;
-            }
-        }
+       
 
         public Users Users_SelectByName(string username, string password, string name)
         {
@@ -381,6 +384,19 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                 return IncidentReporting_WS_Obj.Floors_Insert(username, password, Floors);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
+        public Floors Floors_Update(string username, string password, Floors Floors)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Floors_Update(username, password, Floors);
             }
             catch (Exception ex)
             {
@@ -1071,6 +1087,19 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
+        public DangerousPlaces DangerousPlaces_Update(string username, string password, DangerousPlaces dangerousPlaces)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Update(username, password, dangerousPlaces);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
         public DangerousPlaces[] DangerousPlaces_Select_All(string username, string password)
         {
             try
@@ -1476,6 +1505,72 @@ namespace Incident_Reporting_App_Server.Code
         }
 
 
+        #endregion
+
+        #region Managers
+        public bool Managers_Delete(string username, string password, int ManagerID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Delete(username, password, ManagerID);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return false;
+            }
+        }
+
+        public Managers Managers_Insert(string username, string password, Managers Manager)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Insert(username, password, Manager);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+        public Managers[] Managers_Select_All(string username, string password)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Select_All(username, password);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
+        public Managers[] Managers_Select_By_CompanyID(string username, string password, int CompanyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Select_By_CompanyID(username, password, CompanyID);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
+
+        public Managers Managers_Select_By_ManagerID(string username, string password, int ManagerID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_SelectByManagerID(username, password, ManagerID);
+            }
+            catch (Exception ex)
+            {
+                Auditing.Error(ex.Message);
+                return null;
+            }
+        }
         #endregion
 
         #region Building

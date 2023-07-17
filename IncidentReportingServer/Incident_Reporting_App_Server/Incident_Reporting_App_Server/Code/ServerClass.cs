@@ -15,17 +15,13 @@ namespace Incident_Reporting_App_Server.Code
         public delegate void del_Update_Log(string text);
         public event del_Update_Log log_Handler;
         Incident_WS IncidentReporting_WS_Obj = new Incident_WS();
-
         #region Login Info
         public static string UserName { get; set; }
         public static string Password { get; set; }
         #endregion
         #region Connect
-        //public ServerClass(string userName, string passWord)
-        //{
-        //    UserName = userName;
-        //    Password = passWord;
-        //}
+        
+
         /// <summary>
         /// Intializes the connectivty variables then starts the authentication thread
         /// </summary>
@@ -35,9 +31,10 @@ namespace Incident_Reporting_App_Server.Code
         {
             try
             {
+               // WS1.HelloWorld();
                 UserName = userName;
                 Password = passWord;
-                if (IncidentReporting_WS_Obj.Users_Select_All(UserName, Password)!=null)
+                if (IncidentReporting_WS_Obj.Users_SelectByNamePass(UserName, Password)!=null)
                 {
                     Form2 f2 = new Form2();
                     f2.Show();
@@ -61,6 +58,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Users[] Select_Users_of_Users()
         {
             try
@@ -74,6 +72,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Users[] Select_Users_of_User(string username,string password,int UserId)
         {
             try
@@ -112,6 +111,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public FF_ManPower[] Select_points(int userID)
         {
             try
@@ -137,6 +137,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Images[] Select_Images(int BuildingID)
         {
             try
@@ -149,6 +150,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Company Select_Company(int CompanyID)
         {
             try
@@ -175,11 +177,37 @@ namespace Incident_Reporting_App_Server.Code
             }
         }
 
-        public Users[] Select_Admins(int CompanyID)
+        public Floors Update_Floor(Floors floor)
         {
             try
             {
-                return IncidentReporting_WS_Obj.Users_SelectByCompanyId(UserName, Password, CompanyID);
+                return IncidentReporting_WS_Obj.Floors_Update(UserName, Password, floor);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public DangerousPlaces Update_DangerousePlaces(DangerousPlaces place)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.DangerousPlaces_Update(UserName, Password, place);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public Managers[] Select_Admins(int CompanyID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Select_By_CompanyID(UserName, Password, CompanyID);
             }
             catch (Exception exception1)
             {
@@ -200,6 +228,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public DangerousPlaces Select_DangerousePlace(int placeID)
         {
             try
@@ -212,6 +241,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Buildings[] Select_Buildings(int companyID)
         {
             try
@@ -224,6 +254,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Buildings Select_Building(int BuildingID)
         {
             try
@@ -236,6 +267,7 @@ namespace Incident_Reporting_App_Server.Code
                 return null;
             }
         }
+
         public Floors[] Select_Floors(int BuildingID)
         {
             try
@@ -253,6 +285,19 @@ namespace Incident_Reporting_App_Server.Code
             try
             {
                 return IncidentReporting_WS_Obj.Users_SelectByUserId(UserName, Password, UserID);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+                return null;
+            }
+        }
+
+        public Managers Select_Manager(int ManagerID)
+        {
+            try
+            {
+                return IncidentReporting_WS_Obj.Managers_Select_By_ManagerID(UserName, Password, ManagerID);
             }
             catch (Exception exception1)
             {
@@ -284,10 +329,6 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
-
-       
-
-
         public void Add_Company(Company company, DangerousPlaces place, Floors floor)
         {
             try
@@ -313,11 +354,21 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
-        public void Add_FFstations_FFpump(FFstations station,FF_pumps pump)
+        public void Add_FFstations_FF_ManPower(FFstations station)
         {
             try
             {
                 IncidentReporting_WS_Obj.FFstations_Insert(UserName, Password, station);
+            }
+            catch (Exception exception1)
+            {
+                Auditing.Error(exception1.Message);
+            }
+        }
+        public void Add_FFPump(FF_pumps pump)
+        {
+            try
+            {
                 IncidentReporting_WS_Obj.FF_pumps_Insert(UserName, Password, pump);
             }
             catch (Exception exception1)
@@ -325,7 +376,9 @@ namespace Incident_Reporting_App_Server.Code
                 Auditing.Error(exception1.Message);
             }
         }
+
        
+
         #endregion
     }
 }
